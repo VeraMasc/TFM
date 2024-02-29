@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace CardHouse
 {
@@ -36,6 +37,9 @@ namespace CardHouse
             {
                 SetNewValue(MyStrategy.End);
                 IsSeeking = false;
+                //Ejecutar eventos
+                OnNextFinish.Invoke();
+                OnNextFinish.RemoveAllListeners();
             }
         }
 
@@ -44,5 +48,10 @@ namespace CardHouse
         protected abstract T GetCurrentValue();
 
         protected abstract void SetNewValue(T value);
+
+        /// <summary>
+        /// Ejecuta un evento la próxima vez que se complete el seeking.
+        /// </summary>
+        public UnityEvent OnNextFinish;
     }
 }
