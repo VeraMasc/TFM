@@ -54,6 +54,11 @@ namespace CardHouse
             }
         }
 
+        /// <summary>
+        /// Obtains the card being targeted with another
+        /// </summary>
+        /// <param name="draggable"></param>
+        /// <returns></returns>
         public static Card GetActiveCard(DragDetector draggable)
         {
             var closestIndex = HilightedGroup.GetClosestMountedCardIndex(draggable.transform.position);
@@ -238,6 +243,9 @@ namespace CardHouse
             }
         }
 
+        /// <summary>
+        /// Obtiene el índice de la carta más cercana a la posición
+        /// </summary>
         public int? GetClosestMountedCardIndex(Vector3 position)
         {
             var closestDist = Mathf.Infinity;
