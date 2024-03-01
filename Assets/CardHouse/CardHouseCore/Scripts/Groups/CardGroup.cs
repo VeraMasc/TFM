@@ -17,7 +17,7 @@ namespace CardHouse
         public SeekerScriptable<Vector3> ShuffleStrategy;
 
         public List<Card> MountedCards = new List<Card>();
-        CardGroupSettings Strategy;
+        public CardGroupSettings Strategy;
 
         public UnityEvent OnGroupChanged;
 

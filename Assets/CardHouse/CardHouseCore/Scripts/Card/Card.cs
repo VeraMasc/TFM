@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using CustomInspector;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.Events;
 
 namespace CardHouse
@@ -172,6 +173,24 @@ namespace CardHouse
                     break;
                 }
             }
+        }
+        /// <summary>
+        /// Evento de finalización del homing seeker 
+        /// </summary>
+        public void OnFinishHoming(){
+            if(Group?.Strategy?.compactDisplay == true){
+                //Actualiza la visiblidad de las cartas al acabar de colocar una
+                Assert.IsTrue(Group is CompactCardGroup, "Compact display rquiere Compact Card Group");
+                (Group as CompactCardGroup).updateCardVisibility();
+            }
+        }
+
+        /// <summary>
+        /// Permite desactivar o activar los elementos de display de la carta para malgastar menos recursos
+        /// </summary>
+        /// <param name="hide">True si se quiere desactivar el display</param>
+        public void displayHiding(bool hide){
+            transform.GetChild(0).gameObject.SetActive(!hide);
         }
     }
 }

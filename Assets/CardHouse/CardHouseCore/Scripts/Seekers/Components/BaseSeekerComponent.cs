@@ -49,7 +49,7 @@ namespace CardHouse
                 IsSeeking = false;
 
                 //Ejecutar eventos
-                Debug.Log("OnFinish"+ this.GetType().Name);
+                SendMessage("OnFinish"+ this.GetType().Name, SendMessageOptions.DontRequireReceiver);
                 OnNextFinish.Invoke();
                 OnNextFinish.RemoveAllListeners();
             }
