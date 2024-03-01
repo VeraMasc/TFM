@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CustomInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,7 +17,7 @@ namespace CardHouse
             public UnityEvent ExitEvent;
         }
 
-        [HideInInspector]
+        [ReadOnly]
         public CardGroup Group;
         public Homing Homing { get; private set; }
         public Turning Turning { get; private set; }

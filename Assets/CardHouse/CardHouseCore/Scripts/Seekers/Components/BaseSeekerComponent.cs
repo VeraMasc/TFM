@@ -1,3 +1,4 @@
+using CustomInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,7 +8,15 @@ namespace CardHouse
     {
         protected Seeker<T> MyStrategy;
 
+        [SerializeField,ReadOnly]
         protected bool IsSeeking;
+
+        /// <summary>
+        /// Permite saber si el seeker está funcionando
+        /// </summary>
+        public bool seeking{
+            get=>IsSeeking;
+        }
         protected bool UseLocalSpace;
 
         public SeekerScriptable<T> Strategy;
@@ -18,7 +27,8 @@ namespace CardHouse
         }
 
         public void StartSeeking(T destination, Seeker<T> strategy = null, bool useLocalSpace = false)
-        {
+        {   
+            
             IsSeeking = true;
             UseLocalSpace = useLocalSpace;
             MyStrategy = strategy?.MakeCopy() ?? Strategy?.GetStrategy() ?? GetDefaultSeeker();
@@ -37,7 +47,9 @@ namespace CardHouse
             {
                 SetNewValue(MyStrategy.End);
                 IsSeeking = false;
+
                 //Ejecutar eventos
+                Debug.Log("OnFinish"+ this.GetType().Name);
                 OnNextFinish.Invoke();
                 OnNextFinish.RemoveAllListeners();
             }
@@ -48,6 +60,7 @@ namespace CardHouse
         protected abstract T GetCurrentValue();
 
         protected abstract void SetNewValue(T value);
+
 
         /// <summary>
         /// Ejecuta un evento la próxima vez que se complete el seeking.

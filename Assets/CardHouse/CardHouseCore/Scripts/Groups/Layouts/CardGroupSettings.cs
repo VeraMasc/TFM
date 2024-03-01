@@ -48,6 +48,11 @@ namespace CardHouse
                         col.enabled = ForcedInteractability == GroupInteractability.Active
                                       || ForcedInteractability == GroupInteractability.OnlyTopActive && i == cards.Count - 1;
                     }
+
+                    //Asegura que el renderizado está activo durante la transferencia
+                    
+                    card.gameObject.SetActive(true);
+
                     //Desactivar el renderizado de todas las cartas menos la primera
                     card.transform.GetChild(0).gameObject.SetActive(!compactDisplay ||(i == cards.Count - 1));
                     
