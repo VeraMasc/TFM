@@ -39,28 +39,19 @@ namespace CardHouse
             Vector2 diff2 = (Vector2)diff;
             
                 
-            Vector3 offset = diff2.normalized * XYOffset;//XYOffset
+            // Vector3 offset = diff2.normalized * XYOffset;//XYOffset
             
             //Math.Sign(0) ==> 0
-            offset.z = System.Math.Sign(diff.z) * ZOffset;//ZOffset
+            // offset.z = System.Math.Sign(diff.z) * ZOffset;//ZOffset
                 
-            var displace = diff + offset;
+            var displace = diff ;
            
             var gain = new Vector3(XYGain, XYGain, ZGain) * TimeSinceLastFrame;
             displace.Scale(gain);
 
-            //Trim Excess
-            var excess = displace-diff;
-            for(var i =0; i<3;i++){
-                if(Math.Sign(excess[i]) != Math.Sign(diff[i]))
-                    excess[i]=0;
-            }
+            displace = (Vector3)Vector2.MoveTowards(displace, diff, XYOffset * XYGain * TimeSinceLastFrame) + Vector3.forward*displace.z;
 
-            if(excess.magnitude >0.1f){
-                Debug.Log($"{excess} : {displace} {diff}");
-            }
-                
-            displace-=excess;
+             
             return currentValue + displace;
         }
 

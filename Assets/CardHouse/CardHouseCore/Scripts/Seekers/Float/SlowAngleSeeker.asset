@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SlowAngleSeeker
   m_EditorClassIdentifier: 
   Gain: 6
-  ArrivalDistance: 0.01
+  ArrivalDistance: 0.05
