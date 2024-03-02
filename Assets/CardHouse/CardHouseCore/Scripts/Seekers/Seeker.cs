@@ -1,5 +1,9 @@
+using System;
+using UnityEngine;
+
 namespace CardHouse
 {
+    [Serializable]
     public abstract class Seeker<T>
     {
         protected T Start;

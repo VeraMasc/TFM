@@ -8,6 +8,20 @@ namespace CardHouse
     {
         protected Seeker<T> MyStrategy;
 
+         
+
+        /// <summary>
+        /// Obtiene el target actual o devuelve un valor por defecto si no lo hay
+        /// </summary>
+        /// <returns></returns>
+        public T getTarget(T defaultValue){
+            if(MyStrategy == null)
+                return defaultValue;
+            return MyStrategy.End;
+        }
+
+        
+
         [SerializeField,ReadOnly]
         protected bool IsSeeking;
 
@@ -17,7 +31,11 @@ namespace CardHouse
         public bool seeking{
             get=>IsSeeking;
         }
+
+        [HideField]
         protected bool UseLocalSpace;
+
+
 
         public SeekerScriptable<T> Strategy;
 

@@ -8,21 +8,36 @@ namespace CardHouse
         float ZGain = 3f; // Want to home Z faster than X and Y so that cards don't slide through each other as much
         float ArrivalDistance;
 
-        public ExponentialVector3Seeker(float xyGain = 8f, float zGain = 10f, float arrivalDist = 0.01f)
+        /// <summary>
+        /// Offset en la función de la curva de velocidad XY
+        /// </summary>
+        public float XYOffset = 0f;
+
+        /// <summary>
+        /// Offset en la función de la curva de velocidad Z
+        /// </summary>
+        public float ZOffset = 0f;
+
+        public ExponentialVector3Seeker(float xyGain = 8f, float zGain = 10f, float arrivalDist = 0.01f, float xyOffset = 0f, float zOffset = 0f)
         {
             XYGain = xyGain;
             ZGain = zGain;
             ArrivalDistance = arrivalDist;
+            XYOffset = xyOffset;
+            ZOffset = zOffset;
         }
 
         public override Seeker<Vector3> MakeCopy()
         {
-            return new ExponentialVector3Seeker(XYGain, ZGain, ArrivalDistance);
+            return new ExponentialVector3Seeker(XYGain, ZGain, ArrivalDistance, XYOffset, ZOffset);
         }
 
         public override Vector3 Pump(Vector3 currentValue, float TimeSinceLastFrame)
         {
-            return currentValue + (Vector3.right * (End.x - currentValue.x) + Vector3.up * (End.y - currentValue.y)) * XYGain * TimeSinceLastFrame + Vector3.forward * (End.z - currentValue.z) * ZGain * TimeSinceLastFrame;
+            var diff = End -currentValue;
+            var gain = new Vector3(XYGain, XYGain, ZGain) * TimeSinceLastFrame;
+            diff.Scale(gain);
+            return currentValue + diff;
         }
 
         public override bool IsDone(Vector3 currentValue)
