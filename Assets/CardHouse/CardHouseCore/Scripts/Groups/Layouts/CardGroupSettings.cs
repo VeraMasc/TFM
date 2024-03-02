@@ -50,7 +50,7 @@ namespace CardHouse
                     }
 
                     //Asegura que el renderizado está activo durante la transferencia
-
+                    card.displayHiding(false);
                     
                     
                 }

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e9bf3922e9aaf244a41ffa084ff3209, type: 3}
   m_Name: SlowVector3Seeker
   m_EditorClassIdentifier: 
-  XYGain: 8
+  XYGain: 3
   ZGain: 10
   ArrivalDistance: 0.01
+  XYOffset: 1.2
+  ZOffset: 0

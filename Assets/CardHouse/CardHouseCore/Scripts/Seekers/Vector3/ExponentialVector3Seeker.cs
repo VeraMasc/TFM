@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace CardHouse
@@ -35,9 +36,32 @@ namespace CardHouse
         public override Vector3 Pump(Vector3 currentValue, float TimeSinceLastFrame)
         {
             var diff = End -currentValue;
+            Vector2 diff2 = (Vector2)diff;
+            
+                
+            Vector3 offset = diff2.normalized * XYOffset;//XYOffset
+            
+            //Math.Sign(0) ==> 0
+            offset.z = System.Math.Sign(diff.z) * ZOffset;//ZOffset
+                
+            var displace = diff + offset;
+           
             var gain = new Vector3(XYGain, XYGain, ZGain) * TimeSinceLastFrame;
-            diff.Scale(gain);
-            return currentValue + diff;
+            displace.Scale(gain);
+
+            //Trim Excess
+            var excess = displace-diff;
+            for(var i =0; i<3;i++){
+                if(Math.Sign(excess[i]) != Math.Sign(diff[i]))
+                    excess[i]=0;
+            }
+
+            if(excess.magnitude >0.1f){
+                Debug.Log($"{excess} : {displace} {diff}");
+            }
+                
+            displace-=excess;
+            return currentValue + displace;
         }
 
         public override bool IsDone(Vector3 currentValue)
