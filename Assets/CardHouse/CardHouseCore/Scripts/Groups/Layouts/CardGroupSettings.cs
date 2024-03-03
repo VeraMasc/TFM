@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using CustomInspector;
 using UnityEngine;
 
 namespace CardHouse
 {
     public abstract class CardGroupSettings : MonoBehaviour
     {
+        [Button(nameof(refreshMountedCards))]
         public int CardLimit = -1; // Limit < 0 means no limit
         public float MountedCardAltitude = 0.01f;
         public CardFacing ForcedFacing;
@@ -60,5 +62,11 @@ namespace CardHouse
         }
 
         protected abstract void ApplySpacing(List<Card> cards, SeekerSetList seekerSets);
+
+        
+        protected virtual void refreshMountedCards(){
+            var group= GetComponent<CardGroup>();
+            group?.ApplyStrategy();
+        }
     }
 }

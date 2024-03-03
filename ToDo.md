@@ -21,4 +21,4 @@
   - [ ] Castear desde la pila de descarte
   
 - [ ] Mejorar las animaciones
-  - [ ] Hacer otra curva de velocidad para los seekers
+  - [x] Hacer otra curva de velocidad para los seekers
