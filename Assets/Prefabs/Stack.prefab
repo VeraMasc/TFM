@@ -162,7 +162,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2842246233212263741, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4886191945447519604}
+      addedObject: {fileID: 8377149774423232889}
   m_SourcePrefab: {fileID: 100100000, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
 --- !u!4 &163543381753918883 stripped
 Transform:
@@ -174,7 +174,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2842246233212263741, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
   m_PrefabInstance: {fileID: 2680954823607707803}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4886191945447519604
+--- !u!114 &8377149774423232889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,19 +183,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 163543381753918886}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34e24a6e54f900247b3ba00fe4115465, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a97604d6d8b1e040953b5d6f9f94b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CardLimit: -1
   MountedCardAltitude: 0.01
   ForcedFacing: 1
-  ForcedInteractability: 2
+  ForcedInteractability: 0
   compactDisplay: 0
   DragMountingMode: 0
   UseMyScale: 1
-  MarginalCardOffset: 0.01
-  ArcCenterOffset: {x: 0, y: -5}
-  ArcMargin: 0.3
+  angularCardOffset: 5
+  MarginalCardOffset: 0.05
+  spiralWidth: 2.5
 --- !u!114 &163543381753918893 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2842246233212263734, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}

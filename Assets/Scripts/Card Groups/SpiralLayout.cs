@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using CustomInspector;
 using UnityEngine;
 
 namespace CardHouse
@@ -8,10 +9,24 @@ namespace CardHouse
     /// </summary>
     public class SpiralLayout : CardGroupSettings
     {
+        /// <summary>
+        /// Separación entre las distintas cartas
+        /// </summary>
+        [Hook(nameof(refreshMountedCards))]
+        public float angularCardOffset = 5f;
+
+        /// <summary>
+        /// Separación en la altura de las cartas
+        /// </summary>
+        [Hook(nameof(refreshMountedCards))]
         public float MarginalCardOffset = 0.01f;
-        public Vector2 spiralCenter = new Vector2(0f, -5f);
-        [Range(0f, 0.8f)]
-        public float ArcMargin = 0.3f;
+
+        /// <summary>
+        /// Anchura del giro de la espiral
+        /// </summary>
+        [Hook(nameof(refreshMountedCards))]
+        public float spiralWidth = 1f;
+
         Collider2D MyCollider;
 
         void Awake()
@@ -23,30 +38,34 @@ namespace CardHouse
             }
         }
 
-        private void Start()
-        {
-            // spiralCenter = transform.position + transform.right * spiralCenter.x + transform.up * spiralCenter.y;
-        }
 
         protected override void ApplySpacing(List<Card> cards, SeekerSetList seekerSets = null)
         {
-            var width = transform.lossyScale.x * (1f - ArcMargin);
-            var spacing = width / (cards.Count + 1);
+            var basePos = transform.position + Vector3.back * MountedCardAltitude;
+            var baseOffset = Vector3.back * MarginalCardOffset;
+            var widthVector = Vector3.up * spiralWidth;
             for (var i = 0; i < cards.Count; i++)
             {
-                var newPos = transform.position
-                             + Vector3.back * (MountedCardAltitude + i * MarginalCardOffset)
-                             + transform.right * width * -0.5f
-                             + transform.right * (i + 1) * spacing;
+                var cardAngle = (cards.Count-i-1) * angularCardOffset + transform.rotation.eulerAngles.z;
+
+                var cardArc =  Quaternion.AngleAxis(cardAngle,Vector3.forward);
+                var newPos = basePos + i * baseOffset//Base position
+                    + cardArc * widthVector //Circle arc
+                    - widthVector;
+                //  transform.position
+                //              + Vector3.back * (MountedCardAltitude + i * MarginalCardOffset)
+                //              + transform.right * width * -0.5f
+                //              + transform.right * (i + 1) * spacing;
 
                 var seekerSet = seekerSets?.GetSeekerSetFor(cards[i]);
                 cards[i].Homing.StartSeeking(newPos, seekerSet?.Homing);
 
-                var newAngle = Mathf.Atan2(newPos.y - spiralCenter.y, newPos.x - spiralCenter.x) * Mathf.Rad2Deg - 90;
-                cards[i].Turning.StartSeeking(newAngle, seekerSet?.Turning);
+                cards[i].Turning.StartSeeking(cardAngle, seekerSet?.Turning);
 
                 cards[i].Scaling.StartSeeking(UseMyScale ? transform.lossyScale.y : 1, seekerSet?.Scaling);
             }
         }
+
+        
     }
 }

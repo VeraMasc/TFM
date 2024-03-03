@@ -64,7 +64,12 @@ namespace CardHouse
         protected abstract void ApplySpacing(List<Card> cards, SeekerSetList seekerSets);
 
         
+        /// <summary>
+        /// Actualiza la colocación de las cartas montadas para debugging.
+        /// </summary>
         protected virtual void refreshMountedCards(){
+            if(!Application.isPlaying)
+                return;
             var group= GetComponent<CardGroup>();
             group?.ApplyStrategy();
         }

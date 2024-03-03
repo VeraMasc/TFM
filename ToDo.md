@@ -13,9 +13,11 @@
 
 - [ ] Crear un stack (para que puedan resolverse los spells)
   - [ ] Funcionalidad básica
+    - [x] Spiral Layout
+    - [ ] Efectos al poner la carta
   - [ ] Sistema de targets
   - [ ] Opciones al castear
-  - [ ] Permitir counters
+  - [ ] Permitir targets a otros spells
 
 - [ ] Cartas "Proxy" (permiten a una carta estar en dos sitios a la vez)
   - [ ] Castear desde la pila de descarte
