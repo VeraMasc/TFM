@@ -123,12 +123,17 @@ namespace CardHouse
             return discardGroup;
         }
 
+        /// <summary>
+        /// Pone el foco en la imagen de la carta
+        /// </summary>
+        /// <param name="isFocused"></param>
         public void SetFocus(bool isFocused)
         {
             IsFocused = isFocused;
-            FaceHoming.StartSeeking(isFocused ? Camera.main.transform.position + Vector3.forward * 2f : Vector3.zero, useLocalSpace: !isFocused);
+            FaceHoming.StartSeeking(isFocused ?  new Vector3(0,0.5f,-2)
+                    : Vector3.zero, useLocalSpace: true);
             FaceTurning.StartSeeking(isFocused ? Camera.main.transform.rotation.eulerAngles.z : 0, useLocalSpace: !isFocused);
-            FaceScaling.StartSeeking(isFocused ? 2f * Camera.main.orthographicSize / 4f : 1f, useLocalSpace: !isFocused);
+            FaceScaling.StartSeeking(isFocused ? 1.5f: 1f, useLocalSpace: true);
             if (isFocused)
             {
                 OnCardFocused?.Invoke(this);
