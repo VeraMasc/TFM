@@ -1986,11 +1986,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3090792073704058525, guid: 9aa470ac017dc5c4a841406dde1da1be, type: 3}
       propertyPath: Groups.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3090792073704058525, guid: 9aa470ac017dc5c4a841406dde1da1be, type: 3}
       propertyPath: Groups.Array.data[1].Name
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090792073704058525, guid: 9aa470ac017dc5c4a841406dde1da1be, type: 3}
+      propertyPath: Groups.Array.data[3].Name
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3090792073704058525, guid: 9aa470ac017dc5c4a841406dde1da1be, type: 3}
       propertyPath: Groups.Array.data[0].Group
@@ -2004,6 +2008,14 @@ PrefabInstance:
       propertyPath: Groups.Array.data[2].Group
       value: 
       objectReference: {fileID: 1173287990}
+    - target: {fileID: 3090792073704058525, guid: 9aa470ac017dc5c4a841406dde1da1be, type: 3}
+      propertyPath: Groups.Array.data[3].Group
+      value: 
+      objectReference: {fileID: 1173287990}
+    - target: {fileID: 3090792073704058525, guid: 9aa470ac017dc5c4a841406dde1da1be, type: 3}
+      propertyPath: Groups.Array.data[3].PlayerIndex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6089223669796112708, guid: 9aa470ac017dc5c4a841406dde1da1be, type: 3}
       propertyPath: m_Name
       value: System
@@ -2198,6 +2210,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stack
       objectReference: {fileID: 0}
+    - target: {fileID: 7312961452308913437, guid: 35f6df029dfc1764a879e1b02ef11701, type: 3}
+      propertyPath: stack
+      value: 
+      objectReference: {fileID: 7998231841473957722}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2206,3 +2222,14 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 35f6df029dfc1764a879e1b02ef11701, type: 3}
+--- !u!114 &7998231841473957722 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 163543381753918893, guid: 35f6df029dfc1764a879e1b02ef11701, type: 3}
+  m_PrefabInstance: {fileID: 7998231841473957721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318865ee4312095429feca847343d7fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

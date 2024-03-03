@@ -163,6 +163,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2842246233212263741, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8377149774423232889}
+    - targetCorrespondingSourceObject: {fileID: 2842246233212263741, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7312961452308913437}
   m_SourcePrefab: {fileID: 100100000, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
 --- !u!4 &163543381753918883 stripped
 Transform:
@@ -196,6 +199,28 @@ MonoBehaviour:
   angularCardOffset: 5
   MarginalCardOffset: 0.05
   spiralWidth: 2.5
+--- !u!114 &7312961452308913437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163543381753918886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f270e67850338e42b8554549dacfd84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Transition:
+    Source: {fileID: 0}
+    Destination: {fileID: 0}
+  GrabFrom: 1
+  SendTo: 1
+  NumberToTransfer: 1
+  FlipSpeed: 1
+  PopPushHomingOverride: {fileID: 0}
+  OnSourceDepletedEventChain: []
+  TryAgainAfterSourceDepleted: 0
 --- !u!114 &163543381753918893 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2842246233212263734, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}

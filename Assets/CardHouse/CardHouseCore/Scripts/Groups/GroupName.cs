@@ -4,9 +4,11 @@ namespace CardHouse
     {
         None,
         Discard,
+        Exile,
         Deck,
         Hand,
         Board,
+        Stack,
         A,
         B,
         C,
