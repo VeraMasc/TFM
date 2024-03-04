@@ -14,5 +14,12 @@ public abstract class BaseEffect
     /// </summary>
     public List<GameObject> selectedTargets;
 
+    /// <summary>
+    /// Describes exactly what the effect does in order
+    /// </summary>
+    [SerializeReference, SubclassSelector]
+    public List<EffectDescriptor> descriptors;
+
+
     //TODO: lista de targets pedidos por el efecto y su configuración
 }
