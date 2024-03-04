@@ -1,5 +1,11 @@
 # ToDo
 
+## Entregas
+
+### PEC 1: Informe Preliminar
+
+- [ ] Elaborar lista de tareas
+
 ## Basics
 
 ### Rework Cardhouse
@@ -17,6 +23,7 @@
   - [ ] Funcionalidad básica
     - [x] Spiral Layout
     - [ ] Efectos al poner la carta
+    - [ ] Guardar quién ha puesto la carta en el stack
   - [ ] Sistema de targets
   - [ ] Resaltar cartas targeteadas dentro de un mazo
   - [ ] Opciones al castear
