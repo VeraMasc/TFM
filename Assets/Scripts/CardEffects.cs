@@ -13,7 +13,8 @@ public class CardEffects : MonoBehaviour
     /// Efecto básico que producir al usar la carta 
     /// //TODO: limitar a CardCast y Modales
     /// </summary>
-    public BaseEffect usageEffect;
+    [SerializeReference, SubclassSelector]
+    public CardCastEffect usageEffect ;
 }
 
 /// <summary>

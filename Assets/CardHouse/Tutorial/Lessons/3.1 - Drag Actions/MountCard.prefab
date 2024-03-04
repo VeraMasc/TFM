@@ -71,7 +71,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c196f0c8ce75164a92f0471398ad523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 4f3197afcfc76be49be49822b3d923d8, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6627446693257184876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +88,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5200cc4a7155f3f4c86b40fb1034de6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 108db7838ba3a5343a7aa76b7ebee0ac, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3219033638639010102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +105,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47397fdaf9467a342820a05ec05a2a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 99751525b6a41674599f2644e596825e, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4552116135552393785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +252,7 @@ GameObject:
   - component: {fileID: 2924064874627610727}
   - component: {fileID: 1024810184379830605}
   - component: {fileID: -7217214291469462390}
+  - component: {fileID: 1089406471745413680}
   m_Layer: 0
   m_Name: MountCard
   m_TagString: Untagged
@@ -557,7 +570,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c196f0c8ce75164a92f0471398ad523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 4f3197afcfc76be49be49822b3d923d8, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1638769422792186408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,7 +587,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5200cc4a7155f3f4c86b40fb1034de6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 108db7838ba3a5343a7aa76b7ebee0ac, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2122553174536130075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,7 +604,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47397fdaf9467a342820a05ec05a2a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 99751525b6a41674599f2644e596825e, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2924064874627610727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,6 +658,28 @@ MonoBehaviour:
   Handler: {fileID: 4552116135552393785}
   ActiveMessage: Active
   InactiveMessage: Dim
+--- !u!114 &1089406471745413680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8756471152392606146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aad0903b717cc4eb15264e11eb7696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usageEffect:
+    rid: 418997597562470401
+  references:
+    version: 2
+    RefIds:
+    - rid: 418997597562470401
+      type: {class: CardCastEffect, ns: , asm: Assembly-CSharp}
+      data:
+        selectedTargets: []
+        goesTo: 0
 --- !u!1 &8756471152813385596
 GameObject:
   m_ObjectHideFlags: 0

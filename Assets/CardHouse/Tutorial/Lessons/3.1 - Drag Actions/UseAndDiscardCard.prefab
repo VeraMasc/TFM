@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 8087921151819032772}
   - component: {fileID: 8080226580653501249}
   - component: {fileID: 7560682199344251881}
+  - component: {fileID: -8263067465199723776}
   m_Layer: 0
   m_Name: UseAndDiscardCard
   m_TagString: Untagged
@@ -449,7 +450,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c196f0c8ce75164a92f0471398ad523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 4f3197afcfc76be49be49822b3d923d8, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2996867364064682164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,7 +467,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5200cc4a7155f3f4c86b40fb1034de6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 108db7838ba3a5343a7aa76b7ebee0ac, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8087921151819032772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,7 +484,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47397fdaf9467a342820a05ec05a2a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 99751525b6a41674599f2644e596825e, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8080226580653501249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,6 +529,21 @@ MonoBehaviour:
     Homing: {fileID: 0}
     Turning: {fileID: 0}
     Scaling: {fileID: 0}
+--- !u!114 &-8263067465199723776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586029700441971341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aad0903b717cc4eb15264e11eb7696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usageEffect:
+    selectedTargets: []
+    goesTo: 0
 --- !u!1 &715408106779770569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,7 +1164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c196f0c8ce75164a92f0471398ad523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 4f3197afcfc76be49be49822b3d923d8, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1098801790292337793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,7 +1181,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5200cc4a7155f3f4c86b40fb1034de6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 108db7838ba3a5343a7aa76b7ebee0ac, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6965477375985818418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,7 +1198,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47397fdaf9467a342820a05ec05a2a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 99751525b6a41674599f2644e596825e, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7190729157740912981
 MonoBehaviour:
   m_ObjectHideFlags: 0

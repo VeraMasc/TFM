@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,13 @@ using UnityEngine;
 /// <summary>
 /// Efecto permite escoger entre varias opciones
 /// </summary>
-public class ModalEffect<T> : BaseEffect where T :BaseEffect
+[Serializable]
+public class ModalEffect : CardCastEffect
 {
     /// <summary>
     /// Opciones entre las que escoger
     /// </summary>
-    public List<T> options;
+    public List<BaseEffect> options;
 
     /// <summary>
     /// Númereo máximo de opciones a escoger (-1 == sin límites)

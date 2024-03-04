@@ -881,7 +881,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c196f0c8ce75164a92f0471398ad523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 4f3197afcfc76be49be49822b3d923d8, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7798858060251196137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,7 +898,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5200cc4a7155f3f4c86b40fb1034de6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 108db7838ba3a5343a7aa76b7ebee0ac, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &265429499466831194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,7 +915,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47397fdaf9467a342820a05ec05a2a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 99751525b6a41674599f2644e596825e, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &58050296285638461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1735,6 +1747,7 @@ GameObject:
   - component: {fileID: 1385621124977288876}
   - component: {fileID: 1379822489546499369}
   - component: {fileID: 8440864323696270883}
+  - component: {fileID: 343620591218818465}
   m_Layer: 0
   m_Name: UseOnTargetCard
   m_TagString: Untagged
@@ -2064,7 +2077,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c196f0c8ce75164a92f0471398ad523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 4f3197afcfc76be49be49822b3d923d8, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5373819652865502940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2077,7 +2094,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5200cc4a7155f3f4c86b40fb1034de6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 108db7838ba3a5343a7aa76b7ebee0ac, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1385621124977288876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2090,7 +2111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47397fdaf9467a342820a05ec05a2a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsSeeking: 0
   Strategy: {fileID: 11400000, guid: 99751525b6a41674599f2644e596825e, type: 2}
+  OnNextFinish:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1379822489546499369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2131,6 +2156,21 @@ MonoBehaviour:
     Homing: {fileID: 0}
     Turning: {fileID: 0}
     Scaling: {fileID: 0}
+--- !u!114 &343620591218818465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7720674535865504997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6aad0903b717cc4eb15264e11eb7696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usageEffect:
+    selectedTargets: []
+    goesTo: 0
 --- !u!1 &7850441451788291385
 GameObject:
   m_ObjectHideFlags: 0

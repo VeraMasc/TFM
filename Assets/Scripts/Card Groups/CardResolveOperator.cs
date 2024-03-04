@@ -48,9 +48,11 @@ public class CardResolveOperator : Activatable
 
         //TODO: Execute effects
 
-        //Put on discard pile
-        var discard= GroupRegistry.Instance.Get(GroupName.Discard, null);
-        discard.Mount(currentCard,null, seekerSets: new SeekerSetList { new SeekerSet { Card = currentCard} });
+        var effects = currentCard.GetComponent<CardEffects>();
+
+        if(effects){
+            effects.usageEffect.finishCasting(currentCard);
+        }
 
         //Reset state
         currentCard=null;
