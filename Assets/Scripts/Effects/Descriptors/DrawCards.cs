@@ -8,6 +8,6 @@ namespace Descriptor{
     [Serializable]
     public class DrawCards : EffectDescriptor
     {
-        public int amount;
+        public EffectValue<int> amount;
     }
 }

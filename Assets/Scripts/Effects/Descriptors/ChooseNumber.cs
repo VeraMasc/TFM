@@ -14,6 +14,9 @@ namespace Descriptor{
         public int max;
 
        
-        public int value;
+        /// <summary>
+        /// Donde guardar el valor
+        /// </summary>
+        public ValueName storeIn;
     }
 }
