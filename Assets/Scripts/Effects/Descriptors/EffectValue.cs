@@ -9,6 +9,27 @@ namespace Descriptor{
         public T Value;
     }
 
+    [Serializable]
+    public class StoredValue<T>: IStoredValue
+    {
+        public T Value;
+
+        public StoredValue(T val){
+            Value = val;
+        }
+        public string stringValue(){
+            return Value.ToString();
+        }
+    }
+
+    
+    public interface IStoredValue{
+        /// <summary>
+        /// Muestra el valor en forma de string
+        /// </summary>
+        string stringValue();
+    }
+
     /// <summary>
     /// Indica los distintos nombres de variables que se pueden usar en los efectos
     /// </summary>
