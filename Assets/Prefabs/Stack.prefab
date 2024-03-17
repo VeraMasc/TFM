@@ -211,16 +211,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f270e67850338e42b8554549dacfd84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Transition:
-    Source: {fileID: 0}
-    Destination: {fileID: 0}
-  GrabFrom: 1
-  SendTo: 1
-  NumberToTransfer: 1
-  FlipSpeed: 1
-  PopPushHomingOverride: {fileID: 0}
-  OnSourceDepletedEventChain: []
-  TryAgainAfterSourceDepleted: 0
+  stack: {fileID: 163543381753918893}
+  resolve: 0
+  currentCard: {fileID: 0}
 --- !u!114 &163543381753918893 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2842246233212263734, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}

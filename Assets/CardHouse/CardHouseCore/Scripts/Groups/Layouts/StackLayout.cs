@@ -14,7 +14,9 @@ namespace CardHouse
             for (var i = 0; i < cards.Count; i++)
             {
                 var seekerSet = seekerSets?.GetSeekerSetFor(cards[i]);
-                cards[i].Homing.StartSeeking(transform.position + Vector3.back * MountedCardAltitude + MarginalCardOffset * i, seekerSet?.Homing);
+                var heightOffset = MarginalCardOffset * i;
+
+                cards[i].Homing.StartSeeking(transform.position + Vector3.back * MountedCardAltitude + heightOffset, seekerSet?.Homing );
                 if (Straighten)
                 {
                     cards[i].Turning.StartSeeking(transform.rotation.eulerAngles.z, seekerSet?.Turning);

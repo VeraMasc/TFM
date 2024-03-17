@@ -196,6 +196,8 @@ namespace CardHouse
         /// <param name="hide">True si se quiere desactivar el display</param>
         public void displayHiding(bool hide){
             transform.GetChild(0).gameObject.SetActive(!hide);
+            
+            SetFacing(this.Facing,true);
         }
     }
 }

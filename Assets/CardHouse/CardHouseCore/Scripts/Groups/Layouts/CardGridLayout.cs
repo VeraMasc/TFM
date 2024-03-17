@@ -24,12 +24,14 @@ namespace CardHouse
             var width = transform.lossyScale.x;
             var height = transform.lossyScale.y;
 
-            var rowCount = 1 + (cards.Count - 1) / CardsPerRow;
+            var rowCount = CardsPerRow >0? 1 + (cards.Count - 1) / CardsPerRow
+                : 1;
+            var realCardsPerRow = CardsPerRow >0? CardsPerRow : cards.Count;
             var colSpacing = height / (rowCount + 1);
 
             for (var row = 0; row < rowCount; row++)
             {
-                var cardsInThisRow = Mathf.Min(CardsPerRow, cards.Count - row * CardsPerRow);
+                var cardsInThisRow = Mathf.Min(realCardsPerRow, cards.Count - row * realCardsPerRow);
                 var rowSpacing = width / (cardsInThisRow + 1);
                 for (var col = 0; col < cardsInThisRow; col++)
                 {
@@ -38,9 +40,9 @@ namespace CardHouse
                                  + transform.right * (col + 1) * rowSpacing
                                  + transform.up * height * 0.5f
                                  + transform.up * (row + 1) * colSpacing * -1
-                                 + transform.forward * (MountedCardAltitude + MarginalCardOffset * (row * CardsPerRow + col)) * -1;
+                                 + transform.forward * (MountedCardAltitude + MarginalCardOffset * (row * realCardsPerRow + col)) * -1;
 
-                    var cardIndex = row * CardsPerRow + col;
+                    var cardIndex = row * realCardsPerRow + col;
                     var card = cards[cardIndex];
                     var seekerSet = seekerSets?.GetSeekerSetFor(card);
                     card.Homing.StartSeeking(newPos, seekerSet?.Homing);
