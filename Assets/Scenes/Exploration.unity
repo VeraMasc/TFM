@@ -148,12 +148,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8433662383606087798, guid: 4b0b066e6b249b84bacd9e6fb5225679, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8433662383606087798, guid: 4b0b066e6b249b84bacd9e6fb5225679, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.56343
       objectReference: {fileID: 0}
     - target: {fileID: 8433662383606087798, guid: 4b0b066e6b249b84bacd9e6fb5225679, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.2926431
+      value: -0.13
       objectReference: {fileID: 0}
     - target: {fileID: 8433662383606087798, guid: 4b0b066e6b249b84bacd9e6fb5225679, type: 3}
       propertyPath: m_LocalPosition.y
@@ -440,36 +444,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: c49c7ccac93783e488d6f8662ea52cab, type: 3}
---- !u!1 &1025481378 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 717997412668317075, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
+--- !u!61 &1058333535 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8789908283777879493, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
   m_PrefabInstance: {fileID: 1224850969}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1025481380 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 717997412668317080, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
-  m_PrefabInstance: {fileID: 1224850969}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1025481378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318865ee4312095429feca847343d7fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1025481390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1025481378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d50115b2507c3a4484a74faa2de5372, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  group: {fileID: 1025481380}
-  isMoving: 0
 --- !u!1001 &1224850969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -494,6 +473,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8204093309321552508, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
+      propertyPath: groupCollider
+      value: 
+      objectReference: {fileID: 1058333535}
     - target: {fileID: 8756471152392606145, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -542,8 +525,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardWithAttachments
       objectReference: {fileID: 0}
+    - target: {fileID: 8789908283777879495, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -3066761932735708955, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8756471152926379027, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
@@ -558,10 +546,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6075481357698053282, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 717997412668317075, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1025481390}
-    - targetCorrespondingSourceObject: {fileID: 3286179856399478186, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 6741900735826017787, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}

@@ -21,6 +21,8 @@ namespace CardHouse
         public bool compactDisplay;
         public MountingMode DragMountingMode = MountingMode.Top;
         public bool UseMyScale = false;
+        [ShowIf("UseMyScale")]
+        public float groupScale = 1;
 
         /// <summary>
         /// Aplica la configuración del grupo a una lista de cartas

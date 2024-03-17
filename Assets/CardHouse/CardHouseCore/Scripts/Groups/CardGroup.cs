@@ -338,9 +338,12 @@ namespace CardHouse
             }
         }
 
-        public void ApplyStrategy()
+        /// <summary>
+        /// Applies the strategy to all mounted cards
+        /// </summary>
+        public void ApplyStrategy(bool instaFlip = false, SeekerSetList seekerSets = null)
         {
-            Strategy.Apply(MountedCards);
+            Strategy.Apply(MountedCards,instaFlip,seekerSets);
         }
 
         public bool HasRoom()
@@ -350,6 +353,11 @@ namespace CardHouse
 
         public void Mount(Card card, int? index = null, bool instaFlip = false, SeekerSetList seekerSets = null, SeekerSet seekersForUnmounting = null)
         {
+            //Prevent cards from being mounted in their own subgroup
+            if(GetComponentInParent<Card>() == card){
+                return;
+            }
+
             card.Group?.UnMount(card, seekersForUnmounting);
 
             if (index == null || index >= MountedCards.Count)

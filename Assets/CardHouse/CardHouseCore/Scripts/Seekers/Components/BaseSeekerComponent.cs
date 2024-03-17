@@ -6,7 +6,7 @@ namespace CardHouse
 {
     public abstract class BaseSeekerComponent<T> : MonoBehaviour
     {
-        protected Seeker<T> MyStrategy;
+        public Seeker<T> MyStrategy;
 
          
 

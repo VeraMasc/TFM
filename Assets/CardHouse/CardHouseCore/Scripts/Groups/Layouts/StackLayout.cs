@@ -21,7 +21,7 @@ namespace CardHouse
                 {
                     cards[i].Turning.StartSeeking(transform.rotation.eulerAngles.z, seekerSet?.Turning);
                 }
-                cards[i].Scaling.StartSeeking(UseMyScale ? transform.lossyScale.y : 1, seekerSet?.Scaling);
+                cards[i].Scaling.StartSeeking(UseMyScale ? groupScale : 1, seekerSet?.Scaling);
             }
 
             if (SecondaryCollider != null && cards.Count > 0)

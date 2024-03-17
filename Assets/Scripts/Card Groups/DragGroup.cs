@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CardHouse;
 using UnityEngine;
 using CustomInspector;
+using UnityEngine.Events;
 
 /// <summary>
 /// Hace que el grupo pueda ser movido dinámicamente junto con sus cartas
@@ -11,11 +12,26 @@ public class DragGroup : MonoBehaviour
 {
     private Homing seeker;
 
+    private DragDetector detector;
+
     /// <summary>
     /// Grupo de cartas al que afecta
     /// </summary>
     [SelfFill]
     public CardGroup group;
+
+
+    /// <summary>
+    /// Collider que detecta las interacciones con el mazo
+    /// </summary>
+    [SelfFill]
+    public Collider2D groupCollider;
+
+    /// <summary>
+    /// Collider secundario del grupo
+    /// </summary>
+    [ForceFill]
+    public Collider2D secondaryCollider;
     /// <summary>
     /// Registra si el grupo está en movimiento
     /// </summary>
@@ -25,17 +41,17 @@ public class DragGroup : MonoBehaviour
     void Start()
     {
         seeker =transform.parent?.GetComponent<Homing>();
+        detector =transform.parent?.GetComponent<DragDetector>();
+
+        //Añadir listeners
+        detector.OnDragStart.AddListener(onChangeState);
+        detector.OnDragEnd.AddListener(onChangeState);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        var newMoving = seeker?.seeking ?? false;
-        if (newMoving != isMoving){
-            onChangeState(); //Desactivar grupo mientras se mueve
-        }
-        isMoving = newMoving;
+        isMoving = seeker?.seeking ?? false;
     }
 
     void LateUpdate()
@@ -50,6 +66,10 @@ public class DragGroup : MonoBehaviour
     /// Gestiona el paso de estar parado a moverse y viceversa
     /// </summary>
     public void onChangeState(){
+        
 
+        //Desactivar el collider mientras se mueven las cartas
+        groupCollider.enabled= !detector.isDragging;
+        secondaryCollider.enabled= !detector.isDragging;
     }
 }

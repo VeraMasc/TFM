@@ -62,7 +62,7 @@ namespace CardHouse
 
                 cards[i].Turning.StartSeeking(cardAngle, seekerSet?.Turning);
 
-                cards[i].Scaling.StartSeeking(UseMyScale ? transform.lossyScale.y : 1, seekerSet?.Scaling);
+                cards[i].Scaling.StartSeeking(UseMyScale ? groupScale : 1, seekerSet?.Scaling);
             }
         }
 
