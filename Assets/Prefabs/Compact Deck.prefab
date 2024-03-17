@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4096523771084719371
+--- !u!1001 &7463923165121175716
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2072951708102739587, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
       propertyPath: m_Name
-      value: Compact Discard
+      value: Compact Deck
       objectReference: {fileID: 0}
     - target: {fileID: 2072951708102739590, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2072951708102739590, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7570932
+      value: -1.01
       objectReference: {fileID: 0}
     - target: {fileID: 2072951708102739590, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.71
+      value: 2.13
       objectReference: {fileID: 0}
     - target: {fileID: 2072951708102739590, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
       propertyPath: m_LocalPosition.z
@@ -59,7 +59,7 @@ PrefabInstance:
     - target: {fileID: 4011963477700344782, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
       propertyPath: Relay
       value: 
-      objectReference: {fileID: 900388360962189669}
+      objectReference: {fileID: 2475471035369827811}
     - target: {fileID: 4082679521940240058, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5749372205373354925, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
       propertyPath: ForcedFacing
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5749372205373354925, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
       propertyPath: compactDisplay
@@ -107,14 +107,14 @@ PrefabInstance:
     - target: {fileID: 6507200944356153306, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
       propertyPath: Transition.Source
       value: 
-      objectReference: {fileID: 900388360962189669}
+      objectReference: {fileID: 2475471035369827811}
     - target: {fileID: 7284646843531107884, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 3375153774842701680, guid: fc022b5f02300eb46abd1d5858b2282f, type: 2}
     - target: {fileID: 7583298638474147918, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
       propertyPath: m_text
-      value: Discard
+      value: Deck
       objectReference: {fileID: 0}
     - target: {fileID: 7583298638474147918, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
       propertyPath: m_fontSize
@@ -173,37 +173,53 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2072951708102739587, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
       insertIndex: 2
-      addedObject: {fileID: 900388360962189669}
+      addedObject: {fileID: 2475471035369827811}
   m_SourcePrefab: {fileID: 100100000, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
---- !u!1 &2602337530237027208 stripped
+--- !u!114 &8683149525955401308 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2239855748642715384, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
+  m_PrefabInstance: {fileID: 7463923165121175716}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8886081498073769511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa3cad9f9ec754d4daae7090f94e286c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8886081497493870272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2072951706803533412, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
+  m_PrefabInstance: {fileID: 7463923165121175716}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8886081498073769511 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2072951708102739587, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
-  m_PrefabInstance: {fileID: 4096523771084719371}
+  m_PrefabInstance: {fileID: 7463923165121175716}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &900388360962189669
+--- !u!114 &2475471035369827811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2602337530237027208}
+  m_GameObject: {fileID: 8886081498073769511}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c77f5fabc41a9b7468ff36d30416a0c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HilightOnCardEntry: 1
-  Hilight: {fileID: 2602337531485926255}
+  Hilight: {fileID: 8886081497493870272}
   DropGates:
     Gates:
-    - {fileID: 2867761921250423795}
+    - {fileID: 8683149525955401308}
   ShuffleStrategy: {fileID: 0}
   MountedCards: []
   Strategy: {fileID: 0}
   OnGroupChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 900388360962189669}
+      - m_Target: {fileID: 2475471035369827811}
         m_TargetAssemblyTypeName: CompactCardGroup, Assembly-CSharp
         m_MethodName: updateCardVisibility
         m_Mode: 1
@@ -215,19 +231,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &2602337531485926255 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2072951706803533412, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
-  m_PrefabInstance: {fileID: 4096523771084719371}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2867761921250423795 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2239855748642715384, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
-  m_PrefabInstance: {fileID: 4096523771084719371}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2602337530237027208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa3cad9f9ec754d4daae7090f94e286c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
