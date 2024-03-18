@@ -368,6 +368,10 @@ PrefabInstance:
       value: Content
       objectReference: {fileID: 0}
     - target: {fileID: 2908464568799007497, guid: 2826c0dd0131e1d49a4dec592d16dc7e, type: 3}
+      propertyPath: compactDisplay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908464568799007497, guid: 2826c0dd0131e1d49a4dec592d16dc7e, type: 3}
       propertyPath: invertStackHeight
       value: 1
       objectReference: {fileID: 0}
@@ -493,7 +497,7 @@ MonoBehaviour:
   GrabFrom: 1
   SendTo: 1
   NumberToTransfer: 1
-  FlipSpeed: 1
+  FlipSpeed: 0
   PopPushHomingOverride: {fileID: 0}
   OnSourceDepletedEventChain: []
   TryAgainAfterSourceDepleted: 0
@@ -1468,6 +1472,14 @@ PrefabInstance:
       propertyPath: roomOptions
       value: 
       objectReference: {fileID: 60909990}
+    - target: {fileID: 4605699728431413846, guid: 92a3bff73b129444383487439ca598cf, type: 3}
+      propertyPath: optionAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4605699728431413846, guid: 92a3bff73b129444383487439ca598cf, type: 3}
+      propertyPath: roomContentDefault
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

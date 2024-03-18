@@ -89,7 +89,7 @@ namespace CardHouse
         {
             if (facing == CardFacing.None)
                 return;
-
+            
             FlipAnimator.SetBool("SkipAnimation", immediate);
             FlipAnimator.SetBool("FaceUp", facing == CardFacing.FaceUp);
             FlipAnimator.speed = spd;
@@ -205,9 +205,13 @@ namespace CardHouse
         /// </summary>
         /// <param name="hide">True si se quiere desactivar el display</param>
         public void displayHiding(bool hide){
-            transform.GetChild(0).gameObject.SetActive(!hide);
-            
-            SetFacing(this.Facing,true);
+            //transform.GetChild(0).gameObject.SetActive(!hide);
+            var sprites = FaceHoming.transform.GetComponentsInChildren<SpriteRenderer>(true);
+            //TODO: optimize
+            foreach(var sprite in sprites){
+                sprite.gameObject.SetActive(!hide);
+            }
+            // SetFacing(this.Facing,true);
         }
     }
 }

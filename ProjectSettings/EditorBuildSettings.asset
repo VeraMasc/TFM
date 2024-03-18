@@ -130,7 +130,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/CardHouse/SampleGames/MemoryMatch/Memory.unity
     guid: a0e83d122f7fd1645b301135c8f5ea4c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MyDeckBuilder.unity
     guid: 6c3dbb0a39e06dd429f519f004114cb7
   - enabled: 1

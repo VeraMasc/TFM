@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 
 
 /// <summary>
-/// Gestiona todo lo relacionado con la exploración
+/// Gestiona todo lo relacionado con la exploración <see cref="ExplorationController.content" />
 /// </summary>
 public class ExplorationController : MonoBehaviour
 {
@@ -15,6 +15,9 @@ public class ExplorationController : MonoBehaviour
     public CardGroup currentRoom;
 
     public int optionAmount =2;
+
+    //TODO: remove after testing
+    public int roomContentDefault =2;
     public CardGroup roomOptions;
 
     public CardGroup content;
@@ -93,7 +96,9 @@ public class ExplorationController : MonoBehaviour
     /// </summary>
     public void attachContent(){
         var transfer = content.GetComponent<CardTransferOperator>();
-        var contentSize = 1;
+        var contentSize = roomContentDefault;
+        var cards = content.Get(GroupTargetType.Last,2);
+
         foreach(var room in roomOptions.MountedCards){
             if(room.attachedGroup == null){
                 room.attachedGroup =  Instantiate<CardGroup>(attachPrefab, room.transform);
@@ -103,6 +108,7 @@ public class ExplorationController : MonoBehaviour
             transfer.NumberToTransfer = contentSize;
             transfer.Activate();
         }
+
     }
 
 }
