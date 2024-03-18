@@ -391,7 +391,7 @@ Transform:
   - {fileID: 1745271484655299234}
   - {fileID: 9196743941981998561}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8674698285375438859
 SpriteRenderer:
@@ -643,7 +643,7 @@ MonoBehaviour:
   DragMountingMode: 0
   UseMyScale: 1
   groupScale: 0.8
-  MarginalCardOffset: {x: 0.001, y: 0.001, z: -0.001}
+  MarginalCardOffset: {x: 0.5, y: 0, z: 0.005}
   SecondaryCollider: {fileID: 5984009845330017600}
   Straighten: 1
 --- !u!114 &8089718682611314611

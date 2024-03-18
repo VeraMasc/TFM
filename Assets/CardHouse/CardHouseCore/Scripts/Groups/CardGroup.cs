@@ -528,6 +528,31 @@ namespace CardHouse
             }
             Shuffle(isInstant);
         }
+
+        /// <summary>
+        /// Desasigna todas las cartas y destruye el grupo
+        /// </summary>
+        /// <param name="sendTo">a dónde enviar las cartas tras destruir el grupo</param>
+        public void destroyGroup(GroupName sendTo){
+            CardGroup targetGroup = null;
+            //Intentar encontrar el grupo especificado
+            if(sendTo != GroupName.None){
+                targetGroup =GroupRegistry.Instance.Get(GroupName.Discard,null);
+            }
+
+            if(targetGroup){
+                //TODO: mount cards properly
+                foreach (var card in MountedCards)
+                {
+                    targetGroup.Mount(card);
+                }
+            }else{
+                for(var i=0; i< MountedCards.Count; i++)
+                {
+                    UnMount(i);
+                }
+            }
+        }
     }
 
     public enum GroupTargetType

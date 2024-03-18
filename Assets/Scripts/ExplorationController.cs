@@ -1,0 +1,106 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using CardHouse;
+using Unity.VisualScripting;
+
+
+/// <summary>
+/// Gestiona todo lo relacionado con la exploración
+/// </summary>
+public class ExplorationController : MonoBehaviour
+{
+    public CardGroup rooms;
+
+    public CardGroup currentRoom;
+
+    public int optionAmount =2;
+    public CardGroup roomOptions;
+
+    public CardGroup content;
+
+    /// <summary>
+    /// Contenido de la habitación actual
+    /// </summary>
+    public CardGroup currentContent;
+
+    /// <summary>
+    /// Pila de cartas descartadas
+    /// </summary>
+    public CardGroup discarded;
+
+    /// <summary>
+    /// Prefab of the room attach group
+    /// TODO: que sea globalmente accesible
+    /// </summary>
+    [CustomInspector.AssetsOnly]
+    public CardGroup attachPrefab;
+
+    private static ExplorationController _singleton;
+	///<summary>Controller Singleton</summary>
+	public static ExplorationController singleton
+	{
+		get 
+		{
+			if (_singleton == null)
+			{
+				_singleton = FindObjectOfType<ExplorationController>(); //Para cuando el maldito hotreload me pierde la referencia
+			}
+			return _singleton;
+		}
+	}
+
+    void Awake()
+    {
+        _singleton =this;
+    }
+
+    public void Start()
+    {
+        getNextOptions();
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.U)){
+
+        }
+    }
+
+    /// <summary>
+    /// Pone las siguientes opciones sobre la mesa
+    /// </summary>
+    public void getNextOptions(){
+        var transfer = roomOptions.GetComponent<CardTransferOperator>();
+        transfer.NumberToTransfer = optionAmount;
+        transfer.Activate();
+    }
+
+    /// <summary>
+    /// Limpia la zona de selección de opciones
+    /// </summary>
+    public void clearUnchosenOptions(){
+        var transfer = discarded.GetComponent<CardTransferOperator>();
+        transfer.Activate();
+
+    }
+
+    /// <summary>
+    /// Asocia el contenido a cada habitación
+    /// </summary>
+    public void attachContent(){
+        var transfer = content.GetComponent<CardTransferOperator>();
+        var contentSize = 3;
+        foreach(var room in roomOptions.MountedCards){
+            var group = room.GetComponentInChildren<CardGroup>();
+            if(group == null){
+                group = Instantiate<CardGroup>(attachPrefab, room.transform);
+            }
+            //TODO: Make static transfer operators that can be used without monobehaviours
+            transfer.Transition.Destination = group;
+            transfer.NumberToTransfer = contentSize;
+            transfer.Activate();
+        }
+    }
+
+}

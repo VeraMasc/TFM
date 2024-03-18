@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using CustomInspector;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace CardHouse
 {
@@ -12,6 +14,11 @@ namespace CardHouse
         public CardGroup Deck;
         public List<TimedEvent> OnSetupCompleteEventChain;
 
+        void Awake()
+        {
+            Deck ??= GetComponent<CardGroup>();
+            Assert.IsNotNull(Deck);
+        }
         void Start()
         {
             if (RunOnStart)
