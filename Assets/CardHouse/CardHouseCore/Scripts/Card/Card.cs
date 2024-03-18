@@ -26,6 +26,7 @@ namespace CardHouse
 
         public Animator FlipAnimator;
 
+        [CustomInspector.ShowMethod("isFaceUp")]
         public bool CanBeUpsideDown;
         [Range(0f, 1f)]
         public float UpsideDownChance = 0.5f;
@@ -36,7 +37,7 @@ namespace CardHouse
         public Scaling FaceScaling;
 
         public List<GroupTransitionEvent> GroupTransitionEvents;
-
+        
         public CardFacing Facing { get { return FlipAnimator.GetBool("FaceUp") ? CardFacing.FaceUp : CardFacing.FaceDown; } }
 
         public UnityEvent OnFlipUp;
@@ -48,6 +49,12 @@ namespace CardHouse
         bool IsFocused;
 
         public static Action<Card> OnCardFocused;
+
+        /// <summary>
+        /// Contiene el cardgroup de cartas asociadas (si existe)
+        /// </summary>
+        [CustomInspector.ReadOnly]
+        public CardGroup attachedGroup;
 
         void Awake()
         {
@@ -70,6 +77,9 @@ namespace CardHouse
             }
         }
 
+        public bool isFaceUp(){
+            return Facing == CardFacing.FaceUp;
+        }
         public void SetFacing(bool isFaceUp)
         {
             SetFacing(isFaceUp ? CardFacing.FaceUp : CardFacing.FaceDown);

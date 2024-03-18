@@ -80,6 +80,9 @@ public class ExplorationController : MonoBehaviour
     /// Limpia la zona de selección de opciones
     /// </summary>
     public void clearUnchosenOptions(){
+        foreach (var room in roomOptions.MountedCards){
+            room.attachedGroup?.destroyGroup(GroupName.Discard);
+        }
         var transfer = discarded.GetComponent<CardTransferOperator>();
         transfer.Activate();
 
@@ -90,14 +93,13 @@ public class ExplorationController : MonoBehaviour
     /// </summary>
     public void attachContent(){
         var transfer = content.GetComponent<CardTransferOperator>();
-        var contentSize = 3;
+        var contentSize = 1;
         foreach(var room in roomOptions.MountedCards){
-            var group = room.GetComponentInChildren<CardGroup>();
-            if(group == null){
-                group = Instantiate<CardGroup>(attachPrefab, room.transform);
+            if(room.attachedGroup == null){
+                room.attachedGroup =  Instantiate<CardGroup>(attachPrefab, room.transform);
             }
             //TODO: Make static transfer operators that can be used without monobehaviours
-            transfer.Transition.Destination = group;
+            transfer.Transition.Destination = room.attachedGroup;
             transfer.NumberToTransfer = contentSize;
             transfer.Activate();
         }

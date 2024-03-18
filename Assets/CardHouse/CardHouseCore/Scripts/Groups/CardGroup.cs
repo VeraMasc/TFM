@@ -542,16 +542,18 @@ namespace CardHouse
 
             if(targetGroup){
                 //TODO: mount cards properly
-                foreach (var card in MountedCards)
+                foreach (var card in MountedCards.ToArray())
                 {
                     targetGroup.Mount(card);
                 }
             }else{
                 for(var i=0; i< MountedCards.Count; i++)
                 {
-                    UnMount(i);
+                    UnMount();
                 }
             }
+
+            Destroy(gameObject);
         }
     }
 
