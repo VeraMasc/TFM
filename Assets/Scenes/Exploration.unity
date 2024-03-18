@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RunOnStart: 1
-  CardPrefab: {fileID: 6462243022253552644, guid: 93b7f5d60e554c54bb8ee95e357b9082, type: 3}
+  CardPrefab: {fileID: 6462243022253552644, guid: 3432839a18d69ea4f81cbe943920a55c, type: 3}
   DeckDefinition: {fileID: 11400000, guid: 495c412a13163034fa6583f19cbf5437, type: 2}
   Deck: {fileID: 478810149}
   OnSetupCompleteEventChain: []
@@ -535,6 +535,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5079184581778110713, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
+      propertyPath: homing
+      value: 
+      objectReference: {fileID: 1915250628}
+    - target: {fileID: 5079184581778110713, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
+      propertyPath: scaling
+      value: 
+      objectReference: {fileID: 1915250626}
+    - target: {fileID: 5079184581778110713, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
+      propertyPath: turning
+      value: 
+      objectReference: {fileID: 1915250627}
     - target: {fileID: 8204093309321552508, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
       propertyPath: groupCollider
       value: 
@@ -901,6 +913,39 @@ PrefabInstance:
       addedObject: {fileID: 511801956}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0909642e9a1eb99448a7cbf34d61ba4c, type: 3}
+--- !u!114 &1915250626 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3219033638639010102, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
+  m_PrefabInstance: {fileID: 1224850969}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47397fdaf9467a342820a05ec05a2a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1915250627 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6627446693257184876, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
+  m_PrefabInstance: {fileID: 1224850969}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5200cc4a7155f3f4c86b40fb1034de6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1915250628 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5480325123832761389, guid: 277b0ab36f3ac2942b23abbc00975baa, type: 3}
+  m_PrefabInstance: {fileID: 1224850969}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c196f0c8ce75164a92f0471398ad523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2052205335 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2842246233212263734, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
