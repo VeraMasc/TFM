@@ -107,8 +107,11 @@ public class ExplorationController : MonoBehaviour
             transfer.Transition.Destination = room.attachedGroup;
             transfer.NumberToTransfer = contentSize;
             transfer.Activate();
+            var firstContent = room.attachedGroup.Get(0);
+            firstContent.SetFacing(CardFacing.FaceUp);
         }
 
     }
+
 
 }

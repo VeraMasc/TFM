@@ -470,6 +470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RunOnStart: 1
+  instaShuffle: 1
   CardPrefab: {fileID: 6462243022253552644, guid: 3432839a18d69ea4f81cbe943920a55c, type: 3}
   DeckDefinition: {fileID: 11400000, guid: 495c412a13163034fa6583f19cbf5437, type: 2}
   Deck: {fileID: 478810149}
@@ -991,6 +992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RunOnStart: 1
+  instaShuffle: 1
   CardPrefab: {fileID: 6462243022253552644, guid: 68ee0ccc2801f714984a492fae9ed02e, type: 3}
   DeckDefinition: {fileID: 11400000, guid: 495c412a13163034fa6583f19cbf5437, type: 2}
   Deck: {fileID: 0}
@@ -1523,7 +1525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4605699728431413846, guid: 92a3bff73b129444383487439ca598cf, type: 3}
       propertyPath: roomContentDefault
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

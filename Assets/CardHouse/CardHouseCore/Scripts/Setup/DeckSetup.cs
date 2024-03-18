@@ -9,6 +9,11 @@ namespace CardHouse
     public class DeckSetup : MonoBehaviour
     {
         public bool RunOnStart = true;
+
+        /// <summary>
+        /// Salta la animación de shuffle al inicializar el mazo
+        /// </summary>
+        public bool instaShuffle = true;
         public GameObject CardPrefab;
         public DeckDefinition DeckDefinition;
         public CardGroup Deck;
@@ -61,7 +66,7 @@ namespace CardHouse
                 Deck.Mount(card, instaFlip: true);
             }
 
-            Deck.Shuffle();
+            Deck.Shuffle(instaShuffle);
 
             StartCoroutine(TimedEvent.ExecuteChain(OnSetupCompleteEventChain));
         }
