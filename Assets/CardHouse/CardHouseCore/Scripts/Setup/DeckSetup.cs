@@ -15,7 +15,7 @@ namespace CardHouse
         /// </summary>
         public bool instaShuffle = true;
         public GameObject CardPrefab;
-        public DeckDefinition DeckDefinition;
+        public IDeckDefinition DeckDefinition;
         public CardGroup Deck;
         public List<TimedEvent> OnSetupCompleteEventChain;
 

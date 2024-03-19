@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a53ccdedd01be347bd21783467b4825, type: 3}
   m_Name: PokerDeck
   m_EditorClassIdentifier: 
-  CardBackArt: {fileID: 21300000, guid: 7fa84d23d253cfe4d8faf8872d9cce21, type: 3}
-  CardCollection:
+  cardBackArt: {fileID: 21300000, guid: 7fa84d23d253cfe4d8faf8872d9cce21, type: 3}
+  cardCollection:
   - {fileID: 11400000, guid: 0700f00f35049974d9ec01f70d095e4c, type: 2}
   - {fileID: 11400000, guid: bc76b17e68a6ca240948ae68ddfffa5b, type: 2}
   - {fileID: 11400000, guid: ab6d5337a537a4f4fbe872f312308ff2, type: 2}

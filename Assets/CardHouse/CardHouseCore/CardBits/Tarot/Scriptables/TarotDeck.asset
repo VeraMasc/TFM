@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a53ccdedd01be347bd21783467b4825, type: 3}
   m_Name: TarotDeck
   m_EditorClassIdentifier: 
-  CardCollection:
+  cardCollection:
   - {fileID: 11400000, guid: 3443f1fdea706864c84db3bf69990be2, type: 2}
   - {fileID: 11400000, guid: 433f7f45d8a3ce242816962b84482d80, type: 2}
   - {fileID: 11400000, guid: 9406b670b6bff364688140a6c0b75c41, type: 2}
