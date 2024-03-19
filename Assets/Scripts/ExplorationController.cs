@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CardHouse;
 using Unity.VisualScripting;
+using System.Threading;
 
 
 /// <summary>
@@ -95,6 +96,10 @@ public class ExplorationController : MonoBehaviour
     /// Asocia el contenido a cada habitación
     /// </summary>
     public void attachContent(){
+        StartCoroutine(attachContentCorroutine());
+    }
+
+    private IEnumerator attachContentCorroutine(){
         var transfer = content.GetComponent<CardTransferOperator>();
         var contentSize = roomContentDefault;
         var cards = content.Get(GroupTargetType.Last,2);
@@ -107,10 +112,17 @@ public class ExplorationController : MonoBehaviour
             transfer.Transition.Destination = room.attachedGroup;
             transfer.NumberToTransfer = contentSize;
             transfer.Activate();
+            
+        }
+
+        yield return new WaitForEndOfFrame();
+        yield return transfer.currentAction;
+
+        //Flip cards up
+        foreach(var room in roomOptions.MountedCards){
             var firstContent = room.attachedGroup.Get(0);
             firstContent.SetFacing(CardFacing.FaceUp);
         }
-
     }
 
 
