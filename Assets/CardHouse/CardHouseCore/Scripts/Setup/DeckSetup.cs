@@ -15,7 +15,8 @@ namespace CardHouse
         /// </summary>
         public bool instaShuffle = true;
         public GameObject CardPrefab;
-        public IDeckDefinition DeckDefinition;
+        [RequireType(typeof(IDeckDefinition)), SerializeReference]
+        public ScriptableObject DeckDefinition;
         public CardGroup Deck;
         public List<TimedEvent> OnSetupCompleteEventChain;
 
@@ -39,8 +40,9 @@ namespace CardHouse
 
         IEnumerator SetupCoroutine()
         {
+            var definition = DeckDefinition as IDeckDefinition;
             var newCardList = new List<Card>();
-            foreach (var cardDef in DeckDefinition.CardCollection)
+            foreach (var cardDef in definition.CardCollection)
             {
                 var newThing = Instantiate(CardPrefab, Deck.transform.position, Deck.transform.rotation);
                 newCardList.Add(newThing.GetComponent<Card>());
@@ -50,10 +52,10 @@ namespace CardHouse
                 {
                     var copyCardDef = cardDef;
 
-                    if (cardDef.BackArt == null && DeckDefinition.CardBackArt != null)
+                    if (cardDef.BackArt == null && definition.CardBackArt != null)
                     {
                         copyCardDef = Instantiate(cardDef);
-                        copyCardDef.BackArt = DeckDefinition.CardBackArt;
+                        copyCardDef.BackArt = definition.CardBackArt;
                     }
                     card.Apply(copyCardDef);
                 }

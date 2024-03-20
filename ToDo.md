@@ -34,7 +34,26 @@
   
 - [ ] Mejorar las animaciones
   - [x] Hacer otra curva de velocidad para los seekers
+  - [ ] Controlar el movimiento de cartas con corrutinas
+    - [x] Corrutinas en el TransferOperator
   
 - [ ] Hacer focus en las cartas
   - [x] Focus parcial al hacer hoverx
   - [ ] Mostrar tooltips y descripciones correspondientes
+
+
+- [ ] Card Stats
+  - [ ] Cost
+  - [ ] Modes
+  - [ ] Card Ownership
+  - [ ] Card controller
+
+#### Modo Exploración
+
+- [ ] Game loop básico
+  - [x] Poner las habitaciónes y su contenido
+  - [ ] Escoger la habitación siguiente
+  - [ ] Revelar el contenido escogido
+  - [ ] Efectos asociados
+    - [ ] A habitaciones
+    - [ ] A contenidos

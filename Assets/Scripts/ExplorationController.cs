@@ -1,9 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using CardHouse;
-using Unity.VisualScripting;
-using System.Threading;
+using System.Linq;
+
 
 
 /// <summary>
@@ -125,5 +125,22 @@ public class ExplorationController : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Se ejecuta al escoger la siguiente habitación e inicia todos los efectos asociados
+    /// </summary>
+    public void onRoomChosen(){
+        if(currentRoom.MountedCards.Count >0)
+            StartCoroutine(onRoomChosenCoroutine());
+    }
+
+    private IEnumerator onRoomChosenCoroutine(){
+        clearUnchosenOptions();
+        yield return new WaitForSeconds(1);
+        var room = currentRoom.MountedCards.First();
+
+        room.attachedGroup.MountedCards
+            .ForEach(card => card.SetFacing(CardFacing.FaceUp));
+    }
 
 }
