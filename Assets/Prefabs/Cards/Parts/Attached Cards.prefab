@@ -458,6 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HilightOnCardEntry: 1
+  allowSubgroups: 0
   Hilight: {fileID: 8674698284543963370}
   DropGates:
     Gates: []
@@ -642,7 +643,7 @@ MonoBehaviour:
   compactDisplay: 0
   DragMountingMode: 0
   UseMyScale: 1
-  groupScale: 0.8
+  groupScale: 0.7
   MarginalCardOffset: {x: 0.5, y: 0, z: 0.005}
   SecondaryCollider: {fileID: 5984009845330017600}
   Straighten: 1

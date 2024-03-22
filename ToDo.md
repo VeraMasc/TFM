@@ -37,6 +37,11 @@
   - [ ] Controlar el movimiento de cartas con corrutinas
     - [x] Corrutinas en el TransferOperator
   
+- [ ] Attached cards (Cartas que se ponen debajo de otras)
+  - [x] Attach groups
+  - [ ] Movement as a unit
+  - [ ] Recursive shrinking
+  
 - [ ] Hacer focus en las cartas
   - [x] Focus parcial al hacer hoverx
   - [ ] Mostrar tooltips y descripciones correspondientes

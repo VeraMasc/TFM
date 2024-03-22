@@ -10,6 +10,11 @@ namespace CardHouse
     public class CardGroup : MonoBehaviour
     {
         public bool HilightOnCardEntry = true;
+        /// <summary>
+        /// Permite que una carta del grupo tenga subgrupos asociados.
+        /// Si es false, destruye los subgrupos de las cartas entrantes
+        /// </summary>
+        public bool allowSubgroups = true;
         public GameObject Hilight;
 
         public GateCollection<DropParams> DropGates;
@@ -374,6 +379,9 @@ namespace CardHouse
             }
 
             card.Group = this;
+            if(card.attachedGroup && !allowSubgroups){
+                card.attachedGroup.destroyGroup(this);
+            }
             card.TriggerMountEvents(this);
             OnGroupChanged?.Invoke();
 
@@ -529,17 +537,12 @@ namespace CardHouse
             Shuffle(isInstant);
         }
 
+
         /// <summary>
         /// Desasigna todas las cartas y destruye el grupo
         /// </summary>
-        /// <param name="sendTo">a dónde enviar las cartas tras destruir el grupo</param>
-        public void destroyGroup(GroupName sendTo){
-            CardGroup targetGroup = null;
-            //Intentar encontrar el grupo especificado
-            if(sendTo != GroupName.None){
-                targetGroup =GroupRegistry.Instance.Get(GroupName.Discard,null);
-            }
-
+        /// <param name="targetGroup">a dónde enviar las cartas tras destruir el grupo</param>
+        public void destroyGroup(CardGroup targetGroup){
             if(targetGroup){
                 //TODO: mount cards properly
                 foreach (var card in MountedCards.ToArray())
@@ -554,6 +557,19 @@ namespace CardHouse
             }
 
             Destroy(gameObject);
+        }
+        /// <summary>
+        /// Desasigna todas las cartas y destruye el grupo
+        /// </summary>
+        /// <param name="sendTo">a dónde enviar las cartas tras destruir el grupo</param>
+        public void destroyGroup(GroupName sendTo){
+            CardGroup targetGroup = null;
+            //Intentar encontrar el grupo especificado
+            if(sendTo != GroupName.None){
+                targetGroup =GroupRegistry.Instance.Get(GroupName.Discard,null);
+            }
+
+            destroyGroup(targetGroup);
         }
     }
 
