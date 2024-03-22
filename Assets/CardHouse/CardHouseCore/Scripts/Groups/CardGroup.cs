@@ -547,7 +547,9 @@ namespace CardHouse
                 //TODO: mount cards properly
                 foreach (var card in MountedCards.ToArray())
                 {
-                    targetGroup.Mount(card);
+                    var mounted = targetGroup.SafeMount(card);
+                    if(!mounted) //Failed to mount
+                        UnMount(card);
                 }
             }else{
                 for(var i=0; i< MountedCards.Count; i++)
