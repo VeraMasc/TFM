@@ -13,6 +13,7 @@ using System.Linq;
 [CreateAssetMenu(menuName = "Cards/DecklistDefinition")]
 public class DecklistDefinition : ScriptableObject, IDeckDefinition
 {
+    [SerializeField]
     private Sprite cardBackArt;
         
     public Sprite CardBackArt { get => cardBackArt; set => cardBackArt = value; }

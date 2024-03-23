@@ -144,6 +144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df70b1b45ddd9904f9a61055662a3d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visualElements: []
+  homing: {fileID: 5480325123832761389}
+  scaling: {fileID: 3219033638639010102}
+  turning: {fileID: 6627446693257184876}
+  isHidden: 0
 --- !u!1 &8756471152304696669
 GameObject:
   m_ObjectHideFlags: 0

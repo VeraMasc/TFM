@@ -757,6 +757,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1766126330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7272184986376822153, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
+  m_PrefabInstance: {fileID: 8431695353487871297}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1816747113 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8886081498073769511, guid: 2826c0dd0131e1d49a4dec592d16dc7e, type: 3}
@@ -889,7 +894,7 @@ MonoBehaviour:
   RunOnStart: 1
   instaShuffle: 1
   CardPrefab: {fileID: 6462243022253552644, guid: 68ee0ccc2801f714984a492fae9ed02e, type: 3}
-  DeckDefinition: {fileID: 11400000, guid: 495c412a13163034fa6583f19cbf5437, type: 2}
+  DeckDefinition: {fileID: 11400000, guid: 742e3a97960eee542ae36a546fc1fc16, type: 2}
   Deck: {fileID: 0}
   OnSetupCompleteEventChain: []
 --- !u!1001 &2072722492676450644
@@ -1038,7 +1043,7 @@ PrefabInstance:
     - target: {fileID: 3090792073704058525, guid: 9aa470ac017dc5c4a841406dde1da1be, type: 3}
       propertyPath: Groups.Array.data[0].Group
       value: 
-      objectReference: {fileID: 8431695353487871298}
+      objectReference: {fileID: 8431695353487871319}
     - target: {fileID: 3090792073704058525, guid: 9aa470ac017dc5c4a841406dde1da1be, type: 3}
       propertyPath: Groups.Array.data[1].Group
       value: 
@@ -1229,6 +1234,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1573289801}
     m_Modifications:
     - target: {fileID: 4028109914662721600, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
+      propertyPath: compactDisplay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028109914662721600, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
       propertyPath: MarginalCardOffset.x
       value: 0.002
       objectReference: {fileID: 0}
@@ -1290,9 +1299,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7438530141389331733, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
+    - {fileID: 7272184987812359525, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7272184987812359534, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 8431695353487871319}
     - targetCorrespondingSourceObject: {fileID: 7272184987812359534, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8431695353487871309}
@@ -1300,17 +1313,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
---- !u!114 &8431695353487871298 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7272184987812359525, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
-  m_PrefabInstance: {fileID: 8431695353487871297}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155376854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 318865ee4312095429feca847343d7fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8431695353487871299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7272184987812359531, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
@@ -1330,7 +1332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Transition:
     Source: {fileID: 60909990}
-    Destination: {fileID: 8431695353487871298}
+    Destination: {fileID: 8431695353487871319}
   GrabFrom: 1
   SendTo: 1
   NumberToTransfer: -1
@@ -1339,6 +1341,29 @@ MonoBehaviour:
   PopPushHomingOverride: {fileID: 0}
   OnSourceDepletedEventChain: []
   TryAgainAfterSourceDepleted: 0
+--- !u!114 &8431695353487871319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155376854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77f5fabc41a9b7468ff36d30416a0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HilightOnCardEntry: 1
+  allowSubgroups: 1
+  Hilight: {fileID: 1766126330}
+  DropGates:
+    Gates: []
+  ShuffleStrategy: {fileID: 0}
+  MountedCards: []
+  Strategy: {fileID: 0}
+  OnGroupChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &9090099229789886219
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1406,7 +1431,7 @@ PrefabInstance:
     - target: {fileID: 4605699728431413846, guid: 92a3bff73b129444383487439ca598cf, type: 3}
       propertyPath: discarded
       value: 
-      objectReference: {fileID: 8431695353487871298}
+      objectReference: {fileID: 8431695353487871319}
     - target: {fileID: 4605699728431413846, guid: 92a3bff73b129444383487439ca598cf, type: 3}
       propertyPath: currentRoom
       value: 

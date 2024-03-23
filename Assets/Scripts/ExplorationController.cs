@@ -101,14 +101,17 @@ public class ExplorationController : MonoBehaviour
 
     private IEnumerator attachContentCorroutine(){
         var transfer = content.GetComponent<CardTransferOperator>();
-        var contentSize = roomContentDefault;
+        
         var cards = content.Get(GroupTargetType.Last,2);
 
         foreach(var room in roomOptions.MountedCards){
+            var roomData = room.GetComponent<RoomCard>();
             if(room.attachedGroup == null){
                 room.attachedGroup =  Instantiate<CardGroup>(attachPrefab, room.transform);
             }
             //TODO: Make static transfer operators that can be used without monobehaviours
+            //Get room data
+            var contentSize = roomData?.size ?? roomContentDefault;
             transfer.Transition.Destination = room.attachedGroup;
             transfer.NumberToTransfer = contentSize;
             transfer.Activate();

@@ -32,4 +32,9 @@ public class VisualsManager : MonoBehaviour
         }
         
     }
+
+    [NaughtyAttributes.Button]
+    public void toggleVisuals(){
+        hideVisuals(!isHidden);
+    }
 }
