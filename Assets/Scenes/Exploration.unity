@@ -1245,6 +1245,10 @@ PrefabInstance:
       propertyPath: MarginalCardOffset.y
       value: 0.002
       objectReference: {fileID: 0}
+    - target: {fileID: 5729208376161751075, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
+      propertyPath: Relay
+      value: 
+      objectReference: {fileID: 8431695353487871319}
     - target: {fileID: 7272184987812359525, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
       propertyPath: DropGates.Gates.Array.size
       value: 0
@@ -1354,7 +1358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HilightOnCardEntry: 1
-  allowSubgroups: 1
+  allowSubgroups: 0
   Hilight: {fileID: 1766126330}
   DropGates:
     Gates: []

@@ -75,8 +75,10 @@ public class ExplorationController : MonoBehaviour
     /// Pone las siguientes opciones sobre la mesa
     /// </summary>
     public void getNextOptions(){
+        var room = currentRoom.MountedCards.FirstOrDefault()?.GetComponent<RoomCard>();
+        var amount = room?.exits ?? optionAmount;
         var transfer = roomOptions.GetComponent<CardTransferOperator>();
-        transfer.NumberToTransfer = optionAmount;
+        transfer.NumberToTransfer = amount;
         transfer.Activate();
     }
 

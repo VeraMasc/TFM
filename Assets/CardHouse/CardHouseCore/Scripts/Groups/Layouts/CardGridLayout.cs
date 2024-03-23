@@ -6,6 +6,7 @@ namespace CardHouse
     public class CardGridLayout : CardGroupSettings
     {
         public int CardsPerRow = 5;
+        [Tooltip("Vertical offset")]
         public float MarginalCardOffset = 0.05f;
         Collider2D MyCollider;
         public bool Straighten = true;

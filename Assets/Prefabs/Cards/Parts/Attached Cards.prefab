@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 1967416658403759638}
   - component: {fileID: 6394341151800145251}
   - component: {fileID: 2058322917407356749}
-  - component: {fileID: 3129998674713048355}
+  - component: {fileID: 6243961000556875057}
   - component: {fileID: 8089718682611314611}
   m_Layer: 0
   m_Name: Attached Cards
@@ -624,7 +624,7 @@ MonoBehaviour:
   Handler: {fileID: 6394341151800145251}
   ActiveMessage: Active
   InactiveMessage: Inactive
---- !u!114 &3129998674713048355
+--- !u!114 &6243961000556875057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -633,7 +633,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8674698285375438861}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bfdfbc2171098f4c9bd184d9e3b52e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 90c20ff35f3623e4bace6d56536a18e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CardLimit: -1
@@ -644,8 +644,8 @@ MonoBehaviour:
   DragMountingMode: 0
   UseMyScale: 1
   groupScale: 0.7
-  MarginalCardOffset: {x: 0.5, y: 0, z: 0.005}
-  SecondaryCollider: {fileID: 5984009845330017600}
+  CardsPerRow: -1
+  MarginalCardOffset: -0.005
   Straighten: 1
 --- !u!114 &8089718682611314611
 MonoBehaviour:
