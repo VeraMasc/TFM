@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -2636,128 +2654,127 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Crop_Spritesheet_0: -1011044099
-      Crop_Spritesheet_36: 1331861227
-      Crop_Spritesheet_59: -1811736031
-      Crop_Spritesheet_63: 1132599695
-      Crop_Spritesheet_87: 1895230252
-      Crop_Spritesheet_51: 1573040969
-      Crop_Spritesheet_96: 1300364976
-      Crop_Spritesheet_99: 1232750647
-      Crop_Spritesheet_74: -826743492
-      Crop_Spritesheet_81: -614418951
-      Crop_Spritesheet_13: -975586450
-      Crop_Spritesheet_105: 1985958790
-      Crop_Spritesheet_9: -1154679493
-      Crop_Spritesheet_22: 688496205
-      Crop_Spritesheet_90: 2023411877
-      Crop_Spritesheet_116: -934794040
-      Crop_Spritesheet_26: 139950906
-      Crop_Spritesheet_4: 1788528007
-      Crop_Spritesheet_29: -315191428
-      Crop_Spritesheet_117: -1075690027
-      Crop_Spritesheet_98: 1079631026
-      Crop_Spritesheet_69: -1653610246
-      Crop_Spritesheet_83: 1861309974
-      Crop_Spritesheet_53: 907306859
-      Crop_Spritesheet_11: -108898687
-      Crop_Spritesheet_15: 604154115
-      Crop_Spritesheet_28: 1307707598
-      Crop_Spritesheet_110: 780471655
-      Crop_Spritesheet_35: -641074882
-      Crop_Spritesheet_114: 554250010
-      Crop_Spritesheet_103: 1300715561
-      Crop_Spritesheet_100: -483094292
-      Crop_Spritesheet_88: 1013540849
-      Crop_Spritesheet_112: 1577030374
-      Crop_Spritesheet_57: 1956698249
-      Crop_Spritesheet_65: 344916719
-      Crop_Spritesheet_108: -1072641892
-      Crop_Spritesheet_76: 1568219358
-      Crop_Spritesheet_25: 396848474
-      Crop_Spritesheet_78: 611515936
-      Crop_Spritesheet_82: -213821335
-      Crop_Spritesheet_66: -1832207043
-      Crop_Spritesheet_14: -800855082
-      Crop_Spritesheet_23: -1147111165
-      Crop_Spritesheet_67: -952945204
-      Crop_Spritesheet_19: -1789722889
-      Crop_Spritesheet_32: 2039186355
-      Crop_Spritesheet_49: 1118665192
-      Crop_Spritesheet_48: 1655169045
-      Crop_Spritesheet_71: -1936873648
-      Crop_Spritesheet_92: 1853468070
-      Crop_Spritesheet_38: 986866513
-      Crop_Spritesheet_89: 1069340231
-      Crop_Spritesheet_39: -1522155770
-      Crop_Spritesheet_79: 1787802178
-      Crop_Spritesheet_107: 1783110663
-      Crop_Spritesheet_111: 1257466429
-      Crop_Spritesheet_52: 414336677
-      Crop_Spritesheet_40: 2005967719
-      Crop_Spritesheet_5: -412518590
-      Crop_Spritesheet_119: -188366786
-      Crop_Spritesheet_95: -681344009
-      Crop_Spritesheet_64: 1402726890
-      Crop_Spritesheet_27: 778438833
-      Crop_Spritesheet_73: 563277749
-      Crop_Spritesheet_118: -2126160060
-      Crop_Spritesheet_68: 325791857
-      Crop_Spritesheet_56: -792839723
-      Crop_Spritesheet_77: -1299946576
-      Crop_Spritesheet_42: 704663595
-      Crop_Spritesheet_80: 661921456
-      Crop_Spritesheet_7: 868188747
-      Crop_Spritesheet_20: -1119916848
-      Crop_Spritesheet_45: 1613749942
-      Crop_Spritesheet_109: 1740980923
-      Crop_Spritesheet_93: -1975631467
-      Crop_Spritesheet_2: -179640506
-      Crop_Spritesheet_10: 874038700
-      Crop_Spritesheet_113: 1107068088
-      Crop_Spritesheet_101: 746761652
-      Crop_Spritesheet_8: 1546822387
-      Crop_Spritesheet_115: 207323055
-      Crop_Spritesheet_60: -2046484330
-      Crop_Spritesheet_75: -1381733056
-      Crop_Spritesheet_106: -1451042454
-      Crop_Spritesheet_44: -1161426658
-      Crop_Spritesheet_6: -757594487
-      Crop_Spritesheet_91: 192129092
-      Crop_Spritesheet_54: 118970918
-      Crop_Spritesheet_18: -1792519331
-      Crop_Spritesheet_43: -504578637
-      Crop_Spritesheet_84: -2070314094
-      Crop_Spritesheet_12: 925814899
-      Crop_Spritesheet_47: -1416441849
       Crop_Spritesheet_1: 946326650
-      Crop_Spritesheet_86: -1130048017
-      Crop_Spritesheet_24: -19448071
-      Crop_Spritesheet_16: 1150672621
-      Crop_Spritesheet_50: -109099556
-      Crop_Spritesheet_34: 2053750835
-      Crop_Spritesheet_72: -1345864414
-      Crop_Spritesheet_58: 1245558460
-      Crop_Spritesheet_61: 2128248821
-      Crop_Spritesheet_31: -454286513
-      Crop_Spritesheet_55: -511061408
-      Crop_Spritesheet_33: 1395863621
-      Crop_Spritesheet_21: 1798596597
-      Crop_Spritesheet_41: 1970373457
-      Crop_Spritesheet_70: 1955745628
-      Crop_Spritesheet_85: -1632398106
+      Crop_Spritesheet_10: 874038700
+      Crop_Spritesheet_100: -483094292
+      Crop_Spritesheet_101: 746761652
       Crop_Spritesheet_102: 238871124
-      Crop_Spritesheet_94: 1960992087
-      Crop_Spritesheet_17: 1686022228
-      Crop_Spritesheet_3: 710490791
-      Crop_Spritesheet_46: 639784431
-      Crop_Spritesheet_37: 758961562
-      Crop_Spritesheet_62: -1470551097
-      Crop_Spritesheet_97: 920792155
+      Crop_Spritesheet_103: 1300715561
       Crop_Spritesheet_104: -308584415
+      Crop_Spritesheet_105: 1985958790
+      Crop_Spritesheet_106: -1451042454
+      Crop_Spritesheet_107: 1783110663
+      Crop_Spritesheet_108: -1072641892
+      Crop_Spritesheet_109: 1740980923
+      Crop_Spritesheet_11: -108898687
+      Crop_Spritesheet_110: 780471655
+      Crop_Spritesheet_111: 1257466429
+      Crop_Spritesheet_112: 1577030374
+      Crop_Spritesheet_113: 1107068088
+      Crop_Spritesheet_114: 554250010
+      Crop_Spritesheet_115: 207323055
+      Crop_Spritesheet_116: -934794040
+      Crop_Spritesheet_117: -1075690027
+      Crop_Spritesheet_118: -2126160060
+      Crop_Spritesheet_119: -188366786
+      Crop_Spritesheet_12: 925814899
+      Crop_Spritesheet_13: -975586450
+      Crop_Spritesheet_14: -800855082
+      Crop_Spritesheet_15: 604154115
+      Crop_Spritesheet_16: 1150672621
+      Crop_Spritesheet_17: 1686022228
+      Crop_Spritesheet_18: -1792519331
+      Crop_Spritesheet_19: -1789722889
+      Crop_Spritesheet_2: -179640506
+      Crop_Spritesheet_20: -1119916848
+      Crop_Spritesheet_21: 1798596597
+      Crop_Spritesheet_22: 688496205
+      Crop_Spritesheet_23: -1147111165
+      Crop_Spritesheet_24: -19448071
+      Crop_Spritesheet_25: 396848474
+      Crop_Spritesheet_26: 139950906
+      Crop_Spritesheet_27: 778438833
+      Crop_Spritesheet_28: 1307707598
+      Crop_Spritesheet_29: -315191428
+      Crop_Spritesheet_3: 710490791
       Crop_Spritesheet_30: -1808883608
-  spritePackingTag: 
+      Crop_Spritesheet_31: -454286513
+      Crop_Spritesheet_32: 2039186355
+      Crop_Spritesheet_33: 1395863621
+      Crop_Spritesheet_34: 2053750835
+      Crop_Spritesheet_35: -641074882
+      Crop_Spritesheet_36: 1331861227
+      Crop_Spritesheet_37: 758961562
+      Crop_Spritesheet_38: 986866513
+      Crop_Spritesheet_39: -1522155770
+      Crop_Spritesheet_4: 1788528007
+      Crop_Spritesheet_40: 2005967719
+      Crop_Spritesheet_41: 1970373457
+      Crop_Spritesheet_42: 704663595
+      Crop_Spritesheet_43: -504578637
+      Crop_Spritesheet_44: -1161426658
+      Crop_Spritesheet_45: 1613749942
+      Crop_Spritesheet_46: 639784431
+      Crop_Spritesheet_47: -1416441849
+      Crop_Spritesheet_48: 1655169045
+      Crop_Spritesheet_49: 1118665192
+      Crop_Spritesheet_5: -412518590
+      Crop_Spritesheet_50: -109099556
+      Crop_Spritesheet_51: 1573040969
+      Crop_Spritesheet_52: 414336677
+      Crop_Spritesheet_53: 907306859
+      Crop_Spritesheet_54: 118970918
+      Crop_Spritesheet_55: -511061408
+      Crop_Spritesheet_56: -792839723
+      Crop_Spritesheet_57: 1956698249
+      Crop_Spritesheet_58: 1245558460
+      Crop_Spritesheet_59: -1811736031
+      Crop_Spritesheet_6: -757594487
+      Crop_Spritesheet_60: -2046484330
+      Crop_Spritesheet_61: 2128248821
+      Crop_Spritesheet_62: -1470551097
+      Crop_Spritesheet_63: 1132599695
+      Crop_Spritesheet_64: 1402726890
+      Crop_Spritesheet_65: 344916719
+      Crop_Spritesheet_66: -1832207043
+      Crop_Spritesheet_67: -952945204
+      Crop_Spritesheet_68: 325791857
+      Crop_Spritesheet_69: -1653610246
+      Crop_Spritesheet_7: 868188747
+      Crop_Spritesheet_70: 1955745628
+      Crop_Spritesheet_71: -1936873648
+      Crop_Spritesheet_72: -1345864414
+      Crop_Spritesheet_73: 563277749
+      Crop_Spritesheet_74: -826743492
+      Crop_Spritesheet_75: -1381733056
+      Crop_Spritesheet_76: 1568219358
+      Crop_Spritesheet_77: -1299946576
+      Crop_Spritesheet_78: 611515936
+      Crop_Spritesheet_79: 1787802178
+      Crop_Spritesheet_8: 1546822387
+      Crop_Spritesheet_80: 661921456
+      Crop_Spritesheet_81: -614418951
+      Crop_Spritesheet_82: -213821335
+      Crop_Spritesheet_83: 1861309974
+      Crop_Spritesheet_84: -2070314094
+      Crop_Spritesheet_85: -1632398106
+      Crop_Spritesheet_86: -1130048017
+      Crop_Spritesheet_87: 1895230252
+      Crop_Spritesheet_88: 1013540849
+      Crop_Spritesheet_89: 1069340231
+      Crop_Spritesheet_9: -1154679493
+      Crop_Spritesheet_90: 2023411877
+      Crop_Spritesheet_91: 192129092
+      Crop_Spritesheet_92: 1853468070
+      Crop_Spritesheet_93: -1975631467
+      Crop_Spritesheet_94: 1960992087
+      Crop_Spritesheet_95: -681344009
+      Crop_Spritesheet_96: 1300364976
+      Crop_Spritesheet_97: 920792155
+      Crop_Spritesheet_98: 1079631026
+      Crop_Spritesheet_99: 1232750647
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

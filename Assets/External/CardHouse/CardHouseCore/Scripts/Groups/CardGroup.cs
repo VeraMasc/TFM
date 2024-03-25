@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,6 +17,11 @@ namespace CardHouse
         /// </summary>
         public bool allowSubgroups = true;
         public GameObject Hilight;
+
+        /// <summary>
+        /// Muestra el número de cartas en este indicador si existe
+        /// </summary>
+        public TextMeshPro amountDisplay;
 
         public GateCollection<DropParams> DropGates;
 
@@ -572,6 +578,24 @@ namespace CardHouse
             }
 
             destroyGroup(targetGroup);
+        }
+
+        /// <summary>
+        /// Gestiona los efectos de hacer hover sobre el grupo
+        /// </summary>
+        void OnMouseEnter()
+        {
+            showCardAmount(true);
+        }
+
+        void OnMouseExit()
+        {
+            showCardAmount(false);
+        }
+
+        public void showCardAmount(bool show){
+            if(amountDisplay)
+                amountDisplay.transform?.parent?.gameObject?.SetActive(show);
         }
     }
 
