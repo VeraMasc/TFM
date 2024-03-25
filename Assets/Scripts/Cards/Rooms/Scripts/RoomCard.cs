@@ -49,7 +49,7 @@ public class RoomCard : CardSetup, ITypedCard
 
         if (data is RoomCardDefinition roomCard)
         {
-            Image.sprite = roomCard.Art;
+            Image.sprite = roomCard.Art ?? Image.sprite;
             if (roomCard.BackArt != null)
             {
                 BackImage.sprite = roomCard.BackArt;

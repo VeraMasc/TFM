@@ -35,7 +35,7 @@ public class ContentCard : CardSetup, ITypedCard
 
         if (data is ContentCardDefinition contentCard)
         {
-            Image.sprite = contentCard.Art;
+            Image.sprite = contentCard.Art ?? Image.sprite;
             if (contentCard.BackArt != null)
             {
                 BackImage.sprite = contentCard.BackArt;
