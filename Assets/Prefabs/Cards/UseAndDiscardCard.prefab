@@ -121,6 +121,8 @@ GameObject:
   - component: {fileID: 8080226580653501249}
   - component: {fileID: 7560682199344251881}
   - component: {fileID: -8263067465199723776}
+  - component: {fileID: -5267614056858646423}
+  - component: {fileID: 4128583058029137722}
   m_Layer: 0
   m_Name: UseAndDiscardCard
   m_TagString: Untagged
@@ -353,6 +355,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  attachedGroup: {fileID: 0}
 --- !u!114 &6667705940048030491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,6 +441,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  isDragging: 0
 --- !u!114 &1971675794936343348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,8 +546,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usageEffect:
-    selectedTargets: []
-    goesTo: 0
+    rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+--- !u!114 &-5267614056858646423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586029700441971341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []
+--- !u!114 &4128583058029137722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586029700441971341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[{"key":"","label":null,"summary":null,"hideLabel":false}],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"Card
+      Draw","summary":null,"pan":{"x":-234.3,"y":-190.9},"zoom":1.0,"elements":[{"argumentCount":1,"coroutine":false,"defaultValues":{"target":null,"name":{"$content":"GetCardEffect","$type":"System.String"}},"position":{"x":-328.0,"y":-198.0},"guid":"1ee1d41d-98de-44cd-9457-bb50290a7b94","$version":"A","$type":"Unity.VisualScripting.CustomEvent"}],"$version":"A"}}}'
+    _objectReferences: []
 --- !u!1 &715408106779770569
 GameObject:
   m_ObjectHideFlags: 0
