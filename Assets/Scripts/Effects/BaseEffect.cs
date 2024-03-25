@@ -21,5 +21,5 @@ public abstract class BaseEffect
     public List<EffectDescriptor> descriptors;
 
 
-    //TODO: lista de targets pedidos por el efecto y su configuración
+    //TODO: Rework Completely
 }

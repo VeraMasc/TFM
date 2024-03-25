@@ -48,11 +48,11 @@ public class CardResolveOperator : Activatable
 
         //TODO: Execute effects
 
-        var effects = currentCard.GetComponent<CardEffects>();
+        // var effects = currentCard.GetComponent<CardEffects>();
 
-        if(effects){
-            effects.usageEffect.finishCasting(currentCard);
-        }
+        // if(effects){
+        //     effects.usageEffect.finishCasting(currentCard);
+        // }
 
         //Reset state
         currentCard=null;
