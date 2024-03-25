@@ -13,9 +13,8 @@ public class DrawCards : EffectDescriptor
     [DoNotSerialize]
     public ValueInput amount;
     protected override void PortDefinition(){
-        ValueInput<int>("amount", 1);
+        amount = ValueInput<int>("amount", 1);
         Requirement(amount, inputTrigger);
-        Succession(inputTrigger, outputTrigger); 
     }
 
 

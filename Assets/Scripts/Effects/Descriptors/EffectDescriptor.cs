@@ -22,6 +22,7 @@ public abstract class EffectDescriptor : Unit
         inputTrigger = ControlInput("inputTrigger", LogicDefinition());
         //Making the ControlOutput port visible and setting its key.
         outputTrigger = ControlOutput("outputTrigger");
+        Succession(inputTrigger, outputTrigger); 
         PortDefinition();
     }
     
@@ -29,7 +30,7 @@ public abstract class EffectDescriptor : Unit
     /// Sobreescribir para añadir puertos nuevos
     /// </summary>
     protected virtual void PortDefinition(){
-        Succession(inputTrigger, outputTrigger); 
+
     }
     /// <summary>
     /// Sobreescribir para añadir lógica nueva
