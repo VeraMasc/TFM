@@ -148,4 +148,14 @@ public class ExplorationController : MonoBehaviour
             .ForEach(card => card.SetFacing(CardFacing.FaceUp));
     }
 
+    /// <summary>
+    /// Añade contenido a la habitación escogida
+    /// </summary>
+    /// <param name="amount"></param>
+    public void addContent(Card room ,int amount){
+        var transfer = content.GetComponent<CardTransferOperator>();
+        transfer.Transition.Destination = room.attachedGroup;
+        transfer.NumberToTransfer = amount;
+        transfer.Activate();
+    }
 }

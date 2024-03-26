@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 
 
 /// <summary>
-/// Roba cartas
+/// Nodo de prueba para visual scripts
 /// </summary>
 [UnitCategory("CardEffects")]
 public class DrawCards : EffectDescriptor
