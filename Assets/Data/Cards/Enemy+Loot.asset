@@ -15,4 +15,4 @@ MonoBehaviour:
   BackArt: {fileID: 0}
   cardText: Enemy + Loot
   Art: {fileID: 0}
-  graphAsset: {fileID: 11400000, guid: e1b2657681aa1d6458446af5c52d45b7, type: 2}
+  graphAsset: {fileID: 11400000, guid: baec36518af26e54dab6890cb5a72d99, type: 2}

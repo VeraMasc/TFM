@@ -28,11 +28,11 @@ public class ContentCardDefinition : CardDefinition
     [SerializeField] public StaticsDrawer sDrawer;
 
     
-    static string graphFolder = "Assets/Data/Cards/";
+    static string graphFolder = "Assets/Data/Cards/Effects/";
 
     [NaughtyAttributes.Button, NaughtyAttributes.HideIf("hasGraph")]
     public void generateGraph(){
-        var graphName = graphFolder+"test.asset";
+        var graphName = graphFolder+name+".asset";
         //Check if graph already exists
         if(File.Exists(graphName))
         {
