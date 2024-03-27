@@ -13,10 +13,9 @@ namespace CustomInspector
     {
         #region Inspector
 
-#if UNITY_EDITOR
         [MessageBox("Please add the [Dictionary]-attribute to this Dictionary for correct displaying")]
         [HideField, SerializeField] bool _;
-#endif
+
         [SerializeField] List<SerializableKeyValuePair> keyValuePairs = new(); //HideInInspector caused bug on classes: could not aufklappen classes
         #endregion
 

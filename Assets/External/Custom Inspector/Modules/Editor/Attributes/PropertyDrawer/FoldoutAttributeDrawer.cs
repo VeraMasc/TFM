@@ -175,7 +175,7 @@ namespace CustomInspector.Editor
 
             public ErrorInfos(SerializedProperty property)
             {
-                Type propType = new DirtyValue(property).Type;
+                Type propType = DirtyValue.GetType(property);
 
                 if (property.propertyType == SerializedPropertyType.Generic) //already has a foldout
                 {

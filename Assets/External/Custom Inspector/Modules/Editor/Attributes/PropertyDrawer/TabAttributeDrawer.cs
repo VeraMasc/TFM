@@ -240,7 +240,7 @@ namespace CustomInspector.Editor
                         .Where(ta => ta.attr != null);
 
                     (FieldInfo fieldInfo, TabAttribute ta) first = allProps.First();
-                    if (first.fieldInfo == fieldInfo)
+                    if (first.fieldInfo.Name == fieldInfo.Name) // we trust on unity not allowing same same in derived classes (the same field accessed from a derived class seemed to return false on '==' - but i am not sure, so getting the name is safer)
                         isAllFirst = true;
 
                     var propsInMyGroup = allProps.Where(_ => _.attr.groupName == attribute.groupName);
@@ -252,7 +252,7 @@ namespace CustomInspector.Editor
                         return (false, false);
                     }
                     var last_iG = propsInMyGroup.Last();
-                    if (last_iG.fieldInfo == fieldInfo)
+                    if (last_iG.fieldInfo.Name == fieldInfo.Name)
                         isGroupLast = true;
 
                     return (isAllFirst, isGroupLast);

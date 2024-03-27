@@ -13,10 +13,9 @@ namespace CustomInspector
     [System.Serializable]
     public class ListContainer<T> : ICollection<T>, IEnumerable<T>, IEnumerable, IList<T>, IReadOnlyCollection<T>, IReadOnlyList<T>, ICollection, IList
     {
-#if UNITY_EDITOR
         [MessageBox("ListContainer is missing the [ListContainer]-attribute to be correctly displayed")]
         [SerializeField, HideField] bool _;
-#endif
+
         // CONTENT
         [SerializeField]
         List<T> values = new();

@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 namespace CustomInspector
@@ -16,12 +19,11 @@ namespace CustomInspector
     /// </summary>
     /// <typeparam name="T"></typeparam>
     [System.Serializable]
-    public class SerializableSet<T> : ICollection, ICollection<T>, IEnumerable, IEnumerable<T>
+    public class SerializableSet<T> : ICollection, ICollection<T>, IEnumerable, IEnumerable<T>, IDeserializationCallback
     {
-#if UNITY_EDITOR
         [MessageBox("Use the [SetAttribute] attribute for displaying in the inspector", MessageBoxType.Error)]
         [SerializeField, HideField] bool info;
-#endif
+
 
         [SerializeField, HideField]
         protected ListContainer<T> values = new();
@@ -102,6 +104,50 @@ namespace CustomInspector
         public T GetByIndex(int index)
             => values[index];
 
+        public virtual T this[int index]
+        {
+            get => values[index];
+            set
+            {
+                if (object.ReferenceEquals(values[index], value))
+                {
+                    return;
+                }
+                if (object.Equals(values[index], value))
+                {
+                    values[index] = value;
+                    return;
+                }
+                if (values.Contains(value))
+                    throw new ArgumentException($"Item '{value}' already existed in set");
+                else
+                    values[index] = value;
+            }
+        }
+
+        void IDeserializationCallback.OnDeserialization(object sender)
+        {
+            Internal_OnDeserialization(sender);
+        }
+        protected virtual void Internal_OnDeserialization(object sender)
+        {
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            //Check for duplicates
+            for (int i = 0; i < values.Count; i++)
+            {
+                for (int j = i + 1; j < values.Count; j++)
+                {
+                    if (object.Equals(values[i], values[j]))
+                    {
+                        Debug.LogError($"DeserializationError: Duplicate items in Set found. Duplicates are discarded.\n{values[i]} at position {i} and {values[j]} at position {j}");
+                        values = values.Distinct().ToList();
+                        return;
+                    }
+                }
+            }
+#endif
+        }
+
         public void Clear()
         {
             values.Clear();
@@ -113,6 +159,7 @@ namespace CustomInspector
             return values.Contains(item);
         }
 
+        public ReadOnlyCollection<T> AsReadOnly() => values.AsReadOnly();
 
         IEnumerator IEnumerable.GetEnumerator()
         {
@@ -158,13 +205,11 @@ namespace CustomInspector
 
         bool ICollection<T>.IsReadOnly => false;
 
-#if UNITY_EDITOR
         /// <summary>
         /// This is just for editorPurpose.
         /// </summary>
         [SerializeField]
         T editor_input;
-#endif
     }
 }
 

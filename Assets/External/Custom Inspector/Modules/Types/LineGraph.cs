@@ -16,10 +16,9 @@ namespace CustomInspector
         }
 
 
-#if UNITY_EDITOR
         [MessageBox("LineGraph is missing the [LineGraph]-attribute to be displayed")]
         [SerializeField, HideField] bool _;
-#endif
+
 
         [SerializeField, HideInInspector, Delayed2] Vector2[] points = new Vector2[] { Vector2.zero };
         /// <summary>

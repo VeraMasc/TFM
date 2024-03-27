@@ -42,7 +42,7 @@ namespace CustomInspector.Extensions
                         res += name[i];
                     }
                     //if its a new word made by casing
-                    else if (i < name.Length && char.IsLower(name[i + 1]) //after is lowercase
+                    else if ((i + 1 < name.Length && char.IsLower(name[i + 1])) //after is lowercase
                         || char.IsLower(res[^1])) //before was lowercase
                     {
                         res += " " + name[i];

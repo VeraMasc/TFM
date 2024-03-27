@@ -84,6 +84,9 @@ namespace CustomInspector.Editor
 
             public readonly float keyWidth;
 
+            public readonly string customKeyLabel = null;
+            public readonly string customValueLabel = null;
+
             //only for nonreorderable: Remove has to happen after dict was drawn. otherwise tries to draw removed things
             public readonly List<Action> removesAfterDraw = new();
             public readonly Action<Rect, GUIContent, SerializedProperty> gui;
@@ -102,6 +105,12 @@ namespace CustomInspector.Editor
                 keyWidth = attribute?.keySize ?? DictionaryAttribute.defaultKeySize;
                 if (keyWidth <= 0)
                     Debug.LogWarning($"Dictionary on {property.serializedObject.targetObject}->{property.propertyPath}:\nKeysize is set to zero");
+
+                if (attribute != null)
+                {
+                    customKeyLabel = attribute.keyLabel;
+                    customValueLabel = attribute.valueLabel;
+                }
 
                 if (fieldInfo.FieldType.GetGenericTypeDefinition() == typeof(SerializableDictionary<,>)
                     || fieldInfo.FieldType.GetGenericTypeDefinition() == typeof(SerializableSortedDictionary<,>))
@@ -345,8 +354,19 @@ namespace CustomInspector.Editor
                     }
 
                     //insert headers to columns
-                    GUIContent keysHeader = new($"key: {PropertyConversions.GetIListElementType(DirtyValue.GetType(keys)).Name}");
-                    GUIContent valuesHeader = new($"value: {PropertyConversions.GetIListElementType(DirtyValue.GetType(values)).Name}");
+                    GUIContent keysHeader;
+                    GUIContent valuesHeader;
+
+                    if (info.customKeyLabel != null)
+                        keysHeader = new(info.customKeyLabel);
+                    else
+                        keysHeader = new($"key: {PropertyConversions.GetIListElementType(DirtyValue.GetType(keys)).Name}");
+
+
+                    if (info.customValueLabel != null)
+                        valuesHeader = new(info.customValueLabel);
+                    else
+                        valuesHeader = new($"value: {PropertyConversions.GetIListElementType(DirtyValue.GetType(values)).Name}");
 
                     indices.entrys = Enumerable.Repeat(new Entry(0, (position) => { }), 1)
                                             .Concat(indices.entrys);
@@ -467,7 +487,7 @@ namespace CustomInspector.Editor
                         width = ind.width * keyWidth - dividerWidth / 2f,
                     };
 
-                    using (new LabelWidthScope(r.width))
+                    using (new LabelWidthScope(r.width * keyWidth))
                     {
                         DrawProperties.PropertyFieldWithoutLabel(r, key);
                     }
