@@ -48,5 +48,7 @@ public class ContentCardDefinition : CardDefinition
         AssetDatabase.OpenAsset(graphAsset);
     }
     
+    [SerializeField]
+    public CardEffects effects;
 }
 

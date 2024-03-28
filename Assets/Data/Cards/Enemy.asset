@@ -16,3 +16,21 @@ MonoBehaviour:
   cardText: Enemy
   Art: {fileID: 0}
   graphAsset: {fileID: 11400000, guid: e1b2657681aa1d6458446af5c52d45b7, type: 2}
+  sDrawer:
+    b: 0
+  effects:
+    baseEffect:
+      effect: a
+      next:
+        rid: 418998136251351053
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 418998136251351053
+      type: {class: EffectChain, ns: , asm: Assembly-CSharp}
+      data:
+        effect: 
+        next:
+          rid: -2

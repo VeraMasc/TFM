@@ -6,7 +6,11 @@ using UnityEngine;
 /// <summary>
 /// Identifica una cadena de efectos
 /// </summary>
+[Serializable]
 public class EffectChain 
 {
-    //public List<Func<T,A>> effects;
+    public string effect;
+
+    [SerializeReference] //Necesario para que serialice bien
+    public EffectChain next;
 }

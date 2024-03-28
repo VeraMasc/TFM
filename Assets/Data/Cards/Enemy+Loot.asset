@@ -16,3 +16,39 @@ MonoBehaviour:
   cardText: Enemy + Loot
   Art: {fileID: 0}
   graphAsset: {fileID: 11400000, guid: baec36518af26e54dab6890cb5a72d99, type: 2}
+  sDrawer:
+    b: 0
+  effects:
+    baseEffect:
+      effect: 
+      next:
+        rid: 418998136251351040
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 418998136251351040
+      type: {class: EffectChain, ns: , asm: Assembly-CSharp}
+      data:
+        effect: 
+        next:
+          rid: 418998136251351041
+    - rid: 418998136251351041
+      type: {class: EffectChain, ns: , asm: Assembly-CSharp}
+      data:
+        effect: 
+        next:
+          rid: 418998136251351042
+    - rid: 418998136251351042
+      type: {class: EffectChain, ns: , asm: Assembly-CSharp}
+      data:
+        effect: 
+        next:
+          rid: 418998136251351043
+    - rid: 418998136251351043
+      type: {class: EffectChain, ns: , asm: Assembly-CSharp}
+      data:
+        effect: 
+        next:
+          rid: -2
