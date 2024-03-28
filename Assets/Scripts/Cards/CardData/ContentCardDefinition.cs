@@ -50,5 +50,7 @@ public class ContentCardDefinition : CardDefinition
     
     [SerializeField]
     public CardEffects effects;
+
+    public int test;
 }
 

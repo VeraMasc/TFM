@@ -9,7 +9,8 @@ using UnityEngine;
 [Serializable]
 public class EffectChain 
 {
-    public string effect;
+    [SerializeReference,SubclassSelector]
+    public EffectScript effect;
 
     [SerializeReference] //Necesario para que serialice bien
     public EffectChain next;

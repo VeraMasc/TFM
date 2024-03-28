@@ -21,9 +21,10 @@ public class EffectChainEditor : PropertyDrawer
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        var myHeight = EditorGUIUtility.singleLineHeight * 0f;
+        var effect = property.FindPropertyRelative("effect");
+        var myHeight = EditorGUI.GetPropertyHeight(effect,true);
         var next = property.FindPropertyRelativeOrFail("next");
-        var contentHeight = next?.managedReferenceValue != null? EditorGUI.GetPropertyHeight(next, label, true): 0;
+        var contentHeight = next?.managedReferenceValue != null? EditorGUI.GetPropertyHeight(next, label, true): EditorGUIUtility.singleLineHeight;
         return myHeight + contentHeight;
     }
 
@@ -34,11 +35,17 @@ public class EffectChainEditor : PropertyDrawer
     /// <param name="property"></param>
     /// <param name="label"></param>
     public void displayChain(Rect position, SerializedProperty property, GUIContent label){
-        var horizontal = EditorGUILayout.BeginHorizontal(GUI.skin.window,GUILayout.MinHeight(EditorGUIUtility.singleLineHeight));
+        var horizontal = EditorGUILayout.BeginHorizontal();
+        var effect = property.FindPropertyRelative("effect");
+        //Get height
+        horizontal.height = EditorGUI.GetPropertyHeight(effect,true);
+        horizontal.yMin=position.yMin;
+        Debug.Log(horizontal.height);
         var effectRect = new Rect(horizontal);
         effectRect.xMax -= 30;
-        var effect = property.FindPropertyRelative("effect");
-        effect.stringValue = EditorGUI.TextField(effectRect, "Effect",effect.stringValue);
+        
+        EditorGUI.PropertyField(effectRect,effect);
+        // effect.stringValue = EditorGUI.TextField(effectRect, "Effect",effect.stringValue);
         var buttonRect = new Rect(horizontal);
         buttonRect.xMin = buttonRect.xMax -20;
         //Get next
@@ -49,10 +56,9 @@ public class EffectChainEditor : PropertyDrawer
             next.managedReferenceValue = null;
         }
         EditorGUILayout.EndHorizontal();
-        
 
         //Recursive loop
-        if(next.managedReferenceValue != null || !string.IsNullOrEmpty(effect.stringValue)){ 
+        if(next?.managedReferenceValue != null || effect?.exposedReferenceValue != null){ 
            
             //DrawProperties()
             next.managedReferenceValue ??= new EffectChain();
