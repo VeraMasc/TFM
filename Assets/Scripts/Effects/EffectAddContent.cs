@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using CardHouse;
 using UnityEngine;
 
 namespace Effect{
@@ -14,5 +16,14 @@ namespace Effect{
         [SerializeReference, SubclassSelector]
         EffectTargeter target;
         public int amount = 2;
+
+        public override IEnumerator execute(Card self)
+        {
+            var hasParent = self.Group.GetComponent<Card>() != null;
+            var op =ExplorationController.singleton.content.GetComponent<CardTransferOperator>();
+            op.Transition.Destination = self.Group;
+            op.Activate();
+            yield return op.currentAction;
+        }
     }
 }

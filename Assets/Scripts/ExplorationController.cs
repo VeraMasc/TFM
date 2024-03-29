@@ -67,7 +67,6 @@ public class ExplorationController : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.U)){
-
         }
     }
 
