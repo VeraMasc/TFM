@@ -15,6 +15,9 @@ public abstract class EffectTargeter
     private GameObject _target;
 
 
+    /// <summary>
+    /// Obtiene el target resuelto (lo resuelve si es necesario)
+    /// </summary>
     public GameObject getTarget(){
         if(_target == null){ //Resuelve el target si no lo ha hecho ya
             resolveTarget();
@@ -22,13 +25,18 @@ public abstract class EffectTargeter
         return _target;
     }
 
+    /// <summary>
+    /// Los targets no explícitos no se consideran targets a nivel mecánico,
+    /// aunque funcionen prácticamente igual
+    /// </summary>
+    public virtual bool isExplicit{get=> false;}
 
     /// <summary>
     /// Sobreescribir este método para cambiar como se resuelven los targets
     /// </summary>
     
     public virtual void resolveTarget(){
-        
+        //TODO: implement targetting context
     }
 
 }
