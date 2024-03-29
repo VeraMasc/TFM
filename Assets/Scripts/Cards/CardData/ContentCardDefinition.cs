@@ -21,7 +21,7 @@ public class ContentCardDefinition : CardDefinition
 
 
     [SerializeField]
-    public CardEffects effects;
+    public ContentCardEffects effects;
 
 }
 

@@ -7,20 +7,18 @@ using Unity.VisualScripting;
 using CustomInspector;
 using System;
 
-
+ 
 [Serializable]
-public class CardEffects{
+public class ContentCardEffects{
     /// <summary>
-    /// Efectos que producir cuando la carta se "resuelve" (Esto significa cosas distintas dependiendo del tipo de carta)
+    /// Efectos que producir cuando la carta se revela
     /// </summary>
-    public EffectChain baseEffect;
+    public EffectChain revealEffect;
 
     /// <summary>
     /// Efectos estáticos 
     /// </summary>
-    public EffectChain staticEffects;
-
-    public EffectChain activatedAbilities;
+    public EffectChain staticEffects; 
 
 }
 
