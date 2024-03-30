@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using CardHouse;
 using System.Linq;
+using GameFlow;
 
 
 
@@ -145,8 +146,19 @@ public class ExplorationController : MonoBehaviour
         var room = currentRoom.MountedCards.First();
         var hiddenContent = room.attachedGroup.MountedCards
             .Where((Card c) => c.Facing != CardFacing.FaceUp);
-        DotTrail.Trail
-        .ForEach(hiddenContent,(Card c)=>{Debug.Log(c);revealContent(c);}, 0.5);
+        var trail = DotTrail.Trail
+        .ForEach(hiddenContent,(Card c)=>{Debug.Log(c);revealContent(c);}, 0.5)
+        .Execute(testTrailCoroutine())
+        .Wait().Print("Ended Trail");
+    }
+
+    //TODO: Eliminar
+    private IEnumerator testTrailCoroutine(){
+        Debug.Log("Enter routine");
+        yield return new WaitForSeconds(1f);
+        Debug.Log("Waited routine");
+        yield return new WaitForSeconds(1f);
+        Debug.Log("Ended routine");
     }
 
     /// <summary>

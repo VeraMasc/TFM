@@ -18,7 +18,7 @@ public class DotTrail : TrailObject<DotTrail>
     public DotTrail Execute(IEnumerator enumerator, MonoBehaviour obj=null){
         obj ??= monoTrail;
         obj.StartCoroutine(enumerator);
-        Wait(()=>enumerator==null).Print("Execution Finished");
+        Wait(()=>enumerator.Current==null);
         
         return this;
     }
@@ -27,7 +27,7 @@ public class DotTrail : TrailObject<DotTrail>
     public DotTrail Await(Coroutine coroutine){
         var enumerator = wrapperRoutine(coroutine);
         monoTrail.StartCoroutine(enumerator);
-        Wait(()=>enumerator==null);
+        Wait(()=>enumerator.Current==null);
         return this;
     }
 

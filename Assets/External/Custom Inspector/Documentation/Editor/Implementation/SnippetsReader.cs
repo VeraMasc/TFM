@@ -227,12 +227,12 @@ namespace CustomInspector.Documentation
 
             //Draw Propertys
             var props = container.GetAllVisibleProperties(false);
-            Debug.Assert(props.Any(), "No properties found for display");
+            Debug.Assert(props.Any(), $"No properties found for display (on {container.name}).");
             float totalHeight = props.Select(_ => DrawProperties.GetPropertyHeight(_)).Sum() + props.Count() * EditorGUIUtility.standardVerticalSpacing + 50; // 50 is some tolerance - space below
 
             Rect previewRect =
             (totalHeight > position.height) ?//if has slider
-                new Rect(0, 0, position.width - GuidanceWindow.scrollbarThickness, totalHeight)
+                new Rect(0, 0, position.width - Common.scrollbarThickness, totalHeight)
                 : new Rect(0, 0, position.width, totalHeight);
             using (var scrollScope = new GUI.ScrollViewScope(position,
                                                     previewScrollPos,

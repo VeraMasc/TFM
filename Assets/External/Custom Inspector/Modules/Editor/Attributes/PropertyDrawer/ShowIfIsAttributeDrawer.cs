@@ -45,13 +45,16 @@ namespace CustomInspector.Editor
                 position.height = DrawProperties.GetPropertyHeight(label, property);
                 using (new EditorGUI.IndentLevelScope(sa.indent))
                 {
+                    EditorGUI.BeginChangeCheck();
                     DrawProperties.PropertyField(position, label: label, property: property);
+                    if (EditorGUI.EndChangeCheck())
+                        property.serializedObject.ApplyModifiedProperties();
                 }
                 return;
             }
             else
             {
-                if(sa.style == DisabledStyle.Invisible) //Hide
+                if (sa.style == DisabledStyle.Invisible) //Hide
                     return;
                 else //if(sa.style == DisabledStyle.Disabled) //show disabled
                 {
@@ -65,7 +68,7 @@ namespace CustomInspector.Editor
         }
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            if(property.IsArrayElement())
+            if (property.IsArrayElement())
                 return DrawProperties.GetPropertyWithMessageHeight(label, property);
 
             ShowIfIsAttribute sa = (ShowIfIsAttribute)attribute;

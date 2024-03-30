@@ -18,7 +18,10 @@ namespace CustomInspector.Editor
             position.width = Mathf.Max(position.width, EditorGUIUtility.labelWidth + EditorGUIUtility.fieldWidth);
 
             //Draw Property
+            EditorGUI.BeginChangeCheck();
             DrawProperties.PropertyField(position, label, property);
+            if (EditorGUI.EndChangeCheck())
+                property.serializedObject.ApplyModifiedProperties();
             //Draw Unit
             Rect uRect = new()
             {

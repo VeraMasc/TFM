@@ -1,3 +1,4 @@
+using CustomInspector.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -184,18 +185,18 @@ namespace CustomInspector.Extensions
         /// <summary> spacing between message and the field it belongs too.</summary>
         public const float messageBoxEndSpacing = 2;
         public const float messageBoxHeight = 40;
+
+        static Vector2 scrollPos = Vector2.zero;
         /// <summary> Draws the field with position, but inserts an error message before </summary>
         public static void DrawPropertyWithMessage(Rect position, GUIContent label, SerializedProperty property, string errorMessage, MessageType type, bool includeChildren = true, bool disabled = false)
         {
             position.y += messageBoxStartSpacing;
-            Rect rect = EditorGUI.IndentedRect(position);
-            rect.height = messageBoxHeight;
-            using (new NewIndentLevel(0))
-            {
-                EditorGUI.HelpBox(rect, errorMessage, type);
-            }
+            Rect messageRect = EditorGUI.IndentedRect(position);
+            messageRect.height = messageBoxHeight;
 
-            position.y += rect.height + messageBoxEndSpacing;
+            DrawMessageField(messageRect, errorMessage, type);
+
+            position.y += messageRect.height + messageBoxEndSpacing;
             position.height = DrawProperties.GetPropertyHeight(label, property);
 
             if (disabled)
@@ -222,17 +223,32 @@ namespace CustomInspector.Extensions
                 DrawProperties.PropertyField(position: position, label: new GUIContent(" "), property: property, includeChildren: includeChildren);
         }
         /// <summary>
-        /// Draws a helpbox with specific height
+        /// Draws a helpbox with specific height (in scrollScope if message is too large)
         /// </summary>
         /// <param name="position"></param>
         /// <param name="errorMessage"></param>
         /// <param name="type"></param>
         public static void DrawMessageField(Rect position, string errorMessage, MessageType type)
         {
-            Rect rect = EditorGUI.IndentedRect(position);
             using (new NewIndentLevel(0))
             {
-                EditorGUI.HelpBox(rect, errorMessage, type);
+                float neededHeight = EditorStyles.helpBox.CalcHeight(new GUIContent(errorMessage), position.width - Common.scrollbarThickness) + 10; // + some margin
+
+                if (neededHeight <= messageBoxHeight)
+                {
+                    EditorGUI.HelpBox(position, errorMessage, type);
+                }
+                else
+                {
+                    Rect innerPosition = new Rect(0, 0, position.width - Common.scrollbarThickness, neededHeight); //position in the scrollbar
+
+                    using (var scrollScope = new GUI.ScrollViewScope(position, scrollPos, innerPosition))
+                    {
+                        scrollPos = scrollScope.scrollPosition;
+
+                        EditorGUI.HelpBox(innerPosition, errorMessage, type);
+                    }
+                }
             }
         }
 

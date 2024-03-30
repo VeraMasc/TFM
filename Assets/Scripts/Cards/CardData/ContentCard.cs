@@ -3,7 +3,7 @@ using CardHouse;
 using TMPro;
 using NaughtyAttributes;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+
 using CustomInspector;
 using Button = NaughtyAttributes.ButtonAttribute;
 

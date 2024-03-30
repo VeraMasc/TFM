@@ -38,6 +38,7 @@ namespace CustomInspector.Editor
 
                 using (new NewIndentLevel(0))
                 {
+                    EditorGUI.BeginChangeCheck();
                     if (info.errorMessage == null)
                     {
                         using (new LabelWidthScope(rect.width * labelFieldProportion))
@@ -49,6 +50,8 @@ namespace CustomInspector.Editor
                     {
                         DrawProperties.DrawPropertyWithMessage(rect, label, property, info.errorMessage, info.errorType);
                     }
+                    if (EditorGUI.EndChangeCheck())
+                        property.serializedObject.ApplyModifiedProperties();
                 }
             }
             catch (Exception e)

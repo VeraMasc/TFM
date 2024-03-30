@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace CustomInspector.Editor
 {
-    
+
     [CustomPropertyDrawer(typeof(ToolbarAttribute))]
     public class ToolbarAttributeDrawer : PropertyDrawer
     {
@@ -28,9 +28,10 @@ namespace CustomInspector.Editor
 
                 EditorGUI.BeginChangeCheck();
                 int res = GUI.Toolbar(rect, property.enumValueIndex, names);
-                if(EditorGUI.EndChangeCheck())
+                if (EditorGUI.EndChangeCheck())
                 {
                     property.enumValueIndex = res;
+                    property.serializedObject.ApplyModifiedProperties();
                 }
             }
             else

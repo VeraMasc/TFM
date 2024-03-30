@@ -67,7 +67,10 @@ namespace CustomInspector.Editor
             EditorGUI.BeginChangeCheck();
             float res = EditorGUI.Slider(sliderRect, valueProperty.floatValue, min.floatValue, max.floatValue);
             if (EditorGUI.EndChangeCheck())
+            {
                 valueProperty.floatValue = res;
+                valueProperty.serializedObject.ApplyModifiedProperties();
+            }
 
 
 
@@ -82,7 +85,10 @@ namespace CustomInspector.Editor
                         EditorGUI.BeginChangeCheck();
                         res = Math.Min(max.floatValue, EditorGUI.FloatField(position, new GUIContent("Custom Min", "Change the min value of the slider above"), min.floatValue));
                         if (EditorGUI.EndChangeCheck())
+                        {
                             min.floatValue = res;
+                            min.serializedObject.ApplyModifiedProperties();
+                        }
                     }
 
                     if (fixedSide != FixedSide.FixedMax)
@@ -91,7 +97,10 @@ namespace CustomInspector.Editor
                         EditorGUI.BeginChangeCheck();
                         res = Math.Max(min.floatValue, EditorGUI.FloatField(position, new GUIContent("Custom Max", "Change the max value of the slider above"), max.floatValue));
                         if (EditorGUI.EndChangeCheck())
+                        {
                             max.floatValue = res;
+                            max.serializedObject.ApplyModifiedProperties();
+                        }
                     }
                 }
             }

@@ -65,7 +65,10 @@ namespace CustomInspector.Editor
                 position.y += titleRect.height + EditorGUIUtility.standardVerticalSpacing;
                 position.height -= titleRect.height + EditorGUIUtility.standardVerticalSpacing;
             }
+            EditorGUI.BeginChangeCheck();
             DrawProperties.PropertyField(position, label, property);
+            if (EditorGUI.EndChangeCheck())
+                property.serializedObject.ApplyModifiedProperties();
         }
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {

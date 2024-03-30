@@ -24,12 +24,15 @@ namespace CustomInspector.Editor
 
             UnwrapAttribute u = (UnwrapAttribute)attribute;
             string prefix = (u.applyName && label?.text != null) ? $"{label.text}: " : "";
+            EditorGUI.BeginChangeCheck();
             foreach (var prop in props)
             {
                 position.height = DrawProperties.GetPropertyHeight(prop);
                 DrawProperties.PropertyField(position, property: prop, label: new GUIContent(prefix + prop.name, prop.tooltip));
                 position.y += position.height + EditorGUIUtility.standardVerticalSpacing;
             }
+            if (EditorGUI.EndChangeCheck())
+                property.serializedObject.ApplyModifiedProperties();
         }
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {

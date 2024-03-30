@@ -118,7 +118,10 @@ namespace CustomInspector.Editor
             if (isVisible)
             {
                 position.height = thisBlankPropertyHeight;
+                EditorGUI.BeginChangeCheck();
                 DrawProperties.PropertyField(position, label, property);
+                if (EditorGUI.EndChangeCheck())
+                    property.serializedObject.ApplyModifiedProperties();
             }
         }
 

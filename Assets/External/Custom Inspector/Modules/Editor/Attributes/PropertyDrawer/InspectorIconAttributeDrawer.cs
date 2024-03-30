@@ -39,7 +39,10 @@ namespace CustomInspector.Editor
 
                     EditorGUI.LabelField(iconRect, c);
 
+                    EditorGUI.BeginChangeCheck();
                     DrawProperties.PropertyField(position, label, property);
+                    if (EditorGUI.EndChangeCheck())
+                        property.serializedObject.ApplyModifiedProperties();
                 }
             }
         }

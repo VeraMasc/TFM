@@ -352,14 +352,14 @@ MonoBehaviour:
     public abstract int GetHeight();\r\n                public abstract int GetHairColor();\r\n           
     }\r\n        }\r\n\r\n        [SerializeField] RichTextAttributeExamples richTextAttributeExamples
     = new RichTextAttributeExamples();\r\n\r\n        [System.Serializable]\r\n       
-    class RichTextAttributeExamples\r\n        {\r\n            [RichText] public
-    string myRichText = \"We are <color=green><b>not</b></color> sad.\";\r\n\r\n           
-    [HorizontalLine]\r\n\r\n            //setting the 'allowMultipleLines'-parameter\r\n           
-    [RichText(true)]\r\n            [LabelSettings(LabelStyle.NoLabel)]\r\n           
-    public string myRichtText = \"We are <color=green>green</color> with envy.\\n\\nHello
-    <i>World</i>\";\r\n\r\n            [HorizontalLine]\r\n\r\n            public
-    string noRichText = \"We are <color=green><b>not</b></color> sad.\";\r\n       
-    }\r\n\r\n        [SerializeField] SceneAttributeExamples sceneAttributeExamples
+    class RichTextAttributeExamples\r\n        {\r\n            [RichText, Multiline(2)]
+    public string myRichText = \"Hello,\\nWe are <color=green><b>not</b></color>
+    sad.\";\r\n\r\n            [HorizontalLine]\r\n\r\n            //setting the
+    'allowMultipleLines'-parameter\r\n            [RichText, TextArea(1, 5)]\r\n           
+    [LabelSettings(LabelStyle.NoLabel)]\r\n            public string myRichtText
+    = \"We are <color=green>green</color> with envy.\\n\\nHello <i>World</i>\";\r\n\r\n           
+    [HorizontalLine]\r\n\r\n            public string noRichText = \"We are <color=green><b>not</b></color>
+    sad.\";\r\n        }\r\n\r\n        [SerializeField] SceneAttributeExamples sceneAttributeExamples
     = new SceneAttributeExamples();\r\n\r\n        [System.Serializable]\r\n       
     class SceneAttributeExamples\r\n        {\r\n            [Scene] public int gameScene;\r\n\r\n           
     [Scene(useFullPath: true)] public string startScene;\r\n\r\n            [HorizontalLine(\"Their
@@ -654,8 +654,22 @@ MonoBehaviour:
     name == c.name && id == c.id;\r\n                    }\r\n                   
     return false;\r\n                }\r\n                public override int GetHashCode()\r\n               
     {\r\n                    return id;\r\n                }\r\n            }\r\n       
-    }\r\n\r\n        [SerializeField] SerializableSortedDictionaryExamples serializableSortedDictionaryExamples
-    = new SerializableSortedDictionaryExamples();\r\n\r\n        [System.Serializable]\r\n       
+    }\r\n\r\n        [SerializeField] SerializableInterfaceExamples serializableInterfaceExamples
+    = new SerializableInterfaceExamples();\r\n\r\n        [System.Serializable]\r\n       
+    class SerializableInterfaceExamples\r\n        {\r\n            [MessageBox(\"A
+    reference that is stored casted to the given interface\", MessageBoxType.Info)]\r\n\r\n           
+    [Interface]\r\n            public SerializableInterface<IAbc> withMyInterface1;\r\n\r\n           
+    [HorizontalLine]\r\n\r\n            [Interface] public SerializableInterface<IAbc>
+    withMyInterface2;\r\n\r\n            [HorizontalLine]\r\n\r\n            [MessageBox(\"The
+    alternative is to store it as a monoBehaviour with a [RequireType] constraint,
+    but it won't be casted then\", MessageBoxType.Info)]\r\n            [RequireType(typeof(IAbc))]\r\n           
+    public MonoBehaviour monoBehaviour;\r\n\r\n\r\n            public void Start()\r\n           
+    {\r\n                withMyInterface1.Value?.Increment();\r\n\r\n               
+    IAbc value2 = withMyInterface2.Value;\r\n                value2?.Increment();\r\n           
+    }\r\n            public interface IAbc\r\n            {\r\n                public
+    void Increment();\r\n            }\r\n        }\r\n\r\n        [SerializeField]
+    SerializableSortedDictionaryExamples serializableSortedDictionaryExamples = new
+    SerializableSortedDictionaryExamples();\r\n\r\n        [System.Serializable]\r\n       
     class SerializableSortedDictionaryExamples\r\n        {\r\n            [Dictionary]
     //dont forget the attribute!\r\n            public SerializableSortedDictionary<int,
     string> dict1\r\n                = new SerializableSortedDictionary<int, string>();\r\n\r\n           
@@ -775,7 +789,7 @@ MonoBehaviour:
       info: 0
       values:
         _: 0
-        values: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e000000
+        values: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000
       editor_input: 0
     values:
       _: 0
@@ -845,99 +859,101 @@ MonoBehaviour:
       - start: 27656
         end: 28212
       - start: 28424
-        end: 28924
-      - start: 29124
-        end: 29568
-      - start: 29845
-        end: 30309
-      - start: 30878
-        end: 31325
-      - start: 31529
-        end: 33923
-      - start: 34135
-        end: 34351
-      - start: 34575
-        end: 34790
-      - start: 35006
-        end: 36155
-      - start: 36375
-        end: 36750
-      - start: 36978
-        end: 37354
-      - start: 37558
-        end: 37777
-      - start: 37973
-        end: 38868
-      - start: 39060
-        end: 39148
-      - start: 39348
-        end: 40207
-      - start: 40415
-        end: 40881
-      - start: 41101
-        end: 41368
-      - start: 41572
-        end: 41793
-      - start: 41989
-        end: 42154
-      - start: 42358
-        end: 42891
-      - start: 43083
-        end: 43416
-      - start: 43628
-        end: 44035
-      - start: 44366
-        end: 44573
-      - start: 44769
-        end: 45728
-      - start: 45904
-        end: 46448
-      - start: 46632
-        end: 47466
-      - start: 47646
-        end: 48177
-      - start: 48373
-        end: 49285
-      - start: 49481
-        end: 50062
-      - start: 50290
-        end: 50789
-      - start: 51013
-        end: 51498
-      - start: 51730
-        end: 53329
-      - start: 53585
-        end: 54115
-      - start: 54319
-        end: 55656
-      - start: 55884
-        end: 56318
-      - start: 57077
-        end: 57256
-      - start: 56516
-        end: 56865
-      - start: 57623
-        end: 58037
-      - start: 58243
-        end: 58490
-      - start: 58730
-        end: 59171
-      - start: 59363
-        end: 59541
-      - start: 59757
-        end: 59841
-      - start: 60077
-        end: 60234
-      - start: 60466
-        end: 60791
-      - start: 60991
-        end: 61084
-      - start: 61284
-        end: 61437
+        end: 28956
+      - start: 29156
+        end: 29600
+      - start: 29877
+        end: 30341
+      - start: 30910
+        end: 31357
+      - start: 31561
+        end: 33955
+      - start: 34167
+        end: 34383
+      - start: 34607
+        end: 34822
+      - start: 35038
+        end: 36187
+      - start: 36407
+        end: 36782
+      - start: 37010
+        end: 37386
+      - start: 37590
+        end: 37809
+      - start: 38005
+        end: 38900
+      - start: 39092
+        end: 39180
+      - start: 39380
+        end: 40239
+      - start: 40447
+        end: 40913
+      - start: 41133
+        end: 41400
+      - start: 41604
+        end: 41825
+      - start: 42021
+        end: 42186
+      - start: 42390
+        end: 42923
+      - start: 43115
+        end: 43448
+      - start: 43660
+        end: 44067
+      - start: 44398
+        end: 44605
+      - start: 44801
+        end: 45760
+      - start: 45936
+        end: 46480
+      - start: 46664
+        end: 47498
+      - start: 47678
+        end: 48209
+      - start: 48405
+        end: 49317
+      - start: 49513
+        end: 50094
+      - start: 50322
+        end: 50821
+      - start: 51045
+        end: 51530
+      - start: 51762
+        end: 53361
+      - start: 53589
+        end: 54508
+      - start: 54764
+        end: 55294
+      - start: 55498
+        end: 56835
+      - start: 57063
+        end: 57497
+      - start: 58256
+        end: 58435
+      - start: 57695
+        end: 58044
+      - start: 58802
+        end: 59216
+      - start: 59422
+        end: 59669
+      - start: 59909
+        end: 60350
+      - start: 60542
+        end: 60720
+      - start: 60936
+        end: 61020
+      - start: 61256
+        end: 61413
       - start: 61645
-        end: 62049
-      - start: 62261
-        end: 62447
+        end: 61970
+      - start: 62170
+        end: 62263
+      - start: 62463
+        end: 62616
+      - start: 62824
+        end: 63228
+      - start: 63440
+        end: 63626
     editor_keyInput: 0
     editor_valueInput:
       start: 0
@@ -1140,7 +1156,7 @@ MonoBehaviour:
 
 
         Hello
-        <i>World</i>'
+        World'
       noRichText: We are <color=green><b>not</b></color> sad.
     sceneAttributeExamples:
       gameScene: 0
@@ -1426,6 +1442,12 @@ MonoBehaviour:
           values: []
         editor_keyInput: 0
         editor_valueInput: {fileID: 0}
+    serializableInterfaceExamples:
+      withMyInterface1:
+        serializedReference: {fileID: 0}
+      withMyInterface2:
+        serializedReference: {fileID: 0}
+      monoBehaviour: {fileID: 0}
     serializableSortedDictionaryExamples:
       dict1:
         info: 0

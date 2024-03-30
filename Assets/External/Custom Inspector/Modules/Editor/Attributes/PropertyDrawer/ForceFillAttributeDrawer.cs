@@ -28,11 +28,16 @@ namespace CustomInspector.Editor
             //If we should even test
             if (ffa.onlyTestInPlayMode && !Application.isPlaying)
             {
+                EditorGUI.BeginChangeCheck();
                 DrawProperties.PropertyField(position, label, property);
+                if (EditorGUI.EndChangeCheck())
+                    property.serializedObject.ApplyModifiedProperties();
                 return;
             }
 
             //if filled
+            EditorGUI.BeginChangeCheck();
+
             object value = property.GetValue();
             if (info.invalids.Contains(value))
             {
@@ -52,13 +57,14 @@ namespace CustomInspector.Editor
                         return "empty";
                     return res;
                 }
-                return;
             }
             else
             {
                 DrawProperties.PropertyField(position, label, property);
-                return;
             }
+
+            if (EditorGUI.EndChangeCheck())
+                property.serializedObject.ApplyModifiedProperties();
         }
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {

@@ -29,7 +29,10 @@ namespace CustomInspector.Editor
                     }
 
                     //Draw Property
+                    EditorGUI.BeginChangeCheck();
                     DrawProperties.PropertyField(position, label, property, includeChildren: true);
+                    if (EditorGUI.EndChangeCheck())
+                        property.serializedObject.ApplyModifiedProperties();
                 }
                 else
                 {

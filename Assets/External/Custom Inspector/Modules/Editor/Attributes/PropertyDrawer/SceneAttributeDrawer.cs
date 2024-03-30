@@ -31,7 +31,10 @@ namespace CustomInspector.Editor
                 EditorGUI.BeginChangeCheck();
                 index = EditorGUI.Popup(position, label, index, guiContents);
                 if (EditorGUI.EndChangeCheck())
+                {
                     property.stringValue = sceneNames[index];
+                    property.serializedObject.ApplyModifiedProperties();
+                }
             }
             else
             {

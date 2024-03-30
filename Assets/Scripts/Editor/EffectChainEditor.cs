@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 using MackySoft.SerializeReferenceExtensions.Editor;
-using Unity.VisualScripting;
+
 using GameFlow;
 
 [CustomPropertyDrawer(typeof(EffectChain))]

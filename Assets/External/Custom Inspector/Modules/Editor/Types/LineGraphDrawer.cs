@@ -195,6 +195,7 @@ namespace CustomInspector.Editor
                 {
                     EditorGUI.HelpBox(position, "No points added to the graph!", MessageType.Error);
                     pointsProperty.InsertArrayElementAtIndex(0);
+                    pointsProperty.serializedObject.ApplyModifiedProperties();
                 }
 
 
@@ -217,6 +218,7 @@ namespace CustomInspector.Editor
                     {
                         pointsProperty.GetArrayElementAtIndex(i).vector2Value = sortedPoints[i];
                     }
+                    pointsProperty.serializedObject.ApplyModifiedProperties();
                 }
             }
         }

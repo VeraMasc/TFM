@@ -12,7 +12,10 @@ namespace CustomInspector.Editor
         {
             var list = property.FindPropertyRelative("values");
             Debug.Assert(list != null, "List not found in ListContainer");
+            EditorGUI.BeginChangeCheck();
             DrawProperties.PropertyField(position, label, list);
+            if (EditorGUI.EndChangeCheck())
+                list.serializedObject.ApplyModifiedProperties();
         }
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {

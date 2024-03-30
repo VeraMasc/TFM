@@ -66,6 +66,8 @@ namespace CustomInspector.Editor
                         res = Math.Max(res, 1);
                         rowAmount.intValue = res;
                         rows.arraySize = res;
+
+                        rows.serializedObject.ApplyModifiedProperties();
                     }
 
                     rowColumDefine.x += rowColumDefine.width + spacing;
@@ -79,6 +81,8 @@ namespace CustomInspector.Editor
                         {
                             rows.GetArrayElementAtIndex(i).FindPropertyRelative("elements").arraySize = res;
                         }
+
+                        columnAmount.serializedObject.ApplyModifiedProperties();
                     }
                 }
 
@@ -100,6 +104,8 @@ namespace CustomInspector.Editor
                 if (rows.arraySize != rowAmountValue)
                     rows.arraySize = rowAmountValue;
 
+                // draw elements
+                EditorGUI.BeginChangeCheck();
                 for (int rowIndex = 0; rowIndex < rowAmountValue; rowIndex++)
                 {
                     SerializedProperty row = rows.GetArrayElementAtIndex(rowIndex)
@@ -117,9 +123,11 @@ namespace CustomInspector.Editor
 
                     rect.y += rowHeight + EditorGUIUtility.standardVerticalSpacing;
                 }
+                if (EditorGUI.EndChangeCheck())
+                {
+                    property.serializedObject.ApplyModifiedProperties();
+                }
             }
-
-            property.serializedObject.ApplyModifiedProperties();
         }
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {

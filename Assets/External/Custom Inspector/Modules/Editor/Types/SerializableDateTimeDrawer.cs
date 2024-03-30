@@ -13,6 +13,8 @@ namespace CustomInspector.Editor
         {
             SerializableDateTimeAttribute attr = (SerializableDateTimeAttribute)attribute;
 
+            EditorGUI.BeginChangeCheck();
+
             //draw default
             if (attr.format == SerializableDateTime.InspectorFormat.Default
                 || attr.format == SerializableDateTime.InspectorFormat.AddTextInput)
@@ -91,8 +93,10 @@ namespace CustomInspector.Editor
                     dayProp.intValue = EditorGUI.Popup(enumRect, dayProp.intValue, Enumerable.Range(1, daysPossible + 1)
                                                   .Select(x => new GUIContent(x.ToString())).ToArray());
                 }
-                property.serializedObject.ApplyModifiedProperties();
             }
+
+            if (EditorGUI.EndChangeCheck())
+                property.serializedObject.ApplyModifiedProperties();
         }
         readonly struct MyDateTime
         {

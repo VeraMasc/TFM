@@ -32,7 +32,10 @@ namespace CustomInspector.Editor
                 }
                 else
                 {
+                    EditorGUI.BeginChangeCheck();
                     info.gui(position, label, property);
+                    if (EditorGUI.EndChangeCheck())
+                        property.serializedObject.ApplyModifiedProperties();
                     return;
                 }
             }

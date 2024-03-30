@@ -125,6 +125,11 @@ namespace CustomInspector.Editor
                     DrawProperties.DrawPropertyWithMessage(position, label, property, $"Delayed2 (used on {propertyType}) is only available on numbers and strings", MessageType.Error);
                 }
             }
+
+            if (Event.current.isKey && (Event.current.keyCode == KeyCode.Return || Event.current.keyCode == KeyCode.KeypadEnter))
+            {
+                property.serializedObject.ApplyModifiedProperties();
+            }
         }
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {

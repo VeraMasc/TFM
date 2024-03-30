@@ -323,11 +323,15 @@ namespace CustomInspector.Extensions
                 }
                 else if (fieldType.IsGenericType)
                 {
-                    if (fieldType.GetGenericTypeDefinition() == typeof(List<>)
-                        || fieldType.GetCustomAttribute<SerializableAttribute>() != null)
+                    if (fieldType.GetGenericTypeDefinition() == typeof(List<>))
                     {
                         var args = fieldType.GetGenericArguments();
-                        if (args.All(t => IsSerializable(t)))
+                        if (IsSerializable(args[0]))
+                            yield return field;
+                    }
+                    else
+                    {
+                        if (fieldType.GetCustomAttribute<SerializableAttribute>() != null)
                             yield return field;
                     }
                 }

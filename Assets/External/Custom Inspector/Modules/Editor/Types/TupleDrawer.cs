@@ -29,10 +29,13 @@ namespace CustomInspector.Editor
                 position = EditorGUI.IndentedRect(position);
                 using (new NewIndentLevel(0))
                 {
+                    EditorGUI.BeginChangeCheck();
                     foreach (SerializedProperty prop in property.GetAllVisibleProperties(false))
                     {
                         DrawProperties.PropertyFieldWithoutLabel(position, prop);
                     }
+                    if (EditorGUI.EndChangeCheck())
+                        property.serializedObject.ApplyModifiedProperties();
                 }
             }
         }

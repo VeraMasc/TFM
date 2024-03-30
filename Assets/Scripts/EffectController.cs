@@ -5,7 +5,7 @@ using UnityEngine;
 using System.Linq;
 using System;
 
-using Unity.VisualScripting;
+
 using CustomInspector;
 
 /// <summary>
@@ -14,8 +14,6 @@ using CustomInspector;
 [RequireComponent(typeof(Card))]
 public class EffectController : MonoBehaviour
 {
-    [SelfFill]
-    public ScriptMachine scriptMachine;
 
     /// <summary>
     /// Prepara el cast del efecto, pide targets, etc
@@ -30,7 +28,7 @@ public class EffectController : MonoBehaviour
     /// </summary>
     [NaughtyAttributes.Button]
     public void resolveEffect(){
-        CustomEvent.Trigger(gameObject,"OnEffectResolve");
+        
         
     }
     
