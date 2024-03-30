@@ -17,18 +17,29 @@ public class DotTrail : TrailObject<DotTrail>
     /// </summary>
     public DotTrail Execute(IEnumerator enumerator, MonoBehaviour obj=null){
         obj ??= monoTrail;
-        obj.StartCoroutine(enumerator);
-        Wait(()=>enumerator.Current==null);
+        var routine = obj.StartCoroutine(enumerator);
         
-        return this;
+        return Await(routine);
     }
 
     
     public DotTrail Await(Coroutine coroutine){
-        var enumerator = wrapperRoutine(coroutine);
+        bool endVal = false;
+        var enumerator = wrapperRoutine(coroutine, ()=>endVal=true);
         monoTrail.StartCoroutine(enumerator);
-        Wait(()=>enumerator.Current==null);
-        return this;
+        
+        return Wait(()=>{
+            Debug.Log(enumerator.Current);
+            return endVal;
+        });
+    }
+
+    /// <summary>
+    /// Espera a una corrutina
+    /// </summary>
+    private IEnumerator wrapperRoutine(Coroutine coroutine, Action end){
+        yield return coroutine;
+        end.Invoke();
     }
 
     /// <summary>
@@ -55,10 +66,5 @@ public class DotTrail : TrailObject<DotTrail>
         //return this;
     }
 
-    /// <summary>
-    /// Espera a una corrutina
-    /// </summary>
-    private IEnumerator wrapperRoutine(Coroutine coroutine){
-        yield return coroutine;
-    }
+    
 }

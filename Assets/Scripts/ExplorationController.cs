@@ -147,19 +147,10 @@ public class ExplorationController : MonoBehaviour
         var hiddenContent = room.attachedGroup.MountedCards
             .Where((Card c) => c.Facing != CardFacing.FaceUp);
         var trail = DotTrail.Trail
-        .ForEach(hiddenContent,(Card c)=>{Debug.Log(c);revealContent(c);}, 0.5)
-        .Execute(testTrailCoroutine())
-        .Wait().Print("Ended Trail");
+        .ForEach(hiddenContent,(Card c)=>{Debug.Log(c);revealContent(c);}, 0.5);
     }
 
-    //TODO: Eliminar
-    private IEnumerator testTrailCoroutine(){
-        Debug.Log("Enter routine");
-        yield return new WaitForSeconds(1f);
-        Debug.Log("Waited routine");
-        yield return new WaitForSeconds(1f);
-        Debug.Log("Ended routine");
-    }
+    
 
     /// <summary>
     /// Añade contenido a la habitación escogida
