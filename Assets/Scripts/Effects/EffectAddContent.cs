@@ -14,7 +14,7 @@ namespace Effect{
         /// Quién roba las cartas
         /// </summary>
         [SerializeReference, SubclassSelector]
-        EffectTargeter target;
+        EffectTargeter target; 
         public int amount = 2;
 
         public override IEnumerator execute(Card self)

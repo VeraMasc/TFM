@@ -123,9 +123,10 @@ public class ExplorationController : MonoBehaviour
         yield return transfer.currentAction;
 
         //Flip cards up
+        //TODO: add waiting for cards
         foreach(var room in roomOptions.MountedCards){
             var firstContent = room.attachedGroup.Get(0);
-            firstContent.SetFacing(CardFacing.FaceUp);
+            revealContent(firstContent);
         }
     }
 
@@ -143,8 +144,8 @@ public class ExplorationController : MonoBehaviour
         yield return new WaitForSeconds(1);
         var room = currentRoom.MountedCards.First();
 
-        room.attachedGroup.MountedCards
-            .ForEach(card => card.SetFacing(CardFacing.FaceUp));
+        DotTrail.Trail
+        .ForEach(currentRoom.MountedCards,(Card c)=>revealContent(c));
     }
 
     /// <summary>
@@ -156,5 +157,12 @@ public class ExplorationController : MonoBehaviour
         transfer.Transition.Destination = room.attachedGroup;
         transfer.NumberToTransfer = amount;
         transfer.Activate();
+    }
+
+    /// <summary>
+    /// Revela el contenido
+    /// </summary>
+    public void revealContent(Card contentCard){
+        contentCard.SetFacing(CardFacing.FaceUp);
     }
 }

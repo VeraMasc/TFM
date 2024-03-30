@@ -22,6 +22,8 @@ public class ContentCard : CardSetup, ITypedCard
     public string cardName {get;set;}
     public HashSet<string> cardType {get;set;}
 
+    public ContentCardEffects effects; 
+
     /// <summary>
     /// Aplica la configuración de la carta
     /// </summary>
