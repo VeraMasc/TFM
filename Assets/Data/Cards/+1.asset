@@ -14,26 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardText: +1
-  Art: {fileID: 21300000, guid: 47fea8a106439d7458857757142de3b9, type: 3}
+  Art: {fileID: 21300000, guid: 3aa2275fa01afa24a99caf9667f892c7, type: 3}
   effects:
-    baseEffect:
-      list:
-      - rid: 418998163546832896
-    staticEffects:
+    revealEffect:
       list: []
-    activatedAbilities:
+    staticEffects:
       list: []
   references:
     version: 2
-    RefIds:
-    - rid: 418998163546832896
-      type: {class: AddContent, ns: Effect, asm: Assembly-CSharp}
-      data:
-        target:
-          rid: 418998163546832897
-        amount: 1
-    - rid: 418998163546832897
-      type: {class: ContextualObjectTargeter, ns: , asm: Assembly-CSharp}
-      data:
-        _target: {fileID: 0}
-        contextual: 1
+    RefIds: []

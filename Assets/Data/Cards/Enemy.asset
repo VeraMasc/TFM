@@ -14,23 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardText: Enemy
-  Art: {fileID: 0}
-  graphAsset: {fileID: 11400000, guid: e1b2657681aa1d6458446af5c52d45b7, type: 2}
-  sDrawer:
-    b: 0
+  Art: {fileID: 21300000, guid: b2d7d109b20ac1a40837e6d0af7085cb, type: 3}
   effects:
-    baseEffect:
-      effect: a
-      next:
-        rid: 418998136251351053
+    revealEffect:
+      list: []
+    staticEffects:
+      list: []
   references:
     version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
-    - rid: 418998136251351053
-      type: {class: EffectChain, ns: , asm: Assembly-CSharp}
-      data:
-        effect: 
-        next:
-          rid: -2
+    RefIds: []

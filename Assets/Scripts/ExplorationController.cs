@@ -143,9 +143,10 @@ public class ExplorationController : MonoBehaviour
         clearUnchosenOptions();
         yield return new WaitForSeconds(1);
         var room = currentRoom.MountedCards.First();
-
+        var hiddenContent = room.attachedGroup.MountedCards
+            .Where((Card c) => c.Facing != CardFacing.FaceUp);
         DotTrail.Trail
-        .ForEach(currentRoom.MountedCards,(Card c)=>revealContent(c));
+        .ForEach(hiddenContent,(Card c)=>{Debug.Log(c);revealContent(c);}, 0.5);
     }
 
     /// <summary>

@@ -42,16 +42,17 @@ public class DotTrail : TrailObject<DotTrail>
     public DotTrail ForEach<T>(IEnumerable<T> enumerable, Action<T> action, double delay=0){
         T[] entries=new T[0];
         int i=0;
-        After(()=>{
+        return After(()=>{
             entries = enumerable.ToArray();
         }).While(() => {
             if(i >= entries.Length) //Break loop
                 return false;
             //Execute action
             action.Invoke(entries[i]);
+            i++;
             return true;
-        },delay);
-        return this;
+        },delay).Wait();
+        //return this;
     }
 
     /// <summary>
