@@ -25,12 +25,14 @@ public class RoomCard : CardSetup, ITypedCard
 
     public TextMeshPro cardTextUI;
     
+    [SerializeField]
+    private string _cardName;
+    public string cardName { get => _cardName; set => _cardName = value; }
     public string cardText;
     public int size;
 
     public int exits;
 
-    public string cardName {get;set;}
     public HashSet<string> cardType {get;set;}
 
     /// <summary>
@@ -49,6 +51,7 @@ public class RoomCard : CardSetup, ITypedCard
 
         if (data is RoomCardDefinition roomCard)
         {
+            gameObject.name = roomCard.cardName;
             Image.sprite = roomCard.Art ?? Image.sprite;
             if (roomCard.BackArt != null)
             {

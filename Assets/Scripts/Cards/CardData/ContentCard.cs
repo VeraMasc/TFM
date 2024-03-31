@@ -3,7 +3,6 @@ using CardHouse;
 using TMPro;
 using NaughtyAttributes;
 using System.Collections.Generic;
-
 using CustomInspector;
 using Button = NaughtyAttributes.ButtonAttribute;
 
@@ -18,11 +17,15 @@ public class ContentCard : CardSetup, ITypedCard
 
     public TextMeshPro cardTextUI;
     
+    [SerializeField]
+    private string _cardName;
+    public string cardName { get => _cardName; set => _cardName = value; }
     public string cardText;
-    public string cardName {get;set;}
+    
     public HashSet<string> cardType {get;set;}
 
-    public ContentCardEffects effects; 
+    public ContentCardEffects effects;
+    
 
     /// <summary>
     /// Aplica la configuración de la carta
@@ -40,6 +43,7 @@ public class ContentCard : CardSetup, ITypedCard
 
         if (data is ContentCardDefinition contentCard)
         {
+            gameObject.name = contentCard.cardName;
             Image.sprite = contentCard.Art ?? Image.sprite;
             if (contentCard.BackArt != null)
             {

@@ -13,6 +13,7 @@ using System.IO;
 [CreateAssetMenu(menuName = "Cards/Card Definition/Content")]
 public class ContentCardDefinition : CardDefinition
 {
+    public string cardName;
 
     [TextArea(10, 100)]
     public string cardText;
@@ -23,5 +24,8 @@ public class ContentCardDefinition : CardDefinition
     [SerializeField]
     public ContentCardEffects effects;
 
+    private void Awake() {
+        cardName = name;
+    }
 }
 
