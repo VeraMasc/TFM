@@ -4,6 +4,7 @@ using UnityEngine;
 using CardHouse;
 using System.Linq;
 using GameFlow;
+using Ra.Trail;
 
 
 
@@ -146,8 +147,17 @@ public class ExplorationController : MonoBehaviour
         var room = currentRoom.MountedCards.First();
         var hiddenContent = room.attachedGroup.MountedCards
             .Where((Card c) => c.Facing != CardFacing.FaceUp);
+
+        var tr = DotTrail.Trail;
+
+        tr.ForEach2(hiddenContent,"entry")
+        .Print(tr["entry"])
+        .Wait(1f)
+        .End();
+        
         var trail = DotTrail.Trail
-        .ForEach(hiddenContent,(Card c)=>{Debug.Log(c);revealContent(c);}, 0.5);
+        .ForEach(hiddenContent,(Card c)=>{revealContent(c);}, 0.5);
+
     }
 
     
@@ -166,7 +176,12 @@ public class ExplorationController : MonoBehaviour
     /// <summary>
     /// Revela el contenido
     /// </summary>
-    public void revealContent(Card contentCard){
-        contentCard.SetFacing(CardFacing.FaceUp);
+    public DotTrail revealContent(Card contentCard){
+        return DotTrail.Trail
+        .After(()=>contentCard.SetFacing(CardFacing.FaceUp))
+        .Wait(() => contentCard.FaceTurning.seeking);
+        
+        
+        
     }
 }

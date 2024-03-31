@@ -5,6 +5,7 @@ using System.Linq;
 
 using Ra.Trail;
 using System;
+using Ra.Trail.Works;
 
 /// <summary>
 /// Para la ejecución en paralelo
@@ -51,6 +52,7 @@ public class DotTrail : TrailObject<DotTrail>
     /// <param name="delay"></param>
     /// <returns></returns>
     public DotTrail ForEach<T>(IEnumerable<T> enumerable, Action<T> action, double delay=0){
+        //TODO: Rework to use nesting (.End)
         T[] entries=new T[0];
         int i=0;
         return After(()=>{
@@ -66,5 +68,39 @@ public class DotTrail : TrailObject<DotTrail>
         //return this;
     }
 
+    public DotTrail ForEach2<T>(IEnumerable<T> enumerable, string varName){
+        Direct(new WorkOptions
+        {
+            action = data =>
+            {
+                monoTrail.StartCoroutine( ForEachEnumerator(enumerable, data, v=>{
+                    this[varName].Get.value = v;
+                } ));                
+                
+                return null;
+            },
+            openBracket = true
+        });
+        return this;
+    }
     
+    /// <summary>
+    /// Based in ForEnumerator
+    /// </summary>
+    /// <param name="times"></param>
+    /// <param name="delay"></param>
+    /// <param name="element"></param>
+    /// <returns></returns>
+    private IEnumerator ForEachEnumerator<T>(IEnumerable<T> enumerable, SequenceElement element, Action<T> setValue)
+        {
+            foreach (var entry in enumerable)
+            {
+                setValue(entry);
+                monoTrail.Run(element.children, null,true);
+                // yield return new WaitForSeconds((float) delay());
+            }
+
+            element.isCompleted = true;
+            yield return null;
+        }
 }
