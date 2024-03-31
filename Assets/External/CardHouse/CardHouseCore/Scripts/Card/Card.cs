@@ -150,6 +150,7 @@ namespace CardHouse
             }
         }
 
+
         void HandleCardFocused(Card card)
         {
             if (IsFocused && card != this)

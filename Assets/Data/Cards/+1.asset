@@ -17,9 +17,21 @@ MonoBehaviour:
   Art: {fileID: 21300000, guid: 3aa2275fa01afa24a99caf9667f892c7, type: 3}
   effects:
     revealEffect:
-      list: []
+      list:
+      - rid: 418998211267002368
     staticEffects:
       list: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 418998211267002368
+      type: {class: AddContent, ns: Effect, asm: Assembly-CSharp}
+      data:
+        target:
+          rid: 418998211267002369
+        amount: 1
+    - rid: 418998211267002369
+      type: {class: ContextualObjectTargeter, ns: , asm: Assembly-CSharp}
+      data:
+        _target: {fileID: 0}
+        contextual: 1
