@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CardHouse;
 using UnityEngine;
 
 
@@ -40,15 +41,28 @@ public class UI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Activa el evento "onRightClick" en la posición actual del mouse
+    /// </summary>
     void rightClickRaycast(){
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
         
         RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
         if (hit.collider != null) {
-            Debug.Log(hit.collider.gameObject.name);
-            
+            hit.collider.SendMessage("onRightClick",SendMessageOptions.DontRequireReceiver);
+
+            if(hit.collider.GetComponent<Card>() == null){
+                closeCardDetails();
+            }
         }
+        else{closeCardDetails();}
     }
 
+    /// <summary>
+    /// Cierra el popup de detalles de la carta cuando ya no se necesita
+    /// </summary>
+    public void closeCardDetails(){
+        cardDetails.enabled=false;
+    }
 }

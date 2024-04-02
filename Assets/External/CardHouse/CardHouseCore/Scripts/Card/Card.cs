@@ -150,6 +150,9 @@ namespace CardHouse
             }
         }
 
+        public void onRightClick(){
+            Debug.Log($"Right click on {gameObject.name}");
+        }
 
         void HandleCardFocused(Card card)
         {
