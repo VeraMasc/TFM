@@ -5,7 +5,8 @@ using CardHouse;
 using System.Linq;
 using GameFlow;
 using Ra.Trail;
-
+using CustomInspector;
+using Common.Coroutines;
 
 
 /// <summary>
@@ -26,9 +27,10 @@ public class ExplorationController : MonoBehaviour
     public CardGroup content;
 
     /// <summary>
-    /// Contenido de la habitación actual
+    /// Stack de resolución de efectos
     /// </summary>
-    public CardGroup currentContent;
+    
+    public CardResolveOperator effectStack;
 
     /// <summary>
     /// Pila de cartas descartadas
@@ -143,21 +145,20 @@ public class ExplorationController : MonoBehaviour
 
     private IEnumerator onRoomChosenCoroutine(){
         clearUnchosenOptions();
-        yield return new WaitForSeconds(1);
+        
         var room = currentRoom.MountedCards.First();
         var hiddenContent = room.attachedGroup.MountedCards
             .Where((Card c) => c.Facing != CardFacing.FaceUp);
 
-        var tr = DotTrail.Trail;
 
-        tr.ForEach2(hiddenContent,"entry")
-        .Print(tr["entry"])
-        .Wait(1f)
-        .End();
-        
-        var trail = DotTrail.Trail
-        .ForEach(hiddenContent,(Card c)=>{revealContent(c);}, 0.5);
+       
+        yield return new WaitForSeconds(1);
 
+        foreach(var content in hiddenContent){
+            var minTime = new WaitForSeconds(0.5f);
+            yield return UCoroutine.Yield(revealContent(content));
+            yield return minTime;//Wait extra if flip is too fast
+        }
     }
 
     
@@ -176,11 +177,17 @@ public class ExplorationController : MonoBehaviour
     /// <summary>
     /// Revela el contenido
     /// </summary>
-    public DotTrail revealContent(Card contentCard){
-        return DotTrail.Trail
-        .After(()=>contentCard.SetFacing(CardFacing.FaceUp))
-        .Wait(() => contentCard.FaceTurning.seeking);
+    public IEnumerator revealContent(Card contentCard){
         
+        contentCard.SetFacing(CardFacing.FaceUp);
+        yield return UCoroutine.YieldAwait( ()=> !contentCard.FaceTurning.seeking);
+    
+        var data = (ContentCard) contentCard.data;
+
+        if(data?.effects?.revealEffect != null){
+            yield return new WaitForSeconds(1f);
+            Debug.Log("effect finished");
+        }
         
         
     }
