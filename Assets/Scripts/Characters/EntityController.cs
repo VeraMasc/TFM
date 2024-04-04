@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using CardHouse;
+
 using UnityEngine;
 
 /// <summary>
@@ -15,6 +16,8 @@ public class EntityController : MonoBehaviour
 
     public CardGroup deck;
 
+    public EntityTeam team;
+
 
     /// <summary>
     /// Hace que el jugador robe cartas
@@ -23,4 +26,23 @@ public class EntityController : MonoBehaviour
     public void draw(int amount){
         //TODO: Card transfer
     }
+
+    void OnEnable()
+    {
+        //Add entity to list of entities
+        GameController.singleton.entities.Add(this);
+    }
+    
+    void OnDisable()
+    {
+        //Remove entity from list
+        GameController.singleton.entities.Remove(this);
+    }
+}
+
+
+public enum EntityTeam{
+    none,
+    player,
+    enemy
 }
