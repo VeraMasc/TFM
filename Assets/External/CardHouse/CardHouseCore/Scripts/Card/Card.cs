@@ -8,7 +8,7 @@ using UnityEngine.Events;
 namespace CardHouse
 {
     [RequireComponent(typeof(Homing)), RequireComponent(typeof(Turning)), RequireComponent(typeof(Scaling))]
-    public class Card : MonoBehaviour
+    public class Card : MonoBehaviour, ITargetable
     {
         [Serializable]
         public class GroupTransitionEvent

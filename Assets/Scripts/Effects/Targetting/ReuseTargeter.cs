@@ -12,8 +12,8 @@ using UnityEngine.UI;
 [Serializable]
 public class ReuseTargeter:EffectTargeter
 {
-    public override void resolveTarget(){
-        
+    public override void resolveTarget(TargettingContext context){
+        throw new  NotImplementedException();
     }
 
 }

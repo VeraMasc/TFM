@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using GameFlow;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -7,7 +10,7 @@ public class GameController : MonoBehaviour
     /// <summary>
     /// Lista de todas las entidades
     /// </summary>
-    public List<EntityController> entities;
+    public List<Entity> entities;
 
 
     private static GameController _singleton;
@@ -41,4 +44,45 @@ public class GameController : MonoBehaviour
     {
         
     }
+
+    public ITargetable[] getAllTargetablesOfType<T>(){
+        var type = typeof(T);
+        if(typeof(T) == typeof(Entity)){
+            return entities.ToArray();
+        }
+        //TODO: getAllTargetablesOfType<T>
+        throw new NotImplementedException();
+    }
+    public ITargetable[] getAllOfType(TargettingContext context){
+        //TODO: getAllTargetablesOfType
+        if(context?.self?.GetType() == typeof(Entity)){
+            return entities.ToArray();
+        }
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Obtiene todos los miembros de un equipo
+    /// </summary>
+    public IEnumerable<Entity> getMembers(EntityTeam team){
+        return entities.Where(e => e.team == team);
+    }
+
+    /// <summary>
+    /// Obtiene todos los enemigos de un equipo
+    /// </summary>
+    public IEnumerable<Entity> getEnemies(EntityTeam team){
+       
+        if(team == EntityTeam.player){
+            return entities.Where(e => e.team == EntityTeam.enemy);
+
+        }else if(team == EntityTeam.enemy){
+            return entities.Where(e => e.team == EntityTeam.player);
+
+        }else{ //El resto de teams no tienen enemigos
+            return Enumerable.Empty<Entity>();
+        }
+    }
+
+
 }

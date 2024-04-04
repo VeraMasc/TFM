@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using CardHouse;
 using CustomInspector;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,8 +13,8 @@ using UnityEngine.UI;
 [Serializable]
 public class OptionalTargeter:EffectTargeter
 {
-    public ContextualTargets contextual;
-    public override void resolveTarget(){
+    public ContextualObjTargets contextual;
+    public override void resolveTarget(TargettingContext context){
         
     }
 

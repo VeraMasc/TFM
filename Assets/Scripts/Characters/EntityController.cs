@@ -7,7 +7,7 @@ using UnityEngine;
 /// <summary>
 /// Cualquier entidad que usa cartas de acción
 /// </summary>
-public class EntityController : MonoBehaviour
+public class Entity : MonoBehaviour,ITargetable
 {
     /// <summary>
     /// Mano con cartas de la entidad

@@ -8,30 +8,47 @@ public class TargettingContext
     /// <summary>
     /// Refiere al propio objeto que produce el efecto
     /// </summary>
-    public GameObject self;
+    public ITargetable self;
 
     /// <summary>
     /// Refiere a la fuente que causa el efecto
     /// (ES NECESARIO???)
     /// </summary>
-    public GameObject source;
+    public ITargetable source;
 
     /// <summary>
     /// Entidad Dueña del efecto (controlador original de la carta)
     /// </summary>
-    public EntityController owner;
+    public Entity owner;
 
     /// <summary>
     /// Entidad que tiene el control del efecto/carta actualmente
     /// </summary>
-    public EntityController controller;
+    public Entity controller;
 
 
     /// <summary>
     /// Create context without owner or controller
     /// </summary>
     /// <param name="self">Object in question</param>
-    public TargettingContext(GameObject self){
+    public TargettingContext(ITargetable self){
         this.self = source = self; 
     }
+
+    /// <summary>
+    /// Create context with full detail
+    /// </summary>
+    public TargettingContext(ITargetable self, Entity controller, Entity owner=null, ITargetable source=null){
+        this.self =self;
+        this.source = source ?? self;
+        this.controller = controller;
+        this.owner = owner ?? controller;
+    } 
+}
+
+/// <summary>
+/// Define qué objetos pueden ser targets
+/// </summary>
+public interface ITargetable{
+
 }
