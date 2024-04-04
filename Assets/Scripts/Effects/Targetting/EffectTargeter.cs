@@ -29,6 +29,7 @@ public abstract class EffectTargeter
     public ITargetable[] getTargets(TargettingContext context){
         if(_targets == null){ //Resuelve el target si no lo ha hecho ya
             resolveTarget(context);
+            context.previousTargets.Add(_targets);
         }
         return _targets;
     }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using CustomInspector;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 
 /// <summary>
@@ -13,7 +14,7 @@ using UnityEngine.UI;
 public class ReuseTargeter:EffectTargeter
 {
     public override void resolveTarget(TargettingContext context){
-        throw new  NotImplementedException();
+        _targets = context.previousTargets?.LastOrDefault();
     }
 
 }

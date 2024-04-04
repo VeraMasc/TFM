@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -25,6 +26,12 @@ public class TargettingContext
     /// Entidad que tiene el control del efecto/carta actualmente
     /// </summary>
     public Entity controller;
+
+    /// <summary>
+    /// Targets previos del proceso de resolución
+    /// </summary>
+    public List<ITargetable[]> previousTargets;
+    
 
 
     /// <summary>

@@ -25,6 +25,11 @@ public class CardResolveOperator : Activatable
     /// Carta en proceso de resolución
     /// </summary>
     public Card currentCard;
+
+    /// <summary>
+    /// Contexto actual de la resolución
+    /// </summary>
+    public TargettingContext context;
     protected override void OnActivate(){
         resolve = true;
     }
@@ -34,6 +39,13 @@ public class CardResolveOperator : Activatable
         if(resolve){
             resolveCard();
         }
+    }
+
+    /// <summary>
+    /// Crea el contexto
+    /// </summary>
+    public void setContext(){
+        context = new TargettingContext(currentCard);
     }
 
     protected void resolveCard(){
