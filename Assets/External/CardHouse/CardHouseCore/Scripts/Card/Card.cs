@@ -20,6 +20,10 @@ namespace CardHouse
 
         [ReadOnly]
         public CardGroup Group;
+        /// <summary>
+        /// Object that holds all the card data
+        /// </summary>
+        public CardSetup data;
         public Homing Homing { get; private set; }
         public Turning Turning { get; private set; }
         public Scaling Scaling { get; private set; }
@@ -62,6 +66,7 @@ namespace CardHouse
             Turning = GetComponent<Turning>();
             Scaling = GetComponent<Scaling>();
             OnCardFocused += HandleCardFocused;
+            data = GetComponent<CardSetup>();
         }
 
         void OnDestroy()
@@ -151,7 +156,11 @@ namespace CardHouse
         }
 
         public void onRightClick(){
-            Debug.Log($"Right click on {gameObject.name}");
+            if(Facing != CardFacing.FaceUp)
+                return;
+                
+            Instantiate(FaceHoming.transform.GetChild(0),GameUI.singleton.cardDetails.transform);
+            
         }
 
         void HandleCardFocused(Card card)

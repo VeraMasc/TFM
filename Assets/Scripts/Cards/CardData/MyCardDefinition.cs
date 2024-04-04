@@ -15,7 +15,7 @@ public class MyCardDefinition : CardDefinition
 
     [ShowProperty("BackArt", order=-20),Space2(16)]
 
-    [AdvancedEditorTools.Attributes.LineSeparator]
+    [HorizontalLine]
     [SerializeReference,SubclassSelector]
     public List<CardHelp> help;
 

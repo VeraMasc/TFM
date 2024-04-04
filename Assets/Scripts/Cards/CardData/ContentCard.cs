@@ -59,5 +59,7 @@ public class ContentCard : CardSetup, ITypedCard
     public void refreshValues(){
         cardTextUI.text = cardText;
     }
+
+    
 }
 
