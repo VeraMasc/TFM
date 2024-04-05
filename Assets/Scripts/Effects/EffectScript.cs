@@ -9,7 +9,7 @@ public abstract class EffectScript
     /// <summary>
     /// Executes the effect
     /// </summary>
-    public virtual IEnumerator execute(Card self){
+    public virtual IEnumerator execute(CardResolveOperator stack, TargettingContext context){
         throw new NotImplementedException();
         
     }

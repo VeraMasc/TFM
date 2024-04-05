@@ -14,16 +14,26 @@ namespace Effect{
         /// Quién roba las cartas
         /// </summary>
         [SerializeReference, SubclassSelector]
-        EffectTargeter target; 
+        EffectTargeter targeter;
+
+        /// <summary>
+        /// Cantidad a robar
+        /// </summary>
+        //TODO: allow use of variables
         public int amount = 2;
 
-        public override IEnumerator execute(Card self)
+        public override IEnumerator execute(CardResolveOperator stack, TargettingContext context)
         {
-            var hasParent = self.Group.GetComponent<Card>() != null;
-            var op =ExplorationController.singleton.content.GetComponent<CardTransferOperator>();
-            op.Transition.Destination = self.Group;
-            op.Activate();
-            yield return op.currentAction;
+            var targets = targeter.getTargets(context);
+            foreach(var target in targets){
+                var source = ExplorationController.singleton.content;
+                var destination = target.GetComponent<CardGroup>();
+                if(destination==null){
+                    Debug.LogError("No content group to add to", (UnityEngine.Object) target.GetComponent<ITargetable>());
+                    continue;
+                }
+                yield return CardTransferOperator.sendCardsFrom(source,amount, destination, 0.1f);
+            }
         }
     }
 }

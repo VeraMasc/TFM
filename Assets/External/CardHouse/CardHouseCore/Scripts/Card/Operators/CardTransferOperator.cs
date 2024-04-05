@@ -115,5 +115,31 @@ namespace CardHouse
             //Esperar que llegue a su destino
             yield return UCoroutine.YieldAwait(()=>!card.Homing.seeking);
         }
+
+        /// <summary>
+        /// Envía múltiples cartas de un sitio a otro
+        /// </summary>
+        /// <param name="source">Grupo de origen</param>
+        /// <param name="amount">Cantidad de cartas a transferir</param>
+        /// <param name="destination">Grupo de destino</param>
+        /// <param name="delay">Tiempo de espera entre cartas. Si es negativo, se transfieren en bloque</param>
+        /// <param name="grabFrom">posición de la que sacar las cartas</param>
+        /// <param name="sendTo">posición de destino</param>
+        /// <param name="homingOverride">Sobreescribe el homing de la carta</param>
+        /// <param name="flipSpeed">Velocidad a la que se gira la carta</param>
+        /// <returns></returns>
+        public static IEnumerator sendCardsFrom(CardGroup source, int amount, CardGroup destination, float delay, GroupTargetType grabFrom = GroupTargetType.Last, GroupTargetType sendTo = GroupTargetType.Last, SeekerScriptable<Vector3> homingOverride = null, float flipSpeed = 1f){
+            //ToDO: lock groups during transfer
+            var cardsToMove = source.Get(grabFrom, amount);
+
+            foreach(var card in cardsToMove){
+                var corroutine = UCoroutine.Yield(sendCard(card,destination,sendTo,homingOverride,flipSpeed));
+
+                if (delay>=0){//Wait for transfer + delay
+                    yield return corroutine;
+                    yield return new WaitForSeconds(delay);
+                }
+            }
+        }
     }
 }

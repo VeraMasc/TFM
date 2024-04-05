@@ -57,5 +57,5 @@ public class TargettingContext
 /// Define qué objetos pueden ser targets
 /// </summary>
 public interface ITargetable{
-
+    T GetComponent<T>();
 }

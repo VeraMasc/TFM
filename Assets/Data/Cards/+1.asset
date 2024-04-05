@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: +1
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
+  cardName: +1
   cardText: +1
   Art: {fileID: 21300000, guid: 3aa2275fa01afa24a99caf9667f892c7, type: 3}
   effects:
@@ -27,11 +28,10 @@ MonoBehaviour:
     - rid: 418998211267002368
       type: {class: AddContent, ns: Effect, asm: Assembly-CSharp}
       data:
-        target:
-          rid: 418998211267002369
+        targeter:
+          rid: 3644646984308752386
         amount: 1
-    - rid: 418998211267002369
+    - rid: 3644646984308752386
       type: {class: ContextualObjectTargeter, ns: , asm: Assembly-CSharp}
       data:
-        _target: {fileID: 0}
         contextual: 1

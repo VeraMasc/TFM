@@ -74,9 +74,10 @@ public class CardResolveOperator : Activatable
         }
         //Get card
         currentCard ??= stack.MountedCards.Last();
-        //Reset resolution pile
-        sendTo = GroupName.Discard;
 
+        //Set up current card
+        sendTo = GroupName.Discard;
+        setContext();
 
         if(currentCard?.data is ContentCard content){
             yield return resolveContentCard(currentCard, content);
@@ -98,7 +99,9 @@ public class CardResolveOperator : Activatable
     /// <param name="card">Carta en cuestión</param>
     /// <param name="content">Su contenido</param>
     protected IEnumerator resolveContentCard(Card card, ContentCard content){
-        
+        foreach(var effect in content.effects.revealEffect.list){
+            effect.execute(this,context);
+        }
         yield return sendToResolutionPile(card);
     }
     
