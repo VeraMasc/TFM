@@ -130,7 +130,7 @@ public class ExplorationController : MonoBehaviour
         //TODO: add waiting for cards
         foreach(var room in roomOptions.MountedCards){
             var firstContent = room.attachedGroup.Get(0);
-            revealContent(firstContent);
+            yield return StartCoroutine(revealContent(firstContent));
         }
     }
 
@@ -154,7 +154,7 @@ public class ExplorationController : MonoBehaviour
        
         yield return new WaitForSeconds(1);
 
-        foreach(var content in hiddenContent){
+        foreach(var content in hiddenContent.ToArray()){
             var minTime = new WaitForSeconds(0.5f);
             yield return UCoroutine.Yield(revealContent(content));
             yield return minTime;//Wait extra if flip is too fast
@@ -185,8 +185,7 @@ public class ExplorationController : MonoBehaviour
         var data = (ContentCard) contentCard.data;
 
         if(data?.effects?.revealEffect != null){
-            yield return new WaitForSeconds(1f);
-            Debug.Log("effect finished");
+            yield return CardTransferOperator.sendCard(contentCard,effectStack.stack);
         }
         
         

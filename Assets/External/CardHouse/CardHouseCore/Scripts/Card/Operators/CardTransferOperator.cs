@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
+using Common.Coroutines;
 using UnityEngine;
 
 namespace CardHouse
@@ -97,7 +97,23 @@ namespace CardHouse
                 }
             }
             
-            // Debug.Log("transferencia Finalizada");
+            
+        }
+
+        /// <summary>
+        /// Corrutina que manda una carta a un grupo concreto
+        /// </summary>
+        /// <param name="card">Carta a enviar</param>
+        /// <param name="destination">Grupo de destino</param>
+        /// <param name="sendTo">posición de destino</param>
+        /// <param name="homingOverride">Sobreescribe el homing de la carta</param>
+        /// <param name="flipSpeed">Velocidad a la que se gira la carta</param>
+        public static IEnumerator sendCard(Card card, CardGroup destination, GroupTargetType sendTo = GroupTargetType.Last, SeekerScriptable<Vector3> homingOverride = null, float flipSpeed = 1f){
+            
+            destination.Mount(card, sendTo == GroupTargetType.First ? -1 : sendTo == GroupTargetType.Last ? null : UnityEngine.Random.Range(0, destination.MountedCards.Count + 1), seekerSets: new SeekerSetList { new SeekerSet { Card = card, Homing = homingOverride?.GetStrategy(), FlipSpeed = flipSpeed } });
+
+            //Esperar que llegue a su destino
+            yield return UCoroutine.YieldAwait(()=>!card.Homing.seeking);
         }
     }
 }
