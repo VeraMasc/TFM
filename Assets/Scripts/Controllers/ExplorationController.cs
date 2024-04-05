@@ -114,7 +114,6 @@ public class ExplorationController : MonoBehaviour
             if(room.attachedGroup == null){
                 room.attachedGroup =  Instantiate<CardGroup>(attachPrefab, room.transform);
             }
-            //TODO: Make static transfer operators that can be used without monobehaviours
             //Get room data
             var contentSize = roomData?.size ?? roomContentDefault;
             transfer.Transition.Destination = room.attachedGroup;
@@ -127,7 +126,6 @@ public class ExplorationController : MonoBehaviour
         yield return transfer.currentAction;
 
         //Flip cards up
-        //TODO: add waiting for cards
         foreach(var room in roomOptions.MountedCards){
             var firstContent = room.attachedGroup.Get(0);
             yield return StartCoroutine(revealContent(firstContent));
@@ -184,8 +182,9 @@ public class ExplorationController : MonoBehaviour
     
         var data = (ContentCard) contentCard.data;
 
-        if(data?.effects?.revealEffect != null){
+        if(data?.effects?.revealEffect?.isEmpty==false){
             yield return CardTransferOperator.sendCard(contentCard,effectStack.stack);
+            yield return effectStack.waitTillEmpty;
         }
         
         

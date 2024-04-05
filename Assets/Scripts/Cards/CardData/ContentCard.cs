@@ -51,6 +51,8 @@ public class ContentCard : CardSetup, ITypedCard
             }
             cardText = contentCard.cardText;
 
+            effects = contentCard.effects;
+
         }
         refreshValues();
     }

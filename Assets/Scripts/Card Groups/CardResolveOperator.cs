@@ -4,6 +4,7 @@ using UnityEngine;
 using CardHouse;
 using CustomInspector;
 using System.Linq;
+using Common.Coroutines;
 
 /// <summary>
 /// Se encarga de ejecutar en orden los efectos/cartas en el stack
@@ -32,6 +33,13 @@ public class CardResolveOperator : Activatable
     public TargettingContext context;
     protected override void OnActivate(){
         resolve = true;
+    }
+
+    /// <summary>
+    /// Espera hasta que el stack esté libre
+    /// </summary>
+    public IEnumerator waitTillEmpty{
+        get => UCoroutine.YieldAwait(()=> !resolve && stack.MountedCards.Count == 0);
     }
 
     void Update()
