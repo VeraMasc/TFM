@@ -28,6 +28,13 @@ public class CardResolveOperator : Activatable
     public Card currentCard;
 
     /// <summary>
+    /// Indica el tipo de pila a la que se envia la carta al resolverse.
+    /// Se resetea con cada carta.
+    /// </summary>
+    [ReadOnly]
+    public GroupName sendTo = GroupName.Discard;
+
+    /// <summary>
     /// Contexto actual de la resolución
     /// </summary>
     public TargettingContext context;
@@ -44,8 +51,8 @@ public class CardResolveOperator : Activatable
 
     void Update()
     {
-        if(resolve){
-            resolveCard();
+        if(resolve && currentCard == null){
+            StartCoroutine(resolveCard());
         }
     }
 
@@ -56,27 +63,54 @@ public class CardResolveOperator : Activatable
         context = new TargettingContext(currentCard);
     }
 
-    protected void resolveCard(){
+    /// <summary>
+    /// Resuelve la siguiente carta de la secuencia
+    /// </summary>
+    /// <returns></returns>
+    protected IEnumerator resolveCard(){
         if(!currentCard && stack.MountedCards.Count==0){
             resolve=false; //No hay nada más que resolver
-            return;
+            yield break;
         }
         //Get card
         currentCard ??= stack.MountedCards.Last();
+        //Reset resolution pile
+        sendTo = GroupName.Discard;
 
+
+        if(currentCard?.data is ContentCard content){
+            yield return resolveContentCard(currentCard, content);
+        }
         //TODO: Set targets
 
-        //TODO: Execute effects
+        //TODO: Execute effects for actions
 
-        // var effects = currentCard.GetComponent<CardEffects>();
-
-        // if(effects){
-        //     effects.usageEffect.finishCasting(currentCard);
-        // }
+        
 
         //Reset state
         currentCard=null;
         resolve =false;
     }
+
+    /// <summary>
+    /// Se encarga de la resolución de las cartas de contenido
+    /// </summary>
+    /// <param name="card">Carta en cuestión</param>
+    /// <param name="content">Su contenido</param>
+    protected IEnumerator resolveContentCard(Card card, ContentCard content){
+        
+        yield return sendToResolutionPile(card);
+    }
     
+    /// <summary>
+    /// Obtiene la pila de resolución correspondiente y envía la carta allí.
+    /// Pila definida por <see cref="sendTo"/>.
+    /// </summary>
+    /// <param name="card">Carta a enviar</param>
+    /// <param name="playerIndex">índice de jugador a utilizar</param>
+    /// <returns></returns>
+    protected IEnumerator sendToResolutionPile(Card card, int? playerIndex=null){
+        var group = GroupRegistry.Instance.Get(sendTo,playerIndex);
+        yield return CardTransferOperator.sendCard(card,group);
+    }
 }
