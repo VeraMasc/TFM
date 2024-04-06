@@ -21,15 +21,12 @@ namespace Effect{
                 
 
                 if(target is Card card){ //If card use attach group
-                    if(card.attachedGroup != null){
-                        //TODO: Destroygroup default pile
-                        card.attachedGroup.destroyGroup(GroupName.Discard);    
-                    }
+                    
+                    card.DestroyCard();
                 }
                 else if (target is CardGroup group){ //If group use the group
                     group.destroyGroup(GroupName.Discard);
                 }
-                GameObject.Destroy((target as Component).gameObject);
                 //TODO: add Destruction animation
                 yield return new WaitForSeconds(0.2f);
                 var source = ExplorationController.singleton.content;

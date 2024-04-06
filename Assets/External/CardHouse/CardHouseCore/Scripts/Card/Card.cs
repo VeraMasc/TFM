@@ -71,8 +71,16 @@ namespace CardHouse
 
         void OnDestroy()
         {
-            Group?.UnMount(this);
             OnCardFocused -= HandleCardFocused;
+        }
+
+        public void DestroyCard(){
+            if(attachedGroup != null){
+                //TODO: Destroygroup default pile
+                attachedGroup.destroyGroup(GroupName.Discard);    
+            }
+            Group.UnMount(this);
+            Destroy(this.gameObject);
         }
 
         void Update()
