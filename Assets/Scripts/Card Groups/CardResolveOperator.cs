@@ -38,6 +38,11 @@ public class CardResolveOperator : Activatable
     /// Contexto actual de la resolución
     /// </summary>
     public TargettingContext context;
+
+    /// <summary>
+    /// Prefab used to generate Triggers
+    /// </summary>
+    public GameObject triggerPrefab;
     protected override void OnActivate(){
         resolve = true;
     }

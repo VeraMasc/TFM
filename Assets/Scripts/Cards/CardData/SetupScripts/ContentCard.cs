@@ -10,7 +10,7 @@ using Button = NaughtyAttributes.ButtonAttribute;
 /// <summary>
 /// Se encarga de la generación de las cartas de habitación
 /// </summary>
-public class ContentCard : CardSetup, ITypedCard
+public class ContentCard : MyCardSetup, ITypedCard
 {
     public SpriteRenderer Image;
     public SpriteRenderer BackImage;
