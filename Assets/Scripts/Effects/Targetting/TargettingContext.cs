@@ -30,7 +30,7 @@ public class TargettingContext
     /// <summary>
     /// Targets previos del proceso de resolución
     /// </summary>
-    public List<ITargetable[]> previousTargets;
+    public List<ITargetable[]> previousTargets = new List<ITargetable[]>();
     
 
 
@@ -58,4 +58,6 @@ public class TargettingContext
 /// </summary>
 public interface ITargetable{
     T GetComponent<T>();
+
+    T GetComponentInChildren<T>();
 }

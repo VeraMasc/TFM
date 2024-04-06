@@ -90,6 +90,7 @@ public class CardResolveOperator : Activatable
         //Set up current card
         sendTo = GroupName.Discard;
         setContext();
+        Debug.Log(context.self);
 
         //TODO: Alternative Cast Modes
         //TODO: Set targets
@@ -110,7 +111,7 @@ public class CardResolveOperator : Activatable
     /// <param name="content">Su contenido</param>
     protected IEnumerator resolveBaseEffect(Card card, MyCardSetup content){
         foreach(var effect in content.getEffectsAs<BaseCardEffects>().baseEffect.list){
-            effect.execute(this,context);
+            yield return StartCoroutine(effect.execute(this,context));
         }
         yield return sendToResolutionPile(card);
     }

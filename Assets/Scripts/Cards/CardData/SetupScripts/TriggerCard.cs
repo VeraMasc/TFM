@@ -36,11 +36,10 @@ public class TriggerCard : MyCardSetup
 
         //Clona los valores básicos de la carta de origen
         base.Apply(data.definition);
-
+        gameObject.name +=" Trigger";
         effects = new BaseCardEffects
         {
             baseEffect = triggered.clone() //Asigna el trigger como efecto base
         };
-
     }
 }

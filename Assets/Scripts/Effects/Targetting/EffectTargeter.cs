@@ -20,7 +20,7 @@ public abstract class EffectTargeter
     /// Atajo para asignar un solo target
     /// </summary>
     protected ITargetable singleTarget{
-        set =>_targets = new ITargetable[]{value};
+        set =>_targets = new ITargetable[1]{value};
     }
 
   
@@ -46,7 +46,6 @@ public abstract class EffectTargeter
     /// </summary>
     
     public virtual void resolveTarget(TargettingContext context){
-        //TODO: implement targetting context
         throw new NotImplementedException();
     }
 
@@ -54,9 +53,8 @@ public abstract class EffectTargeter
     /// Obtiene el ITargetable padre de un ITargetable
     /// </summary>
     public static ITargetable getObjParent(ITargetable obj){
-        if(obj is Card){
-            Card card = (Card) obj;
-            var parent = card?.Group?.GetComponent<ITargetable>();
+        if(obj is Card card){
+            var parent = card.Group.transform.parent.GetComponent<ITargetable>();
             return parent;
         }
         
