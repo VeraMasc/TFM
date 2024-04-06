@@ -16,12 +16,16 @@ MonoBehaviour:
   cardName: +1
   cardText: +1
   Art: {fileID: 21300000, guid: 3aa2275fa01afa24a99caf9667f892c7, type: 3}
+  help: []
   effects:
+    baseEffect:
+      list: []
+    staticEffects:
+      list: []
     revealEffect:
       list:
       - rid: 418998211267002368
-    staticEffects:
-      list: []
+      - rid: 3644647004826501120
   references:
     version: 2
     RefIds:
@@ -35,3 +39,12 @@ MonoBehaviour:
       type: {class: ContextualObjectTargeter, ns: , asm: Assembly-CSharp}
       data:
         contextual: 1
+    - rid: 3644647004826501120
+      type: {class: Destroy, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 3644647004826501123
+    - rid: 3644647004826501123
+      type: {class: ContextualObjectTargeter, ns: , asm: Assembly-CSharp}
+      data:
+        contextual: 0

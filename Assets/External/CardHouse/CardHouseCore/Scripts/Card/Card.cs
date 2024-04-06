@@ -71,6 +71,7 @@ namespace CardHouse
 
         void OnDestroy()
         {
+            Group?.UnMount(this);
             OnCardFocused -= HandleCardFocused;
         }
 
