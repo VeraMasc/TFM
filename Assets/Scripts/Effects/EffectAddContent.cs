@@ -8,13 +8,9 @@ namespace Effect{
     /// Efecto que añade contenido a una habitación
     /// </summary>
     [Serializable]
-    public class AddContent : EffectScript
+    public class AddContent : Targeted
     {
-        /// <summary>
-        /// Quién roba las cartas
-        /// </summary>
-        [SerializeReference, SubclassSelector]
-        public EffectTargeter targeter;
+        
 
         /// <summary>
         /// Cantidad a robar
