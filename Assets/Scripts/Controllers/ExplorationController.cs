@@ -182,11 +182,10 @@ public class ExplorationController : MonoBehaviour
         yield return UCoroutine.YieldAwait( ()=> !contentCard.FaceTurning.seeking);
     
         var data = (ContentCard) contentCard.data;
+        var revealTrigger = data?.getEffectsAs<ContentCardEffects>()?.revealEffect;
 
-        if(data?.effects?.revealEffect?.isEmpty==false){
-            //Todo: turn this into trigger
-            
-            // yield return CardTransferOperator.sendCard(contentCard,effectStack.stack);
+        if(revealTrigger?.isEmpty==false){
+            effectStack.triggerEffect(contentCard,revealTrigger);
             yield return effectStack.waitTillEmpty;
         }
         

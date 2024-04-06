@@ -42,8 +42,35 @@ public abstract class MyCardSetup : CardSetup
     /// </summary>
     public TextMeshPro cardTextBox;
 
+    public BaseCardEffects effects;
+
     /// <summary>
     /// Tipos de la carta en cuestión
     /// </summary>
     public virtual HashSet<string> cardType {get;set;}
+
+    /// <summary>
+    /// Asigna los valores básicos de la carta
+    /// </summary>
+    /// <param name="data"></param>
+    public override void Apply(CardDefinition data)
+    {
+        if(data is MyCardDefinition baseCard){
+            this.cardName = baseCard.cardName;
+            gameObject.name = baseCard.cardName;
+
+            Image.sprite = baseCard.Art ?? Image.sprite;
+            if (baseCard.BackArt != null)
+            {
+                BackImage.sprite = baseCard.BackArt;
+            }
+            cardText = baseCard.cardText;
+
+            if(!GetType().IsSubclassOf(typeof(TriggerCard))){
+                // poner definición solo si no es un trigger
+                definition = baseCard;
+            }
+        }
+        
+    }
 }

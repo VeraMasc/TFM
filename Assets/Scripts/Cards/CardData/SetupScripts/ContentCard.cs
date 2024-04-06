@@ -13,10 +13,9 @@ using Button = NaughtyAttributes.ButtonAttribute;
 public class ContentCard : MyCardSetup
 {
 
-    
-    
-
-    public ContentCardEffects effects;
+    public T getEffectsAs<T>()where T:BaseCardEffects{
+        return effects as T;
+    }
     
 
     /// <summary>
@@ -24,27 +23,10 @@ public class ContentCard : MyCardSetup
     /// </summary>
     public override void Apply(CardDefinition data)
     {
-        if (data is PokerCardDefinition pokerCard)
-        {
-            Image.sprite = pokerCard.Art;
-            if (pokerCard.BackArt != null)
-            {
-                BackImage.sprite = pokerCard.BackArt;
-            }
-        }
-
+        base.Apply(data);
         if (data is ContentCardDefinition contentCard)
         {
-            gameObject.name = contentCard.cardName;
-            Image.sprite = contentCard.Art ?? Image.sprite;
-            if (contentCard.BackArt != null)
-            {
-                BackImage.sprite = contentCard.BackArt;
-            }
-            cardText = contentCard.cardText;
-
             effects = contentCard.effects;
-
         }
         refreshValues();
     }

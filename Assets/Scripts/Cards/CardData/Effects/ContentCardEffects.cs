@@ -9,16 +9,12 @@ using System;
 
  
 [Serializable]
-public class ContentCardEffects{
+public class ContentCardEffects:BaseCardEffects{
     /// <summary>
     /// Efectos que producir cuando la carta se revela
     /// </summary>
     public EffectChain revealEffect;
 
-    /// <summary>
-    /// Efectos estáticos 
-    /// </summary>
-    public EffectChain staticEffects; 
 
 }
 

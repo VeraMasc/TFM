@@ -33,27 +33,11 @@ public class RoomCard : MyCardSetup
     /// </summary>
     public override void Apply(CardDefinition data)
     {
-        if (data is PokerCardDefinition pokerCard)
-        {
-            Image.sprite = pokerCard.Art;
-            if (pokerCard.BackArt != null)
-            {
-                BackImage.sprite = pokerCard.BackArt;
-            }
-        }
-
+        base.Apply(data);
         if (data is RoomCardDefinition roomCard)
         {
-            gameObject.name = roomCard.cardName;
-            Image.sprite = roomCard.Art ?? Image.sprite;
-            if (roomCard.BackArt != null)
-            {
-                BackImage.sprite = roomCard.BackArt;
-            }
-            cardText = roomCard.cardText;
             size = roomCard.size;
             exits = roomCard.exits;
-
         }
         refreshValues();
     }

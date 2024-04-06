@@ -105,7 +105,7 @@ public class CardResolveOperator : Activatable
     /// <param name="card">Carta en cuestión</param>
     /// <param name="content">Su contenido</param>
     protected IEnumerator resolveContentCard(Card card, ContentCard content){
-        foreach(var effect in content.effects.revealEffect.list){
+        foreach(var effect in content.getEffectsAs<ContentCardEffects>().revealEffect.list){
             effect.execute(this,context);
         }
         yield return sendToResolutionPile(card);
@@ -121,5 +121,30 @@ public class CardResolveOperator : Activatable
     protected IEnumerator sendToResolutionPile(Card card, int? playerIndex=null){
         var group = GroupRegistry.Instance.Get(sendTo,playerIndex);
         yield return CardTransferOperator.sendCard(card,group);
+    }
+
+
+    /// <summary>
+    /// Crea una pseudo carta de trigger. Si se desea crearla en el stack usar <see cref="triggerEffect(Card, EffectChain)"/>
+    /// </summary>
+    /// <param name="source">Carta que ha causado el trigger</param>
+    /// <param name="triggered">Cadena de efectos a desencadenar</param>
+    /// <param name="at">Posición en la que generar la carta</param>
+    /// <returns>Carta de trigger generada</returns>
+    public Card createTriggerCard(Card source, EffectChain triggered, Transform at){
+        var trigger = Instantiate(triggerPrefab, at.position, at.rotation);
+        var card = trigger.GetComponent<Card>();
+        trigger.ApplyTrigger(card, triggered);
+        return card;
+    }
+
+    /// <summary>
+    /// Genera una carta de trigger y la pone en el stack
+    /// </summary>
+    /// <param name="source">Carta que ha causado el trigger</param>
+    /// <param name="triggered">Cadena de efectos a desencadenar</param>
+    public void triggerEffect(Card source, EffectChain triggered){
+        var card = createTriggerCard(source,triggered, transform);
+        stack.Mount(card);
     }
 }
