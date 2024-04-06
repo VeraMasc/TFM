@@ -8,10 +8,9 @@ using System.Collections.Generic;
 /// <summary>
 /// Se encarga de la generación de las cartas de habitación
 /// </summary>
-public class RoomCard : CardSetup, ITypedCard
+public class RoomCard : MyCardSetup
 {
-    public SpriteRenderer Image;
-    public SpriteRenderer BackImage;
+    
 
     /// <summary>
     /// Texto que muestra el tamaño de la habitación
@@ -22,18 +21,12 @@ public class RoomCard : CardSetup, ITypedCard
     /// Texto que muestra el número de salidas de la habitación
     /// </summary>
     public TextMeshPro exitsUI;
-
-    public TextMeshPro cardTextUI;
     
-    [SerializeField]
-    private string _cardName;
-    public string cardName { get => _cardName; set => _cardName = value; }
-    public string cardText;
     public int size;
 
     public int exits;
 
-    public HashSet<string> cardType {get;set;}
+   
 
     /// <summary>
     /// Aplica la configuración de la carta
@@ -67,7 +60,7 @@ public class RoomCard : CardSetup, ITypedCard
 
     [Button]
     public void refreshValues(){
-        cardTextUI.text = cardText;
+        cardTextBox.text = cardText;
         sizeUI.text = size.ToString();
         exitsUI.text = exits.ToString();
     }

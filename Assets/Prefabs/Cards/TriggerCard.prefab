@@ -520,9 +520,9 @@ GameObject:
   - component: {fileID: 4422412827157916637}
   - component: {fileID: 3320165275064857739}
   - component: {fileID: 3024928638207673461}
-  - component: {fileID: 8698658893030579379}
+  - component: {fileID: 8716738783598716491}
   m_Layer: 0
-  m_Name: ContentCard
+  m_Name: TriggerCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -770,7 +770,7 @@ MonoBehaviour:
   Handler: {fileID: 2235789090670168063}
   ActiveMessage: Active
   InactiveMessage: Dim
---- !u!114 &8698658893030579379
+--- !u!114 &8716738783598716491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -779,7 +779,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6462243022253552644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed5cd85d59c62a488b04dd1927bdd08, type: 3}
+  m_Script: {fileID: 11500000, guid: c3b93e8718b3e2549813af10ea84a672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   definition: {fileID: 0}
@@ -788,14 +788,7 @@ MonoBehaviour:
   Image: {fileID: 6462243021699527057}
   BackImage: {fileID: 6462243021217859703}
   cardTextBox: {fileID: 5725338630376539603}
-  effects:
-    revealEffect:
-      list: []
-    staticEffects:
-      list: []
-  references:
-    version: 2
-    RefIds: []
+  source: {fileID: 0}
 --- !u!1 &6462243022722680614
 GameObject:
   m_ObjectHideFlags: 0

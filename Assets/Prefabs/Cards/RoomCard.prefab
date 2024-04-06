@@ -1034,6 +1034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Group: {fileID: 0}
+  data: {fileID: 0}
   FlipAnimator: {fileID: 2241088108827915393}
   CanBeUpsideDown: 0
   UpsideDownChance: 0.5
@@ -1213,12 +1214,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d59bee9144163a408df5183aa66a580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  definition: {fileID: 0}
+  cardName: 
+  cardText: 
   Image: {fileID: 6462243021699527057}
   BackImage: {fileID: 6462243021217859703}
+  cardTextBox: {fileID: 4227688508884421594}
   sizeUI: {fileID: 4381707683651997085}
   exitsUI: {fileID: 4107054055127039931}
-  cardTextUI: {fileID: 4227688508884421594}
-  cardText: 
   size: 0
   exits: 0
 --- !u!1 &6462243022722680614

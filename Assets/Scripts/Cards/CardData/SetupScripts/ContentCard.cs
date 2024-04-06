@@ -10,19 +10,11 @@ using Button = NaughtyAttributes.ButtonAttribute;
 /// <summary>
 /// Se encarga de la generación de las cartas de habitación
 /// </summary>
-public class ContentCard : MyCardSetup, ITypedCard
+public class ContentCard : MyCardSetup
 {
-    public SpriteRenderer Image;
-    public SpriteRenderer BackImage;
 
-    public TextMeshPro cardTextUI;
     
-    [SerializeField]
-    private string _cardName;
-    public string cardName { get => _cardName; set => _cardName = value; }
-    public string cardText;
     
-    public HashSet<string> cardType {get;set;}
 
     public ContentCardEffects effects;
     
@@ -59,7 +51,7 @@ public class ContentCard : MyCardSetup, ITypedCard
 
     [Button]
     public void refreshValues(){
-        cardTextUI.text = cardText;
+        cardTextBox.text = cardText;
     }
 
     

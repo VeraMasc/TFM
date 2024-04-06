@@ -42,7 +42,8 @@ public class CardResolveOperator : Activatable
     /// <summary>
     /// Prefab used to generate Triggers
     /// </summary>
-    public GameObject triggerPrefab;
+    [AssetsOnly]
+    public TriggerCard triggerPrefab;
     protected override void OnActivate(){
         resolve = true;
     }
