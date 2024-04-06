@@ -11,21 +11,13 @@ using System.IO;
 /// Define las propiedades que tiene cada carta de habitación
 /// </summary>
 [CreateAssetMenu(menuName = "Cards/Card Definition/Content")]
-public class ContentCardDefinition : CardDefinition
+public class ContentCardDefinition : MyCardDefinition
 {
-    public string cardName;
-
-    [TextArea(10, 100)]
-    public string cardText;
-
-    public Sprite Art;
 
 
     [SerializeField]
     public ContentCardEffects effects;
 
-    private void Awake() {
-        cardName = name;
-    }
+    
 }
 

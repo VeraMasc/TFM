@@ -7,12 +7,9 @@ using CustomInspector;
 /// Define las propiedades que tiene cada carta de habitación
 /// </summary>
 [CreateAssetMenu(menuName = "Cards/Card Definition/Room")]
-public class RoomCardDefinition : CardDefinition
+public class RoomCardDefinition : MyCardDefinition
 {
-    public string cardName;
     
-    [TextArea(10, 100)]
-    public string cardText;
     /// <summary>
     /// Cantidad de contenido con el que llenar la habitación
     /// </summary>
@@ -29,10 +26,5 @@ public class RoomCardDefinition : CardDefinition
     [Set]
     public SerializableSet<RoomTypes> roomTypes;
     
-    public Sprite Art;
-
-    private void Awake() {
-        cardName = name;
-    }
 }
 

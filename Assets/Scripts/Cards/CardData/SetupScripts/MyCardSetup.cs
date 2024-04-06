@@ -70,6 +70,8 @@ public abstract class MyCardSetup : CardSetup
                 // poner definición solo si no es un trigger
                 definition = baseCard;
             }
+        }else{
+            throw new System.Exception($"Can't initialize card with {data?.GetType()?.Name}");
         }
         
     }
