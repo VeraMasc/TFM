@@ -7,6 +7,7 @@ using GameFlow;
 using Ra.Trail;
 using CustomInspector;
 using Common.Coroutines;
+using System;
 
 
 /// <summary>
@@ -184,6 +185,7 @@ public class ExplorationController : MonoBehaviour
 
         if(data?.effects?.revealEffect?.isEmpty==false){
             //Todo: turn this into trigger
+            
             yield return CardTransferOperator.sendCard(contentCard,effectStack.stack);
             yield return effectStack.waitTillEmpty;
         }

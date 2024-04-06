@@ -9,7 +9,7 @@ using UnityEngine;
 /// Identifica una cadena de efectos
 /// </summary>
 [Serializable]
-public class EffectChain: IClonableEffectElement
+public class EffectChain
 {
     [SerializeReference,SubclassSelector]
     public List<EffectScript> list;
@@ -24,17 +24,25 @@ public class EffectChain: IClonableEffectElement
     /// </summary>
     public int size{get => list.Count;}
 
-    public EffectChain( List<EffectScript> effects){
-        list=effects;
+    public EffectChain(){
+        list = new List<EffectScript>();
     }
 
-    
-    /// <summary>
-    /// Copia la cadena de efectos
-    /// </summary>
-    public IClonableEffectElement clone(){
-        return EffectScript.cloneScriptObj(this);
+    public EffectChain( IEnumerable<EffectScript> effects){
+        list=effects.ToList();
     }
+
+    /// <summary>
+    /// Devuelve un clon de la cadena actual
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
+    public EffectChain clone(){
+        var cloneList = list.Select( effect => effect.clone());
+        return new EffectChain(cloneList);
+        
+    }
+    
 
     /// <summary>
     /// Copia la secuencia de efectos como una cadena independiente

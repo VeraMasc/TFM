@@ -14,7 +14,7 @@ namespace Effect{
         /// Quién roba las cartas
         /// </summary>
         [SerializeReference, SubclassSelector]
-        EffectTargeter targeter;
+        public EffectTargeter targeter;
 
         /// <summary>
         /// Cantidad a robar
