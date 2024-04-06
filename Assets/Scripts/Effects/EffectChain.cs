@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using CustomInspector;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ using UnityEngine;
 /// Identifica una cadena de efectos
 /// </summary>
 [Serializable]
-public class EffectChain
+public class EffectChain: IClonableEffectElement
 {
     [SerializeReference,SubclassSelector]
     public List<EffectScript> list;
@@ -23,11 +24,16 @@ public class EffectChain
     /// </summary>
     public int size{get => list.Count;}
 
+    public EffectChain( List<EffectScript> effects){
+        list=effects;
+    }
+
+    
     /// <summary>
     /// Copia la cadena de efectos
     /// </summary>
-    public EffectChain clone(){
-        throw new NotImplementedException();
+    public IClonableEffectElement clone(){
+        return EffectScript.cloneScriptObj(this);
     }
 
     /// <summary>

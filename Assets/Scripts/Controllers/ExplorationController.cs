@@ -183,6 +183,7 @@ public class ExplorationController : MonoBehaviour
         var data = (ContentCard) contentCard.data;
 
         if(data?.effects?.revealEffect?.isEmpty==false){
+            //Todo: turn this into trigger
             yield return CardTransferOperator.sendCard(contentCard,effectStack.stack);
             yield return effectStack.waitTillEmpty;
         }

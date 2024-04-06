@@ -11,7 +11,7 @@ using UnityEngine.UI;
 /// Clase madre de todos los tipos de targets que puede tener un efecto
 /// </summary>
 [Serializable]
-public abstract class EffectTargeter 
+public abstract class EffectTargeter : IClonableEffectElement
 {
     [SerializeField,ReadOnly]
     protected ITargetable[] _targets;
@@ -23,6 +23,9 @@ public abstract class EffectTargeter
         set =>_targets = new ITargetable[]{value};
     }
 
+    public IClonableEffectElement clone(){
+        return EffectScript.cloneScriptObj(this);
+    }
     /// <summary>
     /// Obtiene el target resuelto (lo resuelve si es necesario)
     /// </summary>
