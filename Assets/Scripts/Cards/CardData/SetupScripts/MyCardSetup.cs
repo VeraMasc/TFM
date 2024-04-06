@@ -43,6 +43,10 @@ public abstract class MyCardSetup : CardSetup
     public TextMeshPro cardTextBox;
 
     public BaseCardEffects effects;
+    
+    public T getEffectsAs<T>()where T:BaseCardEffects{
+        return effects as T;
+    }
 
     /// <summary>
     /// Tipos de la carta en cuestión

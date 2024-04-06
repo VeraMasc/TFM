@@ -13,9 +13,7 @@ using Button = NaughtyAttributes.ButtonAttribute;
 public class ContentCard : MyCardSetup
 {
 
-    public T getEffectsAs<T>()where T:BaseCardEffects{
-        return effects as T;
-    }
+    
     
 
     /// <summary>

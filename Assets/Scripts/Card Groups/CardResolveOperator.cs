@@ -66,7 +66,13 @@ public class CardResolveOperator : Activatable
     /// Crea el contexto
     /// </summary>
     public void setContext(){
-        context = new TargettingContext(currentCard);
+        if(currentCard?.data is TriggerCard trigger){
+            //Create context from source
+            context = new TargettingContext(trigger.source);
+        }else{
+            context = new TargettingContext(currentCard);
+        }
+        
     }
 
     /// <summary>
@@ -85,27 +91,25 @@ public class CardResolveOperator : Activatable
         sendTo = GroupName.Discard;
         setContext();
 
-        if(currentCard?.data is ContentCard content){
-            yield return resolveContentCard(currentCard, content);
-        }
+        //TODO: Alternative Cast Modes
         //TODO: Set targets
 
-        //TODO: Execute effects for actions
-
+        if(currentCard?.data is MyCardSetup simpleCard){
+            yield return resolveBaseEffect(currentCard, simpleCard);
+        }
         
 
         //Reset state
-        currentCard=null;
         resolve =false;
     }
 
     /// <summary>
-    /// Se encarga de la resolución de las cartas de contenido
+    /// Se encarga de la resolución básica de las cartas
     /// </summary>
     /// <param name="card">Carta en cuestión</param>
     /// <param name="content">Su contenido</param>
-    protected IEnumerator resolveContentCard(Card card, ContentCard content){
-        foreach(var effect in content.getEffectsAs<ContentCardEffects>().revealEffect.list){
+    protected IEnumerator resolveBaseEffect(Card card, MyCardSetup content){
+        foreach(var effect in content.getEffectsAs<BaseCardEffects>().baseEffect.list){
             effect.execute(this,context);
         }
         yield return sendToResolutionPile(card);
@@ -119,6 +123,12 @@ public class CardResolveOperator : Activatable
     /// <param name="playerIndex">índice de jugador a utilizar</param>
     /// <returns></returns>
     protected IEnumerator sendToResolutionPile(Card card, int? playerIndex=null){
+        currentCard=null;
+        if(card.data is TriggerCard trigger){ //Destroy triggers
+            stack.UnMount(card);
+            Destroy(trigger.gameObject);
+            yield return new WaitForSeconds(0.5f);
+        }
         var group = GroupRegistry.Instance.Get(sendTo,playerIndex);
         yield return CardTransferOperator.sendCard(card,group);
     }
