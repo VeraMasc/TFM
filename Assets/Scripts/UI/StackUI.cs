@@ -1,18 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
+using CustomInspector;
 using UnityEngine;
 
+/// <summary>
+/// Gestor de la interfaz del stack
+/// </summary>
 public class StackUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    /// <summary>
+    /// 
+    /// </summary>
+    public Transform sourceSplineOrigin;
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public GameObject sourceSpline;
+
+    /// <summary>
+    /// Stack
+    /// </summary>
+    [SelfFill(true)]
+    public CardResolveOperator stack;
+
+    /// <summary>
+    /// Actualiza el estado de los elementos de la interfaz
+    /// </summary>
+    public void refresh(){
+        setSourceSpline();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    /// <summary>
+    /// Configura la spline de origen
+    /// </summary>
+    public void setSourceSpline(){
+        var card = stack.topCard;
+        if(card?.data is TriggerCard trigger && trigger?.source != null){//Si es un trigger
+            sourceSplineOrigin.position = trigger.source.transform.position;
+            sourceSpline.SetActive(true);
+            return;
+        }
+        sourceSpline.SetActive(false);
     }
 }

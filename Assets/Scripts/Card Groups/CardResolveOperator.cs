@@ -25,7 +25,12 @@ public class CardResolveOperator : Activatable
     /// <summary>
     /// Carta en proceso de resolución
     /// </summary>
-    public Card currentCard;
+    public Card activeCard;
+
+    /// <summary>
+    /// Primera carta en orden de resolución
+    /// </summary>
+    public Card topCard{get => stack?.MountedCards?.LastOrDefault();}
 
     /// <summary>
     /// Indica el tipo de pila a la que se envia la carta al resolverse.
@@ -38,6 +43,9 @@ public class CardResolveOperator : Activatable
     /// Contexto actual de la resolución
     /// </summary>
     public TargettingContext context;
+
+    [SelfFill(true)]
+    public StackUI stackUI;
 
     /// <summary>
     /// Prefab used to generate Triggers
@@ -57,7 +65,7 @@ public class CardResolveOperator : Activatable
 
     void Update()
     {
-        if(resolve && currentCard == null){
+        if(resolve && activeCard == null){
             StartCoroutine(resolveCard());
         }
     }
@@ -66,11 +74,11 @@ public class CardResolveOperator : Activatable
     /// Crea el contexto
     /// </summary>
     public void setContext(){
-        if(currentCard?.data is TriggerCard trigger){
+        if(activeCard?.data is TriggerCard trigger){
             //Create context from source
             context = new TargettingContext(trigger.source);
         }else{
-            context = new TargettingContext(currentCard);
+            context = new TargettingContext(activeCard);
         }
         
     }
@@ -80,12 +88,12 @@ public class CardResolveOperator : Activatable
     /// </summary>
     /// <returns></returns>
     protected IEnumerator resolveCard(){
-        if(!currentCard && stack.MountedCards.Count==0){
+        if(!activeCard && stack.MountedCards.Count==0){
             resolve=false; //No hay nada más que resolver
             yield break;
         }
         //Get card
-        currentCard ??= stack.MountedCards.Last();
+        activeCard ??= stack.MountedCards.Last();
 
         //Set up current card
         sendTo = GroupName.Discard;
@@ -95,8 +103,8 @@ public class CardResolveOperator : Activatable
         //TODO: Alternative Cast Modes
         //TODO: Set targets
 
-        if(currentCard?.data is MyCardSetup simpleCard){
-            yield return resolveBaseEffect(currentCard, simpleCard);
+        if(activeCard?.data is MyCardSetup simpleCard){
+            yield return resolveBaseEffect(activeCard, simpleCard);
         }
         
 
@@ -124,7 +132,7 @@ public class CardResolveOperator : Activatable
     /// <param name="playerIndex">índice de jugador a utilizar</param>
     /// <returns></returns>
     protected IEnumerator sendToResolutionPile(Card card, int? playerIndex=null){
-        currentCard=null;
+        activeCard=null;
         if(card.data is TriggerCard trigger){ //Destroy triggers
             stack.UnMount(card);
             Destroy(trigger.gameObject);
