@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a4a6c9ec335474bbde7f63b618b5ce, type: 3}
+  m_Name: Vote
+  m_EditorClassIdentifier: 
+  _triggerRequest: {fileID: 11400000, guid: 59d1ceb15c3ad4c4daea0902a364af5e, type: 2}
+  _onCompleteEvent: {fileID: 11400000, guid: 09d6b352e1732a64ba2280f3cb5ab53f, type: 2}
+  printLog: 1

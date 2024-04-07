@@ -1,0 +1,19 @@
+{
+    "name": "SimpleMan.EventSystem.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:8b665d301072cbe4b92fe830903ab212",
+        "GUID:c20438091c6c0644cb4e8e0c1e84607a"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

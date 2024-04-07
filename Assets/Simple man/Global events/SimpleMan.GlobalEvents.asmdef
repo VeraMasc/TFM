@@ -1,0 +1,16 @@
+{
+    "name": "SimpleMan.EventSystem",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c20438091c6c0644cb4e8e0c1e84607a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

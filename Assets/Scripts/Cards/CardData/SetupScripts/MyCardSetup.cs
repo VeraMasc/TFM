@@ -43,7 +43,7 @@ public abstract class MyCardSetup : CardSetup
     public TextMeshPro cardTextBox;
 
     public BaseCardEffects effects;
-    
+
     public T getEffectsAs<T>()where T:BaseCardEffects{
         return effects as T;
     }
@@ -69,6 +69,7 @@ public abstract class MyCardSetup : CardSetup
                 BackImage.sprite = baseCard.BackArt;
             }
             cardText = baseCard.cardText;
+            cardTextBox.text = cardText;
 
             if(!GetType().IsSubclassOf(typeof(TriggerCard))){
                 // poner definición solo si no es un trigger

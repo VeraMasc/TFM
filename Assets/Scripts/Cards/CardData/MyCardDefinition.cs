@@ -20,6 +20,8 @@ public class MyCardDefinition : CardDefinition
     public List<CardHelp> help;
 
     protected void Awake() {
-        cardName = name;
+        if(string.IsNullOrWhiteSpace(cardName)){
+            cardName = name;
+        }
     }
 }

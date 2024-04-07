@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using CardHouse;
-
+using CustomInspector;
 using UnityEngine;
 
 /// <summary>
@@ -10,13 +10,43 @@ using UnityEngine;
 public class Entity : MonoBehaviour,ITargetable
 {
     /// <summary>
+    /// Salud del personaje
+    /// </summary>
+    public int health =20;
+    
+    /// <summary>
+    /// Equipo del personaje
+    /// </summary>
+    public EntityTeam team;
+
+    [HorizontalLine(3f, message ="Card Management")]
+    /// <summary>
     /// Mano con cartas de la entidad
     /// </summary>
+    [ForceFill]
     public CardGroup hand;
 
+    /// <summary>
+    /// Mazo del personaje
+    /// </summary>
+    [ForceFill]
     public CardGroup deck;
 
-    public EntityTeam team;
+    /// <summary>
+    /// Pila de descarte del personaje
+    /// </summary>
+    [ForceFill]
+    public CardGroup discard;
+
+    /// <summary>
+    /// Pila de exilio del personaje
+    /// </summary>
+    [ForceFill]
+    public CardGroup exile;
+
+    public EntityData data;
+
+    
 
 
     /// <summary>

@@ -28,7 +28,7 @@ public class ContentCard : MyCardSetup
         }
         refreshValues();
     }
-
+    
     [Button]
     public void refreshValues(){
         cardTextBox.text = cardText;
