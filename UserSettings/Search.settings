@@ -8,6 +8,9 @@ onBoardingDoNotAskAgain = true
 showPackageIndexes = false
 showStatusBar = false
 scopes = {
+	"last_search.110DEAF1" = "arr"
+	"OpenInspectorPreview.110DEAF1" = "0"
+	"currentGroup.110DEAF1" = "scene"
 }
 providers = {
 	log = {
@@ -59,8 +62,11 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	"a"
+	"h: ref=<$object:none$>"
 ]
 searchItemFavorites = [
+	"30630"
 ]
 savedSearchesSortOrder = 0
 showSavedSearchPanel = false
@@ -69,7 +75,7 @@ expandedQueries = [
 ]
 queryBuilder = false
 ignoredProperties = "id;name;classname;imagecontentshash"
-helperWidgetCurrentArea = "all"
+helperWidgetCurrentArea = "h:"
 disabledIndexers = ""
 minIndexVariations = 2
 findProviderIndexHelper = true
