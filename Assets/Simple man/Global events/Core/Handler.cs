@@ -54,6 +54,17 @@ namespace SimpleMan.GlobalEvents.Core
             if (printLog)
                 this.PrintLog($"Invoked.\nSender: <b>{sender}</b>");
         }
+        /// <summary>
+        /// Invoca el evento solo en el listener concreto
+        /// </summary>
+        /// <param name="sender"></param>
+        public void InvokeOnListener(UnityEngine.Object sender)
+        {
+            _eventHandler?.Invoke(sender);
+
+            if (printLog)
+                this.PrintLog($"Invoked.\nSender: <b>{sender}</b>");
+        }
     }
 
     /// <summary>

@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     /// Lista de todas las entidades
     /// </summary>
     public List<Entity> entities;
+    
 
 
     private static GameController _singleton;

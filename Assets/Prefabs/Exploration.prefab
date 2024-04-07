@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4177583207978889983}
   - component: {fileID: 4605699728431413846}
+  - component: {fileID: 209465967011975276}
   m_Layer: 0
   m_Name: Exploration
   m_TagString: Untagged
@@ -47,8 +48,22 @@ MonoBehaviour:
   rooms: {fileID: 0}
   currentRoom: {fileID: 0}
   optionAmount: 2
+  roomContentDefault: 2
   roomOptions: {fileID: 0}
   content: {fileID: 0}
-  currentContent: {fileID: 0}
+  effectStack: {fileID: 0}
   discarded: {fileID: 0}
   attachPrefab: {fileID: 8674698285375438854, guid: 4cb661a95582a5f4083a9a7f05bdbf99, type: 3}
+--- !u!114 &209465967011975276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3522451697358030885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326f506610f48fc479246f7b114c2dfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entities: []
