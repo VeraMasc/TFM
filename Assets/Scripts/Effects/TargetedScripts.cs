@@ -13,6 +13,7 @@ namespace Effect
         /// </summary>
         [SerializeReference, SubclassSelector]
         public EffectTargeter targeter;
+
     }
 }
 

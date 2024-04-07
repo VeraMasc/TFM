@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using CardHouse;
+using CustomInspector;
 using UnityEngine;
 
 namespace Effect{
@@ -16,7 +17,8 @@ namespace Effect{
         /// Cantidad a robar
         /// </summary>
         //TODO: allow use of variables
-        public int amount = 2;
+        [SerializeReference, SubclassSelector]
+        public Value.Numeric amount;
 
         public override IEnumerator execute(CardResolveOperator stack, TargettingContext context)
         {
@@ -37,7 +39,7 @@ namespace Effect{
                     Debug.LogError("No content group to add to", (UnityEngine.Object) target);
                     continue;
                 }
-                yield return CardTransferOperator.sendCardsFrom(source,amount, destination, 0.1f);
+                yield return CardTransferOperator.sendCardsFrom(source, amount.getValue(), destination, 0.1f);
             }
         }
     }
