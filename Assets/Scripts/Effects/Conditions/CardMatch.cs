@@ -4,9 +4,12 @@ using UnityEngine;
 using System;
 
 
-namespace Effect{
+namespace Effect.Condition{
+    /// <summary>
+    /// Comprueba si una carta coincide con una pool concreta de cartas
+    /// </summary>
     [Serializable]
-    public abstract class BaseCondition 
+    public abstract class CardMatch:BaseCondition
     {
         /// <summary>
         /// Comprueba si se cumple la condición
