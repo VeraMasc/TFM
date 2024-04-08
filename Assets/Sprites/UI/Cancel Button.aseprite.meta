@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8b7e38c32caa3114eabe892b6ad66d0f
+guid: 31bcccd27b6e6ba4eac0a80423f7741b
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -79,8 +79,8 @@ ScriptedImporter:
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
-    generateAnimationClips: 0
-    addSortingGroup: 0
+    generateAnimationClips: 1
+    addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
     fileImportMode: 1
@@ -91,11 +91,11 @@ ScriptedImporter:
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
-    generateAnimationClips: 0
-    addSortingGroup: 0
+    generateAnimationClips: 1
+    addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638481815654637448
+  platformSettingsDirtyTick: 0
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Selector arrow
+  - name: Cancel Button
     originalName: 
-    pivot: {x: 0.5, y: -0.14285715}
+    pivot: {x: 0.5, y: -0.05263158}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 18
-      height: 14
-    spriteID: ee4849e6166227948b5588b1a59d06ce
+      width: 50
+      height: 57
+    spriteID: d7cb2ae3c24913d4b8857025e05dcd83
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,102 +139,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Selector arrow_Frame_1
-    originalName: 
-    pivot: {x: 0.5, y: -0.15384616}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 26
-      width: 18
-      height: 13
-    spriteID: 57aa534fad351d741a0dcadf25dd04c1
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 26}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1314880426
-    name: Selector arrow
+    guid: 508989388
+    name: Cancel Button
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Selector arrow_Frame_0
+    - name: Cancel Button
       frameIndex: 0
       cellRect:
-        x: 0
-        y: 2
-        width: 18
-        height: 14
-      spriteId: ee4849e6166227948b5588b1a59d06ce
-    - name: Selector arrow_Frame_1
-      frameIndex: 1
-      cellRect:
-        x: 0
-        y: 2
-        width: 18
-        height: 13
-      spriteId: 57aa534fad351d741a0dcadf25dd04c1
+        x: -9
+        y: 3
+        width: 50
+        height: 57
+      spriteId: d7cb2ae3c24913d4b8857025e05dcd83
     linkedCells: []
     parentIndex: -1
-  platformSettings:
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Server
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Windows Store Apps
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+  platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 18, y: 18}
+  canvasSize: {x: 32, y: 32}
