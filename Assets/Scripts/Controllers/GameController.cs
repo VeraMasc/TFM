@@ -54,7 +54,7 @@ public class GameController : MonoBehaviour
         //TODO: getAllTargetablesOfType<T>
         throw new NotImplementedException();
     }
-    public ITargetable[] getAllOfType(TargettingContext context){
+    public ITargetable[] getAllOfType(Context context){
         //TODO: getAllTargetablesOfType
         if(context?.self?.GetType() == typeof(Entity)){
             return entities.ToArray();

@@ -6,7 +6,7 @@ using UnityEngine;
 /// Contexto que se usa para resolver targets y efectos
 /// </summary>
 [Serializable]
-public class TargettingContext 
+public class Context 
 {
     /// <summary>
     /// Refiere al propio objeto que produce el efecto
@@ -34,20 +34,24 @@ public class TargettingContext
     /// </summary>
     public List<ITargetable[]> previousTargets = new List<ITargetable[]>();
     
+    /// <summary>
+    /// Valores previos del proceso de resolución
+    /// </summary>
+    public List<object[]> previousValues = new List<object[]>();
 
 
     /// <summary>
     /// Create context without owner or controller
     /// </summary>
     /// <param name="self">Object in question</param>
-    public TargettingContext(ITargetable self){
+    public Context(ITargetable self){
         this.self = source = self; 
     }
 
     /// <summary>
     /// Create context with full detail
     /// </summary>
-    public TargettingContext(ITargetable self, Entity controller, Entity owner=null, ITargetable source=null){
+    public Context(ITargetable self, Entity controller, Entity owner=null, ITargetable source=null){
         this.self =self;
         this.source = source ?? self;
         this.controller = controller;

@@ -12,7 +12,7 @@ namespace Effect{
     {
     
 
-        public override IEnumerator execute(CardResolveOperator stack, TargettingContext context)
+        public override IEnumerator execute(CardResolveOperator stack, Context context)
         {
             var targets = targeter.getTargets(context);
            

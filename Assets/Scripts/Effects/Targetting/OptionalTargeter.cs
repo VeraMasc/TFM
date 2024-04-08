@@ -13,8 +13,9 @@ using UnityEngine.UI;
 [Serializable]
 public class OptionalTargeter:EffectTargeter
 {
+    //TODO: Optional targeting
     public ContextualObjTargets contextual;
-    public override void resolveTarget(TargettingContext context){
+    public override void resolveTarget(Context context){
         
     }
 
