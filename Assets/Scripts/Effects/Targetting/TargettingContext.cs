@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// Contexto que se usa para resolver targets y efectos
 /// </summary>
+[Serializable]
 public class TargettingContext 
 {
     /// <summary>
