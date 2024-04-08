@@ -4,8 +4,6 @@ using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 using MackySoft.SerializeReferenceExtensions.Editor;
 
-using GameFlow;
-
 [CustomPropertyDrawer(typeof(EffectChain))]
 public class EffectChainEditor : PropertyDrawer
 {
