@@ -42,7 +42,7 @@ public class CardResolveOperator : Activatable
     /// <summary>
     /// Contexto actual de la resolución
     /// </summary>
-    public Context context;
+    public Effect.Context context;
 
     [SelfFill(true)]
     public StackUI stackUI;
@@ -76,9 +76,9 @@ public class CardResolveOperator : Activatable
     public void setContext(){
         if(activeCard?.data is TriggerCard trigger){
             //Create context from source
-            context = new Context(trigger.source);
+            context = new Effect.Context(trigger.source);
         }else{
-            context = new Context(activeCard);
+            context = new Effect.Context(activeCard);
         }
         
     }

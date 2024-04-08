@@ -15,7 +15,7 @@ public class OptionalTargeter:EffectTargeter
 {
     //TODO: Optional targeting
     public ContextualObjTargets contextual;
-    public override void resolveTarget(Context context){
+    public override void resolveTarget(Effect.Context context){
         
     }
 

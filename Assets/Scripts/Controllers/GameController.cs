@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using GameFlow;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -54,7 +53,7 @@ public class GameController : MonoBehaviour
         //TODO: getAllTargetablesOfType<T>
         throw new NotImplementedException();
     }
-    public ITargetable[] getAllOfType(Context context){
+    public ITargetable[] getAllOfType(Effect.Context context){
         //TODO: getAllTargetablesOfType
         if(context?.self?.GetType() == typeof(Entity)){
             return entities.ToArray();

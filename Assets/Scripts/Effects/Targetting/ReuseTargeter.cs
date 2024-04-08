@@ -13,11 +13,11 @@ using System.Linq;
 [Serializable]
 public class ReuseTargeter:EffectTargeter
 {
-    public override void storeTargets(Context context){
+    public override void storeTargets(Effect.Context context){
         //No guardar targets
     }
 
-    public override void resolveTarget(Context context){
+    public override void resolveTarget(Effect.Context context){
         if(context.previousTargets.Count==0){
             Debug.LogError("No hay targets previos que poder reutilizar", (UnityEngine.Object)context.self);
         }

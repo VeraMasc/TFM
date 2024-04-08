@@ -23,7 +23,7 @@ namespace Effect{
         [SerializeReference,SubclassSelector]
         public List<Condition> conditions = new List<Condition>();
 
-        public override void resolveTarget(Context context){
+        public override void resolveTarget(Effect.Context context){
             baseTargeter.resolveTarget(context);
             //TODO: filter base targeter with conditions
         }

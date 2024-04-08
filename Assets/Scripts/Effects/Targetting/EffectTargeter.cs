@@ -27,7 +27,7 @@ public abstract class EffectTargeter
     /// <summary>
     /// Obtiene el target resuelto (lo resuelve si es necesario)
     /// </summary>
-    public ITargetable[] getTargets(Context context){
+    public ITargetable[] getTargets(Effect.Context context){
         if(_targets == null){ //Resuelve el target si no lo ha hecho ya
             resolveTarget(context);
             storeTargets(context);
@@ -38,7 +38,7 @@ public abstract class EffectTargeter
     /// <summary>
     /// Almacena los targets para su posible reuso
     /// </summary>
-    public virtual void storeTargets(Context context){
+    public virtual void storeTargets(Effect.Context context){
         context.previousTargets.Add(_targets);
     }
 
@@ -52,7 +52,7 @@ public abstract class EffectTargeter
     /// Sobreescribir este método para cambiar como se resuelven los targets
     /// </summary>
     
-    public virtual void resolveTarget(Context context){
+    public virtual void resolveTarget(Effect.Context context){
         throw new NotImplementedException();
     }
 
@@ -74,7 +74,7 @@ public abstract class EffectTargeter
 public class ContextualObjectTargeter:EffectTargeter
 {
     public ContextualObjTargets contextual;
-    public override void resolveTarget(Context context){
+    public override void resolveTarget(Effect.Context context){
         switch(contextual){
             case ContextualObjTargets.self:
                 singleTarget= context.self;
@@ -101,7 +101,7 @@ public class ContextualObjectTargeter:EffectTargeter
 public class ContextualEntityTargeter:EffectTargeter
 {
     public ContextualEntityTargets contextual;
-    public override void resolveTarget(Context context){
+    public override void resolveTarget(Effect.Context context){
         switch(contextual){
             case ContextualEntityTargets.controller:
                 singleTarget= context.controller;

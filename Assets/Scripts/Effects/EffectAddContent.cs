@@ -20,7 +20,7 @@ namespace Effect{
         [SerializeReference, SubclassSelector]
         public Value.Numeric amount;
 
-        public override IEnumerator execute(CardResolveOperator stack, Context context)
+        public override IEnumerator execute(CardResolveOperator stack, Effect.Context context)
         {
             var targets = targeter.getTargets(context);
             
