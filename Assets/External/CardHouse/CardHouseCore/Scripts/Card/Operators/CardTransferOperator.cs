@@ -73,7 +73,7 @@ namespace CardHouse
         /// Transfiere las cartas y espera a que lleguen a su destino
         /// </summary>
         /// <returns></returns>
-        public static IEnumerator transferCoroutine(CardTransferOperator op, Coroutine self){
+        protected static IEnumerator transferCoroutine(CardTransferOperator op, Coroutine self){
             var amount = op.NumberToTransfer;
             var transition = (GroupTransition) op.Transition.Clone();
             var grabFrom = op.GrabFrom;

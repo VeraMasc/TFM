@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using CardHouse;
+using Common.Coroutines;
 using CustomInspector;
 using UnityEngine;
 
@@ -19,6 +21,11 @@ public class Entity : MonoBehaviour,ITargetable
     /// </summary>
     public EntityTeam team;
 
+    /// <summary>
+    /// Cantidad de cartas que puede tener en la mano al terminar el turno
+    /// </summary>
+    public int maxHandSize =4;
+
     [HorizontalLine(3f, message ="Card Management")]
     /// <summary>
     /// Mano con cartas de la entidad
@@ -36,7 +43,7 @@ public class Entity : MonoBehaviour,ITargetable
     /// Pila de descarte del personaje
     /// </summary>
     [ForceFill]
-    public CardGroup discard;
+    public CardGroup discarded;
 
     /// <summary>
     /// Pila de exilio del personaje
@@ -44,6 +51,20 @@ public class Entity : MonoBehaviour,ITargetable
     [ForceFill]
     public CardGroup exile;
 
+    /// <summary>
+    /// Pila de cartas enganchadas al personaje
+    /// </summary>
+    public CardGroup attached;
+
+    /// <summary>
+    /// Skills
+    /// </summary>
+    public CardGroup skills;
+
+    [HorizontalLine(3f, message ="Data Management")]
+    /// <summary>
+    /// Definición del personaje
+    /// </summary>
     public EntityData data;
 
     
@@ -53,8 +74,30 @@ public class Entity : MonoBehaviour,ITargetable
     /// Hace que el jugador robe cartas
     /// </summary>
     /// <param name="amount"> cuantas cartas ha de robar</param>
-    public void draw(int amount){
+    public IEnumerator draw(int amount, Action<Card[]> returnAction = null){
         //TODO: Card transfer
+        
+        yield return CardTransferOperator.sendCardsFrom(deck,amount,hand,0);
+        // throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// El jugador descarta varias cartas. 
+    /// </summary>
+    /// <param name="amount">cuantas cartas ha de descartar</param>
+    /// <returns>Devuelve la lista de cartas descartadas</returns>
+    public IEnumerator discard(int amount, Action<Card[]> returnAction = null){
+        throw new NotImplementedException();
+
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="amount">Devuelve la lista de cartas descartadas</param>
+    /// <returns></returns>
+    public Card[] discardRandom(int amount, Action<Card[]> returnAction = null){
+        throw new NotImplementedException();
     }
 
     void OnEnable()
