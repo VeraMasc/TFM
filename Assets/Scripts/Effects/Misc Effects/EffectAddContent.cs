@@ -14,9 +14,8 @@ namespace Effect{
         
 
         /// <summary>
-        /// Cantidad a robar
+        /// Cantidad a ce contenido a añadir
         /// </summary>
-        //TODO: allow use of variables
         [SerializeReference, SubclassSelector]
         public Value.Numeric amount;
 
