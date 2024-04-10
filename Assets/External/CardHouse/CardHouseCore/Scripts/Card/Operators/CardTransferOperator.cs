@@ -117,7 +117,27 @@ namespace CardHouse
         }
 
         /// <summary>
-        /// Envía múltiples cartas de un sitio a otro
+        /// Corrutina que manda varias cartas a un grupo concreto
+        /// </summary>
+        /// <param name="card">Carta a enviar</param>
+        /// <param name="destination">Grupo de destino</param>
+        /// <param name="sendTo">posición de destino</param>
+        /// <param name="homingOverride">Sobreescribe el homing de la carta</param>
+        /// <param name="flipSpeed">Velocidad a la que se gira la carta</param>
+        public static IEnumerator sendCards(IEnumerable<Card> cards, CardGroup destination,float delay, GroupTargetType sendTo = GroupTargetType.Last, SeekerScriptable<Vector3> homingOverride = null, float flipSpeed = 1f)
+        {
+            foreach(var card in cards){
+                var corroutine = UCoroutine.Yield(sendCard(card,destination,sendTo,homingOverride,flipSpeed));
+
+                if (delay>=0){//Wait for transfer + delay
+                    yield return corroutine;
+                    yield return new WaitForSeconds(delay);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Envía múltiples cartas de un grupo a otro
         /// </summary>
         /// <param name="source">Grupo de origen</param>
         /// <param name="amount">Cantidad de cartas a transferir</param>
