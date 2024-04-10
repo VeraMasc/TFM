@@ -109,8 +109,16 @@ public class Entity : MonoBehaviour,ITargetable
         coReturn(returnAction, cards.ToArray());
     }
 
+    /// <summary>
+    /// El jugador pone cartas de su mazo en la pila de descarte
+    /// </summary>
+    /// <param name="amount">Cantidad de cartas a "moler"</param>
+    /// <param name="returnAction">Devuelve la lista de cartas "molidas"</param>
+    /// <returns></returns>
     public IEnumerator mill(int amount,  Action<Card[]> returnAction = null){
-        throw new NotImplementedException();
+        var cards =deck.Get(GroupTargetType.Last, amount);
+        yield return CardTransferOperator.sendCards(cards,discarded,0.5f);
+        coReturn(returnAction, cards.ToArray());
     }
     
     /// <summary>
