@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 31bcccd27b6e6ba4eac0a80423f7741b
+guid: 4c0256f70a802694ebc8beec10cbd0ad
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -79,8 +79,8 @@ ScriptedImporter:
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
-    generateAnimationClips: 0
-    addSortingGroup: 0
+    generateAnimationClips: 1
+    addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
     fileImportMode: 1
@@ -91,11 +91,11 @@ ScriptedImporter:
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
-    generateAnimationClips: 0
-    addSortingGroup: 0
+    generateAnimationClips: 1
+    addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638483945654714054
+  platformSettingsDirtyTick: 638483945790920165
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Cancel Button
+  - name: Cancel Button 3_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: -0.11111111}
+    pivot: {x: 0.5, y: -0.11538462}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 50
-      height: 54
-    spriteID: dbf9bab958109db48aeeab53b231be61
+      width: 24
+      height: 26
+    spriteID: fc57143962997ac4a9303575c99b19b6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,23 +139,79 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Cancel Button 3_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.11538462}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 38
+      width: 24
+      height: 26
+    spriteID: a48ae51ccacb13a4b829bf2f47ffa89a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 38}
+  - name: Cancel Button 3_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.11538462}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 72
+      width: 24
+      height: 26
+    spriteID: cf845231de66b6744bfa467c62030e5b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 72}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 508989388
-    name: Cancel Button
+    guid: 858645263
+    name: Cancel Button 3
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Cancel Button
+    - name: Cancel Button 3_Frame_0
       frameIndex: 0
       cellRect:
-        x: -9
-        y: 6
-        width: 50
-        height: 54
-      spriteId: dbf9bab958109db48aeeab53b231be61
+        x: 4
+        y: 3
+        width: 24
+        height: 26
+      spriteId: fc57143962997ac4a9303575c99b19b6
+    - name: Cancel Button 3_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 4
+        y: 3
+        width: 24
+        height: 26
+      spriteId: a48ae51ccacb13a4b829bf2f47ffa89a
+    - name: Cancel Button 3_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 4
+        y: 3
+        width: 24
+        height: 26
+      spriteId: cf845231de66b6744bfa467c62030e5b
     linkedCells: []
     parentIndex: -1
   platformSettings:
