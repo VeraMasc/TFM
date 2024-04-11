@@ -21,7 +21,7 @@ namespace Effect{
 
         public override IEnumerator execute(CardResolveOperator stack, Context context)
         {
-            Debug.Log(message, (UnityEngine.Object)context.self);
+            Debug.Log(message.getValueObj(context), (UnityEngine.Object)context.self);
             yield break;
         }
 

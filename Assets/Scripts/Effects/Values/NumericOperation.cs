@@ -50,7 +50,7 @@ namespace Effect{
 
                 
             }
-            context.previousValues.Add(new object[]{result});
+            context.previousValues.Add(result);
             yield break;
         }
     }

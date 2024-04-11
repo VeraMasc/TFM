@@ -28,14 +28,13 @@ MonoBehaviour:
       controller: {fileID: 0}
     revealEffect:
       list:
-      - rid: -2
+      - rid: 3644647118944862215
+      - rid: 3644647118944862218
       - rid: 418998211267002368
       - rid: 3644647004826501120
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 418998211267002368
       type: {class: AddContent, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -60,5 +59,31 @@ MonoBehaviour:
       type: {class: ReuseNumeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 0
+        index: 0
+        destructive: 1
+    - rid: 3644647118944862215
+      type: {class: NumericOperation, ns: Effect, asm: Assembly-CSharp}
+      data:
+        A:
+          rid: 3644647118944862216
+        B:
+          rid: 3644647118944862217
+        operation: 0
+    - rid: 3644647118944862216
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 1
+    - rid: 3644647118944862217
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 1
+    - rid: 3644647118944862218
+      type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
+      data:
+        message:
+          rid: 3644647118944862219
+    - rid: 3644647118944862219
+      type: {class: ReuseValue, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
         index: 0
         destructive: 0

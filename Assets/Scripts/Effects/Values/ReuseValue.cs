@@ -39,7 +39,7 @@ namespace Effect.Value{
                 return default(T);
             }
 
-            var pos = size-index;
+            var pos = size-index-1;
             var val = context.previousValues[pos];
 
             if(destructive){
