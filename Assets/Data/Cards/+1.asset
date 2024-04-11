@@ -15,7 +15,8 @@ MonoBehaviour:
   BackArt: {fileID: 0}
   cardName: +1
   cardText: +1
-  Art: {fileID: 21300000, guid: 3aa2275fa01afa24a99caf9667f892c7, type: 3}
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
   help: []
   effects:
     baseEffect:

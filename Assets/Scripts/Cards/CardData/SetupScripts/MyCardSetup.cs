@@ -33,6 +33,11 @@ public abstract class MyCardSetup : CardSetup
     public SpriteRenderer Image;
 
     /// <summary>
+    /// Renderer del frame de la carta
+    /// </summary>
+    public SpriteRenderer FrameImage;
+
+    /// <summary>
     /// Renderer de la cara trasera de la carta
     /// </summary>
     public SpriteRenderer BackImage;

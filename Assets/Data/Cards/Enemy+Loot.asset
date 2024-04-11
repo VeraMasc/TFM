@@ -15,11 +15,15 @@ MonoBehaviour:
   BackArt: {fileID: 0}
   cardName: Enemy+Loot
   cardText: Enemy + Loot
-  Art: {fileID: 21300000, guid: 1fc16a5f26b69bf4b8fdd0376c5269ab, type: 3}
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
   effects:
-    revealEffect:
+    baseEffect:
       list: []
     staticEffects:
+      list: []
+    revealEffect:
       list: []
   references:
     version: 2

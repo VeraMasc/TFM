@@ -13,6 +13,8 @@ public class MyCardDefinition : CardDefinition
 
     public Sprite Art;
 
+    public Sprite Frame;
+
     [ShowProperty("BackArt", order=-20),Space2(16)]
 
     [HorizontalLine]
