@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Effect.Value{
     public interface IDynamicValue<T>
     {
-        public T getValue();
+        public T getValue(Context context);
         public virtual bool isDynamic{get=> false;}
     }
 

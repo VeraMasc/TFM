@@ -26,7 +26,7 @@ namespace Effect{
             
             foreach(var target in targets){
                 if(target is Entity entity){
-                    entity.health -= amount.getValue();
+                    entity.health -= amount.getValue(context);
                     //TODO: Use event to deal the damage
                     //TODO: Use damage animation corroutine
                     //TODO: Allow simultaneous damage

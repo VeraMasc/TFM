@@ -19,7 +19,7 @@ namespace Effect
         {
             if(context.controller != null){
                 var cardsInHand = context.controller.hand.MountedCards.Count;
-                return cardsInHand >= amount.getValue();
+                return cardsInHand >= amount.getValue(context);
             }
             return false;
         }
@@ -27,7 +27,7 @@ namespace Effect
         public override IEnumerator executeForeach(ITargetable target,CardResolveOperator stack, Context context)
         {
             if(target is Entity entity){
-                yield return entity.discardRandom(amount.getValue());
+                yield return entity.discardRandom(amount.getValue(context));
                 
             }else{
                 Debug.LogError($"Target of {this.GetType().Name} is \"{target.GetType().Name}\" not an entity", (UnityEngine.Object)context.self);

@@ -38,7 +38,7 @@ namespace Effect{
         /// <summary>
         /// Valores previos del proceso de resolución
         /// </summary>
-        public List<object[]> previousValues = new List<object[]>();
+        public List<object> previousValues = new List<object>();
 
 
         /// <summary>

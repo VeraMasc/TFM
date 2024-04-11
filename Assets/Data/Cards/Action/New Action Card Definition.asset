@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: New Action Card Definition
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
-  cardName: 
+  cardName: New Action Card Definition
   cardText: 
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   effects:
     baseEffect:
-      list: []
+      list:
+      - rid: 3644647118944862208
     staticEffects:
       list: []
     context:
@@ -28,4 +29,36 @@ MonoBehaviour:
       controller: {fileID: 0}
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3644647118944862208
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 3644647118944862209
+        - rid: 3644647118944862212
+    - rid: 3644647118944862209
+      type: {class: NumericOperation, ns: Effect, asm: Assembly-CSharp}
+      data:
+        A:
+          rid: 3644647118944862210
+        B:
+          rid: 3644647118944862211
+        operation: 0
+    - rid: 3644647118944862210
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 1
+    - rid: 3644647118944862211
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 1
+    - rid: 3644647118944862212
+      type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
+      data:
+        message:
+          rid: 3644647118944862213
+    - rid: 3644647118944862213
+      type: {class: ReuseValue, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        index: 0
+        destructive: 0

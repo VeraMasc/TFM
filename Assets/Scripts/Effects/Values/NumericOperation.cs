@@ -11,8 +11,10 @@ namespace Effect{
     [Serializable]
     public class NumericOperation:EffectScript, IValueEffect
     {
+        [SerializeReference, SubclassSelector]
         public Numeric A;
 
+        [SerializeReference, SubclassSelector]
         public Numeric B;
 
         public Operation operation;
@@ -27,18 +29,18 @@ namespace Effect{
             int result;
             switch (operation){
                 case Operation.suma:
-                    result = A.getValue() + B.getValue();
+                    result = A.getValue(context) + B.getValue(context);
                     break;
 
                 case Operation.resta:
-                    result = A.getValue() - B.getValue();
+                    result = A.getValue(context) - B.getValue(context);
                     break;
                 case Operation.multiplicación:
-                    result = A.getValue() * B.getValue();
+                    result = A.getValue(context) * B.getValue(context);
                     break;
 
                 case Operation.división:
-                    result = A.getValue() / B.getValue();
+                    result = A.getValue(context) / B.getValue(context);
                     break;
                 
                 default:

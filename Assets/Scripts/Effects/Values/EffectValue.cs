@@ -8,7 +8,7 @@ namespace Effect{
     /// </summary>
     /// <typeparam name="T"></typeparam>
     [Serializable]
-    public class Value<T>
+    public class Value<T>:IValue
     {
         public Value(){
 
@@ -24,14 +24,22 @@ namespace Effect{
         protected T value;
 
         /// <summary>
-        /// 
+        /// Obtiene el valor
         /// </summary>
         /// <returns></returns>
-        public virtual T getValue(){
+        public virtual T getValue(Context context){
             return value;
         }
 
+        public virtual object getValueObj(Context context){
+            return getValue(context);
+        }
+
         public virtual bool isDynamic{get=> false;}
+    }
+
+    public interface IValue{
+        public object getValueObj(Context context);
     }
 }
 

@@ -38,7 +38,7 @@ namespace Effect{
                     Debug.LogError("No content group to add to", (UnityEngine.Object) target);
                     continue;
                 }
-                yield return CardTransferOperator.sendCardsFrom(source, amount.getValue(), destination, 0.1f);
+                yield return CardTransferOperator.sendCardsFrom(source, amount.getValue(context), destination, 0.1f);
             }
         }
 
