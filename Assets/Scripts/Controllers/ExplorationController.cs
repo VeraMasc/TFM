@@ -184,7 +184,7 @@ public class ExplorationController : MonoBehaviour
         var revealTrigger = data?.getEffectsAs<ContentCardEffects>()?.revealEffect;
 
         if(revealTrigger?.isEmpty==false){
-            effectStack.triggerEffect(contentCard,revealTrigger);
+            yield return StartCoroutine(effectStack.triggerEffect(contentCard,revealTrigger));
             yield return effectStack.waitTillEmpty;
         }
         

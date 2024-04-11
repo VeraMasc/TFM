@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using CustomInspector;
+using Effect;
 using UnityEngine;
 
 /// <summary>
@@ -57,6 +58,15 @@ public class EffectChain
     public EffectChain cloneFrom(IEnumerable<EffectScript> source){
         throw new NotImplementedException();
         //TODO: implementar clonación de efectos
+    }
+    
+    /// <summary>
+    /// Precalcula las partes precalculables del código
+    /// </summary>
+    /// <param name="context"></param>
+    /// <returns></returns>
+    public IEnumerator precalculate(Context context){
+        yield return null;
     }
 }
 /// <summary>

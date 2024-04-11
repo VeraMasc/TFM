@@ -20,9 +20,14 @@ public class CardResolveOperator : Activatable
     public CardGroup stack;
 
     /// <summary>
-    /// Indica si está resolviendo (esperando inputs) o esperando nuevas cartas/activación
+    /// Indica si está resolviendo 
     /// </summary>
     public bool resolve;
+
+    /// <summary>
+    /// Indica si está precalculando (esperando inputs)
+    /// </summary>
+    public bool precalculating;
 
     /// <summary>
     /// Carta en proceso de resolución
@@ -77,6 +82,14 @@ public class CardResolveOperator : Activatable
         get => UCoroutine.YieldAwait(()=> !resolve && stack.MountedCards.Count == 0);
     }
 
+    /// <summary>
+    /// Espera hasta que el stack esté libre
+    /// </summary>
+    public IEnumerator waitTillOpen{
+        get => UCoroutine.YieldAwait(()=> !resolve && !precalculating &&
+            (stack.MountedCards.Count == 0));
+    }
+
     void Update()
     {
         if(resolve && activeCard == null){
@@ -85,14 +98,19 @@ public class CardResolveOperator : Activatable
     }
 
     /// <summary>
-    /// Crea el contexto
+    /// Crea el contexto. //TODO: Mover a BaseCardEffects
     /// </summary>
-    public void setContext(){
-        if(activeCard?.data is TriggerCard trigger){
+    public void setContext(Card card){
+        Context newContext;
+        if(card?.data is TriggerCard trigger){
             //Create context from source
-            context = new Effect.Context(trigger.source);
+            newContext = new Effect.Context(trigger.source);
         }else{
-            context = new Effect.Context(activeCard);
+            newContext = new Effect.Context(card);
+        }
+
+        if(card?.data is MyCardSetup myCard){
+            myCard.effects.context = newContext;
         }
         
     }
@@ -110,6 +128,40 @@ public class CardResolveOperator : Activatable
         ()=>(userInputs?.Count ?? 0) == 0
     );
 
+
+    /// <summary>
+    /// Precalcula la carta cuando entra en el stack
+    /// </summary>
+    /// <param name="card"></param>
+    /// <returns></returns>
+    protected IEnumerator precalculateCard(Card card){
+        precalculating = true;
+        setContext(card);
+        //TODO: Alternative Cast Modes
+        //TODO: Set targets
+        if(card.data is MyCardSetup simpleCard)
+        {
+            var effect = simpleCard.effects?.baseEffect;
+            if(effect != null){
+                yield return StartCoroutine(simpleCard.effects?.baseEffect.precalculate(simpleCard.effects.context));
+            }
+            
+        }
+        precalculating = false;
+    }
+
+    /// <summary>
+    /// Manda una carta al stack y la precalcula
+    /// </summary>
+    /// <param name="card">Carta a enviar</param>
+
+    public IEnumerator castCard(Card card){
+        Debug.Log("Casting card");
+        stack.Mount(card);
+        yield return UCoroutine.YieldAwait( ()=>!card.Homing.seeking);
+        yield return StartCoroutine(precalculateCard(card));
+        
+    }
     /// <summary>
     /// Resuelve la siguiente carta de la secuencia
     /// </summary>
@@ -124,13 +176,14 @@ public class CardResolveOperator : Activatable
 
         //Set up current card
         sendTo = GroupName.Discard;
-        setContext();
-        Debug.Log(context.self);
-
-        //TODO: Alternative Cast Modes
-        //TODO: Set targets
 
         if(activeCard?.data is MyCardSetup simpleCard){
+            context = simpleCard.effects.context;
+            if(context == null){
+                Debug.LogError($"Card was not precalculated. Remember not to mount cards directly, use {nameof(castCard)}",simpleCard);
+                yield break;
+            }
+            Debug.Log(context.self);
             yield return resolveBaseEffect(activeCard, simpleCard);
         }
         
@@ -190,8 +243,8 @@ public class CardResolveOperator : Activatable
     /// </summary>
     /// <param name="source">Carta que ha causado el trigger</param>
     /// <param name="triggered">Cadena de efectos a desencadenar</param>
-    public void triggerEffect(Card source, EffectChain triggered){
+    public IEnumerator triggerEffect(Card source, EffectChain triggered){
         var card = createTriggerCard(source,triggered, transform);
-        stack.Mount(card);
+        yield return StartCoroutine(castCard(card));
     }
 }
