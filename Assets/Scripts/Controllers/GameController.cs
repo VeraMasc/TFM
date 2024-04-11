@@ -45,6 +45,22 @@ public class GameController : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Devuelve todos los targets normalmente accesibles
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerable<ITargetable> getTargetablesOnBoard(){
+        var ret = entities.ToList<ITargetable>();
+        foreach(var entity in entities){
+            if(entity == null)
+                continue;
+            ret.AddRange(entity?.board?.MountedCards ?? new List<CardHouse.Card>());
+            ret.AddRange(entity?.attached?.MountedCards ?? new List<CardHouse.Card>());
+            ret.AddRange(entity?.skills.MountedCards ?? new List<CardHouse.Card>());
+        }
+        return ret;
+    }
+
     public ITargetable[] getAllTargetablesOfType<T>(){
         var type = typeof(T);
         if(typeof(T) == typeof(Entity)){

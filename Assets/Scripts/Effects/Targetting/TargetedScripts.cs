@@ -15,6 +15,20 @@ namespace Effect
         [SerializeReference, SubclassSelector]
         public EffectTargeter targeter;
 
+        /// <summary>
+        /// Sobreescribir este método para cambiar qué targets individuales se consideran válidos
+        /// </summary>
+        public virtual bool isValidTarget(ITargetable target,Effect.Context context){
+            return true;
+        }
+
+        /// <summary>
+        /// Sobreescribir este método para cambiar qué conjunto global de targets se considera válido
+        /// </summary>
+        public virtual bool isValidResult(ITargetable[] targets,Effect.Context context){
+            return true;
+        }
+
         public override IEnumerator execute(CardResolveOperator stack, Context context)
         {
             var targets = targeter.getTargets(context);

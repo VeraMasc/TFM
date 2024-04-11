@@ -9,6 +9,10 @@ using UnityEngine;
 public class CompactCardGroup : CardHouse.CardGroup
 {
     /// <summary>
+    /// Indica si el grupo está bajo focus. (Modo en el que se muestran todas las cartas en pantalla)
+    /// </summary>
+    public bool focused = false;
+    /// <summary>
     /// Actualiza la visiblidad de las cartas del grupo. Solo se renderiza la carta superior o cartas en movimiento
     /// </summary>
     public void updateCardVisibility(){

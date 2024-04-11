@@ -51,9 +51,22 @@ public abstract class EffectTargeter
     /// <summary>
     /// Sobreescribir este método para cambiar como se resuelven los targets
     /// </summary>
-    
     public virtual void resolveTarget(Effect.Context context){
         throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Sobreescribir este método para cambiar qué targets individuales se consideran válidos
+    /// </summary>
+    public virtual bool isValidTarget(ITargetable target,Effect.Context context){
+        return true;
+    }
+
+    /// <summary>
+    /// Sobreescribir este método para cambiar qué conjunto global de targets se considera válido
+    /// </summary>
+    public virtual bool isValidResult(ITargetable[] targets,Effect.Context context){
+        return true;
     }
 
     /// <summary>

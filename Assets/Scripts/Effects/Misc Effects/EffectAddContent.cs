@@ -41,5 +41,18 @@ namespace Effect{
                 yield return CardTransferOperator.sendCardsFrom(source, amount.getValue(), destination, 0.1f);
             }
         }
+
+        /// <summary>
+        /// Sobreescribir este método para cambiar qué targets individuales se consideran válidos
+        /// </summary>
+        public override bool isValidTarget(ITargetable target,Effect.Context context){
+            if(target is Card card && card?.data is RoomCard room){
+                //Accept only rooms as targets
+                return targeter.isValidTarget(target, context);
+            }
+            return false;
+        }
+
+    
     }
 }

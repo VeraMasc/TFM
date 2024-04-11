@@ -61,9 +61,11 @@ namespace Effect{
     }
 }
 /// <summary>
-/// Define qué objetos pueden ser targets
+/// Define qué objetos pueden ser targets.
+/// Puede ser: Carta, Entidad, Grupo??? 
 /// </summary>
 public interface ITargetable{
+    // public Transform targeterTransform;
     T GetComponent<T>();
 
     T GetComponentInChildren<T>();

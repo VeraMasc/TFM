@@ -7,6 +7,7 @@ using CustomInspector;
 using UnityEngine;
 using Effect;
 using Effect.Status;
+using System.Linq;
 
 /// <summary>
 /// Cualquier entidad que usa cartas de acción
@@ -63,6 +64,11 @@ public class Entity : MonoBehaviour,ITargetable
     /// </summary>
     public CardGroup skills;
 
+    /// <summary>
+    /// Grupo de las cartas "en juego"
+    /// </summary>
+    public CardGroup board;
+
     [HorizontalLine(3f, message ="Data Management")]
     /// <summary>
     /// Definición del personaje
@@ -73,6 +79,13 @@ public class Entity : MonoBehaviour,ITargetable
     /// Estatus que actualmente afectan al personaje
     /// </summary>
     public List<Effect.Status.BaseStatus> statusEffects;
+
+    [HorizontalLine(3f, message ="Interface")]
+
+    /// <summary>
+    /// EIndica el punto en el que se pone el marcador de target
+    /// </summary>
+    public Transform targeterTransform;
 
 
     /// <summary>
@@ -96,6 +109,7 @@ public class Entity : MonoBehaviour,ITargetable
         throw new NotImplementedException();
 
     }
+    
 
     /// <summary>
     /// El jugador descarta cartas al azar
@@ -137,6 +151,17 @@ public class Entity : MonoBehaviour,ITargetable
     /// <param name="status"></param>
     public IEnumerator applyStatus(BaseStatus status, Action<BaseStatus> returnAction = null){
         throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Obtiene todos los targetables de la entidad (salvo ella misma). Principalmente sus cartas y efectos
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerable<ITargetable> getMyTargetables(){
+        //TODO: add cards on board
+        //TODO: add abilities
+        
+        return Enumerable.Empty<ITargetable>();
     }
 
     void OnEnable()
