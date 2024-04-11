@@ -5,6 +5,8 @@ using CardHouse;
 using CustomInspector;
 using System.Linq;
 using Common.Coroutines;
+using Effect;
+using System;
 
 /// <summary>
 /// Se encarga de ejecutar en orden los efectos/cartas en el stack
@@ -44,6 +46,18 @@ public class CardResolveOperator : Activatable
     /// </summary>
     public Effect.Context context;
 
+    /// <summary>
+    /// Inputs de la carta actual que faltan por llenar
+    /// </summary>
+    [NonSerialized]
+    public List<IManual> userInputs;
+
+    /// <summary>
+    /// Currentl manual input waiting for the player
+    /// </summary>
+    [SerializeReference, SubclassSelector]
+    public IManual currentUserInput;
+
     [SelfFill(true)]
     public StackUI stackUI;
 
@@ -82,6 +96,19 @@ public class CardResolveOperator : Activatable
         }
         
     }
+
+    public IEnumerator getUserInputs(){
+        //TODO: await for inputs on cast
+        //TODO: await for inputs on resolution
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Espera a que se acaben de poner todos los inputs necesarios
+    /// </summary>
+    public IEnumerator userInputsFinished => UCoroutine.YieldAwait(
+        ()=>(userInputs?.Count ?? 0) == 0
+    );
 
     /// <summary>
     /// Resuelve la siguiente carta de la secuencia

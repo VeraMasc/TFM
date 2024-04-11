@@ -26,6 +26,10 @@ namespace Effect
             return GameController.singleton.getTargetablesOnBoard();
         }
 
+        [SerializeField]
+        private bool _chooseOnCast;
+
+        bool IManual.chooseOnCast => _chooseOnCast;
 
         public virtual IEnumerator awaitUserInput(Effect.Context context){
             yield return null;
@@ -46,6 +50,11 @@ namespace Effect
         /// <param name="context"></param>
         /// <returns></returns>
         public IEnumerator awaitUserInput(Effect.Context context);
+
+        /// <summary>
+        /// Indica si la decisión se realiza en el momento que la carta entra en la pila de resolución
+        /// </summary>
+        public bool chooseOnCast{get;}
     }
 }
 
