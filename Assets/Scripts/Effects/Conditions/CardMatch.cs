@@ -14,7 +14,7 @@ namespace Effect.Condition{
         /// <summary>
         /// Comprueba si se cumple la condición
         /// </summary>
-        public virtual bool check(Effect.Context context){
+        public override bool check(Effect.Context context){
             throw new NotImplementedException();
         }
     }

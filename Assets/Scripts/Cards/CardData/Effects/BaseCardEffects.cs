@@ -17,6 +17,8 @@ public class BaseCardEffects{
     /// </summary>
     public EffectChain staticEffects;
 
+    public Effect.Context context = null;
+
     /// <summary>
     /// Clona todos los efectos del conjunto
     /// </summary>

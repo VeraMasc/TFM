@@ -24,6 +24,7 @@ namespace Effect
         }
 
         public override List<IManual> getManualInputs(){
+            //TODO: modificar cómo se recuperan los IManual 
             var nodes = targeter.getTargeterNodes();
             return nodes.OfType<IManual>().ToList();
         }
