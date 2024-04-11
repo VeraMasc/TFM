@@ -58,6 +58,7 @@ public class GameController : MonoBehaviour
             ret.AddRange(entity?.attached?.MountedCards ?? new List<CardHouse.Card>());
             ret.AddRange(entity?.skills.MountedCards ?? new List<CardHouse.Card>());
         }
+        //TODO: Add exploration cards
         return ret;
     }
 

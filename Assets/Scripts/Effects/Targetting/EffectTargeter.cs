@@ -70,6 +70,14 @@ public abstract class EffectTargeter
     }
 
     /// <summary>
+    /// Obtiene todas las partes del targeter 
+    /// </summary>
+    /// <returns> lista de los targeters</returns>
+    public virtual List<EffectTargeter> getTargeterNodes(){
+        return new List<EffectTargeter>(){this};
+    }
+
+    /// <summary>
     /// Obtiene el ITargetable padre de un ITargetable
     /// </summary>
     public static ITargetable getObjParent(ITargetable obj){
@@ -98,7 +106,8 @@ public class ContextualObjectTargeter:EffectTargeter
                 break;
             
             case ContextualObjTargets.all:
-                _targets = GameController.singleton.getAllOfType(context);
+                _targets = GameController.singleton.getTargetablesOnBoard()
+                    .Where(t=> isValidTarget(t,context)).ToArray();
                 break;
             default:
                 throw new NotImplementedException();

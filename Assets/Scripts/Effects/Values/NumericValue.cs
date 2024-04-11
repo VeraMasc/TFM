@@ -39,6 +39,11 @@ namespace Effect.Value{
         [AsRange(-20,30)]
         public Vector2 range;
 
+        public virtual IEnumerator awaitUserInput(Effect.Context context){
+            //TODO: ask user for input
+            yield return null;
+        }
+
         public IEnumerator getPlayerChoice()
         {
             throw new NotImplementedException();

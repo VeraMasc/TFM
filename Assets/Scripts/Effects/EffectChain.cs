@@ -43,6 +43,13 @@ public class EffectChain
         
     }
     
+    /// <summary>
+    /// Obtiene todas las partes de la cadena de efectos que requieren inputs del jugador
+    /// </summary>
+    /// <returns> lista de los inputs recuperados</returns>
+    public List<Effect.IManual> getManualInputs(){
+        return list.SelectMany(effect => effect.getManualInputs()).ToList();
+    }
 
     /// <summary>
     /// Copia la secuencia de efectos como una cadena independiente

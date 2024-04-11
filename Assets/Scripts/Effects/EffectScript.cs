@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using CardHouse;
+using Effect;
 using UnityEngine;
 
 [Serializable]
@@ -20,6 +22,14 @@ public abstract class EffectScript
     public virtual EffectScript clone(){
         var ret = baseClone();
         return ret;
+    }
+
+    /// <summary>
+    /// Obtiene todas las partes del efecto que requieren inputs del jugador
+    /// </summary>
+    /// <returns> lista de los inputs recuperados</returns>
+    public virtual List<IManual> getManualInputs(){
+        return new List<IManual>();
     }
 
     protected virtual EffectScript baseClone(){
