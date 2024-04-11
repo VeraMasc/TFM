@@ -15,12 +15,14 @@ MonoBehaviour:
   cardBackArt: {fileID: 21300000, guid: d5a15976f7104e74ba0d4d236b1f26a9, type: 3}
   CardsetCollection:
   - card: {fileID: 11400000, guid: 5df055a49c8c53e4eabf11dcf72fedbc, type: 2}
-    amount: 10
+    amount: 5
   - card: {fileID: 11400000, guid: 087dae9fbf2700d49ba0164221232c96, type: 2}
-    amount: 10
+    amount: 5
   - card: {fileID: 11400000, guid: 448e73409d511514e9f6678cb87ccfc6, type: 2}
-    amount: 10
+    amount: 5
   - card: {fileID: 11400000, guid: 3714e470fc9f0324aada9c3e0317249d, type: 2}
     amount: 10
   - card: {fileID: 11400000, guid: bd55c66fb9036034ca9ceeb6cdb65074, type: 2}
+    amount: 10
+  - card: {fileID: 11400000, guid: 523f680df2c29df4aa83dba1859b0ce4, type: 2}
     amount: 10

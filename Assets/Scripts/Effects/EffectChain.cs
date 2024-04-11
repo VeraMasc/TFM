@@ -12,6 +12,7 @@ using UnityEngine;
 [Serializable]
 public class EffectChain
 {
+
     [SerializeReference,SubclassSelector]
     public List<EffectScript> list;
 
@@ -55,9 +56,9 @@ public class EffectChain
     /// <summary>
     /// Copia la secuencia de efectos como una cadena independiente
     /// </summary>
-    public EffectChain cloneFrom(IEnumerable<EffectScript> source){
-        throw new NotImplementedException();
-        //TODO: implementar clonación de efectos
+    public static EffectChain cloneFrom(IEnumerable<EffectScript> source){
+        var list = source.Select( effect => effect.clone());
+        return new EffectChain(list);
     }
     
     /// <summary>

@@ -151,8 +151,9 @@ public class ExplorationController : MonoBehaviour
 
        
         yield return new WaitForSeconds(1);
-
-        foreach(var content in hiddenContent.ToArray()){
+        Card content;
+        //Mientras haya una carta sin revelar, coge la primera
+        while( (content = hiddenContent.FirstOrDefault()) != null ){
             var minTime = new WaitForSeconds(0.5f);
             yield return UCoroutine.Yield(revealContent(content));
             yield return minTime;//Wait extra if flip is too fast

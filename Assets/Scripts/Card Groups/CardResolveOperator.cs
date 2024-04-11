@@ -71,6 +71,29 @@ public class CardResolveOperator : Activatable
     /// </summary>
     [AssetsOnly]
     public TriggerCard triggerPrefab;
+
+
+     private static CardResolveOperator _singleton;
+	///<summary>Controller Singleton</summary>
+	public static CardResolveOperator singleton
+	{
+		get 
+		{
+			if (_singleton == null)
+			{
+				_singleton = FindObjectOfType<CardResolveOperator>(); //Para cuando el maldito hotreload me pierde la referencia
+			}
+			return _singleton;
+		}
+	}
+
+    void Awake()
+    {
+        _singleton ??=this;
+        if(_singleton != this)
+            Destroy(this);
+    }
+
     protected override void OnActivate(){
         resolve = true;
     }
@@ -159,7 +182,9 @@ public class CardResolveOperator : Activatable
         Debug.Log("Casting card");
         stack.Mount(card);
         yield return UCoroutine.YieldAwait( ()=>!card.Homing.seeking);
-        yield return StartCoroutine(precalculateCard(card));
+        var routine = StartCoroutine(precalculateCard(card));
+        yield return new WaitForSeconds(0.5f);
+        yield return routine;
         
     }
     /// <summary>

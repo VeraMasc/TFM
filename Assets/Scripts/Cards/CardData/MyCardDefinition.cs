@@ -21,7 +21,7 @@ public class MyCardDefinition : CardDefinition
     [SerializeReference,SubclassSelector]
     public List<CardHelp> help;
 
-    protected void Awake() {
+    protected virtual void Awake() {
         if(string.IsNullOrWhiteSpace(cardName)){
             cardName = name;
         }
