@@ -1,16 +1,25 @@
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Effect;
+using UnityEngine;
 
 
- 
+
 [Serializable]
 public class BaseCardEffects{
     /// <summary>
     /// Efectos que producir cuando la carta se "resuelve" (Esto significa cosas distintas dependiendo del tipo de carta)
     /// </summary>
     public EffectChain baseEffect;
+
+    /// <summary>
+    /// Lista de habilidades de la carta
+    /// </summary>
+    [SerializeReference, SubclassSelector]
+    public List<Ability> abilities;
 
     /// <summary>
     /// Efectos estáticos 
