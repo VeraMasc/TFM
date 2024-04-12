@@ -26,28 +26,20 @@ MonoBehaviour:
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
     revealEffect:
       list:
       - rid: 3644647118944862224
       - rid: 3644647118944862228
-      - rid: 3644647004826501120
   references:
     version: 2
     RefIds:
-    - rid: 3644647004826501120
-      type: {class: Destroy, ns: Effect, asm: Assembly-CSharp}
-      data:
-        targeter:
-          rid: 3644647004826501123
-    - rid: 3644647004826501123
-      type: {class: ContextualObjectTargeter, ns: , asm: Assembly-CSharp}
-      data:
-        contextual: 0
     - rid: 3644647118944862224
       type: {class: CreateTrigger, ns: Effect, asm: Assembly-CSharp}
       data:
         trigger:
         - rid: 3644647118944862225
+        - rid: 3644647118944862232
     - rid: 3644647118944862225
       type: {class: AddContent, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -78,3 +70,12 @@ MonoBehaviour:
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 1
+    - rid: 3644647118944862232
+      type: {class: Destroy, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 3644647118944862233
+    - rid: 3644647118944862233
+      type: {class: ContextualObjectTargeter, ns: , asm: Assembly-CSharp}
+      data:
+        contextual: 0

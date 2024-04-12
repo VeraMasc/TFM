@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CardHouse;
 using UnityEngine;
 
 namespace Effect{
@@ -40,6 +41,10 @@ namespace Effect{
         /// </summary>
         public List<object> previousValues = new List<object>();
 
+        /// <summary>
+        /// Indica a dónde irá la carta tras resolverse
+        /// </summary>
+        public CardGroup resolutionPile;
 
         /// <summary>
         /// Create context without owner or controller

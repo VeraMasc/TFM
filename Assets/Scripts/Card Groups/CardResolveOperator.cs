@@ -242,8 +242,19 @@ public class CardResolveOperator : Activatable
             stack.UnMount(card);
             Destroy(trigger.gameObject);
             yield return new WaitForSeconds(0.5f);
+            yield break;
         }
-        var group = GroupRegistry.Instance.Get(sendTo,playerIndex);
+
+        CardGroup group=null;
+        if(card.data is MyCardSetup myCard ){ //Mira si la carta ya tiene destino asignado
+            var context = myCard.effects?.context;
+            group= context?.resolutionPile;
+            //Asignar la pila de descarte en base al dueño de la carta
+            group??= context?.owner?.discarded;
+        }
+
+        //Si todo falla, la manda a la pila por defecto
+        group ??= GroupRegistry.Instance.Get(sendTo,playerIndex);
         yield return CardTransferOperator.sendCard(card,group);
     }
 
