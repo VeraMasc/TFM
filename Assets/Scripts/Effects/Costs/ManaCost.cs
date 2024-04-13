@@ -38,13 +38,13 @@ namespace Effect{
         /// <summary>
         /// Expresión regular que describe un coste de maná válido
         /// </summary>
-        protected static Regex manaExpression = new(@"^\d*[MDVFWNA]*[+]?$", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+        protected static Regex manaExpression = new(@"^X*\d*[MDVFWNA]*[+]?$", RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
 
         /// <summary>
         /// Expresión regular que separa cada parte del coste
         /// </summary>
-        protected static Regex manaSegments = new(@"^(\d*)([MDVFWNA]*)([+]?)$", RegexOptions.IgnoreCase | RegexOptions.Compiled);
+        protected static Regex manaSegments = new(@"^X*(\d*)([MDVFWNA]*)([+]?)$", RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
         public void parseCost(){
             var segments = manaSegments.Match(costText);

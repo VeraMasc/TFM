@@ -18,15 +18,21 @@ MonoBehaviour:
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
+  cost:
+    costText: 2FF
+    value: 4
+    colors: F
   effects:
     baseEffect:
       list:
       - rid: 3644647118944862208
+    abilities: []
     staticEffects:
       list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
   references:
     version: 2
     RefIds:
