@@ -1,4 +1,7 @@
+using System.Collections.Generic;
+using CardHouse;
 using UnityEngine;
+using UnityEngine.Events;
 
 //[CreateAssetMenu(menuName = "Trigger/BaseTrigger")]
 /// <summary>
@@ -6,9 +9,8 @@ using UnityEngine;
 /// </summary>
 public abstract class BaseTrigger :ScriptableObject
 {
-    public virtual void subscribe(){
-        //TODO: implementar triggers con scriptable objects
-    }
+    public UnityEvent triggerEvent;
+    
 }
 
 /// <summary>
@@ -26,5 +28,19 @@ public class GlobalTrigger :BaseTrigger
 [CreateAssetMenu(menuName = "Trigger/LocalTrigger")]
 public class LocalTrigger :BaseTrigger
 {
-    
+    public HashSet<Component> subscribers = new HashSet<Component>();
+    public virtual void subscribe(Component subscriber){
+        if(subscribers.Contains(subscriber)){
+            return;
+        }
+        //TODO: implementar triggers con scriptable objects
+    }
+    public virtual void unsubscribe(Component subscriber){
+        if(subscribers.Contains(subscriber)){
+            
+            // triggerEvent.RemoveListener
+            // return;
+        }
+        
+    }
 }

@@ -5,6 +5,7 @@ using CustomInspector;
 using UnityEditor;
 using UnityEditor.PackageManager;
 using System.IO;
+using Effect;
 
 
 /// <summary>
@@ -14,8 +15,13 @@ using System.IO;
 public class ActionCardDefinition : MyCardDefinition
 {
 
+    /// <summary>
+    /// Coste de la carta
+    /// </summary>
+    [Unfold]
+    public ManaCost cost;
 
-    [SerializeField]
+    [SerializeField,BackgroundColor(FixedColor.Purple)]
     public BaseCardEffects effects;
 
     

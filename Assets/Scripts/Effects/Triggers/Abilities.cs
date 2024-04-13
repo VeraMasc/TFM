@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using CardHouse;
 using UnityEngine;
 
 namespace Effect{
@@ -7,8 +8,14 @@ namespace Effect{
     /// Clase madre de todos los tipos de habilidades.
     /// Las habilidades son efectos que tiene una carta a parte del principal
     /// </summary>
+    [Serializable]
     public abstract class Ability 
     {
+        /// <summary>
+        /// Carta que contiene la habilidad
+        /// </summary>
+        [HideInInspector]
+        public Card source;
         /// <summary>
         /// Cadena de efectos a producir
         /// </summary>
@@ -22,7 +29,17 @@ namespace Effect{
     [Serializable]
     public class TriggeredAbility : Ability
     {
-        
+        /// <summary>
+        /// Listener del trigger
+        /// </summary>
+        public Action listener;
+
+        /// <summary>
+        /// Activa o desactiva la habilidad al cambiar de zona según corresponda
+        /// </summary>
+        public void onChangeZone(){
+
+        }
     }
 
     /// <summary>
