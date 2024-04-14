@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
 using CardHouse;
 using Effect;
 using UnityEngine;
+using Unity.Properties;
 
 [Serializable]
 public abstract class EffectScript
@@ -33,17 +35,20 @@ public abstract class EffectScript
     }
 
     protected virtual EffectScript baseClone(){
-        using (MemoryStream stream = new MemoryStream())
-        {
-            if (this.GetType().IsSerializable)
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(stream, this);
-                stream.Position = 0;
-                return formatter.Deserialize(stream) as EffectScript;
-            }
-            return null;
-        }
+        // using (MemoryStream stream = new MemoryStream())
+        // {
+        //     if (this.GetType().IsSerializable)
+        //     {
+        //         BinaryFormatter formatter = new BinaryFormatter();
+        //         formatter.Serialize(stream, this);
+        //         stream.Position = 0;
+        //         return formatter.Deserialize(stream) as EffectScript;
+        //     }
+        //     return null;
+        // }
+        var data = JsonUtility.ToJson(this);
+        Debug.Log(data);
+        return (EffectScript) JsonUtility.FromJson(data,this.GetType());
     }
 
 

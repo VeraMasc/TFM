@@ -604,7 +604,7 @@ GameObject:
   - component: {fileID: 4422412827157916637}
   - component: {fileID: 3320165275064857739}
   - component: {fileID: 3024928638207673461}
-  - component: {fileID: 8698658893030579379}
+  - component: {fileID: 5556669140430897052}
   m_Layer: 0
   m_Name: ActionCard
   m_TagString: Untagged
@@ -854,7 +854,7 @@ MonoBehaviour:
   Handler: {fileID: 2235789090670168063}
   ActiveMessage: Active
   InactiveMessage: Dim
---- !u!114 &8698658893030579379
+--- !u!114 &5556669140430897052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -863,7 +863,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6462243022253552644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed5cd85d59c62a488b04dd1927bdd08, type: 3}
+  m_Script: {fileID: 11500000, guid: ce0abc42088a37d4aaf91c95e7731630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   definition: {fileID: 0}
@@ -876,8 +876,13 @@ MonoBehaviour:
   effects:
     baseEffect:
       list: []
+    abilities: []
     staticEffects:
       list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
   references:
     version: 2
     RefIds: []

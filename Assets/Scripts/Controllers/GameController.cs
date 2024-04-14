@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using CustomInspector;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -10,6 +11,12 @@ public class GameController : MonoBehaviour
     /// Lista de todas las entidades
     /// </summary>
     public List<Entity> entities;
+
+    /// <summary>
+    /// Gestor de la creación de las cartas
+    /// </summary>
+    [ForceFill]
+    public CardCreationManager creationManager;
     
 
 

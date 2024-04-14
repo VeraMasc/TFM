@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using CardHouse;
 using CustomInspector;
 using UnityEngine;
@@ -15,17 +16,50 @@ namespace Effect{
         /// <summary>
         /// Cartas a duplicar //TODO: Card definitions as values
         /// </summary>
-        public List<CardSetupData> cards;
+        [SerializeReference]
+        public List<CardDefinition> cards;
 
         public Mode mode;
 
-       
+        public override EffectScript clone(){
+            var ret = base.clone();
+            if(ret is CreateCards createCards){
+                Debug.Log(createCards.cards == cards);
+            }
+            return ret;
+        }
 
-        
+        // public override EffectScript clone(){
+        //     var ret = new CreateCards(){
+        //         cards = cards.ToList(),
+        //         mode = mode
+        //     };
+
+            
+        //     return ret;
+        // }
 
         public override IEnumerator execute(CardResolveOperator stack, Effect.Context context)
         {
-           throw new NotImplementedException();
+            var creationManager = GameController.singleton.creationManager;
+            foreach(var card in cards){
+                var setup = creationManager.create(card);
+
+                switch (mode){
+                    case Mode.inPlace:
+                        if(context.self is Card source){
+                            var index = source.Group.MountedCards.FindIndex(c=> c == source);
+                            if (index >=0){
+                                var cardComp = setup.GetComponent<Card>();
+                                source.Group.Mount(cardComp,index+1);
+                            }
+                        }
+                        break;
+                    //TODO: Implement other effect modes
+                }
+            }
+
+            yield return new WaitForSeconds(0.5f);
         }
 
         
@@ -46,12 +80,5 @@ namespace Effect{
             inBoard, 
         }
     }
-    /// <summary>
-    /// Contiene los datos necesarios para crear una carta //TODO: Crear generador de cartas que use el prefab necesario en base a la definición
-    /// </summary>
-    [Serializable]
-    public struct CardSetupData{
-        public CardDefinition definition;
-        public GameObject cardPrefab;
-    }
+   
 }

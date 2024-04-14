@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22a2d732c2a78e24d8d8d828264ce6ad, type: 3}
+  m_Name: CardCreationManager
+  m_EditorClassIdentifier: 
+  actionPrefab: {fileID: 5556669140430897052, guid: 693bcb068c4f97a4e85d3f3c745cb0fe, type: 3}
+  roomPrefab: {fileID: 7566081132846205207, guid: 68ee0ccc2801f714984a492fae9ed02e, type: 3}
+  contentPrefab: {fileID: 8698658893030579379, guid: 3432839a18d69ea4f81cbe943920a55c, type: 3}
+  attachGroup: {fileID: 8674698285375438854, guid: 4cb661a95582a5f4083a9a7f05bdbf99, type: 3}

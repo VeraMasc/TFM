@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: X2 Loot
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
-  cardName: 
-  cardText: 
+  cardName: X2 Loot
+  cardText: X2 loot
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   effects:
     baseEffect:
-      list: []
+      list:
+      - rid: 3644647185818845184
     abilities: []
     staticEffects:
       list: []
@@ -29,7 +30,22 @@ MonoBehaviour:
       controller: {fileID: 0}
       resolutionPile: {fileID: 0}
     revealEffect:
-      list: []
+      list:
+      - rid: 3644647185818845185
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 3644647185818845184
+      type: {class: CreateCards, ns: Effect, asm: Assembly-CSharp}
+      data:
+        cards:
+        - {fileID: 11400000, guid: 5df055a49c8c53e4eabf11dcf72fedbc, type: 2}
+        - {fileID: 11400000, guid: 5df055a49c8c53e4eabf11dcf72fedbc, type: 2}
+        mode: 0
+    - rid: 3644647185818845185
+      type: {class: CreateCards, ns: Effect, asm: Assembly-CSharp}
+      data:
+        cards:
+        - {fileID: 11400000, guid: 5df055a49c8c53e4eabf11dcf72fedbc, type: 2}
+        - {fileID: 11400000, guid: 5df055a49c8c53e4eabf11dcf72fedbc, type: 2}
+        mode: 0
