@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 920cc2efe3433c5419d74056ec78d702, type: 3}
-  m_Name: X2 Loot
+  m_Name: +2
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
-  cardName: X2 Loot
-  cardText: X2 loot
+  cardName: +1
+  cardText: +1
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -30,24 +30,32 @@ MonoBehaviour:
       resolutionPile: {fileID: 0}
     revealEffect:
       list:
-      - rid: 3644647185818845185
-      - rid: 3644647187133759488
+      - rid: 3644647187133759490
+      - rid: 3644647004826501120
   references:
     version: 2
     RefIds:
-    - rid: 3644647185818845185
-      type: {class: CreateCards, ns: Effect, asm: Assembly-CSharp}
-      data:
-        cards:
-        - {fileID: 11400000, guid: 5df055a49c8c53e4eabf11dcf72fedbc, type: 2}
-        - {fileID: 11400000, guid: 5df055a49c8c53e4eabf11dcf72fedbc, type: 2}
-        mode: 0
-    - rid: 3644647187133759488
+    - rid: 3644647004826501120
       type: {class: Destroy, ns: Effect, asm: Assembly-CSharp}
       data:
         targeter:
-          rid: 3644647187133759489
-    - rid: 3644647187133759489
+          rid: 3644647004826501123
+    - rid: 3644647004826501123
       type: {class: ContextualObjectTargeter, ns: , asm: Assembly-CSharp}
       data:
         contextual: 0
+    - rid: 3644647187133759490
+      type: {class: AddContent, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 3644647187133759491
+        amount:
+          rid: 3644647187133759492
+    - rid: 3644647187133759491
+      type: {class: ContextualObjectTargeter, ns: , asm: Assembly-CSharp}
+      data:
+        contextual: 1
+    - rid: 3644647187133759492
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 2

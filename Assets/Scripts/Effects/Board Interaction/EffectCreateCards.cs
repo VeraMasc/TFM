@@ -21,13 +21,7 @@ namespace Effect{
 
         public Mode mode;
 
-        public override EffectScript clone(){
-            var ret = base.clone();
-            if(ret is CreateCards createCards){
-                Debug.Log(createCards.cards == cards);
-            }
-            return ret;
-        }
+        
 
         // public override EffectScript clone(){
         //     var ret = new CreateCards(){

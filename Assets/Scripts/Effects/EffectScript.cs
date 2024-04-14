@@ -47,7 +47,6 @@ public abstract class EffectScript
         //     return null;
         // }
         var data = JsonUtility.ToJson(this);
-        Debug.Log(data);
         return (EffectScript) JsonUtility.FromJson(data,this.GetType());
     }
 

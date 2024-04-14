@@ -19,13 +19,7 @@ namespace Effect{
         [SerializeReference, SubclassSelector]
         public Value.Numeric amount;
 
-        public override EffectScript clone(){
-            var ret = base.clone();
-            if(ret is AddContent content){
-                Debug.Log(content.amount == amount);
-            }
-            return ret;
-        }
+        
         public override IEnumerator execute(CardResolveOperator stack, Effect.Context context)
         {
             var targets = targeter.getTargets(context);

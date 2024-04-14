@@ -22,7 +22,9 @@ namespace Effect{
             suma,
             resta,
             multiplicación,
-            división
+            división,
+            min,
+            max
         }
 
         public override IEnumerator execute(CardResolveOperator stack, Effect.Context context){
@@ -43,6 +45,14 @@ namespace Effect{
                     result = A.getValue(context) / B.getValue(context);
                     break;
                 
+                case Operation.min:
+                    result = Mathf.Min(A.getValue(context),B.getValue(context));
+                    break;
+
+                case Operation.max:
+                    result = Mathf.Max(A.getValue(context),B.getValue(context));
+                    break;
+
                 default:
                     Debug.LogError("Invalid operation value", (UnityEngine.Object)context.self);
                     result = 0;
