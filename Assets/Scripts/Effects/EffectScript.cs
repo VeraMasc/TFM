@@ -35,17 +35,7 @@ public abstract class EffectScript
     }
 
     protected virtual EffectScript baseClone(){
-        // using (MemoryStream stream = new MemoryStream())
-        // {
-        //     if (this.GetType().IsSerializable)
-        //     {
-        //         BinaryFormatter formatter = new BinaryFormatter();
-        //         formatter.Serialize(stream, this);
-        //         stream.Position = 0;
-        //         return formatter.Deserialize(stream) as EffectScript;
-        //     }
-        //     return null;
-        // }
+       
         var data = JsonUtility.ToJson(this);
         return (EffectScript) JsonUtility.FromJson(data,this.GetType());
     }

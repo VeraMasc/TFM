@@ -1,8 +1,11 @@
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using CardHouse;
 using Effect;
 using UnityEngine;
 
@@ -28,24 +31,49 @@ public class BaseCardEffects{
 
     public Effect.Context context = null;
 
+   
+
+    [NaughtyAttributes.Button("Refresh Triggers")]
     /// <summary>
-    /// Clona todos los efectos del conjunto
+    /// Actualiza el estado de las suscripciones a los eventos de los triggers
     /// </summary>
-    /// <returns></returns>
-    public  BaseCardEffects cloneAll(){
-        using (MemoryStream stream = new MemoryStream())
-        {
-            if (this.GetType().IsSerializable)
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(stream, this);
-                stream.Position = 0;
-                return formatter.Deserialize(stream) as BaseCardEffects;
+    public void refreshTriggerSuscriptions(){
+        if(context?.self== null){
+            Debug.LogError("Can't subscribe triggered abilities without a context");
+            return;
+        }
+            
+        //TODO: add disabling of triggers based on zone
+        foreach(var ability in abilities.OfType<TriggeredAbility>()){
+            if(ability.source == null){
+                //Initialize
+                ability.source= (CardHouse.Card)(context?.self);
+                ability.listener = (val) => ability.executeAbility(context,val);
+                ability.trigger.subscribe(ability.source, ability.listener);
             }
-            return null;
+            
         }
     }
 
+    /// <summary>
+    /// Crea el contexto. 
+    /// </summary>
+    public void setContext(Card card){
+
+        if(card?.data is TriggerCard trigger){
+            //Create context from source
+            context = new Effect.Context(trigger.source);
+        }else{
+            context = new Effect.Context(card);
+        }
+        
+    }
+    
+
+    public BaseCardEffects cloneAll(){
+        var data = JsonUtility.ToJson(this);
+        return (BaseCardEffects) JsonUtility.FromJson(data,this.GetType());
+    }
 }
 
 

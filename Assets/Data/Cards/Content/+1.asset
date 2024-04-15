@@ -21,7 +21,8 @@ MonoBehaviour:
   effects:
     baseEffect:
       list: []
-    abilities: []
+    abilities:
+    - rid: 3644647196184805376
     staticEffects:
       list: []
     context:
@@ -59,3 +60,9 @@ MonoBehaviour:
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 1
+    - rid: 3644647196184805376
+      type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        source: {fileID: 0}
+        effects: []
+        trigger: {fileID: 11400000, guid: 184c061b61688f94ea217e54f26f9c4e, type: 2}

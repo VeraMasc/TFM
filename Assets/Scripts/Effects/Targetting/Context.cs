@@ -62,7 +62,16 @@ namespace Effect{
             this.source = source ?? self;
             this.controller = controller;
             this.owner = owner ?? controller;
-        } 
+        }
+
+        /// <summary>
+        /// Copia el contexto sin datos de ejecución (previousValues y previousTargets)
+        /// </summary>
+        /// <param name="original"></param>
+        public Context(Context original):this(original.self,original.controller,original.owner,original.source){
+
+        }
+        
     }
 }
 /// <summary>

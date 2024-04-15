@@ -120,23 +120,7 @@ public class CardResolveOperator : Activatable
         }
     }
 
-    /// <summary>
-    /// Crea el contexto. //TODO: Mover a BaseCardEffects
-    /// </summary>
-    public void setContext(Card card){
-        Context newContext;
-        if(card?.data is TriggerCard trigger){
-            //Create context from source
-            newContext = new Effect.Context(trigger.source);
-        }else{
-            newContext = new Effect.Context(card);
-        }
-
-        if(card?.data is MyCardSetup myCard){
-            myCard.effects.context = newContext;
-        }
-        
-    }
+    
 
     public IEnumerator getUserInputs(){
         //TODO: await for inputs on cast
@@ -159,11 +143,11 @@ public class CardResolveOperator : Activatable
     /// <returns></returns>
     protected IEnumerator precalculateCard(Card card){
         precalculating = true;
-        setContext(card);
         //TODO: Alternative Cast Modes
         //TODO: Set targets
         if(card.data is MyCardSetup simpleCard)
-        {
+        {   
+            simpleCard.effects?.setContext(card);//Create context
             var effect = simpleCard.effects?.baseEffect;
             if(effect != null){
                 yield return StartCoroutine(simpleCard.effects?.baseEffect.precalculate(simpleCard.effects.context));

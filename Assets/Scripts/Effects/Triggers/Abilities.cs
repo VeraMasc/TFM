@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using CardHouse;
+using Common.Coroutines;
 using UnityEngine;
 
 namespace Effect{
@@ -20,7 +22,17 @@ namespace Effect{
         /// Cadena de efectos a producir
         /// </summary>
         [SerializeReference, SubclassSelector]
-        public List<IValueEffect> effects;
+        public List<EffectScript> effects;
+
+        /// <summary>
+        /// Ejecuta los efectos de la habilidad
+        /// </summary>
+        public IEnumerator executeAbility(Context context){
+            var chain = EffectChain.cloneFrom(effects);
+            foreach(var effect in chain.list){
+                yield return UCoroutine.Yield(effect.execute(CardResolveOperator.singleton,context));
+            }
+        }
     }
 
     /// <summary>
@@ -30,9 +42,25 @@ namespace Effect{
     public class TriggeredAbility : Ability
     {
         /// <summary>
+        /// Trigger a utilizar
+        /// </summary>
+        public BaseTrigger<object> trigger;
+        /// <summary>
         /// Listener del trigger
         /// </summary>
-        public Action listener;
+        public Func<object,IEnumerator> listener;
+
+        /// <summary>
+        /// Ejecuta la habilidad con un parámetro inicial
+        /// </summary>
+        /// <param name="context">Contexto de ejecución</param>
+        /// <param name="value">Valor inicial que insertar</param>
+        /// <returns></returns>
+        public IEnumerator executeAbility(Context context, object value){
+            context.previousValues.Add(value);
+            return executeAbility(context);
+        }
+
 
         /// <summary>
         /// Activa o desactiva la habilidad al cambiar de zona según corresponda

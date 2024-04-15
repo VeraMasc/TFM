@@ -24,7 +24,9 @@ public class ContentCard : MyCardSetup
         base.Apply(data);
         if (data is ContentCardDefinition contentCard)
         {
-            effects = contentCard.effects;
+            effects = contentCard.effects.cloneAll();
+            effects.setContext(GetComponent<Card>());
+            effects.refreshTriggerSuscriptions();
         }
         refreshValues();
     }
