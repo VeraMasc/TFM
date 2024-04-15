@@ -58,6 +58,7 @@ public class ExplorationController : MonoBehaviour
 		}
 	}
 
+    private TriggerManager triggerManager => GameController.singleton.triggerManager;
     void Awake()
     {
         _singleton =this;
@@ -181,6 +182,7 @@ public class ExplorationController : MonoBehaviour
         contentCard.SetFacing(CardFacing.FaceUp);
         yield return UCoroutine.YieldAwait( ()=> !contentCard.FaceTurning.seeking);
     
+        yield return StartCoroutine(triggerManager.onReveal.invokeOn(contentCard));
         var data = (ContentCard) contentCard.data;
         var revealTrigger = data?.getEffectsAs<ContentCardEffects>()?.revealEffect;
 

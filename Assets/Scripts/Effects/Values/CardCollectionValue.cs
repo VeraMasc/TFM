@@ -1,20 +1,22 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using CustomInspector;
 using UnityEngine;
+using CardHouse;
 
 
 namespace Effect.Value{
     /// <summary>
-    /// Base de todos los parámetros numéricos
+    /// Base de todos los parámetros de conjuntos de Cartas
     /// </summary>
     [Serializable]
-    public class Numeric:Value<int>
+    public class CardCollection:Value<IEnumerable<Card>>
     {
-        public Numeric(){
+        public CardCollection(){
 
         }
-        public Numeric(int init){
+        public CardCollection(IEnumerable<Card> init){
             value = init;
         }
     }
@@ -23,18 +25,19 @@ namespace Effect.Value{
     /// Realiza un cálculo para obtener el valor
     /// </summary>
     [Serializable]
-    public class NumericCheck:Numeric,  IDynamicValue<int>
+    public class CardCollectionCheck:CardCollection,  IDynamicValue<IEnumerable<Card>>
     {
         public override bool isDynamic => true;
     }
+
 
     /// <summary>
     /// Pide al jugador un valor
     /// </summary>
     [Serializable]
-    public class NumericChoice : Numeric, IDynamicChoiceValue<int>
+    public class CardCollectionChoice : CardCollection, IDynamicChoiceValue<IEnumerable<Card>>
     {
-        public override bool isDynamic => true;
+        public override bool isDynamic => false;
 
         [AsRange(-20,30)]
         public Vector2 range;

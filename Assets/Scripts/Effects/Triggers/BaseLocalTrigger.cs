@@ -27,6 +27,9 @@ namespace Effect{
             if(subscribers.ContainsKey(card)){
                 yield return UCoroutine.Yield(subscribers[card].Invoke(eventData));
             }
+            else{ 
+                // Debug.Log($"No event for {card.gameObject.name}",card.gameObject);
+            }
         }
 
         

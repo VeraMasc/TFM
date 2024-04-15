@@ -68,3 +68,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entities: []
   creationManager: {fileID: 11400000, guid: 7c1e7683657520743b6b726654000421, type: 2}
+  triggerManager: {fileID: 11400000, guid: 9c8f9c31a58f34f4aaf2c3308bbeb5ce, type: 2}

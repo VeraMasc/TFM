@@ -17,7 +17,8 @@ public class GameController : MonoBehaviour
     /// </summary>
     [ForceFill]
     public CardCreationManager creationManager;
-    
+    [ForceFill]
+    public TriggerManager triggerManager;
 
 
     private static GameController _singleton;
