@@ -13,4 +13,16 @@ public class TriggerManager : ScriptableObject
     /// Trigger que se produce cuando una carta es revelada
     /// </summary>
     public LocalTrigger onReveal;
+
+    public LocalTrigger onDeath;
+    public LocalTrigger onDamage;
+    public LocalTrigger onHeal;
+
+    /// <summary>
+    /// Trigger que se produce al inicio de cada turno del jugador propietario
+    /// //TODO: Crear trigger "personal" (que agrupa los objetos por jugador)
+    /// </summary>
+    public LocalTrigger onBeginTurn;
+
+    //TODO: Crear trigger "regional" (que agrupa los objetos por zona)
 }

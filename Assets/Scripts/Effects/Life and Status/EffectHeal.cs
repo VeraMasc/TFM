@@ -6,27 +6,27 @@ using UnityEngine;
 
 namespace Effect{
     /// <summary>
-    /// Efecto que hace daño a un objetivo
+    /// Efecto que cura a un objetivo
     /// </summary>
     [Serializable]
-    public class DealDamage : Targeted 
+    public class Heal : Targeted 
     {
         
 
         /// <summary>
-        /// Cantidad de daño a realizar
+        /// Cantidad de vida a curar
         /// </summary>
         [SerializeReference, SubclassSelector]
         public Value.Numeric amount;
-
+ 
         public override IEnumerator execute(CardResolveOperator stack, Effect.Context context)
         {
             var targets = targeter.getTargets(context);
             
             foreach(var target in targets){
                 if(target is Entity entity){
-                    entity.damage(amount.getValue(context));
-                    //TODO: Use damage animation corroutine
+                    entity.heal(amount.getValue(context));
+                    
                     //TODO: Allow simultaneous damage
                     yield return new WaitForSeconds(0.2f);
                 }
