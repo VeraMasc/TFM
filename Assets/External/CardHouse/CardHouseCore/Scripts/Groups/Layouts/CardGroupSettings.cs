@@ -24,6 +24,14 @@ namespace CardHouse
         [ShowIf("UseMyScale")]
         public float groupScale = 1;
 
+
+        protected CardGroup group;
+
+        public void Awake()
+        {
+            group = GetComponent<CardGroup>();
+        }
+
         /// <summary>
         /// Aplica la configuración del grupo a una lista de cartas
         /// </summary>
@@ -32,6 +40,7 @@ namespace CardHouse
         /// <param name="seekerSets"></param>
         public void Apply(List<Card> cards, bool instaFlip = false, SeekerSetList seekerSets = null)
         {
+
             for (var i = 0; i < cards.Count; i++)
             {
                 var card = cards[i];
@@ -64,6 +73,10 @@ namespace CardHouse
         }
 
         protected abstract void ApplySpacing(List<Card> cards, SeekerSetList seekerSets);
+
+        protected virtual void ApplyFocusedSpacing(List<Card> cards, SeekerSetList seekerSets){
+           
+        }
 
         
         /// <summary>

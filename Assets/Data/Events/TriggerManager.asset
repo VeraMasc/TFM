@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49714f1eb0ff714ebd14f85ccd86fee, type: 3}
   m_Name: TriggerManager
   m_EditorClassIdentifier: 
-  onReveal: {fileID: 0}
+  onReveal: {fileID: 11400000, guid: 184c061b61688f94ea217e54f26f9c4e, type: 2}
+  onDeath: {fileID: 0}
+  onDamage: {fileID: 0}
+  onHeal: {fileID: 0}
+  onBeginTurn: {fileID: 0}

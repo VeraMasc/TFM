@@ -14,6 +14,38 @@ public class GameUI : MonoBehaviour
 
     public Transform cardDetails;
 
+    /// <summary>
+    /// Layout para el grupo de cartas expandido
+    /// </summary>
+    public SpreadLayout spread;
+
+    /// <summary>
+    /// Grupo de cartas expandido actualmente
+    /// </summary>
+    public CardGroup focusGroup;
+
+    /// <summary>
+    /// Propiedad para facilitiar el acceso al focus group
+    /// </summary>
+    public static CardGroup focus => singleton?.focusGroup;
+
+    /// <summary>
+    /// Cambia el focus group
+    /// </summary>
+    /// <param name="group"></param>
+    public static void setFocus(CardGroup group){
+        var old = singleton?.focusGroup;
+        if(singleton){ //Evita errores si no hay UI
+            if(old != group){
+                singleton.focusGroup = group;
+            }else{
+                singleton.focusGroup = null; //Deshacer focus
+            }
+            
+        }
+        old?.ApplyStrategy(); //Devolver las cartas a su estrategia anterior
+    }
+
     private static GameUI _singleton;
 	///<summary>UI Singleton</summary>
 	public static GameUI singleton

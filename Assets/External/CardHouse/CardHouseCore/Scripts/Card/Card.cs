@@ -219,6 +219,10 @@ namespace CardHouse
                 //Actualiza la visiblidad de las cartas al acabar de colocar una
                 Assert.IsTrue(Group is CompactCardGroup, "Compact display rquiere Compact Card Group");
                 (Group as CompactCardGroup).updateCardVisibility();
+                var col = GetComponent<Collider2D>();
+                if(col){
+                    col.enabled = false;
+                }
             }
         }
 

@@ -9,8 +9,17 @@ namespace CardHouse
         public TriggerEnterRelay SecondaryCollider;
         public bool Straighten = true;
 
+        
         protected override void ApplySpacing(List<Card> cards, SeekerSetList seekerSets = null)
         {
+            
+            if(group is CompactCardGroup compact){ //Cambia el display si hay focus
+                if(GameUI.focus == group && GameUI.singleton?.spread){
+                    GameUI.singleton.spread.Apply(cards);
+                    return;
+                }
+            }
+
             for (var i = 0; i < cards.Count; i++)
             {
                 var seekerSet = seekerSets?.GetSeekerSetFor(cards[i]);
