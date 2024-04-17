@@ -5,6 +5,19 @@ namespace CardHouse
 {
     public class SpreadLayout : CardGroupSettings
     {
+        /// <summary>
+        /// Tamaño del spread en número de cartas
+        /// </summary>
+        public int size;
+
+        /// <summary>
+        /// carta en la que "centrar la vista"
+        /// </summary>
+        public int center;
+        /// <summary>
+        /// Espacio de separación entre carta y carta
+        /// </summary>
+        public float cardSeparation = 1f;
         public float MarginalCardOffset = 0.01f;
         public Vector2 ArcCenterOffset = new Vector2(0f, -5f);
         [Range(0f, 0.8f)]
@@ -27,8 +40,12 @@ namespace CardHouse
 
         protected override void ApplySpacing(List<Card> cards, SeekerSetList seekerSets = null)
         {
-            var width = transform.lossyScale.x * (1f - ArcMargin);
-            var spacing = width / (cards.Count + 1);
+            if(cards.Count <= 1)
+                return;
+            size = cards.Count;
+            center = Mathf.RoundToInt(size/2f);
+            var width = size*cardSeparation;
+            var spacing = cardSeparation;
             for (var i = 0; i < cards.Count; i++)
             {
                 var newPos = transform.position
