@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using CardHouse;
+using CustomInspector;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
@@ -10,6 +12,7 @@ using UnityEngine;
 /// </summary>
 public class GameUI : MonoBehaviour
 {
+    [HorizontalLine(3,message = "General")]
     public Canvas canvas;
 
     public Transform cardDetails;
@@ -17,7 +20,13 @@ public class GameUI : MonoBehaviour
     /// <summary>
     /// Layout para el grupo de cartas expandido
     /// </summary>
+    [HorizontalLine(3,message = "Group spread")]
     public SpreadLayout spread;
+
+    /// <summary>
+    /// Scrollbar del grupo de cartas expandido
+    /// </summary>
+    public Slider spreadScrollbar;
 
     /// <summary>
     /// Grupo de cartas expandido actualmente
@@ -30,6 +39,16 @@ public class GameUI : MonoBehaviour
     public static CardGroup focus => singleton?.focusGroup;
 
     /// <summary>
+    /// Listado de los prefabs de la interfaz
+    /// </summary>
+    public UIPrefabs prefabs;
+
+    /// <summary>
+    /// Objeto donde se genera la UI temporal que se usa para gestionar los distintos inputs
+    /// </summary>
+    public Transform userInputUI;
+
+    /// <summary>
     /// Cambia el focus group
     /// </summary>
     /// <param name="group"></param>
@@ -38,12 +57,21 @@ public class GameUI : MonoBehaviour
         if(singleton){ //Evita errores si no hay UI
             if(old != group){
                 singleton.focusGroup = group;
+                singleton.spreadScrollbar?.gameObject.SetActive(true);
             }else{
                 singleton.focusGroup = null; //Deshacer focus
+                singleton.spreadScrollbar?.gameObject.SetActive(false);
             }
             
         }
         old?.ApplyStrategy(); //Devolver las cartas a su estrategia anterior
+    }
+
+    //Actualiza la posición de las cartas con focus
+    public static void refreshFocus(){
+        if(singleton) {
+            singleton.focusGroup?.ApplyStrategy();
+        }
     }
 
     private static GameUI _singleton;

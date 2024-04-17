@@ -636,10 +636,10 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.38273615
     y: 0
-    width: 0.99999994
-    height: 0.9996382
+    width: 1.4390155
+    height: 1.4384949
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -877,6 +877,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 952462096861078336, guid: ee6fd8adff30e864f8d6b04c6a5566a6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1027379178555657017, guid: ee6fd8adff30e864f8d6b04c6a5566a6, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -920,6 +924,10 @@ PrefabInstance:
     - target: {fileID: 1027379178555657017, guid: ee6fd8adff30e864f8d6b04c6a5566a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2868636109388251361, guid: ee6fd8adff30e864f8d6b04c6a5566a6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3914703837072117606, guid: ee6fd8adff30e864f8d6b04c6a5566a6, type: 3}
       propertyPath: m_UiScaleMode
