@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Common.Coroutines;
 using CustomInspector;
 using UnityEngine;
 
@@ -39,13 +40,20 @@ namespace Effect.Value{
         [AsRange(-20,30)]
         public Vector2 range;
 
-        [SerializeField]
-        private bool _chooseOnCast;
+    
+        //TODO: Eliminar decisiones como valores
 
-        bool IManual.chooseOnCast => _chooseOnCast;
 
         public virtual IEnumerator awaitUserInput(Effect.Context context){
-            //TODO: ask user for input
+            var prefab = GameUI.singleton?.prefabs?.numericInput;
+            if(prefab == null){
+                Debug.LogError("Missing player input prefab");
+                yield break;//No hay prefab para generar la interfaz
+            }
+            yield return UCoroutine.Yield(GameUI.singleton.getInput(prefab, (value)=>{
+                Debug.Log(value);
+            }));
+
             yield return null;
         }
 

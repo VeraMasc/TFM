@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using CardHouse;
@@ -41,12 +42,18 @@ public class GameUI : MonoBehaviour
     /// <summary>
     /// Listado de los prefabs de la interfaz
     /// </summary>
+    [HorizontalLine(3,message = "User Inputs")]
     public UIPrefabs prefabs;
 
     /// <summary>
     /// Objeto donde se genera la UI temporal que se usa para gestionar los distintos inputs
     /// </summary>
-    public Transform userInputUI;
+    public Transform userInputRoot;
+
+    /// <summary>
+    /// User input que hay activo en este momento
+    /// </summary>
+    public PlayerInputBase activeUserInput;
 
     /// <summary>
     /// Cambia el focus group
@@ -86,6 +93,31 @@ public class GameUI : MonoBehaviour
             //singleton.spreadScrollbar.value =0;
             singleton.spreadScrollbar.normalizedValue=0;
             singleton.spreadScrollbar.onValueChanged.Invoke(0);
+        }
+    }
+
+
+    /// <summary>
+    /// Genera la interfaz del input y espera a que devuelva un valor
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator getInput(PlayerInputBase input, Action<object> returnAction){
+        clearInputs();
+        var instance = Instantiate(input,userInputRoot);
+        activeUserInput = instance;
+        yield return activeUserInput.waitTillFinished;
+        if(!activeUserInput.isCancelled){
+            returnAction.Invoke(instance.inputValue);
+        }
+        clearInputs();
+    }
+
+    /// <summary>
+    /// Elimina todos los user inputs
+    /// </summary>
+    public void clearInputs(){
+        foreach(Transform  child in userInputRoot){
+            Destroy(child.gameObject);
         }
     }
 

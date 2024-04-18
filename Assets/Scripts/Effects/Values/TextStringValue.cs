@@ -42,7 +42,6 @@ namespace Effect.Value{
         [SerializeField]
         private bool _chooseOnCast;
 
-        bool IManual.chooseOnCast => _chooseOnCast;
 
         public virtual IEnumerator awaitUserInput(Effect.Context context){
             //TODO: ask user for input

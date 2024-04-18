@@ -42,10 +42,8 @@ namespace Effect.Value{
         [AsRange(-20,30)]
         public Vector2 range;
 
-        [SerializeField]
-        private bool _chooseOnCast;
 
-        bool IManual.chooseOnCast => _chooseOnCast;
+
 
         public virtual IEnumerator awaitUserInput(Effect.Context context){
             //TODO: ask user for input

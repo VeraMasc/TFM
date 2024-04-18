@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CustomInspector;
 using UnityEngine;
 
 /// <summary>
@@ -12,4 +13,10 @@ public class UIPrefabs : ScriptableObject
     /// Prefab de la barra de scroll
     /// </summary>
     public GameObject scrollbar;
+
+    [HorizontalLine(3,message = "User Inputs")]
+    public NumericInput numericInput;
+
+    public YesNoInput yesNoInput;
+
 }

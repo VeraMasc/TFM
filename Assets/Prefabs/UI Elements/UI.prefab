@@ -230,7 +230,8 @@ MonoBehaviour:
   spreadScrollbar: {fileID: 7819203502845452888}
   focusGroup: {fileID: 0}
   prefabs: {fileID: 11400000, guid: 4662adb27b5fecc4bac9ba180f4d7046, type: 2}
-  userInputUI: {fileID: 2674941729001697120}
+  userInputRoot: {fileID: 2674941729001697120}
+  activeUserInput: {fileID: 0}
 --- !u!1 &7651485151419160270
 GameObject:
   m_ObjectHideFlags: 0
