@@ -1079,7 +1079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2842246233212263734, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
       propertyPath: OnGroupChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2842246233212263734, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
       propertyPath: OnGroupChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1231,7 +1231,7 @@ MonoBehaviour:
   compactDisplay: 0
   DragMountingMode: 0
   UseMyScale: 1
-  groupScale: 1
+  groupScale: 2.5
   angularCardOffset: 5
   MarginalCardOffset: 0.05
   spiralWidth: 2.5
@@ -1249,11 +1249,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stack: {fileID: 163543381753918893}
   resolve: 0
+  precalculating: 0
   activeCard: {fileID: 0}
   sendTo: 1
   context:
     owner: {fileID: 0}
     controller: {fileID: 0}
+    resolutionPile: {fileID: 0}
   currentUserInput:
     rid: -2
   stackUI: {fileID: 0}
