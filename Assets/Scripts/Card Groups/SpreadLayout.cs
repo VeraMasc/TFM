@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,16 @@ namespace CardHouse
         /// Rect del objeto que simula el grupo esparcido
         /// </summary>
         private RectTransform rect;
+
+        /// <summary>
+        /// Cuanto incrementa la escala de las cartas centrales
+        /// </summary>
+        public float scaleBoost;
+
+        /// <summary>
+        /// Tamaño de la zona en la que se resaltan las cartas
+        /// </summary>
+        public float highlightSize = 3f;
         /// <summary>
         /// Tamaño del spread en número de cartas
         /// </summary>
@@ -22,7 +33,6 @@ namespace CardHouse
         public float MarginalCardOffset = 0.01f;
         public Vector2 ArcCenterOffset = new Vector2(0f, -5f);
         [Range(0f, 0.8f)]
-        public float ArcMargin = 0.3f;
         Collider2D MyCollider;
 
         void Awake()
@@ -51,18 +61,32 @@ namespace CardHouse
             var spacing = cardSeparation;
             for (var i = 0; i < cards.Count; i++)
             {
+                
                 var newPos = transform.position
-                             + Vector3.back * (MountedCardAltitude + i * MarginalCardOffset)
+
                              + transform.right * -width 
                              + transform.right * (i + 1) * spacing;
 
+                var offCenter = newPos.x -ArcCenterOffset.x;
+                newPos+= Vector3.back * (MountedCardAltitude + (offCenter/spacing) * MarginalCardOffset); //Keep center at 0
                 var seekerSet = seekerSets?.GetSeekerSetFor(cards[i]);
                 cards[i].Homing.StartSeeking(newPos, seekerSet?.Homing);
 
-                var newAngle = Mathf.Atan2(newPos.y - ArcCenterOffset.y, newPos.x - ArcCenterOffset.x) * Mathf.Rad2Deg - 90;
+                
+                var centerness = Mathf.Max(highlightSize - Mathf.Abs(offCenter), 0)/highlightSize;
+                if(Math.Abs(offCenter) > highlightSize){
+                    offCenter -= highlightSize * Math.Sign(offCenter);
+                }
+                else{ //ZOna de planitud
+                    offCenter=0;
+                }
+                var newAngle = Mathf.Atan2(newPos.y - ArcCenterOffset.y, offCenter) * Mathf.Rad2Deg - 90;
+                newAngle = Mathf.Clamp(newAngle,-70, 70);
                 cards[i].Turning.StartSeeking(newAngle, seekerSet?.Turning);
 
-                cards[i].Scaling.StartSeeking(UseMyScale ? groupScale : 1, seekerSet?.Scaling);
+                
+                var boost= centerness * scaleBoost;
+                cards[i].Scaling.StartSeeking((UseMyScale ? groupScale : 1) + boost, seekerSet?.Scaling);
             }
         }
     }

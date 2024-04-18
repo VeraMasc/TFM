@@ -58,6 +58,8 @@ public class GameUI : MonoBehaviour
             if(old != group){
                 singleton.focusGroup = group;
                 singleton.spreadScrollbar?.gameObject.SetActive(true);
+                resetFocusScroll();
+                
             }else{
                 singleton.focusGroup = null; //Deshacer focus
                 singleton.spreadScrollbar?.gameObject.SetActive(false);
@@ -67,10 +69,23 @@ public class GameUI : MonoBehaviour
         old?.ApplyStrategy(); //Devolver las cartas a su estrategia anterior
     }
 
-    //Actualiza la posición de las cartas con focus
+    /// <summary>
+    /// Actualiza la posición de las cartas con focus
+    /// </summary>
     public static void refreshFocus(){
         if(singleton) {
             singleton.focusGroup?.ApplyStrategy();
+        }
+    }
+
+    /// <summary>
+    /// Resetea el scroll
+    /// </summary>
+    public static void resetFocusScroll(){
+        if(singleton) {
+            //singleton.spreadScrollbar.value =0;
+            singleton.spreadScrollbar.normalizedValue=0;
+            singleton.spreadScrollbar.onValueChanged.Invoke(0);
         }
     }
 
