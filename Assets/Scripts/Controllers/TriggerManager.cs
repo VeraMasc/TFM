@@ -55,16 +55,16 @@ public class TriggerManager : ScriptableObject
     /// <summary>
     /// Se activa al usar CUALQUIER carta
     /// </summary>
-    public LocalTrigger onUseAction;
+    public PersonalTrigger onUseAction;
 
     /// <summary>
     /// Trigger que se produce al inicio de cada turno del jugador propietario
     /// //TODO: Crear trigger "personal" (que agrupa los objetos por jugador)
     /// </summary>
     [HorizontalLine(3,message = "Timing")]
-    public LocalTrigger onBeginTurn;
+    public PersonalTrigger onBeginTurn;
 
-    public LocalTrigger onEndTurn;
+    public PersonalTrigger onEndTurn;
 
     //TODO: Crear trigger "regional" (que agrupa los objetos por zona)
 }

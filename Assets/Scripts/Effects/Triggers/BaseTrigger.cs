@@ -1,8 +1,10 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using CardHouse;
 using Common.Coroutines;
+using CustomInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,6 +18,12 @@ namespace Effect{
     /// </summary>
     public abstract class BaseTrigger<T> :ScriptableObject
     {
+        /// <summary>
+        /// Cantidad de cartas suscritas
+        /// </summary>
+        [ReadOnly]
+        public int count;
+
         /// <summary>
         /// Diccionario de suscriptores al evento
         /// </summary>
@@ -53,17 +61,25 @@ namespace Effect{
             return invoke();
         }
 
+        /// <summary>
+        /// Suscribe una carta al evento
+        /// </summary>
+        /// <param name="subscriber">carta a suscribir</param>
+        /// <param name="listener">listener a suscribir</param>
         public virtual void subscribe(Card subscriber, Func<T,IEnumerator> listener){
             if(subscribers.ContainsKey(subscriber)){
+                //TODO: controlar habilidades duplicadas
                 return;
             }
             subscribers.Add(subscriber, listener);
-            //TODO: implementar triggers con scriptable objects
+            count = subscribers.Count;
+            
         }
         public virtual void unsubscribe(Card subscriber){
             if(subscribers.ContainsKey(subscriber)){
                 
                 subscribers.Remove(subscriber);
+                count = subscribers.Count;
             }
         }
         
