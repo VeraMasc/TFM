@@ -12,4 +12,9 @@ public class NumericInput : PlayerInputBase
     /// Controlador de la interfaz del selector
     /// </summary>
     public NumberSelectorUI selector;
+
+    public override void confirmChoice(){
+        inputValue= selector.currentValue; 
+        isFinished=true;
+    }
 }

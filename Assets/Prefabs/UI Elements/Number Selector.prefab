@@ -550,7 +550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFinished: 0
   isCancelled: 0
-  selector: {fileID: 0}
+  selector: {fileID: 2092280125376162219}
 --- !u!1001 &2133475021180337772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -693,22 +693,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 143749515412574623}
     m_Modifications:
-    - target: {fileID: 2964684648145223664, guid: 368765a394b0e1542a7aa50dbb9f1669, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 3161691066711220386, guid: 0ce06fd89f563f14c8611c312541c5ea, type: 3}
     - target: {fileID: 3927523752781828985, guid: 368765a394b0e1542a7aa50dbb9f1669, type: 3}
       propertyPath: m_Name
       value: Accept Button
       objectReference: {fileID: 0}
-    - target: {fileID: 5008702486015723201, guid: 368765a394b0e1542a7aa50dbb9f1669, type: 3}
-      propertyPath: m_Transition
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5008702486015723201, guid: 368765a394b0e1542a7aa50dbb9f1669, type: 3}
-      propertyPath: m_SpriteState.m_HighlightedSprite
-      value: 
-      objectReference: {fileID: 1890479372794217067, guid: 0ce06fd89f563f14c8611c312541c5ea, type: 3}
     - target: {fileID: 5008702486015723201, guid: 368765a394b0e1542a7aa50dbb9f1669, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -767,11 +755,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8765517386532304879, guid: 368765a394b0e1542a7aa50dbb9f1669, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 24
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 8765517386532304879, guid: 368765a394b0e1542a7aa50dbb9f1669, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 26
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8765517386532304879, guid: 368765a394b0e1542a7aa50dbb9f1669, type: 3}
       propertyPath: m_LocalPosition.x

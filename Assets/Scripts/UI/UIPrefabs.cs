@@ -14,6 +14,8 @@ public class UIPrefabs : ScriptableObject
     /// </summary>
     public GameObject scrollbar;
 
+    public GameObject clickBlocker;
+
     [HorizontalLine(3,message = "User Inputs")]
     public NumericInput numericInput;
 

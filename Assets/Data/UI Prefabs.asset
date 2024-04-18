@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: UI Prefabs
   m_EditorClassIdentifier: 
   scrollbar: {fileID: 2000311336236126966, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
+  clickBlocker: {fileID: 7288928211352237901, guid: 1108ec528f5ab9b4885defae5bda91db, type: 3}
   numericInput: {fileID: 7399124821737720426, guid: 326583dfe33764347ac53b65df69fdab, type: 3}
   yesNoInput: {fileID: 0}

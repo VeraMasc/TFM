@@ -1,4 +1,5 @@
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace CardHouse
 {
@@ -11,7 +12,7 @@ namespace CardHouse
 
         void OnMouseDown()
         {
-            if (IsActive && ClickGates.AllUnlocked(null))
+            if (IsActive && ClickGates.AllUnlocked(null) && !EventSystem.current.IsPointerOverGameObject())
             {
                 OnPress.Invoke();
             }

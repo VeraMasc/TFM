@@ -1,5 +1,6 @@
 using CustomInspector;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 
 namespace CardHouse
@@ -22,7 +23,7 @@ namespace CardHouse
 
         void OnMouseDown()
         {
-            if (!IsActive || !DragGates.AllUnlocked(null))
+            if (!IsActive || !DragGates.AllUnlocked(null) || EventSystem.current.IsPointerOverGameObject())
                 return;
             isDragging = true;
             OnDragStart.Invoke();

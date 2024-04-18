@@ -183,6 +183,8 @@ public class ExplorationController : MonoBehaviour
         yield return UCoroutine.YieldAwait( ()=> !contentCard.FaceTurning.seeking);
     
         yield return StartCoroutine(triggerManager.onReveal.invokeOn(contentCard));
+        yield return effectStack.waitTillEmpty; //Esperar a que se resuelva el trigger para continuar
+        
         var data = (ContentCard) contentCard.data;
         var revealTrigger = data?.getEffectsAs<ContentCardEffects>()?.revealEffect;
 

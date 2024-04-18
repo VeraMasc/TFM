@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace CardHouse
 {
@@ -585,6 +586,8 @@ namespace CardHouse
         /// </summary>
         void OnMouseEnter()
         {
+            if(EventSystem.current.IsPointerOverGameObject())
+                return;
             showCardAmount(true);
         }
 

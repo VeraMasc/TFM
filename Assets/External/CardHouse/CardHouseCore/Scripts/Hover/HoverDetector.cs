@@ -1,4 +1,5 @@
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace CardHouse
 {
@@ -9,7 +10,7 @@ namespace CardHouse
 
         void OnMouseEnter()
         {
-            if (!IsActive)
+            if (!IsActive || EventSystem.current.IsPointerOverGameObject())
                 return;
 
             OnHover.Invoke();

@@ -265,6 +265,7 @@ public class CardResolveOperator : Activatable
     /// <param name="triggered">Cadena de efectos a desencadenar</param>
     public IEnumerator triggerEffect(Card source, EffectChain triggered){
         var card = createTriggerCard(source,triggered, transform);
+        Debug.Log(card.name,card);
         yield return StartCoroutine(castCard(card));
     }
 }

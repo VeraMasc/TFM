@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using CardHouse;
 using UnityEngine;
+using UnityEngine.EventSystems;
 //TODO: Eliminar o replantear
 /// <summary>
 /// Grupo de cartas compacto
@@ -28,6 +29,8 @@ public class CompactCardGroup : CardHouse.CardGroup
     }
 
     private void OnMouseDown() {
+        if( EventSystem.current.IsPointerOverGameObject())
+            return;
         GameUI.setFocus(this);
         ApplyStrategy();
     }

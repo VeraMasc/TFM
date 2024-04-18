@@ -25,13 +25,15 @@ namespace Effect{
         public List<EffectScript> effects;
 
         /// <summary>
-        /// Ejecuta los efectos de la habilidad
+        /// Genera un trigger con los efectos de la habilidad
         /// </summary>
-        public IEnumerator executeAbility(Context context){
-            var chain = EffectChain.cloneFrom(effects);
-            foreach(var effect in chain.list){
-                yield return UCoroutine.Yield(effect.execute(CardResolveOperator.singleton,context));
+        public virtual IEnumerator executeAbility(Context context){
+            var self = context.self;
+            if(self is Card card){
+                var routine =CardResolveOperator.singleton.triggerEffect(card,EffectChain.cloneFrom(effects));
+                yield return UCoroutine.Yield(routine);
             }
+
         }
     }
 
@@ -56,8 +58,9 @@ namespace Effect{
         /// <param name="context">Contexto de ejecución</param>
         /// <param name="value">Valor inicial que insertar</param>
         /// <returns></returns>
-        public IEnumerator executeAbility(Context context, object value){
+        public virtual IEnumerator executeAbility(Context context, object value){
             context.previousValues.Add(value);
+            //TODO: Triggers for inputs not generating properly
             return executeAbility(context);
         }
 
@@ -67,6 +70,25 @@ namespace Effect{
         /// </summary>
         public void onChangeZone(){
 
+        }
+    }
+
+    
+    /// <summary>
+    /// Triggered Ability que no genera trigger en el stack
+    /// </summary>
+    [Serializable]
+    public class HiddenTriggeredAbility : TriggeredAbility
+    {
+
+        /// <summary>
+        /// Ejecuta los efectos de la habilidad sin crear trigger
+        /// </summary>
+        public override IEnumerator executeAbility(Context context){
+            var chain = EffectChain.cloneFrom(effects);
+            foreach(var effect in chain.list){
+                yield return UCoroutine.Yield(effect.execute(CardResolveOperator.singleton,context));
+            }
         }
     }
 
