@@ -12,34 +12,43 @@
 
 - [ ] Pilas de cartas compactas (que no tienen todas las cartas instanciadas siempre)
   - [X] Funcionalidad básica
-  - [ ] Expandir al hacer click
+  - [x] Expandir al hacer click
+  - [ ] Que las cartas targeteadas se salgan un poco del mazo
   - [ ] Detalles estéticos
     - [ ] Poner un sprite que simule el resto de cartas del mazo
-    - [ ] Poner el número de cartas del mazo
+    - [x] Poner el número de cartas del mazo
+
+- [ ] Subgrupos
+  - [x] Contenido habitaciones
+  - [ ] Habilidades
+  - [ ] Encantamientos
+  - [ ] Falso subgrupo (contiene cartas que en realidad están en otro grupo)
+  - [ ] Enviar cartas a otro grupo cuando este se destruye
+    - [x] Grupo por defecto
+    - [x] Que dependa de cada carta
 
 #### Mecánicas
 
-- [ ] Crear un stack (para que puedan resolverse los spells)
+- [x] Crear un stack (para que puedan resolverse los spells)
   - [ ] Funcionalidad básica
     - [x] Spiral Layout
-    - [ ] Efectos al poner la carta
+    - [x] Efectos al poner la carta
     - [ ] Guardar quién ha puesto la carta en el stack
   - [ ] Sistema de targets
-  - [ ] Resaltar cartas targeteadas dentro de un mazo
   - [ ] Opciones al castear
   - [ ] Permitir targets a otros spells
 
 - [ ] Cartas "Proxy" (permiten a una carta estar en dos sitios a la vez)
   - [ ] Castear desde la pila de descarte
   
-- [ ] Mejorar las animaciones
+- [x] Mejorar las animaciones
   - [x] Hacer otra curva de velocidad para los seekers
-  - [ ] Controlar el movimiento de cartas con corrutinas
+  - [x] Controlar el movimiento de cartas con corrutinas
     - [x] Corrutinas en el TransferOperator
   
 - [ ] Attached cards (Cartas que se ponen debajo de otras)
   - [x] Attach groups
-  - [ ] Movement as a unit
+  - [ ] Movement as a unit (Requiere rework del tema seekers)
   - [ ] Recursive shrinking
   
 - [ ] Hacer focus en las cartas
@@ -48,17 +57,27 @@
 
 
 - [ ] Card Stats
-  - [ ] Cost
-  - [ ] Modes
-  - [ ] Card Ownership
-  - [ ] Card controller
+  - [ ] Card speeds
+    - [ ] Action
+    - [ ] Reaction
+    - [ ] Ritual
+  - [x] Cost
+  - [ ] Abilities
+    - [ ] Triggered
+    - [ ] Activated
+      - [ ] Activation speeds
+  - [ ] Card Context
+    - [x] Card Ownership
+    - [x] Card controller
+    - [ ] Card Zone (zona en la que se encuentra la carta)
+    - [x] Values and targets
 
 #### Modo Exploración
 
 - [ ] Game loop básico
   - [x] Poner las habitaciónes y su contenido
-  - [ ] Escoger la habitación siguiente
-  - [ ] Revelar el contenido escogido
-  - [ ] Efectos asociados
+  - [x] Escoger la habitación siguiente
+  - [x] Revelar el contenido escogido
+  - [ ] Triggers asociados
     - [ ] A habitaciones
-    - [ ] A contenidos
+    - [x] A contenidos
