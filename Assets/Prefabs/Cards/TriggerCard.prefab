@@ -600,12 +600,10 @@ GameObject:
   - component: {fileID: 6462243022253552647}
   - component: {fileID: 6772830367586499340}
   - component: {fileID: 5481571889886216536}
-  - component: {fileID: 1250395176001841023}
   - component: {fileID: 6535325827544121614}
   - component: {fileID: 3933146397753655278}
   - component: {fileID: 4422412827157916637}
   - component: {fileID: 3320165275064857739}
-  - component: {fileID: 3024928638207673461}
   - component: {fileID: 8716738783598716491}
   m_Layer: 0
   m_Name: TriggerCard
@@ -707,68 +705,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   attachedGroup: {fileID: 0}
---- !u!114 &1250395176001841023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6462243022253552644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c4188835b46cc64a82eb952f5843450, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsActive: 1
-  DragGates:
-    Gates: []
-  OnDragStart:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3320165275064857739}
-        m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
-        m_MethodName: SetDragState
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 5481571889886216536}
-        m_TargetAssemblyTypeName: Blard, Assembly-CSharp
-        m_MethodName: SetFacing
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  GroupDropGates:
-    Gates: []
-  TargetCardGates:
-    Gates: []
-  OnDragEnd:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3320165275064857739}
-        m_TargetAssemblyTypeName: DragHandler, Assembly-CSharp
-        m_MethodName: SetDragState
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  isDragging: 0
 --- !u!114 &6535325827544121614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -840,22 +776,6 @@ MonoBehaviour:
     Homing: {fileID: 0}
     Turning: {fileID: 0}
     Scaling: {fileID: 0}
---- !u!114 &3024928638207673461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6462243022253552644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c79447bd02085354da554fbc67da38d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsActive: 0
-  Handler: {fileID: 2235789090670168063}
-  ActiveMessage: Active
-  InactiveMessage: Dim
 --- !u!114 &8716738783598716491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -878,8 +798,13 @@ MonoBehaviour:
   effects:
     baseEffect:
       list: []
+    abilities: []
     staticEffects:
       list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
   source: {fileID: 5481571889886216536}
   references:
     version: 2

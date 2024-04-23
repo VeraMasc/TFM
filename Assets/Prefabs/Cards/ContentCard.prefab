@@ -717,7 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c4188835b46cc64a82eb952f5843450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsActive: 1
+  IsActive: 0
   DragGates:
     Gates: []
   OnDragStart:
@@ -876,8 +876,13 @@ MonoBehaviour:
   effects:
     baseEffect:
       list: []
+    abilities: []
     staticEffects:
       list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
   references:
     version: 2
     RefIds: []
