@@ -586,7 +586,7 @@ namespace CardHouse
         /// </summary>
         void OnMouseEnter()
         {
-            if(EventSystem.current.IsPointerOverGameObject())
+            if(EventSystem.current?.IsPointerOverGameObject() ?? false)
                 return;
             showCardAmount(true);
         }

@@ -10,7 +10,7 @@ namespace CardHouse
 
         void OnMouseEnter()
         {
-            if (!IsActive || EventSystem.current.IsPointerOverGameObject())
+            if (!IsActive || (EventSystem.current?.IsPointerOverGameObject() ?? false))
                 return;
 
             OnHover.Invoke();

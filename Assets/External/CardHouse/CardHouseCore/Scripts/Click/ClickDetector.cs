@@ -12,7 +12,7 @@ namespace CardHouse
 
         void OnMouseDown()
         {
-            if (IsActive && ClickGates.AllUnlocked(null) && !EventSystem.current.IsPointerOverGameObject())
+            if (IsActive && ClickGates.AllUnlocked(null) && !(EventSystem.current?.IsPointerOverGameObject()?? false))
             {
                 OnPress.Invoke();
             }

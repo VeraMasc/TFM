@@ -72,5 +72,7 @@
     },
     "peacock.color": "#f9e64f",
     "dotnet.preferCSharpExtension": true,
-    "dotnet.defaultSolution": "TFM.sln"
+    "dotnet.defaultSolution": "TFM.sln",
+    "csharp.maxProjectFileCountForDiagnosticAnalysis": 250,
+    "dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "none"
 }

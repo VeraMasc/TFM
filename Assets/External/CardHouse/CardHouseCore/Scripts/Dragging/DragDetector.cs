@@ -23,7 +23,7 @@ namespace CardHouse
 
         void OnMouseDown()
         {
-            if (!IsActive || !DragGates.AllUnlocked(null) || EventSystem.current.IsPointerOverGameObject())
+            if (!IsActive || !DragGates.AllUnlocked(null) || (EventSystem.current?.IsPointerOverGameObject() ?? false))
                 return;
             isDragging = true;
             OnDragStart.Invoke();
