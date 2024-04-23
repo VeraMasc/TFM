@@ -9,12 +9,5 @@ namespace Effect.Value{
         public virtual bool isDynamic{get=> false;}
     }
 
-    public interface IDynamicChoiceValue<T>:IDynamicValue<T>, IManual
-    {
-        /// <summary>
-        /// Waits until the player has chosen a value
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerator getPlayerChoice();
-    }
+    
 }

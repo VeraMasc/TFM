@@ -56,6 +56,11 @@ public class GameUI : MonoBehaviour
     public PlayerInputBase activeUserInput;
 
     /// <summary>
+    /// Lista de targets válidos
+    /// </summary>
+    public IEnumerable<ITargetable> possibleTargets;
+
+    /// <summary>
     /// Indica si la interfaz está ocupada esperando algún input
     /// </summary>
     public bool isBusy{
@@ -119,6 +124,25 @@ public class GameUI : MonoBehaviour
         yield return activeUserInput.waitTillFinished;
         if(!activeUserInput.isCancelled){
             returnAction.Invoke(instance.inputValue);
+        }
+        clearInputs();
+    }
+
+    /// <summary>
+    /// Genera la interfaz de confirmación y espera a que se escojan los targets
+    /// </summary>
+    public IEnumerator getTargets(IEnumerable<ITargetable> targetables, Action<object> returnAction){
+        clearInputs();
+        possibleTargets = targetables;
+
+        //TODO: add checks for invalid inputs
+        
+        //Crea la interfaz de confirmación
+        var instance = Instantiate(prefabs.confirmationInput, userInputRoot);
+        activeUserInput = instance;
+        yield return activeUserInput.waitTillFinished;
+        if(!activeUserInput.isCancelled){
+            throw new NotImplementedException("Falta seleccionar targets");
         }
         clearInputs();
     }

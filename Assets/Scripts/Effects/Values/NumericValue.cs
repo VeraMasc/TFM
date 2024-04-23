@@ -33,15 +33,13 @@ namespace Effect.Value{
     /// Pide al jugador un valor
     /// </summary>
     [Serializable]
-    public class NumericChoice : Numeric, IDynamicChoiceValue<int>
+    public class NumericChoice : Numeric
     {
         public override bool isDynamic => true;
 
         [AsRange(-20,30)]
         public Vector2 range;
 
-    
-        //TODO: Eliminar decisiones como valores
 
 
         public virtual IEnumerator awaitUserInput(Effect.Context context){
@@ -51,16 +49,13 @@ namespace Effect.Value{
                 yield break;//No hay prefab para generar la interfaz
             }
             yield return UCoroutine.Yield(GameUI.singleton.getInput(prefab, (value)=>{
-                Debug.Log(value);
+                context.previousValues.Add(value);
             }));
 
             yield return null;
         }
 
-        public IEnumerator getPlayerChoice()
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }
 

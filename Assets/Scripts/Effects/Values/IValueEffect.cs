@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -6,5 +7,5 @@ using UnityEngine;
 /// </summary>
 public interface IValueEffect 
 {
-    
+    public IEnumerator execute(CardResolveOperator stack, Effect.Context context);
 }

@@ -32,7 +32,7 @@ namespace Effect.Value{
     /// Pide al jugador un valor
     /// </summary>
     [Serializable]
-    public class TextStringChoice : TextString, IDynamicChoiceValue<string>
+    public class TextStringChoice : TextString
     {
         public override bool isDynamic => false;
 

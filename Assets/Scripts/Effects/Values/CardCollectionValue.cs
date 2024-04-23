@@ -35,7 +35,7 @@ namespace Effect.Value{
     /// Pide al jugador un valor
     /// </summary>
     [Serializable]
-    public class CardCollectionChoice : CardCollection, IDynamicChoiceValue<IEnumerable<Card>>
+    public class CardCollectionChoice : CardCollection
     {
         public override bool isDynamic => false;
 

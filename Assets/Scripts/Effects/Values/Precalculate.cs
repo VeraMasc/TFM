@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Common.Coroutines;
 using UnityEngine;
 
 namespace Effect{
@@ -9,7 +10,7 @@ namespace Effect{
     /// Precalcula ciertos efectos cuando se pone la carta en el stack
     /// </summary>
     [Serializable]
-    public class Precalculate: EffectScript, IValueEffect, IPrecalculable
+    public class Precalculate: EffectScript, IPrecalculable
     {
         [SerializeReference, SubclassSelector]
         List<IValueEffect> effects;
@@ -29,8 +30,9 @@ namespace Effect{
         /// <param name="context"></param>
         /// <returns></returns>
         public IEnumerator precalculate(CardResolveOperator stack, Effect.Context context){
-            //Does nothing
-            yield break;
+            foreach(var effect in effects){
+                yield return UCoroutine.Yield(effect.execute(stack,context));
+            }
         }
     }
     

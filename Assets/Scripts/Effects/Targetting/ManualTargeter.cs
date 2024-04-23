@@ -6,13 +6,15 @@ using CustomInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEditor.IMGUI.Controls;
+
 namespace Effect
 {
     /// <summary>
     /// Gestiona los targets que requieren input del jugador
     /// </summary>
     [Serializable]
-    public abstract class ManualTargeter:EffectTargeter, IManual
+    public class BaseManualTargeter:EffectTargeter, IManual
     {
         //TODO: manual targeting
 
@@ -34,6 +36,12 @@ namespace Effect
             
         }
 
+    }
+
+
+    [Serializable]
+    public class SingleTypeManualTargeter:BaseManualTargeter{
+        
     }
 
     /// <summary>

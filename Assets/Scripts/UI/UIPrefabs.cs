@@ -21,4 +21,6 @@ public class UIPrefabs : ScriptableObject
 
     public YesNoInput yesNoInput;
 
+    public YesNoInput confirmationInput;
+
 }
