@@ -15,7 +15,14 @@ public class ActionDragGate : Gate<NoParams>
 
     protected override bool IsUnlockedInternal(NoParams gateParams)
     {
-        return false;
+        var isDragLocked = GameUI.singleton?.isBusy ?? false; //Está esperando inputs?
+        //Is precalculating?
+        isDragLocked =isDragLocked || (CardResolveOperator.singleton?.precalculating ?? false);
+
+        //Is other group focused //TODO: take proxies into account
+        isDragLocked = isDragLocked || 
+            (GameUI.singleton?.focusGroup != null && MyCard.Group != GameUI.singleton?.focusGroup);
+        return !isDragLocked;
         // if (MyCard.Group != GroupRegistry.Instance.Get(GroupName.Board, null))
         //     return true;
 

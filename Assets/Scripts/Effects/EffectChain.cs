@@ -66,7 +66,13 @@ public class EffectChain
     /// </summary>
     /// <param name="context"></param>
     /// <returns></returns>
-    public IEnumerator precalculate(Context context){
+    public IEnumerator precalculate(Context context, CardResolveOperator stack){
+        foreach(var effect in list){
+            if(effect is IPrecalculable pre){
+                pre.precalculate(stack, context);
+            }
+            else break;
+        }
         yield return null;
     }
 }

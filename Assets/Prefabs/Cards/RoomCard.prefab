@@ -1038,6 +1038,7 @@ GameObject:
   - component: {fileID: 3320165275064857739}
   - component: {fileID: 3024928638207673461}
   - component: {fileID: 7566081132846205207}
+  - component: {fileID: 2644107950064913122}
   m_Layer: 0
   m_Name: RoomCard
   m_TagString: Untagged
@@ -1152,7 +1153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsActive: 1
   DragGates:
-    Gates: []
+    Gates:
+    - {fileID: 2644107950064913122}
   OnDragStart:
     m_PersistentCalls:
       m_Calls:
@@ -1309,8 +1311,13 @@ MonoBehaviour:
   effects:
     baseEffect:
       list: []
+    abilities: []
     staticEffects:
       list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
   sizeUI: {fileID: 4381707683651997085}
   exitsUI: {fileID: 4107054055127039931}
   size: 0
@@ -1318,6 +1325,19 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!114 &2644107950064913122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6462243022253552644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7185667c0fef63843a2b1cdff54d875a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 1
 --- !u!1 &6462243022722680614
 GameObject:
   m_ObjectHideFlags: 0

@@ -150,7 +150,7 @@ public class CardResolveOperator : Activatable
             simpleCard.effects?.setContext(card);//Create context
             var effect = simpleCard.effects?.baseEffect;
             if(effect != null){
-                yield return StartCoroutine(simpleCard.effects?.baseEffect.precalculate(simpleCard.effects.context));
+                yield return StartCoroutine(simpleCard.effects?.baseEffect.precalculate(simpleCard.effects.context, this));
             }
             
         }

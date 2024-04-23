@@ -56,6 +56,13 @@ public class GameUI : MonoBehaviour
     public PlayerInputBase activeUserInput;
 
     /// <summary>
+    /// Indica si la interfaz está ocupada esperando algún input
+    /// </summary>
+    public bool isBusy{
+        get => activeUserInput != null;
+    }
+
+    /// <summary>
     /// Cambia el focus group
     /// </summary>
     /// <param name="group"></param>
