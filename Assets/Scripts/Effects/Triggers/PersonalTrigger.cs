@@ -53,13 +53,18 @@ namespace Effect{
             
         }
 
-        [Obsolete("Please use subscribeFor instead")]
+        /// <summary>
+        /// !NO USAR
+        /// </summary>
         public override void subscribe(Card subscriber, Func<T, IEnumerator> listener)
         {
             base.subscribe(subscriber, listener);
         }
 
-        [Obsolete("Please use unsubscribeFor instead")]
+        /// <summary>
+        /// !NO USAR
+        /// </summary>
+        /// <param name="subscriber"></param>
         public override void unsubscribe(Card subscriber)
         {
             base.unsubscribe(subscriber);

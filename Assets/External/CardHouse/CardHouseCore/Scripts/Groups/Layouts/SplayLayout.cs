@@ -11,8 +11,9 @@ namespace CardHouse
         public float ArcMargin = 0.3f;
         Collider2D MyCollider;
 
-        void Awake()
+        public override void Awake()
         {
+            base.Awake();
             MyCollider = GetComponent<Collider2D>();
             if (MyCollider == null)
             {

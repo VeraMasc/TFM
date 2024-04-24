@@ -36,7 +36,6 @@ namespace CardHouse
             var cardsToMove = NumberToTransfer > 0 ? Transition.Source.Get(GrabFrom, NumberToTransfer) : Transition.Source.MountedCards.ToList();
 
             if(oneByOne){
-                Coroutine self = null;
                 currentAction = StartCoroutine(transferCoroutine(this,currentAction));
             }else{
                 TransferCards(cardsToMove);

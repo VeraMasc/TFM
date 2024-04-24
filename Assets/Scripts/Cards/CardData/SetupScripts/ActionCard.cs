@@ -10,7 +10,7 @@ using Button = NaughtyAttributes.ButtonAttribute;
 /// <summary>
 /// Se encarga de la generación de las cartas de acción
 /// </summary>
-public class ActionCard : MyCardSetup
+public class ActionCard : MyCardSetup, IActionable
 {
 
     

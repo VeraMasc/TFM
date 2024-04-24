@@ -27,7 +27,7 @@ namespace CardHouse
 
         protected CardGroup group;
 
-        public void Awake()
+        public virtual void Awake()
         {
             group = GetComponent<CardGroup>();
         }

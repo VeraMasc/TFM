@@ -11,7 +11,7 @@ namespace Effect{
     /// Las habilidades son efectos que tiene una carta a parte del principal
     /// </summary>
     [Serializable]
-    public abstract class Ability 
+    public abstract class Ability
     {
         /// <summary>
         /// Carta que contiene la habilidad
@@ -96,7 +96,7 @@ namespace Effect{
     /// Son las habilidades que se activan de forma manual y suelen tener un coste
     /// </summary>
     [Serializable]
-    public class ActivatedAbility : Ability
+    public class ActivatedAbility : Ability, IActionable
     {
         [SerializeReference,SubclassSelector]
         public ICost cost;

@@ -35,8 +35,9 @@ namespace CardHouse
         [Range(0f, 0.8f)]
         Collider2D MyCollider;
 
-        void Awake()
+        public override void Awake()
         {
+            base.Awake();
             MyCollider = GetComponent<Collider2D>();
             if (MyCollider == null)
             {

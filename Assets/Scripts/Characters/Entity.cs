@@ -12,8 +12,14 @@ using System.Linq;
 /// <summary>
 /// Cualquier entidad que usa cartas de acción
 /// </summary>
-public partial class Entity : MonoBehaviour,ITargetable
+public partial class Entity : MonoBehaviour, ITargetable
 {
+
+    /// <summary>
+    /// IA que utiliza la entidad. Null si es controlado por el jugador
+    /// </summary>
+    public EntityAI AI;
+
     /// <summary>
     /// Salud del personaje
     /// </summary>
@@ -94,14 +100,43 @@ public partial class Entity : MonoBehaviour,ITargetable
 
 
     /// <summary>
-    /// Obtiene todos los targetables de la entidad (salvo ella misma). Principalmente sus cartas y efectos
+    /// Anctionables especiales (vienen de cartas que normalmente no se pueden usar por su zona)
+    /// </summary>
+    public List<IActionable> specialActionables;
+
+    /// <summary>
+    /// Obtiene todas las posibles acciones que puede tomar el jugador
     /// </summary>
     /// <returns></returns>
-    public IEnumerable<ITargetable> getMyTargetables(){
-        //TODO: add cards on board
-        //TODO: add abilities
-        
-        return Enumerable.Empty<ITargetable>();
+    public List<IActionable> getAllActionables(){
+        var cardsInHand = hand.MountedCards?.Select(card => card.data)
+                .OfType<IActionable>();
+
+        var skillAbilities = skills.MountedCards?.Select(card => card.data)
+                .OfType<SkillCard>()
+                .SelectMany(skill => skill?.effects?.abilities)
+                .OfType<IActionable>();
+
+        var permanentAbilities = myPermanents
+                .SelectMany(permanent => permanent?.effects?.abilities)
+                .OfType<IActionable>();
+
+
+        return cardsInHand.Concat(skillAbilities)
+            .Concat(permanentAbilities)
+            .Union(specialActionables).ToList();
+    }
+
+    public void executeAction(IActionable actionable){
+        if(actionable is ActionCard card){
+
+        }else if(actionable is Ability ability){
+            
+        }
+        else
+        {
+            Debug.LogError($"Actionable of type {actionable?.GetType()} is not implemented", this);
+        }
     }
 
     void OnEnable()

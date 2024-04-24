@@ -29,8 +29,9 @@ namespace CardHouse
 
         Collider2D MyCollider;
 
-        void Awake()
+        public override void Awake()
         {
+            base.Awake();
             MyCollider = GetComponent<Collider2D>();
             if (MyCollider == null)
             {

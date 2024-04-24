@@ -127,4 +127,16 @@ public partial class Entity
         throw new NotImplementedException();
     }
 
+
+    /// <summary>
+    /// Recupera los permanentes que tiene esta entidad en propiedad
+    /// </summary>
+    public IEnumerable<ActionCard> myPermanents {
+        get {
+            return board.MountedCards?.Select(card => card.data)
+                .OfType<MyCardSetup>()
+                .Where(data => data?.effects?.context?.controller == this)
+                .Cast<ActionCard>();
+        }
+    }
 }
