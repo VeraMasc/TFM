@@ -61,7 +61,7 @@ namespace Effect{
         public virtual IEnumerator executeAbility(Context context, object value){
             context.previousValues.Add(value);
             //TODO: Triggers for inputs not generating properly
-            return executeAbility(context);
+            yield return UCoroutine.Yield( executeAbility(context));
         }
 
 
@@ -100,5 +100,17 @@ namespace Effect{
     {
         [SerializeReference,SubclassSelector]
         public ICost cost;
+
+        public virtual IEnumerator activateAbility(Entity activator){
+            //TODO: abilities with owner different than controller
+            var context = new Context(source, activator);
+
+            if(!cost.canBePaid(context))
+                yield break;
+            
+            cost.payCost(context);
+            
+            yield return UCoroutine.Yield(executeAbility(context));
+        }
     }
 }

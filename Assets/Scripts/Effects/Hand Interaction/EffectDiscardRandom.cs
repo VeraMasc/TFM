@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Common.Coroutines;
 using UnityEngine;
 
 
@@ -32,6 +33,12 @@ namespace Effect
             }else{
                 Debug.LogError($"Target of {this.GetType().Name} is \"{target.GetType().Name}\" not an entity", (UnityEngine.Object)context.self);
             }
+        }
+
+        public IEnumerator payCost(Context context)
+        {
+            yield return UCoroutine.Yield(execute(CardResolveOperator.singleton, context));
+            
         }
     }
 }

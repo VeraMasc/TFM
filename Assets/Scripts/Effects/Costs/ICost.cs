@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 
@@ -11,6 +12,11 @@ namespace Effect{
         /// Checks if the cost can be paid
         /// </summary>
         public bool canBePaid(Effect.Context context);
+
+        /// <summary>
+        /// Executes the cost payment
+        /// </summary>
+        public IEnumerator payCost(Effect.Context context);
     }
 
 }

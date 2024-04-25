@@ -130,8 +130,8 @@ public partial class Entity : MonoBehaviour, ITargetable
     public void executeAction(IActionable actionable){
         if(actionable is ActionCard card){
 
-        }else if(actionable is Ability ability){
-            
+        }else if(actionable is ActivatedAbility ability){
+            //TODO: Execute activated ability
         }
         else
         {

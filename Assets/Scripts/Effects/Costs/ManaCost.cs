@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Linq;
 using System.Text.RegularExpressions;
 using CustomInspector;
@@ -56,11 +57,14 @@ namespace Effect{
             colors = new string(colored.Value.ToUpper().Distinct().ToArray());
         }
 
-        /// <summary>
-        /// Checks if the cost can be paid
-        /// </summary>
+
         public bool canBePaid(Effect.Context context){
             //TODO: Implement mana costs
+            throw new NotImplementedException();
+        }
+
+        public IEnumerator payCost(Context context)
+        {
             throw new NotImplementedException();
         }
     }
