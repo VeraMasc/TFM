@@ -149,13 +149,13 @@ public partial class Entity : MonoBehaviour, ITargetable
     void OnEnable()
     {
         //Add entity to list of entities
-        GameController.singleton.entities.Add(this);
+        GameController.singleton?.entities?.Add(this);
     }
     
     void OnDisable()
     {
         //Remove entity from list
-        GameController.singleton.entities.Remove(this);
+        GameController.singleton?.entities?.Remove(this);
     }
 
     void Start()

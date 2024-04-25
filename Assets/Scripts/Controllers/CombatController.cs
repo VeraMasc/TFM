@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Common.Coroutines;
 using UnityEngine;
 
 /// <summary>
@@ -32,6 +33,30 @@ public class CombatController : GameMode
         _singleton =this;
     }
 
+	void Start()
+	{
+		StartCoroutine(beginCombat());
+	}
+
+	/// <summary>
+	/// Gestiona el inicio del combate
+	/// </summary>
+	/// <returns></returns>
+	public IEnumerator beginCombat(){
+		yield return new WaitForEndOfFrame();
+		yield return new WaitForSeconds(0.2f);
+		var entities = GameController.singleton?.entities ?? new List<Entity>();
+        // //Initial card draw
+        // foreach(var entity in entities){
+			
+		// 	yield return StartCoroutine(entity.draw(4));
+        // }
+		yield return UCoroutine.YieldInParallel(
+				entities.Select(entity => entity.draw(4))
+			.ToArray());
+		
+        yield break;
+    }
 
 	public override bool isEntityTurn(Entity entity){
         var first = turnOrder.FirstOrDefault();

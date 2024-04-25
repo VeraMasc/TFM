@@ -66,9 +66,13 @@ public partial class Entity
     /// Hace que el jugador robe cartas
     /// </summary>
     /// <param name="amount"> cuantas cartas ha de robar</param>
-    public IEnumerator draw(int amount, Action<Card[]> returnAction = null){
+    public IEnumerator draw(int amount, float duration = 0.75f, Action<Card[]> returnAction = null){
+        if(amount <=0)
+            yield break;
         var cards =deck.Get(GroupTargetType.Last, amount);
-        yield return CardTransferOperator.sendCards(cards,hand,0.5f);
+        yield return StartCoroutine(
+            CardTransferOperator.sendCards(cards,hand, duration/amount, burstSend:true)
+        );
         coReturn(returnAction, cards.ToArray());
     }
 
@@ -93,7 +97,7 @@ public partial class Entity
     /// <returns></returns>
     public IEnumerator discardRandom(int amount, Action<Card[]> returnAction = null){
         var cards =hand.Get(GroupTargetType.Random, amount);
-        yield return CardTransferOperator.sendCards(cards,discarded,0.5f);
+        yield return StartCoroutine(CardTransferOperator.sendCards(cards,discarded,0.5f));
         coReturn(returnAction, cards.ToArray());
     }
 
@@ -105,7 +109,7 @@ public partial class Entity
     /// <returns></returns>
     public IEnumerator mill(int amount,  Action<Card[]> returnAction = null){
         var cards =deck.Get(GroupTargetType.Last, amount);
-        yield return CardTransferOperator.sendCards(cards,discarded,0.5f);
+        yield return StartCoroutine(CardTransferOperator.sendCards(cards,discarded,0.5f));
         coReturn(returnAction, cards.ToArray());
     }
     

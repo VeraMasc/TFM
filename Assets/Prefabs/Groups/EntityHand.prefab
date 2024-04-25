@@ -184,9 +184,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2842246233212263734, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
+      propertyPath: Strategy
+      value: 
+      objectReference: {fileID: 6547925196117835423}
     - target: {fileID: 2842246233212263736, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 2842246233212263736, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
       propertyPath: m_LocalScale.x
@@ -254,14 +258,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2842246233212263741, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4499189061742767263}
+      addedObject: {fileID: 6547925196117835423}
   m_SourcePrefab: {fileID: 100100000, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
 --- !u!1 &3147709442397729027 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2842246233212263741, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
   m_PrefabInstance: {fileID: 927538029374827582}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4499189061742767263
+--- !u!114 &6547925196117835423
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -270,17 +274,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3147709442397729027}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34e24a6e54f900247b3ba00fe4115465, type: 3}
+  m_Script: {fileID: 11500000, guid: ffbbe3481ee4fdf4e9cce93e80f49275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CardLimit: -1
   MountedCardAltitude: 0.01
-  ForcedFacing: 1
-  ForcedInteractability: 1
+  ForcedFacing: 0
+  ForcedInteractability: 0
   compactDisplay: 0
-  DragMountingMode: 2
+  DragMountingMode: 0
   UseMyScale: 0
-  groupScale: 0.9
+  groupScale: 1
+  invertOrder: 0
   MarginalCardOffset: 0.05
   ArcCenterOffset: {x: 0, y: -5}
   ArcMargin: 0.3

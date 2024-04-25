@@ -123,13 +123,19 @@ namespace CardHouse
         /// <param name="sendTo">posición de destino</param>
         /// <param name="homingOverride">Sobreescribe el homing de la carta</param>
         /// <param name="flipSpeed">Velocidad a la que se gira la carta</param>
-        public static IEnumerator sendCards(IEnumerable<Card> cards, CardGroup destination,float delay, GroupTargetType sendTo = GroupTargetType.Last, SeekerScriptable<Vector3> homingOverride = null, float flipSpeed = 1f)
+        /// <param name="burstSend">No espera a que acabe de enviarse la carta para contar el delay</param>
+        public static IEnumerator sendCards(IEnumerable<Card> cards, CardGroup destination,float delay, GroupTargetType sendTo = GroupTargetType.Last, SeekerScriptable<Vector3> homingOverride = null, float flipSpeed = 1f, bool burstSend=false)
         {
             foreach(var card in cards){
                 var corroutine = UCoroutine.Yield(sendCard(card,destination,sendTo,homingOverride,flipSpeed));
 
                 if (delay>=0){//Wait for transfer + delay
-                    yield return corroutine;
+                    if(!burstSend){
+                        yield return corroutine;
+                    }
+                    else {
+                        corroutine.Start(card);
+                    }
                     yield return new WaitForSeconds(delay);
                 }
             }

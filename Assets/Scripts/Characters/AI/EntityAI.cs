@@ -25,9 +25,30 @@ public class EntityAI : MonoBehaviour
         return options.ElementAt(Random.Range(0, options.Count()));
     }
 
+    /// <summary>
+    /// Ejecuta el turno de la IA
+    /// </summary>
+    public virtual IEnumerator doTurn(){
+        Debug.Log("Doing Turn");
+        yield break;
+    }
+
+    /// <summary>
+    /// Botón de test que fuerza el inicio del turno
+    /// </summary>
+    [NaughtyAttributes.Button(enabledMode: NaughtyAttributes.EButtonEnableMode.Playmode)]
+    protected void startTurn(){
+        StartCoroutine(doTurn());
+    }
+
+    /// <summary>
+    /// Ejecuta la reacción de la IA
+    /// </summary>
+    public virtual IEnumerator doReaction(){
+        yield break;
+    }
 
 
-    
 }
 
 /// <summary>
