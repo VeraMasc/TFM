@@ -11,7 +11,7 @@ using System.Linq;
 /// Describe el estado actual de una decklist concreta
 /// </summary>
 [Serializable]
-public class DecklistState 
+public class DecklistState
 {
     [Unfold]
     public List<CardCopies> inDeck;
@@ -19,6 +19,21 @@ public class DecklistState
     public List<CardCopies> spent;
     [Unfold]
     public List<CardCopies> exiled;
+
+    /// <summary>
+    /// Empty Constructor
+    /// </summary>
+    public DecklistState(){
+
+    }
+
+    /// <summary>
+    /// Inicializa el estado del mazo en base a una decklist
+    /// </summary>
+    /// <param name="deck"></param>
+    public DecklistState( DecklistDefinition deck){
+        inDeck = deck.CardsetCollection;
+    }
 }
 
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using CardHouse;
@@ -7,13 +8,14 @@ using UnityEngine;
 /// <summary>
 /// Contiene la información que define a un personaje
 /// </summary>
+[Serializable]
 public class EntityData{
     public string name;
 
     /// <summary>
     /// Estado de su decklist
     /// </summary>
-    public DecklistDefinition state;
+    public DecklistState state;
     
     /// <summary>
     /// Decklist del personaje

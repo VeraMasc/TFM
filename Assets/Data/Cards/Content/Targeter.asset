@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Numeric
-  cardText: Numeric
+  cardText: Targeter
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -22,7 +22,7 @@ MonoBehaviour:
     baseEffect:
       list: []
     abilities:
-    - rid: 3644647269840453632
+    - rid: 3644647386710540294
     staticEffects:
       list: []
     context:
@@ -34,14 +34,33 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 3644647269840453632
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 3644647386710540294
       type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
       data:
         source: {fileID: 0}
         effects:
-        - rid: 3644647269840453646
+        - rid: 3644647386710540296
+        - rid: 3644647386710540297
         trigger: {fileID: 11400000, guid: 184c061b61688f94ea217e54f26f9c4e, type: 2}
-    - rid: 3644647269840453646
-      type: {class: GetNumericChoice, ns: Effect, asm: Assembly-CSharp}
+    - rid: 3644647386710540296
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
       data:
-        defaultValue: 0
+        effects:
+        - rid: 3644647386710540299
+    - rid: 3644647386710540297
+      type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
+      data:
+        message:
+          rid: 3644647386710540298
+    - rid: 3644647386710540298
+      type: {class: ReuseValue, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        index: 0
+        destructive: 0
+    - rid: 3644647386710540299
+      type: {class: TargetAsValue, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: -2

@@ -21,9 +21,16 @@ public partial class Entity : MonoBehaviour, ITargetable
     public EntityAI AI;
 
     /// <summary>
+    /// Salud máxima del personaje
+    /// </summary>
+    public int maxHealth =20;
+
+    /// <summary>
     /// Salud del personaje
     /// </summary>
     public int health =20;
+
+    
 
     /// <summary>
     /// Indica si la entidad sigue con vida
@@ -149,6 +156,29 @@ public partial class Entity : MonoBehaviour, ITargetable
     {
         //Remove entity from list
         GameController.singleton.entities.Remove(this);
+    }
+
+    void Start()
+    {
+        initialize();
+        onSceneChanged();
+    }
+
+    /// <summary>
+    /// Inicializa los valores necesarios. Se realiza al crear la entidad por primera vez
+    /// </summary>
+    public void initialize(){
+        health = maxHealth;
+    }
+
+    /// <summary>
+    /// Inicializa los valores necesarios tras un cambio de escena
+    /// </summary>
+    public void onSceneChanged(){
+        //Inicializa el mazo si no se ha hecho
+        data.state ??= new DecklistState(data.decklist);
+
+        //TODO: Cambiar lo que hace según si es modo combate o exploración
     }
 }
 
