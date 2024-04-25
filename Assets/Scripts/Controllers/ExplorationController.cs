@@ -12,7 +12,7 @@ using System;
 /// <summary>
 /// Gestiona todo lo relacionado con la exploración <see cref="ExplorationController.content" />
 /// </summary>
-public class ExplorationController : MonoBehaviour
+public class ExplorationController : GameMode
 {
     public CardGroup rooms;
 
@@ -25,12 +25,6 @@ public class ExplorationController : MonoBehaviour
     public CardGroup roomOptions;
 
     public CardGroup content;
-
-    /// <summary>
-    /// Stack de resolución de efectos
-    /// </summary>
-    
-    public CardResolveOperator effectStack;
 
     /// <summary>
     /// Pila de cartas descartadas

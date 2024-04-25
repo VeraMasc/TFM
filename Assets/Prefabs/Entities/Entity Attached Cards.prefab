@@ -367,7 +367,6 @@ GameObject:
   - component: {fileID: 6394341151800145251}
   - component: {fileID: 2058322917407356749}
   - component: {fileID: 6243961000556875057}
-  - component: {fileID: 8089718682611314611}
   m_Layer: 0
   m_Name: Entity Attached Cards
   m_TagString: Untagged
@@ -648,19 +647,3 @@ MonoBehaviour:
   CardsPerRow: -1
   MarginalCardOffset: -0.005
   Straighten: 1
---- !u!114 &8089718682611314611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8674698285375438861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d50115b2507c3a4484a74faa2de5372, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  group: {fileID: 8674698285375438854}
-  groupCollider: {fileID: 8674698285375438858}
-  secondaryCollider: {fileID: 7260283289333554259}
-  isMoving: 0
