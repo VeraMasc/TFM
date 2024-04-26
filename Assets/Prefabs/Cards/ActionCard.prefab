@@ -606,6 +606,8 @@ GameObject:
   - component: {fileID: 3024928638207673461}
   - component: {fileID: 5556669140430897052}
   - component: {fileID: 2914116058162343881}
+  - component: {fileID: 8115627860224966699}
+  - component: {fileID: 7985154722195594859}
   m_Layer: 0
   m_Name: ActionCard
   m_TagString: Untagged
@@ -722,6 +724,7 @@ MonoBehaviour:
   DragGates:
     Gates:
     - {fileID: 2914116058162343881}
+    - {fileID: 8115627860224966699}
   OnDragStart:
     m_PersistentCalls:
       m_Calls:
@@ -834,7 +837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyDragDetector: {fileID: 0}
   DragAction: 1
-  DragSwell: 1.2
+  DragSwell: 2
   PointUpWhenDragged: 1
   PresentationSeekers:
     Homing: {fileID: 0}
@@ -901,6 +904,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsActive: 1
+--- !u!114 &8115627860224966699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6462243022253552644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8258ed54e8e688647b3729e1dc429d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 1
+--- !u!114 &7985154722195594859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6462243022253552644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6efb6e30f2badc942b8f62e6fdcc6e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  owner: {fileID: 0}
 --- !u!1 &6462243022722680614
 GameObject:
   m_ObjectHideFlags: 0

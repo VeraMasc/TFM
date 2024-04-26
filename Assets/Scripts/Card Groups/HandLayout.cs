@@ -21,6 +21,10 @@ namespace CardHouse
         public float ArcMargin = 0.3f;
         Collider2D MyCollider;
 
+        public float selectedScale=1.5f;
+
+        public float selectedWidthFactor=2f;
+
         public override void Awake()
         {
             base.Awake();
@@ -33,17 +37,21 @@ namespace CardHouse
 
         private void Start()
         {
-            ArcCenterOffset = transform.position + transform.right * ArcCenterOffset.x + transform.up * ArcCenterOffset.y;
+            
         }
 
         protected override void ApplySpacing(List<Card> cards, SeekerSetList seekerSets = null)
         {
             var width = transform.lossyScale.x * (1f - ArcMargin);
+            if(selected)
+                width *= selectedWidthFactor;
+
             var spacing = width / (cards.Count + 1);
             for (var i = 0; i < cards.Count; i++)
             {
+                var rootPos = selected? GameUI.singleton.handDetails.position :transform.position;
                 var direction = invertOrder? transform.right:-transform.right;
-                var newPos = transform.position
+                var newPos = rootPos
                              + Vector3.back * (MountedCardAltitude + (cards.Count-i) * MarginalCardOffset)
                              + direction * width * -0.5f
                              + direction * (i + 1) * spacing;
@@ -51,10 +59,14 @@ namespace CardHouse
                 var seekerSet = seekerSets?.GetSeekerSetFor(cards[i]);
                 cards[i].Homing.StartSeeking(newPos, seekerSet?.Homing);
 
-                var newAngle = Mathf.Atan2(newPos.y - ArcCenterOffset.y, newPos.x - ArcCenterOffset.x) * Mathf.Rad2Deg - 90;
+                var realCenterOffset = (Vector2)rootPos + ArcCenterOffset * (selected? selectedWidthFactor:1);
+                
+                var newAngle = Mathf.Atan2(newPos.y - realCenterOffset.y, newPos.x - realCenterOffset.x) * Mathf.Rad2Deg - 90;
                 cards[i].Turning.StartSeeking(newAngle, seekerSet?.Turning);
 
-                cards[i].Scaling.StartSeeking(UseMyScale ? groupScale : 1, seekerSet?.Scaling);
+                var scale = selected? selectedScale:(UseMyScale ? groupScale : 1);
+
+                cards[i].Scaling.StartSeeking(scale, seekerSet?.Scaling);
             }
         }
         

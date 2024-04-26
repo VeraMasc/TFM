@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 6394341151800145251}
   - component: {fileID: 2058322917407356749}
   - component: {fileID: 6243961000556875057}
+  - component: {fileID: 7698412226326198302}
   m_Layer: 0
   m_Name: Entity Attached Cards
   m_TagString: Untagged
@@ -462,7 +463,8 @@ MonoBehaviour:
   Hilight: {fileID: 8674698284543963370}
   amountDisplay: {fileID: 0}
   DropGates:
-    Gates: []
+    Gates:
+    - {fileID: 7698412226326198302}
   ShuffleStrategy: {fileID: 0}
   MountedCards: []
   Strategy: {fileID: 0}
@@ -640,7 +642,7 @@ MonoBehaviour:
   CardLimit: -1
   MountedCardAltitude: 0.01
   ForcedFacing: 0
-  ForcedInteractability: 1
+  ForcedInteractability: 0
   compactDisplay: 0
   DragMountingMode: 0
   UseMyScale: 1
@@ -648,6 +650,19 @@ MonoBehaviour:
   CardsPerRow: -1
   MarginalCardOffset: -0.005
   Straighten: 1
+--- !u!114 &7698412226326198302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8674698285375438861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa3cad9f9ec754d4daae7090f94e286c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 1
 --- !u!1001 &287346900548124111
 PrefabInstance:
   m_ObjectHideFlags: 0

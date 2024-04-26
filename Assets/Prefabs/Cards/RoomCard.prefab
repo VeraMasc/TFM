@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyDragDetector: {fileID: 0}
   DragAction: 1
-  DragSwell: 1.2
+  DragSwell: 1.8
   PointUpWhenDragged: 1
   PresentationSeekers:
     Homing: {fileID: 0}

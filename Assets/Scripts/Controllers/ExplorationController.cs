@@ -52,7 +52,7 @@ public class ExplorationController : GameMode
 		}
 	}
 
-    private TriggerManager triggerManager => GameController.singleton.triggerManager;
+    
     void Awake()
     {
         _singleton =this;

@@ -605,6 +605,7 @@ GameObject:
   - component: {fileID: 4422412827157916637}
   - component: {fileID: 3320165275064857739}
   - component: {fileID: 8716738783598716491}
+  - component: {fileID: -1304948832668226413}
   m_Layer: 0
   m_Name: TriggerCard
   m_TagString: Untagged
@@ -809,6 +810,20 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!114 &-1304948832668226413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6462243022253552644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6efb6e30f2badc942b8f62e6fdcc6e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  owner: {fileID: 0}
 --- !u!1 &6462243022722680614
 GameObject:
   m_ObjectHideFlags: 0

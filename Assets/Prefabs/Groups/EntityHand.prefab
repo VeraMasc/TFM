@@ -259,6 +259,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2842246233212263741, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6547925196117835423}
+    - targetCorrespondingSourceObject: {fileID: 2842246233212263741, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3953363154668456009}
   m_SourcePrefab: {fileID: 100100000, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}
 --- !u!1 &3147709442397729027 stripped
 GameObject:
@@ -290,6 +293,21 @@ MonoBehaviour:
   MarginalCardOffset: 0.05
   ArcCenterOffset: {x: 0, y: -5}
   ArcMargin: 0.3
+  selectedScale: 1.5
+  selectedWidthFactor: 2
+--- !u!114 &3953363154668456009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3147709442397729027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7ec148d83f2c24fba1c17cf0859503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!4 &3147709442397729030 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2842246233212263736, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}

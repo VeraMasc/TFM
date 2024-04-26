@@ -54,7 +54,7 @@ MonoBehaviour:
   maxHealth: 20
   health: 20
   alive: 1
-  team: 0
+  team: 1
   maxHandSize: 4
   hand: {fileID: 6283558071726778809}
   deck: {fileID: 5007226722705940203}
@@ -305,6 +305,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7272184987812359534, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
       insertIndex: 2
       addedObject: {fileID: 8209290705093893228}
+    - targetCorrespondingSourceObject: {fileID: 7272184987812359534, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8760242096607598786}
   m_SourcePrefab: {fileID: 100100000, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
 --- !u!1 &6957229612577678314 stripped
 GameObject:
@@ -338,13 +341,27 @@ MonoBehaviour:
   Hilight: {fileID: 6957229612577678314}
   amountDisplay: {fileID: 8972670831838530855}
   DropGates:
-    Gates: []
+    Gates:
+    - {fileID: 8760242096607598786}
   ShuffleStrategy: {fileID: 0}
   MountedCards: []
   Strategy: {fileID: 0}
   OnGroupChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8760242096607598786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6957229613140792077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa3cad9f9ec754d4daae7090f94e286c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 1
 --- !u!1001 &1639587993650289168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -457,6 +474,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7272184987812359534, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
       insertIndex: 2
       addedObject: {fileID: 9053880772708477915}
+    - targetCorrespondingSourceObject: {fileID: 7272184987812359534, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 334666497843187310}
   m_SourcePrefab: {fileID: 100100000, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
 --- !u!4 &8226670383839754107 stripped
 Transform:
@@ -485,13 +505,27 @@ MonoBehaviour:
   Hilight: {fileID: 8226670384602023833}
   amountDisplay: {fileID: 8781149302638886586}
   DropGates:
-    Gates: []
+    Gates:
+    - {fileID: 334666497843187310}
   ShuffleStrategy: {fileID: 0}
   MountedCards: []
   Strategy: {fileID: 0}
   OnGroupChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &334666497843187310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8226670383839754110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa3cad9f9ec754d4daae7090f94e286c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 1
 --- !u!1 &8226670384602023833 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7272184986376822153, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
@@ -1468,6 +1502,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3953363154668456009, guid: 6b8900182d9eb2e468a4233a8e7dab40, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 4702649497764106639}
     - target: {fileID: 4499189061742767263, guid: 6b8900182d9eb2e468a4233a8e7dab40, type: 3}
       propertyPath: UseMyScale
       value: 1
@@ -1483,6 +1521,10 @@ PrefabInstance:
     - target: {fileID: 6547925196117835423, guid: 6b8900182d9eb2e468a4233a8e7dab40, type: 3}
       propertyPath: ForcedFacing
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547925196117835423, guid: 6b8900182d9eb2e468a4233a8e7dab40, type: 3}
+      propertyPath: DragMountingMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9094500017245707915, guid: 6b8900182d9eb2e468a4233a8e7dab40, type: 3}
       propertyPath: m_LocalScale.x

@@ -213,6 +213,7 @@ Transform:
   - {fileID: 3457300859587380663}
   - {fileID: 8655714961128124095}
   - {fileID: 4777012939030883025}
+  - {fileID: 2445343062078779585}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -230,6 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 7470210097838689052}
   cardDetails: {fileID: 8655714961128124095}
+  handDetails: {fileID: 2445343062078779585}
   spread: {fileID: 6605663796715131454}
   spreadScrollbar: {fileID: 7819203502845452888}
   focusGroup: {fileID: 0}
@@ -340,6 +342,37 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 33
+--- !u!1 &7912460311357103239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2445343062078779585}
+  m_Layer: 0
+  m_Name: Hand Details
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2445343062078779585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912460311357103239}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -3.42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1027379178555657017}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &22330150674066252
 PrefabInstance:
   m_ObjectHideFlags: 0

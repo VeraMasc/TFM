@@ -16,7 +16,15 @@ public class GameUI : MonoBehaviour
     [HorizontalLine(3,message = "General")]
     public Canvas canvas;
 
+    /// <summary>
+    /// Posición en la que mostrar los detalles de la carta seleccionada
+    /// </summary>
     public Transform cardDetails;
+
+    /// <summary>
+    /// Posición en la que mostrar la mano del personaje seleccionado
+    /// </summary>
+    public Transform handDetails;
 
     /// <summary>
     /// Layout para el grupo de cartas expandido

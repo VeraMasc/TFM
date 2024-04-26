@@ -33,6 +33,6 @@ public abstract class GameMode : MonoBehaviour
         //Por defecto, es turno de todos
         return true;
     }
-
+    protected TriggerManager triggerManager => GameController.singleton.triggerManager;
     
 }
