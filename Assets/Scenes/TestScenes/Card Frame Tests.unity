@@ -873,7 +873,7 @@ PrefabInstance:
     - target: {fileID: 5725338630376539603, guid: 693bcb068c4f97a4e85d3f3c745cb0fe, type: 3}
       propertyPath: m_renderer
       value: 
-      objectReference: {fileID: 1903644261}
+      objectReference: {fileID: 1363798933}
     - target: {fileID: 6462243022253552644, guid: 693bcb068c4f97a4e85d3f3c745cb0fe, type: 3}
       propertyPath: m_Name
       value: ActionCard
@@ -936,6 +936,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 693bcb068c4f97a4e85d3f3c745cb0fe, type: 3}
+--- !u!23 &1363798933 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3978930701127917119, guid: 693bcb068c4f97a4e85d3f3c745cb0fe, type: 3}
+  m_PrefabInstance: {fileID: 1363798932}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1392361048
 GameObject:
   m_ObjectHideFlags: 0
