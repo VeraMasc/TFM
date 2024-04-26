@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using CardHouse;
 using UnityEngine;
 
 /// <summary>
@@ -9,6 +10,10 @@ using UnityEngine;
 public abstract class GameMode : MonoBehaviour
 {
 
+    /// <summary>
+    /// Personaje actualmente seleccionado para realizar sus acciones
+    /// </summary>
+    public Entity selectedPlayer;
     
     /// <summary>
     /// Stack de resolución de efectos
@@ -35,4 +40,22 @@ public abstract class GameMode : MonoBehaviour
     }
     protected TriggerManager triggerManager => GameController.singleton.triggerManager;
     
+
+    public void setSelectedPlayer(Entity player){
+        var allEntities = GameController.singleton?.entities ?? new List<Entity>();
+
+        foreach (var entity in allEntities){
+            if(entity?.hand?.Strategy is HandLayout hand && hand.selected == true){
+                hand.selected=false;
+                entity.hand.ApplyStrategy();
+            }
+        }
+
+        selectedPlayer = player;
+
+        if(player?.hand?.Strategy is HandLayout playerHand){
+            playerHand.selected=true;
+            player.hand.ApplyStrategy();
+        }
+    }
 }

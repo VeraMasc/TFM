@@ -143,4 +143,14 @@ public partial class Entity
                 .Cast<ActionCard>();
         }
     }
+
+    /// <summary>
+    /// Selecciona esta entidad como jugador actual si es posible
+    /// </summary>
+    public void trySelectPlayer(){
+        if(team != EntityTeam.player)
+            return;
+        
+        GameMode.current.setSelectedPlayer(this);
+    }
 }

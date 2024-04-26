@@ -8,7 +8,7 @@ namespace CardHouse
         public UnityEvent OnHover;
         public UnityEvent OnUnHover;
 
-        void OnMouseEnter()
+        protected virtual void OnMouseEnter()
         {
             if (!IsActive || (EventSystem.current?.IsPointerOverGameObject() ?? false))
                 return;
@@ -16,7 +16,7 @@ namespace CardHouse
             OnHover.Invoke();
         }
 
-        void OnMouseExit()
+        protected virtual void OnMouseExit()
         {
             if (!IsActive)
                 return;

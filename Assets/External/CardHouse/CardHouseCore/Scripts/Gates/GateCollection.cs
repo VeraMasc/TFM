@@ -1,14 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity;
+using UnityEngine;
 
 namespace CardHouse
 {
     [Serializable]
-    public class GateCollection<T>
+    public class GateCollection<T> 
     {
+        
         public List<Gate<T>> Gates;
-
         public bool AllUnlocked(T gateParams)
         {
             return Gates.Count == 0 || Gates.All(x => x.IsUnlocked(gateParams));
