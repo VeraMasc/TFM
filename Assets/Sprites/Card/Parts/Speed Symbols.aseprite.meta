@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b6b05fa621d63c8458d7433efa1c8687
+guid: b67c4d38c132ed942bd39ef2587e3363
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Skip Button_Frame_0
+  - name: Speed Symbols
     originalName: 
-    pivot: {x: 0.45833334, y: -0.3}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 24
-      height: 20
-    spriteID: d5413098887b2064981f209abcc53edb
+      width: 14
+      height: 8
+    spriteID: 71218872a67be6f45bd60a7594833b08
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,110 +139,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Skip Button_Frame_1
-    originalName: 
-    pivot: {x: 0.45833334, y: -0.31578946}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 36
-      y: 32
-      width: 24
-      height: 19
-    spriteID: 65c854e4eddb77e4188e8276b893bb05
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 36, y: 32}
-  - name: Skip Button_Frame_2
-    originalName: 
-    pivot: {x: 0.45833334, y: -0.3}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 32
-      width: 24
-      height: 20
-    spriteID: 4652c194add09b247844ade40fe5efdf
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 32}
-  - name: Skip Button_Frame_3
-    originalName: 
-    pivot: {x: 0.45833334, y: -0.3}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 36
-      y: 4
-      width: 24
-      height: 20
-    spriteID: 73c1eb38f581a3440a7fcc448183b360
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 36, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1239115497
-    name: Skip Button
+    guid: 558145368
+    name: Speed Symbols
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Skip Button_Frame_0
+    - name: Speed Symbols
       frameIndex: 0
       cellRect:
-        x: 5
-        y: 6
-        width: 24
-        height: 20
-      spriteId: d5413098887b2064981f209abcc53edb
-    - name: Skip Button_Frame_1
-      frameIndex: 1
-      cellRect:
-        x: 5
-        y: 6
-        width: 24
-        height: 19
-      spriteId: 65c854e4eddb77e4188e8276b893bb05
-    - name: Skip Button_Frame_2
-      frameIndex: 2
-      cellRect:
-        x: 5
-        y: 6
-        width: 24
-        height: 20
-      spriteId: 4652c194add09b247844ade40fe5efdf
-    - name: Skip Button_Frame_3
-      frameIndex: 3
-      cellRect:
-        x: 5
-        y: 6
-        width: 24
-        height: 20
-      spriteId: 73c1eb38f581a3440a7fcc448183b360
+        x: 0
+        y: 0
+        width: 14
+        height: 8
+      spriteId: 71218872a67be6f45bd60a7594833b08
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 32}
+  canvasSize: {x: 14, y: 8}
