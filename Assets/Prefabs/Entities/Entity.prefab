@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AI: {fileID: 0}
+  maxHealth: 20
   health: 20
   alive: 1
   team: 0
@@ -64,7 +65,10 @@ MonoBehaviour:
   board: {fileID: 0}
   data:
     name: Test Entity
-    state: {fileID: 0}
+    state:
+      inDeck: []
+      spent: []
+      exiled: []
     decklist: {fileID: 11400000, guid: 12b88745db0c7934d9776cf0ef24d635, type: 2}
     abilities: []
   targeterTransform: {fileID: 0}
@@ -203,7 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4028109914662721600, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
       propertyPath: groupScale
-      value: 0.8
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4028109914662721600, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
       propertyPath: compactDisplay
@@ -355,7 +359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4028109914662721600, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
       propertyPath: groupScale
-      value: 0.8
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4028109914662721600, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
       propertyPath: compactDisplay
@@ -508,6 +512,14 @@ PrefabInstance:
     - target: {fileID: 1745271484655299234, guid: 42dfb34ec44f8a24eb86071a36d69d9f, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309466588467784272, guid: 42dfb34ec44f8a24eb86071a36d69d9f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.498
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309466588467784272, guid: 42dfb34ec44f8a24eb86071a36d69d9f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.408
       objectReference: {fileID: 0}
     - target: {fileID: 6633439265487122484, guid: 42dfb34ec44f8a24eb86071a36d69d9f, type: 3}
       propertyPath: m_IsActive
@@ -981,6 +993,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5041657853655172971}
     - target: {fileID: 2908464568799007497, guid: 2826c0dd0131e1d49a4dec592d16dc7e, type: 3}
+      propertyPath: UseMyScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908464568799007497, guid: 2826c0dd0131e1d49a4dec592d16dc7e, type: 3}
+      propertyPath: groupScale
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908464568799007497, guid: 2826c0dd0131e1d49a4dec592d16dc7e, type: 3}
       propertyPath: invertStackHeight
       value: 1
       objectReference: {fileID: 0}
@@ -1087,7 +1107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RunOnStart: 0
   instaShuffle: 1
-  CardPrefab: {fileID: 6462243022253552644, guid: 68ee0ccc2801f714984a492fae9ed02e, type: 3}
+  CardPrefab: {fileID: 6462243022253552644, guid: 693bcb068c4f97a4e85d3f3c745cb0fe, type: 3}
   DeckDefinition: {fileID: 0}
   Deck: {fileID: 0}
   OnSetupCompleteEventChain: []
@@ -1299,6 +1319,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 633910318609413980}
     m_Modifications:
+    - target: {fileID: 6309466588467784272, guid: 42dfb34ec44f8a24eb86071a36d69d9f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2539689
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309466588467784272, guid: 42dfb34ec44f8a24eb86071a36d69d9f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.70546913
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309466588467784272, guid: 42dfb34ec44f8a24eb86071a36d69d9f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.57142997
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309466588467784272, guid: 42dfb34ec44f8a24eb86071a36d69d9f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.488
+      objectReference: {fileID: 0}
+    - target: {fileID: 6309466588467784272, guid: 42dfb34ec44f8a24eb86071a36d69d9f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.46
+      objectReference: {fileID: 0}
     - target: {fileID: 8674698285375438856, guid: 42dfb34ec44f8a24eb86071a36d69d9f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1386,11 +1426,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3147709442397729030, guid: 6b8900182d9eb2e468a4233a8e7dab40, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 2.9568
       objectReference: {fileID: 0}
     - target: {fileID: 3147709442397729030, guid: 6b8900182d9eb2e468a4233a8e7dab40, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.9
+      value: 3.3784
       objectReference: {fileID: 0}
     - target: {fileID: 3147709442397729030, guid: 6b8900182d9eb2e468a4233a8e7dab40, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1431,6 +1471,22 @@ PrefabInstance:
     - target: {fileID: 4499189061742767263, guid: 6b8900182d9eb2e468a4233a8e7dab40, type: 3}
       propertyPath: UseMyScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547925196117835423, guid: 6b8900182d9eb2e468a4233a8e7dab40, type: 3}
+      propertyPath: UseMyScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547925196117835423, guid: 6b8900182d9eb2e468a4233a8e7dab40, type: 3}
+      propertyPath: groupScale
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547925196117835423, guid: 6b8900182d9eb2e468a4233a8e7dab40, type: 3}
+      propertyPath: ForcedFacing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094500017245707915, guid: 6b8900182d9eb2e468a4233a8e7dab40, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2349494
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

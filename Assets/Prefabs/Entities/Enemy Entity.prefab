@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 60728718906423714, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1.1548
+      objectReference: {fileID: 0}
+    - target: {fileID: 192353363741148730, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -0.2349494
+      objectReference: {fileID: 0}
     - target: {fileID: 633910318609413980, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -52,6 +60,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1329065650261302737, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1.1548
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742020579897152327, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2122701952276734170, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596219236412680854, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757223936260089390, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: ForcedFacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2794258341866741232, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -0.2539689
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827854926223258419, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1.03
+      objectReference: {fileID: 0}
     - target: {fileID: 3403992940546907739, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_Name
       value: Enemy Entity
@@ -60,6 +96,22 @@ PrefabInstance:
       propertyPath: AI
       value: 
       objectReference: {fileID: 9025513352520435183}
+    - target: {fileID: 5704680042789877253, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597847920604192002, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1.1548
+      objectReference: {fileID: 0}
+    - target: {fileID: 8947776040665431936, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1.1548
+      objectReference: {fileID: 0}
+    - target: {fileID: 8947776040665431936, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

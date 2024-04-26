@@ -13,6 +13,8 @@ namespace CardHouse
         /// Invertir el orden de las cartas en mano (por defecto izquierda a derecha)
         /// </summary>
         public bool invertOrder;
+
+        public bool selected;
         public float MarginalCardOffset = 0.01f;
         public Vector2 ArcCenterOffset = new Vector2(0f, -5f);
         [Range(0f, 0.8f)]
@@ -42,7 +44,7 @@ namespace CardHouse
             {
                 var direction = invertOrder? transform.right:-transform.right;
                 var newPos = transform.position
-                             + Vector3.back * (MountedCardAltitude + i * MarginalCardOffset)
+                             + Vector3.back * (MountedCardAltitude + (cards.Count-i) * MarginalCardOffset)
                              + direction * width * -0.5f
                              + direction * (i + 1) * spacing;
 
