@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1572000aa9790a64eac952c61abd81ae
+guid: cf39372c6fbbe8d478bf2e6665d8369a
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -75,7 +75,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 0
+    defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
@@ -87,7 +87,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 0
+    defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 0
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638497508339882424
+  platformSettingsDirtyTick: 638497679433929054
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Card Frame 2
+  - name: Speed Symbols 2_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.7, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 48
-      height: 66
-    spriteID: 4889b23ee356b8546811e13316c894bd
+      width: 10
+      height: 8
+    spriteID: 3092e4623ca77ae4b8feab0e02f60864
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,58 +139,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Card Frame 2_Frame_1
+  - name: Speed Symbols 2_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 1.4, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 78
-      width: 48
-      height: 66
-    spriteID: 9b05e6f1898bf84428efab44e63ceaa3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 78}
-  - name: Card Frame 2_Frame_2
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 152
-      width: 48
-      height: 66
-    spriteID: 19b162fccce7ff74abd6cf8dfeaaaf32
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 152}
-  - name: Card Frame 2_Frame_3
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 60
+      x: 22
       y: 4
-      width: 48
-      height: 66
-    spriteID: b9c7b17a516ae2e4d960d69eaea0cde5
+      width: 5
+      height: 8
+    spriteID: af152b66a2505654c8ad912dd756952f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -198,48 +158,88 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 60, y: 4}
+    uvTransform: {x: 22, y: 4}
+  - name: Speed Symbols 2_Frame_2
+    originalName: 
+    pivot: {x: 0.7, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 20
+      width: 10
+      height: 8
+    spriteID: c13e9cdee44a8c94890c533eba8ffb68
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 20}
+  - name: Speed Symbols 2_Frame_3
+    originalName: 
+    pivot: {x: 0.7777778, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 36
+      width: 9
+      height: 6
+    spriteID: 45984f771d75f0c41850b9fe4bf5f40b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 36}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -26954529
-    name: Card Frame 2
+    guid: -2936286
+    name: Speed Symbols 2
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Card Frame 2_Frame_0
+    - name: Speed Symbols 2_Frame_0
       frameIndex: 0
       cellRect:
         x: 0
-        y: 0
-        width: 48
-        height: 66
-      spriteId: 4889b23ee356b8546811e13316c894bd
-    - name: Card Frame 2_Frame_1
+        y: 2
+        width: 10
+        height: 8
+      spriteId: 3092e4623ca77ae4b8feab0e02f60864
+    - name: Speed Symbols 2_Frame_1
       frameIndex: 1
       cellRect:
         x: 0
-        y: 0
-        width: 48
-        height: 66
-      spriteId: 9b05e6f1898bf84428efab44e63ceaa3
-    - name: Card Frame 2_Frame_2
+        y: 2
+        width: 5
+        height: 8
+      spriteId: af152b66a2505654c8ad912dd756952f
+    - name: Speed Symbols 2_Frame_2
       frameIndex: 2
       cellRect:
         x: 0
-        y: 0
-        width: 48
-        height: 66
-      spriteId: 19b162fccce7ff74abd6cf8dfeaaaf32
-    - name: Card Frame 2_Frame_3
+        y: 2
+        width: 10
+        height: 8
+      spriteId: c13e9cdee44a8c94890c533eba8ffb68
+    - name: Speed Symbols 2_Frame_3
       frameIndex: 3
       cellRect:
         x: 0
-        y: 0
-        width: 48
-        height: 66
-      spriteId: b9c7b17a516ae2e4d960d69eaea0cde5
+        y: 3
+        width: 9
+        height: 6
+      spriteId: 45984f771d75f0c41850b9fe4bf5f40b
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -293,4 +293,4 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 48, y: 66}
+  canvasSize: {x: 14, y: 12}
