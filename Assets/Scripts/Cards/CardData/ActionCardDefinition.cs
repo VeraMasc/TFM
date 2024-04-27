@@ -1,7 +1,6 @@
 using UnityEngine;
 using CardHouse;
 using CustomInspector;
-
 using UnityEditor;
 using System.IO;
 using Effect;

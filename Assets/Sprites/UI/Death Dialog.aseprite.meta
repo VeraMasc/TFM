@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5399fee31bbe4374695ddff6584d681d
+guid: 4c664a58a3d59d44ab8675a086dff640
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Health Dialog
+  - name: Death Dialog_Frame_0
     originalName: 
-    pivot: {x: 0.4827586, y: -0.11538462}
+    pivot: {x: 0.5, y: -0.14285715}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 29
-      height: 26
-    spriteID: 44e2cf51ed37dff4299286ea3b4d8d03
+      width: 24
+      height: 21
+    spriteID: f9bf5eca4681a34409a9dd16f70b159f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,47 +139,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Health Dialog_Frame_1
-    originalName: 
-    pivot: {x: 0.4827586, y: -0.47619048}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 38
-      width: 29
-      height: 21
-    spriteID: ff28fad2d599f30409d629d45848f4a3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 38}
-  - name: Health Dialog_Frame_2
-    originalName: 
-    pivot: {x: 0.4827586, y: -0.47619048}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 67
-      width: 29
-      height: 21
-    spriteID: 45d53be24804fb94590ede73e450134a
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 67}
-  - name: Health Dialog_Frame_3
+  - name: Death Dialog_Frame_1
     originalName: 
     pivot: {x: 0.5, y: -0.14285715}
     alignment: 9
@@ -187,10 +147,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 96
+      y: 33
       width: 24
       height: 21
-    spriteID: fb6e37e18147df24daa630c50660a087
+    spriteID: 770607e61b661714cbf31d19ab1ed020
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -198,8 +158,48 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 96}
-  - name: Health Dialog_Frame_4
+    uvTransform: {x: 4, y: 33}
+  - name: Death Dialog_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 62
+      width: 24
+      height: 21
+    spriteID: 80fc4cb44c67d094ebcf29f3dd2b87fb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 62}
+  - name: Death Dialog_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 91
+      width: 24
+      height: 21
+    spriteID: d94ef1b6dc66ac4479c760f1d10787c7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 91}
+  - name: Death Dialog_Frame_4
     originalName: 
     pivot: {x: 0.5, y: -0.14285715}
     alignment: 9
@@ -207,10 +207,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 36
-      y: 96
+      y: 4
       width: 24
       height: 21
-    spriteID: 6a57729ad6b0c4746b7081367a3b1343
+    spriteID: 50c00e307c08b4f4c8f4ff0554d8d120
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -218,56 +218,84 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 36, y: 96}
+    uvTransform: {x: 36, y: 4}
+  - name: Death Dialog_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 33
+      width: 24
+      height: 21
+    spriteID: 0b25dcb5a27a27440823f39ddf3335da
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 33}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -49016512
-    name: Health Dialog
+    guid: 187382768
+    name: Death Dialog
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Health Dialog_Frame_0
+    - name: Death Dialog_Frame_0
       frameIndex: 0
       cellRect:
-        x: 2
+        x: 4
         y: 3
-        width: 29
-        height: 26
-      spriteId: 44e2cf51ed37dff4299286ea3b4d8d03
-    - name: Health Dialog_Frame_1
+        width: 24
+        height: 21
+      spriteId: f9bf5eca4681a34409a9dd16f70b159f
+    - name: Death Dialog_Frame_1
       frameIndex: 1
       cellRect:
-        x: 2
-        y: 10
-        width: 29
+        x: 4
+        y: 3
+        width: 24
         height: 21
-      spriteId: ff28fad2d599f30409d629d45848f4a3
-    - name: Health Dialog_Frame_2
+      spriteId: 770607e61b661714cbf31d19ab1ed020
+    - name: Death Dialog_Frame_2
       frameIndex: 2
       cellRect:
-        x: 2
-        y: 10
-        width: 29
+        x: 4
+        y: 3
+        width: 24
         height: 21
-      spriteId: 45d53be24804fb94590ede73e450134a
-    - name: Health Dialog_Frame_3
+      spriteId: 80fc4cb44c67d094ebcf29f3dd2b87fb
+    - name: Death Dialog_Frame_3
       frameIndex: 3
       cellRect:
         x: 4
         y: 3
         width: 24
         height: 21
-      spriteId: fb6e37e18147df24daa630c50660a087
-    - name: Health Dialog_Frame_4
+      spriteId: d94ef1b6dc66ac4479c760f1d10787c7
+    - name: Death Dialog_Frame_4
       frameIndex: 4
       cellRect:
         x: 4
         y: 3
         width: 24
         height: 21
-      spriteId: 6a57729ad6b0c4746b7081367a3b1343
+      spriteId: 50c00e307c08b4f4c8f4ff0554d8d120
+    - name: Death Dialog_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 4
+        y: 3
+        width: 24
+        height: 21
+      spriteId: 0b25dcb5a27a27440823f39ddf3335da
     linkedCells: []
     parentIndex: -1
   platformSettings: []

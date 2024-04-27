@@ -69,8 +69,13 @@
   - [ ] Card Context
     - [x] Card Ownership
     - [x] Card controller
-    - [ ] Card Zone (zona en la que se encuentra la carta)
+    - [ ] Card Zone (zona en la que se encuentra la carta o desde la que se ha lanzado)
     - [x] Values and targets
+  - [ ] Modifiers
+    - [ ] De duración temporal
+    - [ ] De cast
+    - [ ] De cambio de zona
+      - [ ] Flashback
 
 #### Modo Exploración
 
