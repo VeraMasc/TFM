@@ -12,4 +12,8 @@ public class CardOwnership : MonoBehaviour
     public Entity owner;
 
     //TODO: Set ownership on deck setup
+
+    public CardOwnership(Entity owner){
+        this.owner = controller = owner;
+    }
 }

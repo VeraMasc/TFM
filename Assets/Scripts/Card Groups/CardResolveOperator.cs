@@ -239,6 +239,12 @@ public class CardResolveOperator : Activatable
 
         //Si todo falla, la manda a la pila por defecto
         group ??= GroupRegistry.Instance.Get(sendTo,playerIndex);
+        if(group == null){
+            Debug.LogError("Can't find default discard pile");
+            stack.UnMount(card);
+            Destroy(card.gameObject);
+            yield break;
+        }
         yield return CardTransferOperator.sendCard(card,group);
     }
 

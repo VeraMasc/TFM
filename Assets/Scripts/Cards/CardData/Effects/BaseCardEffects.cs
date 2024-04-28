@@ -60,11 +60,18 @@ public class BaseCardEffects{
     /// </summary>
     public void setContext(Card card){
 
+        Card source = card;
+
         if(card?.data is TriggerCard trigger){
             //Create context from source
-            context = new Effect.Context(trigger.source);
-        }else{
-            context = new Effect.Context(card);
+            source = trigger.source;
+        }
+        CardOwnership ownership = source?.GetComponent<CardOwnership>();
+        if(ownership){
+            context = new Effect.Context(source, ownership);
+        }
+        else{
+            context = new Effect.Context(source);
         }
         
     }

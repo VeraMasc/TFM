@@ -71,6 +71,11 @@ namespace Effect{
         public Context(Context original):this(original.self,original.controller,original.owner,original.source){
 
         }
+
+    
+        public Context(Card self, CardOwnership ownership):this(self, ownership?.controller, ownership?.owner){
+            
+        }
         
     }
 }
