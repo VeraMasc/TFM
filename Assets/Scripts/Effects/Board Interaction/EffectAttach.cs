@@ -33,13 +33,22 @@ namespace Effect{
                 group= entity.attached;
             }
             else {
-                Debug.LogError($"Attach target of type {target.GetType()} is not suported", (UnityEngine.Object)context.self);
+                Debug.LogError($"Attach target of type {target?.GetType()} is not suported", (UnityEngine.Object)context?.self);
                 yield break;
             }
+
+            Debug.Log(context.source, (UnityEngine.Object)context.self);
+            if(context.source!= null){//Si es trigger, mover la carta directamente
+                
+                var self = (Card)context.self;
+                group.Mount(self);
+                yield return UCoroutine.YieldAwait(()=>self.Homing.seeking);
+            }
+            else{
+                context.resolutionPile = group;
+            }
             
-            var self = (Card)context.self;
-            group.Mount(self);
-            yield return UCoroutine.YieldAwait(()=>self.Homing.seeking);
+            
         }
 
         /// <summary>

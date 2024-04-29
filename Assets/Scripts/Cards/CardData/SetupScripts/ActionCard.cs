@@ -22,9 +22,15 @@ public class ActionCard : MyCardSetup, IActionable
     public override void Apply(CardDefinition data)
     {
         base.Apply(data);
-        if (data is ContentCardDefinition contentCard)
+        if (data is ActionCardDefinition action)
         {
-            effects = contentCard.effects;
+            effects = action.effects;
+            effects = action.effects.cloneAll();
+            effects.setContext(GetComponent<Card>());
+            effects.refreshTriggerSuscriptions();
+        }
+        else {
+            Debug.LogError($"Wrong Definition for ActionCard: {data?.GetType()?.Name}",data);
         }
         refreshValues();
     }
