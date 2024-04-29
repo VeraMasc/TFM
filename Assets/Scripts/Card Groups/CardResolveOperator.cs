@@ -234,11 +234,17 @@ public class CardResolveOperator : Activatable
             var context = myCard.effects?.context;
             group= context?.resolutionPile;
             //Asignar la pila de descarte en base al dueño de la carta
-            group??= context?.owner?.discarded;
+            
+        }
+
+        //Send to owner discard as default
+        CardOwnership ownership;
+        if(group == null && (ownership = card.GetComponent<CardOwnership>())){
+            group = ownership?.owner?.discarded;
         }
 
         //Si todo falla, la manda a la pila por defecto
-        group ??= GroupRegistry.Instance.Get(sendTo,playerIndex);
+        group ??= GroupRegistry.Instance.Get(sendTo,null);
         if(group == null){
             Debug.LogError("Can't find default discard pile");
             stack.UnMount(card);

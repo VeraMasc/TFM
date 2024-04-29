@@ -180,9 +180,7 @@ public partial class Entity : MonoBehaviour, ITargetable
 
         //TODO: Cambiar lo que hace según si es modo combate o exploración
 
-        var setup = deck.GetComponent<DeckSetup>();
-        setup.DeckDefinition = data.decklist;
-        setup.DoSetup(); //TODO: DeckSetup as static coroutine
+        StartCoroutine(DeckSetup.setupDeck(data.decklist, deck, this));
     }
 }
 

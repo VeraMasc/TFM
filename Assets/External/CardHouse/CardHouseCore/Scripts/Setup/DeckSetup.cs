@@ -72,5 +72,41 @@ namespace CardHouse
 
             StartCoroutine(TimedEvent.ExecuteChain(OnSetupCompleteEventChain));
         }
+
+        public static IEnumerator setupDeck(IDeckDefinition deck, CardGroup group, Entity owner){
+            var newCardList = new List<Card>();
+            foreach (var cardDef in deck.CardCollection)
+            {
+                var prefab = GameController.singleton.creationManager.getSetup(cardDef);
+                var newThing = Instantiate(prefab, group.transform.position, group.transform.rotation);
+                newCardList.Add(newThing.GetComponent<Card>());
+                var card = newThing.GetComponent<CardSetup>();
+
+                if (card != null)
+                {
+                    var copyCardDef = cardDef;
+
+                    if (cardDef.BackArt == null && deck.CardBackArt != null)
+                    {
+                        copyCardDef = Instantiate(cardDef);
+                        copyCardDef.BackArt = deck.CardBackArt;
+                    }
+                    card.Apply(copyCardDef);
+
+                    
+                }
+
+                if(owner!=null){
+                    var ownership = newThing.gameObject.GetComponent<CardOwnership>();
+                    ownership.setOwner(owner);
+                }
+            }
+            yield return new WaitForEndOfFrame();
+
+            foreach (var card in newCardList)
+            {
+                group.Mount(card, instaFlip: true);
+            }
+        }
     }
 }

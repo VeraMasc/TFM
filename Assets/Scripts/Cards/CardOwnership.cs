@@ -5,6 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Controla quién tiene la propiedad de las distintas cartas
 /// </summary>
+[DisallowMultipleComponent]
 public class CardOwnership : MonoBehaviour
 {
     public Entity controller;
@@ -13,7 +14,7 @@ public class CardOwnership : MonoBehaviour
 
     //TODO: Set ownership on deck setup
 
-    public CardOwnership(Entity owner){
+    public void setOwner(Entity owner){
         this.owner = controller = owner;
     }
 }

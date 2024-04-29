@@ -16,3 +16,5 @@ MonoBehaviour:
   CardsetCollection:
   - card: {fileID: 11400000, guid: 0a1551408bdb0e6459b9201ebc22f7f4, type: 2}
     amount: 10
+  - card: {fileID: 11400000, guid: 7a254520b453c85419b27b16f1e745ea, type: 2}
+    amount: 10
