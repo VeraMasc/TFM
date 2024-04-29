@@ -15,15 +15,24 @@ public class MyCardDefinition : CardDefinition
 
     public Sprite Frame;
 
+
     [ShowProperty("BackArt", order=-20),Space2(16)]
 
     [HorizontalLine]
     [SerializeReference,SubclassSelector]
     public List<CardHelp> help;
 
+    /// <summary>
+    /// Devuelve el tipo de la carta
+    /// </summary>
+    public virtual string getCardTypes(){
+        return "";
+    }
     protected virtual void Awake() {
         if(string.IsNullOrWhiteSpace(cardName)){
             cardName = name;
         }
     }
+
+    
 }

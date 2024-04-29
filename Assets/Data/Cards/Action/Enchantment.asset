@@ -18,6 +18,7 @@ MonoBehaviour:
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
+  typeList: 0000000001000000
   cost:
     costText: 
     value: 0

@@ -1307,6 +1307,8 @@ MonoBehaviour:
   Image: {fileID: 6462243021699527057}
   FrameImage: {fileID: 3264143500656334108}
   BackImage: {fileID: 6462243021217859703}
+  cardNameBox: {fileID: 3330419311940540719}
+  cardTypeLine: {fileID: 3347545304853578325}
   cardTextBox: {fileID: 5725338630376539603}
   effects:
     baseEffect:

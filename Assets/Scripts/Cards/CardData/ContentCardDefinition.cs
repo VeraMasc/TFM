@@ -21,5 +21,10 @@ public class ContentCardDefinition : MyCardDefinition
         base.Awake();
         // effects = (ContentCardEffects)effects.cloneAll();
     }
+
+    public override string getCardTypes()
+    {
+        return "Content";
+    }
 }
 

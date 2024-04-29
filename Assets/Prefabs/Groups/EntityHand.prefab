@@ -293,8 +293,8 @@ MonoBehaviour:
   MarginalCardOffset: 0.05
   ArcCenterOffset: {x: 0, y: -5}
   ArcMargin: 0.3
-  selectedScale: 1.5
-  selectedWidthFactor: 2
+  selectedScale: 1.8
+  selectedWidthFactor: 3.5
 --- !u!114 &3953363154668456009
 MonoBehaviour:
   m_ObjectHideFlags: 0

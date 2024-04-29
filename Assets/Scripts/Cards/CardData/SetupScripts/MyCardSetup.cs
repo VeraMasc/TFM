@@ -28,6 +28,11 @@ public abstract class MyCardSetup : CardSetup
     public string cardText;
 
     /// <summary>
+    /// Tipo de la carta
+    /// </summary>
+    public string cardType;
+
+    /// <summary>
     /// Renderer de la cara frontal de la carta
     /// </summary>
     public SpriteRenderer Image;
@@ -41,6 +46,17 @@ public abstract class MyCardSetup : CardSetup
     /// Renderer de la cara trasera de la carta
     /// </summary>
     public SpriteRenderer BackImage;
+
+
+    /// <summary>
+    /// Textbox with the card name
+    /// </summary>
+    public TextMeshPro cardNameBox;
+
+    /// <summary>
+    /// Textbox with the card type
+    /// </summary>
+    public TextMeshPro cardTypeLine;
 
     /// <summary>
     /// Base textbox for the card
@@ -56,7 +72,7 @@ public abstract class MyCardSetup : CardSetup
     /// <summary>
     /// Tipos de la carta en cuestión
     /// </summary>
-    public virtual HashSet<string> cardType {get;set;}
+    public virtual HashSet<string> cardTypeSet {get;set;}
 
     /// <summary>
     /// Asigna los valores básicos de la carta
@@ -75,6 +91,13 @@ public abstract class MyCardSetup : CardSetup
             }
             cardText = baseCard.cardText;
             cardTextBox.text = cardText;
+            cardName = baseCard.cardName;
+            cardNameBox.text = cardName;
+
+            cardType = baseCard.getCardTypes();
+            if(cardTypeLine){
+                cardTypeLine.text = cardType;
+            }
 
             if(!GetType().IsSubclassOf(typeof(TriggerCard))){
                 // poner definición solo si no es un trigger
