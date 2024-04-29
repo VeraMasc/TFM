@@ -44,4 +44,4 @@ MonoBehaviour:
     - rid: 3644647512751472641
       type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}
       data:
-        contextual: 0
+        contextual: 1

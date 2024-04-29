@@ -37,17 +37,15 @@ namespace Effect{
                 yield break;
             }
 
-            Debug.Log(context.source, (UnityEngine.Object)context.self);
+            
             if(context.source!= null){//Si es trigger, mover la carta directamente
-                
+                //TODO: no funciona. Arreglar
                 var self = (Card)context.self;
                 group.Mount(self);
                 yield return UCoroutine.YieldAwait(()=>self.Homing.seeking);
             }
-            else{
-                context.resolutionPile = group;
-            }
             
+            context.resolutionPile = group;
             
         }
 

@@ -82,6 +82,11 @@ namespace CardHouse
                 newCardList.Add(newThing.GetComponent<Card>());
                 var card = newThing.GetComponent<CardSetup>();
 
+                if(owner!=null){
+                    var ownership = newThing.gameObject.GetComponent<CardOwnership>();
+                    ownership.setOwner(owner);
+                }
+
                 if (card != null)
                 {
                     var copyCardDef = cardDef;
@@ -96,10 +101,7 @@ namespace CardHouse
                     
                 }
 
-                if(owner!=null){
-                    var ownership = newThing.gameObject.GetComponent<CardOwnership>();
-                    ownership.setOwner(owner);
-                }
+                
             }
             yield return new WaitForEndOfFrame();
 
