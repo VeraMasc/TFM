@@ -108,9 +108,29 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5996882721744410105, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7597847920604192002, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_LocalScale.x
       value: -1.1548
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072473786709376186, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072473786709376186, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072473786709376186, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072473786709376186, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8947776040665431936, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_LocalScale.x
