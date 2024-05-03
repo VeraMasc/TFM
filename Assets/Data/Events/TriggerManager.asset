@@ -21,4 +21,11 @@ MonoBehaviour:
   onEnter: {fileID: 11400000, guid: cac14767393c4824fabee3093dd3288e, type: 2}
   onDestroy: {fileID: 11400000, guid: 244447d381f59d54788de5ed0713115c, type: 2}
   onLeave: {fileID: 11400000, guid: 40da7b8342106f7449f0b690b67d436f, type: 2}
+  onEnterDiscard: {fileID: 11400000, guid: 6c8110e8ffaf22341a790fb320905cc2, type: 2}
+  onEnterExile: {fileID: 11400000, guid: ad614496c9928034792bcae894590110, type: 2}
+  onEnterLost: {fileID: 11400000, guid: 75820d065f8ee9d4ebb0401cc56bf9d1, type: 2}
+  onCast: {fileID: 0}
+  onSpent: {fileID: 0}
+  onUseAction: {fileID: 0}
   onBeginTurn: {fileID: 0}
+  onEndTurn: {fileID: 0}

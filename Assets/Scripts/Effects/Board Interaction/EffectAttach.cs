@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Text.RegularExpressions;
 using CardHouse;
 using Common.Coroutines;
 using CustomInspector;
@@ -43,6 +44,12 @@ namespace Effect{
                 var self = (Card)context.self;
                 group.Mount(self);
                 yield return UCoroutine.YieldAwait(()=>self.Homing.seeking);
+
+                var zone = group.GetComponent<GroupZone>();
+                if(zone){
+                    yield return UCoroutine.Yield(zone.callEnterTrigger((Card)context.source));
+                }
+                
             }
             
             context.resolutionPile = group;

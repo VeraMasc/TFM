@@ -46,11 +46,34 @@ public class TriggerManager : ScriptableObject
     /// </summary>
     public LocalTrigger onLeave;
 
+    [HorizontalLine(3,message = "Other Zones")]
+
     /// <summary>
-    /// Se activa al utilizar esta carta
+    /// Se activa cuando el objeto deja el campo
+    /// </summary>
+    public LocalTrigger onEnterDiscard;
+
+    /// <summary>
+    /// Se activa cuando la carta se exilia
+    /// </summary>
+    public LocalTrigger onEnterExile;
+
+    /// <summary>
+    /// Se activa cuando la carta se "pierde"
+    /// </summary>
+    public LocalTrigger onEnterLost;
+
+    /// <summary>
+    /// Se activa al lanzar esta carta
     /// </summary>
     [HorizontalLine(3,message = "Actions")]
     public LocalTrigger onCast;
+
+
+    /// <summary>
+    /// Se activa al resolverse la carta
+    /// </summary>
+    public LocalTrigger onSpent;
 
     /// <summary>
     /// Se activa al usar CUALQUIER carta

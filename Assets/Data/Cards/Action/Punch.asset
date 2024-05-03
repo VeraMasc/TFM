@@ -18,6 +18,7 @@ MonoBehaviour:
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
+  typeList: 
   cost:
     costText: 1
     value: 1
@@ -27,7 +28,8 @@ MonoBehaviour:
       list:
       - rid: 3644647386710540300
       - rid: 3644647386710540302
-    abilities: []
+    abilities:
+    - rid: 8129477892417519617
     staticEffects:
       list: []
     context:
@@ -61,3 +63,19 @@ MonoBehaviour:
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 1
+    - rid: 8129477892417519617
+      type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        source: {fileID: 0}
+        effects:
+        - rid: 8129477892417519618
+        trigger: {fileID: 11400000, guid: cac14767393c4824fabee3093dd3288e, type: 2}
+    - rid: 8129477892417519618
+      type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
+      data:
+        message:
+          rid: 8129477892417519619
+    - rid: 8129477892417519619
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: Entered

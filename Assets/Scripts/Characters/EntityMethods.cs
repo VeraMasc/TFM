@@ -137,7 +137,7 @@ public partial class Entity
     /// </summary>
     public IEnumerable<ActionCard> myPermanents {
         get {
-            return board.MountedCards?.Select(card => card.data)
+            return CombatController.singleton?.board?.MountedCards?.Select(card => card.data)
                 .OfType<MyCardSetup>()
                 .Where(data => data?.effects?.context?.controller == this)
                 .Cast<ActionCard>();

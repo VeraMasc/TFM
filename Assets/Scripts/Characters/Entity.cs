@@ -73,6 +73,12 @@ public partial class Entity : MonoBehaviour, ITargetable
     public CardGroup exile;
 
     /// <summary>
+    /// Pila de cartas perdidas del personaje
+    /// </summary>
+    [ForceFill]
+    public CardGroup lost;
+
+    /// <summary>
     /// Pila de cartas enganchadas al personaje
     /// </summary>
     public CardGroup attached;

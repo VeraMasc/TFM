@@ -9,6 +9,7 @@ namespace CardHouse
         Hand,
         Board,
         Stack,
+        Lost,
         A,
         B,
         C,

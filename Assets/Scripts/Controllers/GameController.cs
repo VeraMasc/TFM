@@ -62,7 +62,7 @@ public class GameController : MonoBehaviour
         foreach(var entity in entities){
             if(entity == null)
                 continue;
-            ret.AddRange(entity?.board?.MountedCards ?? new List<CardHouse.Card>());
+            ret.AddRange(CombatController.singleton?.board?.MountedCards ?? new List<CardHouse.Card>());
             ret.AddRange(entity?.attached?.MountedCards ?? new List<CardHouse.Card>());
             ret.AddRange(entity?.skills.MountedCards ?? new List<CardHouse.Card>());
         }

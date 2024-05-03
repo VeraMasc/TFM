@@ -38,11 +38,13 @@ public class TargetDetector : MonoBehaviour
             if(!isTarget && isValid()){
                 targetIndex = 0;
                 Debug.Log($"Targeted {actualTarget} (Target Nº {targetIndex})", (UnityEngine.Object)actualTarget);
+                GameUI.singleton.chosenTargets.Add(actualTarget);
                 
             }
             else if(isTarget){
                 Debug.Log($"UnTargeted {actualTarget} (Target Nº {targetIndex})", (UnityEngine.Object)actualTarget);
                 targetIndex = -1;
+                GameUI.singleton.chosenTargets.Remove(actualTarget);
             }
         }
             

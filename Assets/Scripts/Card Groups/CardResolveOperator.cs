@@ -251,7 +251,12 @@ public class CardResolveOperator : Activatable
             Destroy(card.gameObject);
             yield break;
         }
-        yield return CardTransferOperator.sendCard(card,group);
+        yield return StartCoroutine(CardTransferOperator.sendCard(card,group));
+        var zone = group.GetComponent<GroupZone>();
+        if (zone){
+            yield return StartCoroutine(zone.callEnterTrigger(card));
+        }
+        
     }
 
 

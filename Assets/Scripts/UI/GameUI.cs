@@ -68,6 +68,8 @@ public class GameUI : MonoBehaviour
     /// </summary>
     public IEnumerable<ITargetable> possibleTargets;
 
+    public List<ITargetable> chosenTargets;
+
     /// <summary>
     /// Indica si la interfaz está ocupada esperando algún input
     /// </summary>
@@ -142,6 +144,7 @@ public class GameUI : MonoBehaviour
     public IEnumerator getTargets(IEnumerable<ITargetable> targetables, Action<object> returnAction){
         clearInputs();
         possibleTargets = targetables;
+        chosenTargets = new();
 
         //TODO: add checks for invalid inputs
         

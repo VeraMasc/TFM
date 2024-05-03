@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using CardHouse;
 using Common.Coroutines;
 using UnityEngine;
 
@@ -13,6 +14,12 @@ public class CombatController : GameMode
     /// Cola de turnos
     /// </summary>
     public List<Entity> turnOrder;
+
+
+	/// <summary>
+	/// Campo de juego
+	/// </summary>
+	public CardGroup board;
 
     private static CombatController _singleton;
 	///<summary>Controller Singleton</summary>
