@@ -72,8 +72,8 @@ ScriptedImporter:
     applyGammaDecoding: 0
   previousAsepriteImporterSettings:
     fileImportMode: 1
-    importHiddenLayers: 0
-    layerImportMode: 1
+    importHiddenLayers: 1
+    layerImportMode: 0
     defaultPivotSpace: 0
     defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -84,8 +84,8 @@ ScriptedImporter:
     addShadowCasters: 0
   asepriteImporterSettings:
     fileImportMode: 1
-    importHiddenLayers: 0
-    layerImportMode: 1
+    importHiddenLayers: 1
+    layerImportMode: 0
     defaultPivotSpace: 0
     defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 0
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638497508339882424
+  platformSettingsDirtyTick: 638502745323542747
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,7 +119,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Card Frame 2
+  - name: Layer 1_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 9
@@ -130,7 +130,7 @@ ScriptedImporter:
       y: 4
       width: 48
       height: 66
-    spriteID: 4889b23ee356b8546811e13316c894bd
+    spriteID: 123a49abc8d6915479e13011abca298c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,7 +139,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Card Frame 2_Frame_1
+  - name: Layer 1_Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 9
@@ -150,7 +150,7 @@ ScriptedImporter:
       y: 78
       width: 48
       height: 66
-    spriteID: 9b05e6f1898bf84428efab44e63ceaa3
+    spriteID: a09b9ec111218cc4190fe36712335dfa
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -159,7 +159,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 78}
-  - name: Card Frame 2_Frame_2
+  - name: Layer 1_Frame_2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 9
@@ -170,7 +170,7 @@ ScriptedImporter:
       y: 152
       width: 48
       height: 66
-    spriteID: 19b162fccce7ff74abd6cf8dfeaaaf32
+    spriteID: 156b9f7f34bbdbf4aa9732a63632f3da
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -179,7 +179,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 152}
-  - name: Card Frame 2_Frame_3
+  - name: Layer 1_Frame_3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 9
@@ -190,7 +190,7 @@ ScriptedImporter:
       y: 4
       width: 48
       height: 66
-    spriteID: b9c7b17a516ae2e4d960d69eaea0cde5
+    spriteID: 20e7ad9e149dff34995a59bd60584ec9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -199,47 +199,457 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 60, y: 4}
+  - name: Layer 1_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 78
+      width: 48
+      height: 66
+    spriteID: 90ceb83ecc059d247834c5c882a844b3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 78}
+  - name: Layer 1_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 152
+      width: 48
+      height: 66
+    spriteID: 2bdc4ea11151d6e4aa1e4c9110a68ae1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 152}
+  - name: Layer 1_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 116
+      y: 4
+      width: 48
+      height: 66
+    spriteID: 2597d0cc2e003aa4284ff9316de0269a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 116, y: 4}
+  - name: Layer 1_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 116
+      y: 78
+      width: 48
+      height: 66
+    spriteID: fab416e40d54df447acccc425a9265f3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 116, y: 78}
+  - name: Rarity Symbol_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 172
+      y: 78
+      width: 6
+      height: 66
+    spriteID: e82abaaaa5b96ed4590b6775dcf52b74
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 172, y: 78}
+  - name: Layer 1_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 116
+      y: 152
+      width: 48
+      height: 66
+    spriteID: b2e306ec46d14824dac5bc8d53ba0579
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 116, y: 152}
+  - name: TypeBox_Frame_3
+    originalName: 
+    pivot: {x: 1.6, y: 1.6666667}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 246
+      width: 15
+      height: 6
+    spriteID: 18ce31e2d7f43184fae8a47037f877ef
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 246}
+  - name: TypeBox_Frame_4
+    originalName: 
+    pivot: {x: 1.6, y: 1.0833333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 29
+      y: 226
+      width: 15
+      height: 12
+    spriteID: de6fa4d763373c74fb6f0299e6a76061
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 29, y: 226}
+  - name: TypeBox_Frame_5
+    originalName: 
+    pivot: {x: 1.6, y: 1.0833333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 60
+      y: 226
+      width: 15
+      height: 12
+    spriteID: fd32a3178aa7e2149bf3f9cbd292e52d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 60, y: 226}
+  - name: TypeBox_Frame_6
+    originalName: 
+    pivot: {x: 1.6, y: 1.0833333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 83
+      y: 226
+      width: 15
+      height: 12
+    spriteID: e3cabeaae847db142bd5a7d8dcccb091
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 83, y: 226}
+  - name: TypeBox_Frame_7
+    originalName: 
+    pivot: {x: 1.6428571, y: 1.1818181}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 139
+      y: 226
+      width: 14
+      height: 11
+    spriteID: 7a5533aa5b8f46e40af0523ba43f3977
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 139, y: 226}
+  - name: TypeBox_Frame_8
+    originalName: 
+    pivot: {x: 1.4117647, y: 1.0833333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 226
+      width: 17
+      height: 12
+    spriteID: 3b7cc8a8dff3bbb448b5cb837ff61a12
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 226}
+  - name: Layer 1_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 172
+      y: 4
+      width: 48
+      height: 66
+    spriteID: 2fbfe2a530988e34e8c1cc66af2df7cc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 172, y: 4}
+  - name: TypeBox_Frame_9
+    originalName: 
+    pivot: {x: 1.6, y: 1.0833333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 116
+      y: 226
+      width: 15
+      height: 12
+    spriteID: 78c74c78adab5a94aae4ab2fda4f1445
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 116, y: 226}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -26954529
-    name: Card Frame 2
-    layerFlags: 0
+    guid: 1317222744
+    name: Layer 1
+    layerFlags: 3
     layerType: 0
     blendMode: 0
     cells:
-    - name: Card Frame 2_Frame_0
+    - name: Layer 1_Frame_0
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
         width: 48
         height: 66
-      spriteId: 4889b23ee356b8546811e13316c894bd
-    - name: Card Frame 2_Frame_1
+      spriteId: 123a49abc8d6915479e13011abca298c
+    - name: Layer 1_Frame_1
       frameIndex: 1
       cellRect:
         x: 0
         y: 0
         width: 48
         height: 66
-      spriteId: 9b05e6f1898bf84428efab44e63ceaa3
-    - name: Card Frame 2_Frame_2
+      spriteId: a09b9ec111218cc4190fe36712335dfa
+    - name: Layer 1_Frame_2
       frameIndex: 2
       cellRect:
         x: 0
         y: 0
         width: 48
         height: 66
-      spriteId: 19b162fccce7ff74abd6cf8dfeaaaf32
-    - name: Card Frame 2_Frame_3
+      spriteId: 156b9f7f34bbdbf4aa9732a63632f3da
+    - name: Layer 1_Frame_3
       frameIndex: 3
       cellRect:
         x: 0
         y: 0
         width: 48
         height: 66
-      spriteId: b9c7b17a516ae2e4d960d69eaea0cde5
+      spriteId: 20e7ad9e149dff34995a59bd60584ec9
+    - name: Layer 1_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 66
+      spriteId: 90ceb83ecc059d247834c5c882a844b3
+    - name: Layer 1_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 66
+      spriteId: 2bdc4ea11151d6e4aa1e4c9110a68ae1
+    - name: Layer 1_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 66
+      spriteId: 2597d0cc2e003aa4284ff9316de0269a
+    - name: Layer 1_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 66
+      spriteId: fab416e40d54df447acccc425a9265f3
+    - name: Layer 1_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 66
+      spriteId: b2e306ec46d14824dac5bc8d53ba0579
+    - name: Layer 1_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 0
+        y: 0
+        width: 48
+        height: 66
+      spriteId: 2fbfe2a530988e34e8c1cc66af2df7cc
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 2
+    guid: 1569318545
+    name: Rarity Symbol
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Rarity Symbol
+      frameIndex: 3
+      cellRect:
+        x: 21
+        y: 0
+        width: 6
+        height: 66
+      spriteId: e82abaaaa5b96ed4590b6775dcf52b74
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 1
+    guid: -1564008940
+    name: TypeBox
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: TypeBox_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 0
+        y: 23
+        width: 15
+        height: 6
+      spriteId: 18ce31e2d7f43184fae8a47037f877ef
+    - name: TypeBox_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
+        y: 20
+        width: 15
+        height: 12
+      spriteId: de6fa4d763373c74fb6f0299e6a76061
+    - name: TypeBox_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 0
+        y: 20
+        width: 15
+        height: 12
+      spriteId: fd32a3178aa7e2149bf3f9cbd292e52d
+    - name: TypeBox_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 0
+        y: 20
+        width: 15
+        height: 12
+      spriteId: e3cabeaae847db142bd5a7d8dcccb091
+    - name: TypeBox_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 1
+        y: 20
+        width: 14
+        height: 11
+      spriteId: 7a5533aa5b8f46e40af0523ba43f3977
+    - name: TypeBox_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 0
+        y: 20
+        width: 17
+        height: 12
+      spriteId: 3b7cc8a8dff3bbb448b5cb837ff61a12
+    - name: TypeBox_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 0
+        y: 20
+        width: 15
+        height: 12
+      spriteId: 78c74c78adab5a94aae4ab2fda4f1445
     linkedCells: []
     parentIndex: -1
   platformSettings:

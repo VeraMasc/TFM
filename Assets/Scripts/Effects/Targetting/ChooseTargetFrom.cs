@@ -19,11 +19,13 @@ namespace Effect{
             
             var targets = targeter.getTargets(context);
             var pos = context.previousTargets.Count-1;
-            if(pos>0){
-                //TODO: Choose from list of targets
-                 yield return UCoroutine.Yield(GameUI.singleton.getTargets(targets, (value)=>{
-                Debug.Log(value);
-            }));
+            if(pos>=0){
+                
+                GameUI.singleton.possibleTargets= targets.ToArray();
+                Debug.Log(GameUI.singleton.possibleTargets.Count());
+                yield return UCoroutine.Yield(GameUI.singleton.getTargets(targets, (value)=>{
+                    Debug.Log(value);
+                }));
                 context.previousTargets[pos]=targets.Take(1).ToArray();
                 Debug.Log(context.previousTargets[pos]);
             }

@@ -16,3 +16,4 @@ MonoBehaviour:
   clickBlocker: {fileID: 7288928211352237901, guid: 1108ec528f5ab9b4885defae5bda91db, type: 3}
   numericInput: {fileID: 7399124821737720426, guid: 326583dfe33764347ac53b65df69fdab, type: 3}
   yesNoInput: {fileID: 0}
+  confirmationInput: {fileID: 7800073430654121655, guid: fa52ea727669f564798ae7782c464612, type: 3}

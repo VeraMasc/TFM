@@ -2,9 +2,19 @@
 
 ## Entregas
 
-### PEC 1: Informe Preliminar
+### DOCUMENTACIÓN
 
-- [ ] Elaborar lista de tareas
+- [ ] Diagrama de Gant es demasiado generico
+- [ ] Presupuesto - 
+Texto + tabla (salarios empleados) + Costes variables??
+- [ ] Revisar Objetivos
+  - [ ] Objetivos Secundarios como extras
+- [ ] Usar calculos del presupuesto en estrategia de marketing y modelo de negocio
+  - [ ] Calcular unidades necesarias para rentabilizar el juego
+- [ ] 4.1
+  - [ ] Tipos de assets que necesitamos
+  - [ ] Scripts importantes
+
 
 ## Basics
 

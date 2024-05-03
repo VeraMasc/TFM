@@ -199,6 +199,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 36, y: 38}
+  - name: Accept Button_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.53333336}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 70
+      y: 38
+      width: 26
+      height: 15
+    spriteID: 78e14b824aea6494298d9e60db65dabe
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 70, y: 38}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -240,6 +260,14 @@ ScriptedImporter:
         width: 26
         height: 16
       spriteId: d60c933d984ff08419df3f90be86c7a7
+    - name: Accept Button_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 3
+        y: 8
+        width: 26
+        height: 15
+      spriteId: 78e14b824aea6494298d9e60db65dabe
     linkedCells: []
     parentIndex: -1
   platformSettings:

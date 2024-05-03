@@ -219,6 +219,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 36, y: 32}
+  - name: Cancel Button 2_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.31578946}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 60
+      width: 20
+      height: 19
+    spriteID: 6bd1fbab63c9b584f8cfa4fca972aa9f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 60}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -268,6 +288,14 @@ ScriptedImporter:
         width: 20
         height: 20
       spriteId: 2e513d389d54eb74c8f84e40089a8a86
+    - name: Cancel Button 2_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 6
+        y: 6
+        width: 20
+        height: 19
+      spriteId: 6bd1fbab63c9b584f8cfa4fca972aa9f
     linkedCells: []
     parentIndex: -1
   platformSettings:

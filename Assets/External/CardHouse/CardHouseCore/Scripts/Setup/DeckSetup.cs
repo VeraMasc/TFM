@@ -73,7 +73,7 @@ namespace CardHouse
             StartCoroutine(TimedEvent.ExecuteChain(OnSetupCompleteEventChain));
         }
 
-        public static IEnumerator setupDeck(IDeckDefinition deck, CardGroup group, Entity owner){
+        public static IEnumerator setupDeck(IDeckDefinition deck, CardGroup group, Entity owner, bool shuffle= true){
             var newCardList = new List<Card>();
             foreach (var cardDef in deck.CardCollection)
             {
@@ -109,6 +109,9 @@ namespace CardHouse
             {
                 group.Mount(card, instaFlip: true);
             }
+
+            if(shuffle)
+                group.Shuffle(true);
         }
     }
 }

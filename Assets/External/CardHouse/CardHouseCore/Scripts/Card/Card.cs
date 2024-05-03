@@ -154,10 +154,17 @@ namespace CardHouse
         public void SetFocus(bool isFocused)
         {
             IsFocused = isFocused;
+
+            var zone = Group?.GetComponent<GroupZone>()?.zone;
+            if(zone == GroupName.Stack){
+                isFocused = false;
+            }
+
             FaceHoming.StartSeeking(isFocused ?  new Vector3(0,0.9f,-2)
                     : Vector3.zero, useLocalSpace: true);
             FaceTurning.StartSeeking(isFocused ? Camera.main.transform.rotation.eulerAngles.z : 0, useLocalSpace: !isFocused);
             FaceScaling.StartSeeking(isFocused ? 1.5f: 1f, useLocalSpace: true);
+
             if (isFocused)
             {
                 OnCardFocused?.Invoke(this);
