@@ -27,7 +27,8 @@ MonoBehaviour:
     baseEffect:
       list:
       - rid: 8129477892417519616
-    abilities: []
+    abilities:
+    - rid: 8129477893132910593
     staticEffects:
       list: []
     context:
@@ -39,3 +40,19 @@ MonoBehaviour:
     RefIds:
     - rid: 8129477892417519616
       type: {class: EnterBoard, ns: Effect, asm: Assembly-CSharp}
+    - rid: 8129477893132910593
+      type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        source: {fileID: 0}
+        effects:
+        - rid: 8129477893132910594
+        trigger: {fileID: 11400000, guid: cac14767393c4824fabee3093dd3288e, type: 2}
+    - rid: 8129477893132910594
+      type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
+      data:
+        message:
+          rid: 8129477893132910595
+    - rid: 8129477893132910595
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: Entered

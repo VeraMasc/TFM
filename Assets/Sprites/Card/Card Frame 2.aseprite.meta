@@ -199,126 +199,6 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 60, y: 4}
-  - name: Layer 1_Frame_4
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 60
-      y: 78
-      width: 48
-      height: 66
-    spriteID: 90ceb83ecc059d247834c5c882a844b3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 60, y: 78}
-  - name: Layer 1_Frame_5
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 60
-      y: 152
-      width: 48
-      height: 66
-    spriteID: 2bdc4ea11151d6e4aa1e4c9110a68ae1
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 60, y: 152}
-  - name: Layer 1_Frame_6
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 116
-      y: 4
-      width: 48
-      height: 66
-    spriteID: 2597d0cc2e003aa4284ff9316de0269a
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 116, y: 4}
-  - name: Layer 1_Frame_7
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 116
-      y: 78
-      width: 48
-      height: 66
-    spriteID: fab416e40d54df447acccc425a9265f3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 116, y: 78}
-  - name: Rarity Symbol_Frame_3
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 172
-      y: 78
-      width: 6
-      height: 66
-    spriteID: e82abaaaa5b96ed4590b6775dcf52b74
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 172, y: 78}
-  - name: Layer 1_Frame_8
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 116
-      y: 152
-      width: 48
-      height: 66
-    spriteID: b2e306ec46d14824dac5bc8d53ba0579
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 116, y: 152}
   - name: TypeBox_Frame_3
     originalName: 
     pivot: {x: 1.6, y: 1.6666667}
@@ -326,11 +206,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 60
-      y: 246
+      x: 74
+      y: 152
       width: 15
       height: 6
-    spriteID: 18ce31e2d7f43184fae8a47037f877ef
+    spriteID: a1a70aff524d0f140bb3ee6ee7047ce9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -338,7 +218,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 60, y: 246}
+    uvTransform: {x: 74, y: 152}
   - name: TypeBox_Frame_4
     originalName: 
     pivot: {x: 1.6, y: 1.0833333}
@@ -350,7 +230,7 @@ ScriptedImporter:
       y: 226
       width: 15
       height: 12
-    spriteID: de6fa4d763373c74fb6f0299e6a76061
+    spriteID: f736c5388737a4445bd493ceb4d8dd3b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -366,11 +246,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 60
-      y: 226
+      x: 74
+      y: 78
       width: 15
       height: 12
-    spriteID: fd32a3178aa7e2149bf3f9cbd292e52d
+    spriteID: ce5576040d13fda43a310b3e754c15ff
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -378,7 +258,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 60, y: 226}
+    uvTransform: {x: 74, y: 78}
   - name: TypeBox_Frame_6
     originalName: 
     pivot: {x: 1.6, y: 1.0833333}
@@ -386,11 +266,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 83
-      y: 226
+      x: 74
+      y: 98
       width: 15
       height: 12
-    spriteID: e3cabeaae847db142bd5a7d8dcccb091
+    spriteID: 19d74170c6ff0074bbf39d1d2a7b33a5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -398,7 +278,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 83, y: 226}
+    uvTransform: {x: 74, y: 98}
   - name: TypeBox_Frame_7
     originalName: 
     pivot: {x: 1.6428571, y: 1.1818181}
@@ -406,11 +286,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 139
-      y: 226
+      x: 74
+      y: 118
       width: 14
       height: 11
-    spriteID: 7a5533aa5b8f46e40af0523ba43f3977
+    spriteID: ba4bbc7a68f43cf4bb3706eaf0ddf9a2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -418,7 +298,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 139, y: 226}
+    uvTransform: {x: 74, y: 118}
   - name: TypeBox_Frame_8
     originalName: 
     pivot: {x: 1.4117647, y: 1.0833333}
@@ -430,7 +310,7 @@ ScriptedImporter:
       y: 226
       width: 17
       height: 12
-    spriteID: 3b7cc8a8dff3bbb448b5cb837ff61a12
+    spriteID: c46541f881574e54fae0cf5e7a598e78
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -439,18 +319,38 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 226}
-  - name: Layer 1_Frame_9
+  - name: TypeBox_Frame_9
+    originalName: 
+    pivot: {x: 1.6, y: 1.5714285}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 74
+      y: 137
+      width: 15
+      height: 7
+    spriteID: 2f9d9df21cb28a1489bd2280f9926863
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 74, y: 137}
+  - name: Rarity Symbol
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 172
-      y: 4
-      width: 48
+      x: 60
+      y: 78
+      width: 6
       height: 66
-    spriteID: 2fbfe2a530988e34e8c1cc66af2df7cc
+    spriteID: b6329545998f18a43b7e1035a482a816
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -458,19 +358,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 172, y: 4}
-  - name: TypeBox_Frame_9
+    uvTransform: {x: 60, y: 78}
+  - name: SubtypeBox
     originalName: 
-    pivot: {x: 1.6, y: 1.0833333}
+    pivot: {x: 0.3125, y: 1.6666667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 116
-      y: 226
-      width: 15
-      height: 12
-    spriteID: 78c74c78adab5a94aae4ab2fda4f1445
+      x: 4
+      y: 246
+      width: 32
+      height: 6
+    spriteID: a7939918f644f1c49bc2728ebc386c49
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -478,7 +378,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 116, y: 226}
+    uvTransform: {x: 4, y: 246}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -520,77 +420,29 @@ ScriptedImporter:
         width: 48
         height: 66
       spriteId: 20e7ad9e149dff34995a59bd60584ec9
-    - name: Layer 1_Frame_4
-      frameIndex: 4
-      cellRect:
-        x: 0
-        y: 0
-        width: 48
-        height: 66
-      spriteId: 90ceb83ecc059d247834c5c882a844b3
-    - name: Layer 1_Frame_5
-      frameIndex: 5
-      cellRect:
-        x: 0
-        y: 0
-        width: 48
-        height: 66
-      spriteId: 2bdc4ea11151d6e4aa1e4c9110a68ae1
-    - name: Layer 1_Frame_6
-      frameIndex: 6
-      cellRect:
-        x: 0
-        y: 0
-        width: 48
-        height: 66
-      spriteId: 2597d0cc2e003aa4284ff9316de0269a
-    - name: Layer 1_Frame_7
-      frameIndex: 7
-      cellRect:
-        x: 0
-        y: 0
-        width: 48
-        height: 66
-      spriteId: fab416e40d54df447acccc425a9265f3
-    - name: Layer 1_Frame_8
-      frameIndex: 8
-      cellRect:
-        x: 0
-        y: 0
-        width: 48
-        height: 66
-      spriteId: b2e306ec46d14824dac5bc8d53ba0579
-    - name: Layer 1_Frame_9
-      frameIndex: 9
-      cellRect:
-        x: 0
-        y: 0
-        width: 48
-        height: 66
-      spriteId: 2fbfe2a530988e34e8c1cc66af2df7cc
-    linkedCells: []
-    parentIndex: -1
-  - layerIndex: 2
-    guid: 1569318545
-    name: Rarity Symbol
-    layerFlags: 3
-    layerType: 0
-    blendMode: 0
-    cells:
-    - name: Rarity Symbol
-      frameIndex: 3
-      cellRect:
-        x: 21
-        y: 0
-        width: 6
-        height: 66
-      spriteId: e82abaaaa5b96ed4590b6775dcf52b74
     linkedCells: []
     parentIndex: -1
   - layerIndex: 1
-    guid: -1564008940
+    guid: 400220552
+    name: SubtypeBox
+    layerFlags: 18
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: SubtypeBox
+      frameIndex: 3
+      cellRect:
+        x: 14
+        y: 23
+        width: 32
+        height: 6
+      spriteId: a7939918f644f1c49bc2728ebc386c49
+    linkedCells: []
+    parentIndex: -1
+  - layerIndex: 2
+    guid: -1564008937
     name: TypeBox
-    layerFlags: 3
+    layerFlags: 2
     layerType: 0
     blendMode: 0
     cells:
@@ -601,7 +453,7 @@ ScriptedImporter:
         y: 23
         width: 15
         height: 6
-      spriteId: 18ce31e2d7f43184fae8a47037f877ef
+      spriteId: a1a70aff524d0f140bb3ee6ee7047ce9
     - name: TypeBox_Frame_4
       frameIndex: 4
       cellRect:
@@ -609,7 +461,7 @@ ScriptedImporter:
         y: 20
         width: 15
         height: 12
-      spriteId: de6fa4d763373c74fb6f0299e6a76061
+      spriteId: f736c5388737a4445bd493ceb4d8dd3b
     - name: TypeBox_Frame_5
       frameIndex: 5
       cellRect:
@@ -617,7 +469,7 @@ ScriptedImporter:
         y: 20
         width: 15
         height: 12
-      spriteId: fd32a3178aa7e2149bf3f9cbd292e52d
+      spriteId: ce5576040d13fda43a310b3e754c15ff
     - name: TypeBox_Frame_6
       frameIndex: 6
       cellRect:
@@ -625,7 +477,7 @@ ScriptedImporter:
         y: 20
         width: 15
         height: 12
-      spriteId: e3cabeaae847db142bd5a7d8dcccb091
+      spriteId: 19d74170c6ff0074bbf39d1d2a7b33a5
     - name: TypeBox_Frame_7
       frameIndex: 7
       cellRect:
@@ -633,7 +485,7 @@ ScriptedImporter:
         y: 20
         width: 14
         height: 11
-      spriteId: 7a5533aa5b8f46e40af0523ba43f3977
+      spriteId: ba4bbc7a68f43cf4bb3706eaf0ddf9a2
     - name: TypeBox_Frame_8
       frameIndex: 8
       cellRect:
@@ -641,16 +493,45 @@ ScriptedImporter:
         y: 20
         width: 17
         height: 12
-      spriteId: 3b7cc8a8dff3bbb448b5cb837ff61a12
+      spriteId: c46541f881574e54fae0cf5e7a598e78
     - name: TypeBox_Frame_9
       frameIndex: 9
       cellRect:
         x: 0
-        y: 20
+        y: 22
         width: 15
-        height: 12
-      spriteId: 78c74c78adab5a94aae4ab2fda4f1445
+        height: 7
+      spriteId: 2f9d9df21cb28a1489bd2280f9926863
     linkedCells: []
+    parentIndex: -1
+  - layerIndex: 3
+    guid: 1569318544
+    name: Rarity Symbol
+    layerFlags: 18
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Rarity Symbol
+      frameIndex: 3
+      cellRect:
+        x: 21
+        y: 0
+        width: 6
+        height: 66
+      spriteId: b6329545998f18a43b7e1035a482a816
+    linkedCells:
+    - frameIndex: 4
+      linkedToFrame: 3
+    - frameIndex: 5
+      linkedToFrame: 3
+    - frameIndex: 6
+      linkedToFrame: 3
+    - frameIndex: 7
+      linkedToFrame: 3
+    - frameIndex: 8
+      linkedToFrame: 3
+    - frameIndex: 9
+      linkedToFrame: 3
     parentIndex: -1
   platformSettings:
   - name: DefaultTexturePlatform

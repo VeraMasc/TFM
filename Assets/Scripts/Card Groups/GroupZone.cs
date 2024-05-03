@@ -18,21 +18,22 @@ public class GroupZone : MonoBehaviour
     /// <returns></returns>
     public IEnumerator callEnterTrigger(Card card){
 
+        var trigger = GameController.singleton.triggerManager;
         switch (zone){
             case GroupName.Board:
-                GameController.singleton.triggerManager.onEnter.invokeOn(card);
+                yield return StartCoroutine(trigger.onEnter.invokeOn(card));
                 break;
             
             case GroupName.Discard:
-                GameController.singleton.triggerManager.onEnterDiscard.invokeOn(card);
+                yield return StartCoroutine(trigger.onEnterDiscard.invokeOn(card));
                 break;
             
             case GroupName.Exile:
-                GameController.singleton.triggerManager.onEnterExile.invokeOn(card);
+                yield return StartCoroutine(trigger.onEnterExile.invokeOn(card));
                 break;
 
             case GroupName.Lost:
-                GameController.singleton.triggerManager.onEnterLost.invokeOn(card);
+                yield return StartCoroutine(trigger.onEnterLost.invokeOn(card));
                 break;
 
             case GroupName.Deck:

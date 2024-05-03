@@ -39,7 +39,7 @@ namespace Effect{
             }
 
             
-            if(context.source!= null){//Si es trigger, mover la carta directamente
+            if(context.effector is TriggerCard trigger){//Si es trigger, mover la carta directamente
                 //TODO: no funciona. Arreglar
                 var self = (Card)context.self;
                 group.Mount(self);
@@ -47,7 +47,7 @@ namespace Effect{
 
                 var zone = group.GetComponent<GroupZone>();
                 if(zone){
-                    yield return UCoroutine.Yield(zone.callEnterTrigger((Card)context.source));
+                    yield return UCoroutine.Yield(zone.callEnterTrigger((Card)self));
                 }
                 
             }

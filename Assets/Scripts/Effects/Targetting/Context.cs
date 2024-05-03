@@ -16,10 +16,9 @@ namespace Effect{
         public ITargetable self;
 
         /// <summary>
-        /// Refiere a la fuente que causa el efecto
-        /// (ES NECESARIO???)
+        /// Se refiere a la carta o al trigger que ejecuta el efecto en el stack
         /// </summary>
-        public ITargetable source;
+        public ITargetable effector;
 
         /// <summary>
         /// Entidad Dueña del efecto (controlador original de la carta)
@@ -50,16 +49,17 @@ namespace Effect{
         /// Create context without owner or controller
         /// </summary>
         /// <param name="self">Object in question</param>
-        public Context(ITargetable self){
-            this.self = source = self; 
+        public Context(ITargetable self, ITargetable effector =null){
+            this.self = self;
+            this.effector = effector ?? self;
         }
 
         /// <summary>
         /// Create context with full detail
         /// </summary>
-        public Context(ITargetable self, Entity controller, Entity owner=null, ITargetable source=null){
+        public Context(ITargetable self, Entity controller, Entity owner=null, ITargetable effector=null){
             this.self =self;
-            this.source = source ?? self;
+            this.effector = effector ?? self;
             this.controller = controller;
             this.owner = owner ?? controller;
         }
@@ -68,13 +68,12 @@ namespace Effect{
         /// Copia el contexto sin datos de ejecución (previousValues y previousTargets)
         /// </summary>
         /// <param name="original"></param>
-        public Context(Context original):this(original.self,original.controller,original.owner,original.source){
+        public Context(Context original):this(original.self,original.controller,original.owner,original.effector){
 
         }
 
     
-        public Context(Card self, CardOwnership ownership):this(self, ownership?.controller, ownership?.owner){
-            
+        public Context(Card self, CardOwnership ownership, Card effector = null):this(self, ownership?.controller, ownership?.owner,effector){
         }
         
     }

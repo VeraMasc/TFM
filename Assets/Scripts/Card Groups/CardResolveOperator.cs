@@ -268,7 +268,8 @@ public class CardResolveOperator : Activatable
     /// <param name="at">Posición en la que generar la carta</param>
     /// <returns>Carta de trigger generada</returns>
     public Card createTriggerCard(Card source, EffectChain triggered, Transform at){
-        var trigger = Instantiate(triggerPrefab, at.position, at.rotation);
+        var prefab = GameController.singleton.creationManager.triggerPrefab;
+        var trigger = Instantiate(prefab, at.position, at.rotation);
         var card = trigger.GetComponent<Card>();
         card.data = trigger; //Save trigger reference
         trigger.ApplyTrigger(source, triggered);

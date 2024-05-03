@@ -22,6 +22,9 @@ public class CardCreationManager : ScriptableObject
     [AssetsOnly]
     public ContentCard contentPrefab;
 
+    [AssetsOnly]
+    public TriggerCard triggerPrefab;
+
     [HorizontalLine(3, message ="Other Prefabs")]
 
     [AssetsOnly]

@@ -435,6 +435,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7654498379721795595, guid: d99d0ffb9780d3547b444d80e52ecc77, type: 3}
+      propertyPath: board
+      value: 
+      objectReference: {fileID: 2014230476}
+    - target: {fileID: 7654498379721795595, guid: d99d0ffb9780d3547b444d80e52ecc77, type: 3}
       propertyPath: field
       value: 
       objectReference: {fileID: 2014230476}
@@ -1002,6 +1006,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8433662383606087795, guid: 4b0b066e6b249b84bacd9e6fb5225679, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2014230488}
+    - targetCorrespondingSourceObject: {fileID: 8433662383606087795, guid: 4b0b066e6b249b84bacd9e6fb5225679, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2014230498}
     - targetCorrespondingSourceObject: {fileID: 454244290, guid: 4b0b066e6b249b84bacd9e6fb5225679, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -1040,6 +1047,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsActive: 1
+--- !u!114 &2014230498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014230475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b08e47b89831d74289fe50a8f412661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zone: 5
 --- !u!1001 &2118317435
 PrefabInstance:
   m_ObjectHideFlags: 0
