@@ -98,6 +98,11 @@ public class CardResolveOperator : Activatable
         resolve = true;
     }
 
+
+    /// <summary>
+    /// Indica si el stack no está siendo usado ahora mismo
+    /// </summary>
+    public bool isEmpty => !resolve && stack.MountedCards.Count == 0;
     /// <summary>
     /// Espera hasta que el stack esté libre
     /// </summary>

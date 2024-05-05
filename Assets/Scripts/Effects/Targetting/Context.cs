@@ -45,6 +45,7 @@ namespace Effect{
         /// </summary>
         public CardGroup resolutionPile;
 
+        
         /// <summary>
         /// Create context without owner or controller
         /// </summary>

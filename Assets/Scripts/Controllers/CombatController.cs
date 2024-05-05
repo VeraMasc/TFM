@@ -15,6 +15,12 @@ public class CombatController : GameMode
     /// </summary>
     public List<Entity> turnOrder;
 
+	/// <summary>
+	/// Fase actual del combate
+	/// </summary>
+	public CombatPhases currentPhase;
+
+
 
 	/// <summary>
 	/// Campo de juego
@@ -86,4 +92,32 @@ public class CombatController : GameMode
             entities.RemoveAt(chosenIndex);
         }
     }
+	public override void nextPhase(){
+        currentPhase = (CombatPhases)(((int)currentPhase+1) % (int)CombatPhases.cleanup); 
+    }
+}
+
+
+public enum CombatPhases {
+	/// <summary>
+	/// Roba carta y añade el maná. No se puede responder
+	/// </summary>
+	setup,
+	/// <summary>
+	/// Llama a los efectos de inicio de turno
+	/// </summary>
+	start,
+	/// <summary>
+	/// El turno del personaje como tal
+	/// </summary>
+	main,
+	/// <summary>
+	/// Llama a los efectos de final de turno, descarte por handsize y permite responder a pasar de turno
+	/// </summary>
+	end,
+	/// <summary>
+	/// Se encarga de limpiar los efectos temporales. No se puede responder
+	/// </summary>
+	cleanup,
+
 }

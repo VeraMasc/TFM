@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b6b05fa621d63c8458d7433efa1c8687
+guid: 14cdd34ce1713da46910f0e0101835d4
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 32
+    spritePixelsToUnits: 100
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -75,27 +75,27 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 0
+    defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
-    generateAnimationClips: 0
-    addSortingGroup: 0
+    generateAnimationClips: 1
+    addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 0
+    defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
-    generateAnimationClips: 0
-    addSortingGroup: 0
+    generateAnimationClips: 1
+    addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638505059316880538
+  platformSettingsDirtyTick: 0
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Skip Button_Frame_0
+  - name: Redraw Button
     originalName: 
-    pivot: {x: 0.45833334, y: 0.5}
+    pivot: {x: 0.5, y: -0.06666667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 24
-      height: 20
-    spriteID: d5413098887b2064981f209abcc53edb
+      width: 28
+      height: 30
+    spriteID: f61e2cc02d9cfcc418e5d10ab71ecca9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,38 +139,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Skip Button_Frame_1
+  - name: Redraw Button_Frame_1
     originalName: 
-    pivot: {x: 0.45833334, y: 0.5263158}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 36
-      y: 32
-      width: 24
-      height: 19
-    spriteID: 65c854e4eddb77e4188e8276b893bb05
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 36, y: 32}
-  - name: Skip Button_Frame_2
-    originalName: 
-    pivot: {x: 0.45833334, y: 0.5}
+    pivot: {x: 0.5, y: -0.033333335}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 32
-      width: 24
-      height: 20
-    spriteID: 4652c194add09b247844ade40fe5efdf
+      y: 42
+      width: 28
+      height: 30
+    spriteID: 6f272021feeedc740a9acb5010928d97
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -178,19 +158,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 32}
-  - name: Skip Button_Frame_3
+    uvTransform: {x: 4, y: 42}
+  - name: Redraw Button_Frame_2
     originalName: 
-    pivot: {x: 0.45833334, y: 0.5}
+    pivot: {x: 0.5, y: -0.071428575}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 36
-      y: 4
-      width: 24
-      height: 20
-    spriteID: 73c1eb38f581a3440a7fcc448183b360
+      x: 4
+      y: 80
+      width: 26
+      height: 28
+    spriteID: b9dc5c86f9702304cacb6977ac817ff6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -198,99 +178,43 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 36, y: 4}
+    uvTransform: {x: 4, y: 80}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1239115497
-    name: Skip Button
+    guid: 749906709
+    name: Redraw Button
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Skip Button_Frame_0
+    - name: Redraw Button_Frame_0
       frameIndex: 0
       cellRect:
-        x: 5
-        y: 6
-        width: 24
-        height: 20
-      spriteId: d5413098887b2064981f209abcc53edb
-    - name: Skip Button_Frame_1
+        x: 2
+        y: 2
+        width: 28
+        height: 30
+      spriteId: f61e2cc02d9cfcc418e5d10ab71ecca9
+    - name: Redraw Button_Frame_1
       frameIndex: 1
       cellRect:
-        x: 5
-        y: 6
-        width: 24
-        height: 19
-      spriteId: 65c854e4eddb77e4188e8276b893bb05
-    - name: Skip Button_Frame_2
+        x: 2
+        y: 1
+        width: 28
+        height: 30
+      spriteId: 6f272021feeedc740a9acb5010928d97
+    - name: Redraw Button_Frame_2
       frameIndex: 2
       cellRect:
-        x: 5
-        y: 6
-        width: 24
-        height: 20
-      spriteId: 4652c194add09b247844ade40fe5efdf
-    - name: Skip Button_Frame_3
-      frameIndex: 3
-      cellRect:
-        x: 5
-        y: 6
-        width: 24
-        height: 20
-      spriteId: 73c1eb38f581a3440a7fcc448183b360
+        x: 3
+        y: 2
+        width: 26
+        height: 28
+      spriteId: b9dc5c86f9702304cacb6977ac817ff6
     linkedCells: []
     parentIndex: -1
-  platformSettings:
-  - name: DefaultTexturePlatform
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Standalone
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Server
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
-  - name: Windows Store Apps
-    overridden: 0
-    ignorePlatformSupport: 0
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+  platformSettings: []
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 32, y: 32}

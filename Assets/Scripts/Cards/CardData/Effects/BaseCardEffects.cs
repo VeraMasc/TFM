@@ -29,7 +29,15 @@ public class BaseCardEffects{
     /// </summary>
     public EffectChain staticEffects;
 
-    public Effect.Context context = null;
+    public Effect.Context context;
+
+    /// <summary>
+    /// Indica de donde viene la carta o el efecto
+    /// </summary>
+    public GroupName sourceZone;
+
+    public CardGroup sourceGroup;
+
 
    
 

@@ -426,7 +426,7 @@ namespace CardHouse
                 card.Group = null;
                 Strategy.Apply(MountedCards, seekerSets: new SeekerSetList { seekersForUnmounting });
 
-                card.TriggerUnMountEvents(GroupRegistry.Instance?.GetGroupName(this) ?? GroupName.None);
+                card.TriggerUnMountEvents(this);
                 OnGroupChanged?.Invoke();
             }
             return card;

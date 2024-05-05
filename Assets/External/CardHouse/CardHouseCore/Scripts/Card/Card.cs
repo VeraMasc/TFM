@@ -205,17 +205,31 @@ namespace CardHouse
                     break;
                 }
             }
+
+            
+            
         }
 
-        public void TriggerUnMountEvents(GroupName group)
+        public void TriggerUnMountEvents(CardGroup group)
         {
+            GroupName groupName = GroupRegistry.Instance?.GetGroupName(group) ?? GroupName.None;
+
             foreach (var eventTransition in GroupTransitionEvents)
             {
-                if (eventTransition.Group == group)
+                if (eventTransition.Group == groupName)
                 {
                     eventTransition.ExitEvent.Invoke();
                     break;
                 }
+            }
+
+            if(this.data is MyCardSetup setup){
+                var zone = group?.GetComponent<GroupZone>();
+
+                //Cambiar el contexto de la carta
+                setup.effects.sourceZone = zone?.zone ?? GroupName.None;
+                setup.effects.sourceGroup = group;
+                
             }
         }
         /// <summary>

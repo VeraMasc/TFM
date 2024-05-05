@@ -58,4 +58,27 @@ public abstract class GameMode : MonoBehaviour
             player.hand.ApplyStrategy();
         }
     }
+
+    /// <summary>
+    /// Activa la acción de paso de fase/turno o resolución de cartas según sea necesario
+    /// </summary>
+    public virtual void passPriority(){
+        var stack = CardResolveOperator.singleton;
+
+        if(!stack.isEmpty){ //Primero resolver cosas del stack
+            if(!stack.precalculating){//No resolver si esá precalculando
+                stack.resolve = true;
+            }
+        }
+        else{
+            nextPhase();
+        }
+    }
+
+    /// <summary>
+    /// Pasa a la siguiente fase
+    /// </summary>
+    public virtual void nextPhase(){
+
+    }
 }
