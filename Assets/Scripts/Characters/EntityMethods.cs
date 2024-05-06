@@ -66,7 +66,8 @@ public partial class Entity
     /// Hace que el jugador robe cartas
     /// </summary>
     /// <param name="amount"> cuantas cartas ha de robar</param>
-    public IEnumerator draw(int amount, float duration = 0.75f, Action<Card[]> returnAction = null){
+    [NaughtyAttributes.Button()]
+    public IEnumerator draw(int amount=1, float duration = 0.75f, Action<Card[]> returnAction = null){
         if(amount <=0)
             yield break;
         var cards =deck.Get(GroupTargetType.Last, amount);

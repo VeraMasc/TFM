@@ -23,6 +23,9 @@ namespace CardHouse
 
         public float selectedScale=1.5f;
 
+        //Offset vertical de las cartas seleccionadas
+        public float selectedHeight=1.5f;
+
         public float selectedWidthFactor=2f;
 
         public override void Awake()
@@ -55,6 +58,9 @@ namespace CardHouse
                              + Vector3.back * (MountedCardAltitude + (cards.Count-i) * MarginalCardOffset)
                              + direction * width * -0.5f
                              + direction * (i + 1) * spacing;
+
+                if(selected)
+                    newPos += selectedHeight * Vector3.back;
 
                 var seekerSet = seekerSets?.GetSeekerSetFor(cards[i]);
                 cards[i].Homing.StartSeeking(newPos, seekerSet?.Homing);

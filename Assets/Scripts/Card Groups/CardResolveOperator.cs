@@ -198,12 +198,13 @@ public class CardResolveOperator : Activatable
                 yield break;
             }
             Debug.Log(context.self);
-            yield return resolveBaseEffect(activeCard, simpleCard);
+            yield return StartCoroutine(resolveBaseEffect(activeCard, simpleCard));
         }
         
 
         //Reset state
         resolve =false;
+        activeCard=null;
     }
 
     /// <summary>
@@ -215,7 +216,7 @@ public class CardResolveOperator : Activatable
         foreach(var effect in content.getEffectsAs<BaseCardEffects>().baseEffect.list){
             yield return StartCoroutine(effect.execute(this,context));
         }
-        yield return sendToResolutionPile(card);
+        yield return StartCoroutine(sendToResolutionPile(card));
     }
     
     /// <summary>
@@ -226,10 +227,10 @@ public class CardResolveOperator : Activatable
     /// <param name="playerIndex">índice de jugador a utilizar</param>
     /// <returns></returns>
     protected IEnumerator sendToResolutionPile(Card card, int? playerIndex=null){
-        activeCard=null;
         if(card.data is TriggerCard trigger){ //Destroy triggers
             stack.UnMount(card);
-            Destroy(trigger.gameObject);
+            if(trigger!=null)
+                Destroy(trigger.gameObject);
             yield return new WaitForSeconds(0.5f);
             yield break;
         }
@@ -261,7 +262,6 @@ public class CardResolveOperator : Activatable
         if (zone){
             yield return StartCoroutine(zone.callEnterTrigger(card));
         }
-        
     }
 
 

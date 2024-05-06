@@ -34,6 +34,11 @@ namespace Effect{
         /// Targets previos del proceso de resolución
         /// </summary>
         public List<ITargetable[]> previousTargets = new List<ITargetable[]>();
+
+        /// <summary>
+        /// Targets escogidos previamente que mostrar en la interfaz
+        /// </summary>
+        public List<ITargetable[]> previousChosenTargers = new List<ITargetable[]>();
         
         /// <summary>
         /// Valores previos del proceso de resolución

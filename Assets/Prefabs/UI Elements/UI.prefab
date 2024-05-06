@@ -546,6 +546,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4809401052682793449, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809401052682793449, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809401052682793449, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743658664200120839, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743658664200120839, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743658664200120839, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7839694992764471572, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
       propertyPath: m_Direction
       value: 1
