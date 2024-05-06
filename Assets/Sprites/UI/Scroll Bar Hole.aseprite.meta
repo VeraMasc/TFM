@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7e42111aa17aa6c4b95e8d45cda53dde
+guid: d30ed25f17b76a74f900b7d5f91d2ca2
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -32,10 +32,10 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 1
+    spriteMeshType: 0
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 48
+    spritePixelsToUnits: 96
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -53,9 +53,9 @@ ScriptedImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
     normalMap: 0
     textureFormat: 0
     maxTextureSize: 0
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 0
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638505996190152042
+  platformSettingsDirtyTick: 638506018200806569
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: TargettingArrow2_Frame_0
+  - name: Scroll Bar Hole
     originalName: 
-    pivot: {x: 0.5, y: -0.05882353}
+    pivot: {x: 0.5, y: -0.22222222}
     alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 6, y: 3, z: 6, w: 3}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 14
-      height: 17
-    spriteID: f556a0e6afc605b4e843c68ed570b155
+      width: 38
+      height: 9
+    spriteID: 3a6c5be5f0fbcef4cb70ee24a8950964
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,107 +139,23 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: TargettingArrow2_Frame_1
-    originalName: 
-    pivot: {x: 0.5, y: -0.06666667}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 26
-      y: 4
-      width: 12
-      height: 15
-    spriteID: d05d3979fa69be54189a348a99f6df0d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 26, y: 4}
-  - name: TargettingArrow2_Frame_2
-    originalName: 
-    pivot: {x: 0.5, y: -0.14285715}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 46
-      y: 4
-      width: 12
-      height: 14
-    spriteID: 95fe1b7257526bb44ab021ddae4f965f
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 46, y: 4}
-  - name: TargettingArrow2_Frame_3
-    originalName: 
-    pivot: {x: 0.5, y: -0.14285715}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 29
-      width: 12
-      height: 14
-    spriteID: e5fc443733f3c334297d7e9ab54e1ef6
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 29}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1778330738
-    name: TargettingArrow2
+    guid: -1599150984
+    name: Scroll Bar Hole
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: TargettingArrow2_Frame_0
+    - name: Scroll Bar Hole
       frameIndex: 0
       cellRect:
-        x: 9
-        y: 1
-        width: 14
-        height: 17
-      spriteId: f556a0e6afc605b4e843c68ed570b155
-    - name: TargettingArrow2_Frame_1
-      frameIndex: 1
-      cellRect:
-        x: 10
-        y: 1
-        width: 12
-        height: 15
-      spriteId: d05d3979fa69be54189a348a99f6df0d
-    - name: TargettingArrow2_Frame_2
-      frameIndex: 2
-      cellRect:
-        x: 10
+        x: 0
         y: 2
-        width: 12
-        height: 14
-      spriteId: 95fe1b7257526bb44ab021ddae4f965f
-    - name: TargettingArrow2_Frame_3
-      frameIndex: 3
-      cellRect:
-        x: 10
-        y: 2
-        width: 12
-        height: 14
-      spriteId: e5fc443733f3c334297d7e9ab54e1ef6
+        width: 38
+        height: 9
+      spriteId: 3a6c5be5f0fbcef4cb70ee24a8950964
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -247,7 +163,7 @@ ScriptedImporter:
     overridden: 0
     ignorePlatformSupport: 0
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -293,4 +209,4 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 32}
+  canvasSize: {x: 38, y: 16}

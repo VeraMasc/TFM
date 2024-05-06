@@ -23,4 +23,7 @@ public class UIPrefabs : ScriptableObject
 
     public YesNoInput confirmationInput;
 
+    [HorizontalLine(3,message = "Indicators")]
+    public SpriteRenderer targettingIndicator;
+
 }
