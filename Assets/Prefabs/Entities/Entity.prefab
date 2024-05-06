@@ -74,7 +74,7 @@ MonoBehaviour:
       exiled: []
     decklist: {fileID: 11400000, guid: 12b88745db0c7934d9776cf0ef24d635, type: 2}
     abilities: []
-  targeterTransform: {fileID: 0}
+  _targeterTransform: {fileID: 1562286566973563222}
   healthDisplay: {fileID: 2783436868272723967}
 --- !u!114 &4144307295828993303
 MonoBehaviour:
