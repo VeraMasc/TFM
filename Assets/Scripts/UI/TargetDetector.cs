@@ -52,6 +52,13 @@ public class TargetDetector : MonoBehaviour
     }
 
     /// <summary>
+    /// Resetea los valores internos del detector (RECUERDA ELIMINAR EL TARGET DE GameUI !!!)
+    /// </summary>
+    public void resetTargeting(){
+        targetIndex =-1;
+    }
+
+    /// <summary>
     /// Calcula si es un target válido
     /// </summary>
     /// <returns></returns>

@@ -75,6 +75,7 @@ MonoBehaviour:
     decklist: {fileID: 11400000, guid: 12b88745db0c7934d9776cf0ef24d635, type: 2}
     abilities: []
   targeterTransform: {fileID: 0}
+  healthDisplay: {fileID: 2783436868272723967}
 --- !u!114 &4144307295828993303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,6 +553,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 097adcafd483c614fafab07d348a31c9, type: 3}
+--- !u!114 &2783436868272723967 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3393528891018818281, guid: 097adcafd483c614fafab07d348a31c9, type: 3}
+  m_PrefabInstance: {fileID: 700588598850528534}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0e815ddf7784443924858e35202a15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5760809510336234388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5064997225703417474, guid: 097adcafd483c614fafab07d348a31c9, type: 3}

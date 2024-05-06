@@ -141,7 +141,8 @@ public class GameUI : MonoBehaviour
     /// <summary>
     /// Genera la interfaz de confirmación y espera a que se escojan los targets
     /// </summary>
-    public IEnumerator getTargets(IEnumerable<ITargetable> targetables, Action<object> returnAction){
+    public IEnumerator getTargets(IEnumerable<ITargetable> targetables, Func<bool> validator,  Action<ITargetable[]> returnAction)
+    {
         clearInputs();
         possibleTargets = targetables;
         chosenTargets = new();
@@ -151,9 +152,17 @@ public class GameUI : MonoBehaviour
         //Crea la interfaz de confirmación
         var instance = Instantiate(prefabs.confirmationInput, userInputRoot);
         activeUserInput = instance;
-        yield return activeUserInput.waitTillFinished;
-        if(!activeUserInput.isCancelled){
-            throw new NotImplementedException("Falta seleccionar targets");
+        do{
+            activeUserInput.isFinished = false;
+            yield return activeUserInput.waitTillFinished;
+            if(activeUserInput.isCancelled){
+                break;
+            }
+        }while(validator() != true); //Probar hasta que haya un valor válido
+
+        //Devolver valor
+        if(!activeUserInput.isCancelled && chosenTargets != null){
+            returnAction(chosenTargets.ToArray());
         }
         clearInputs();
     }
@@ -162,9 +171,25 @@ public class GameUI : MonoBehaviour
     /// Elimina todos los user inputs
     /// </summary>
     public void clearInputs(){
+        resetTargeters();
         foreach(Transform  child in userInputRoot){
             Destroy(child.gameObject);
         }
+    }
+
+    /// <summary>
+    /// Resetea todos los targets
+    /// </summary>
+    public void resetTargeters(){
+        chosenTargets = null;
+        if(possibleTargets == null)
+            return;
+        //Resetear todos los targets    
+        foreach(var targetable in possibleTargets){
+            var detector = targetable?.GetComponent<TargetDetector>();
+            detector?.resetTargeting();
+        }
+        possibleTargets = null;
     }
 
     private static GameUI _singleton;

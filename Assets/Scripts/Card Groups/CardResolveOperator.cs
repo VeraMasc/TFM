@@ -205,6 +205,7 @@ public class CardResolveOperator : Activatable
         //Reset state
         resolve =false;
         activeCard=null;
+        GameMode.current.checkState();
     }
 
     /// <summary>
@@ -212,7 +213,7 @@ public class CardResolveOperator : Activatable
     /// </summary>
     /// <param name="card">Carta en cuestión</param>
     /// <param name="content">Su contenido</param>
-    protected IEnumerator resolveBaseEffect(Card card, MyCardSetup content){
+    protected IEnumerator resolveBaseEffect(Card card,MyCardSetup content){
         foreach(var effect in content.getEffectsAs<BaseCardEffects>().baseEffect.list){
             yield return StartCoroutine(effect.execute(this,context));
         }

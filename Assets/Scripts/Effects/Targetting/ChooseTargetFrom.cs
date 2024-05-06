@@ -23,11 +23,16 @@ namespace Effect{
                 
                 GameUI.singleton.possibleTargets= targets.ToArray();
                 Debug.Log(GameUI.singleton.possibleTargets.Count());
-                yield return UCoroutine.Yield(GameUI.singleton.getTargets(targets, (value)=>{
-                    Debug.Log(value);
+                yield return UCoroutine.Yield(GameUI.singleton.getTargets(targets, 
+                ()=>{
+                    return GameUI.singleton.chosenTargets?.Count == 1;
+                }, 
+                (value)=>{
+                    Debug.Log(value.FirstOrDefault());
+                    context.previousTargets[pos]= value;
+                    context.previousChosenTargets.Add(value);
                 }));
-                context.previousTargets[pos]=targets.Take(1).ToArray();
-                Debug.Log(context.previousTargets[pos]);
+                
             }
             
             

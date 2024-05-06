@@ -14,6 +14,21 @@ public class HealthDisplay : MonoBehaviour
     public int maxHealth=20;
     public TextMeshPro textBox;
 
+    private Entity entity;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        entity = GetComponentInParent<Entity>();
+    }
+
+    public void onHealthChanged(){
+        health =entity.health;
+        maxHealth = entity.maxHealth;
+        refresh();
+    }
+
     [NaughtyAttributes.Button]
     public void refresh(){
         if(!textBox)
@@ -31,11 +46,7 @@ public class HealthDisplay : MonoBehaviour
         textBox.text = $" {healthText}<color=#800000ff>/\n<size=1>{maxHealth}</size></color>";
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     void Update()

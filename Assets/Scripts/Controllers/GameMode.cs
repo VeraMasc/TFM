@@ -81,4 +81,19 @@ public abstract class GameMode : MonoBehaviour
     public virtual void nextPhase(){
 
     }
+
+    /// <summary>
+	/// Comprueba el estado actual de las cosas y realiza las acciones de estado correspondientes
+	/// </summary>
+	public virtual void checkState(){
+		
+	}
+
+    public virtual void healthCheck(){
+		foreach(var entity in GameController.singleton.entities){
+            if(entity.health<=0){
+                StartCoroutine(entity.kill());
+            }
+        }
+	}
 }

@@ -38,7 +38,7 @@ namespace Effect{
         /// <summary>
         /// Targets escogidos previamente que mostrar en la interfaz
         /// </summary>
-        public List<ITargetable[]> previousChosenTargers = new List<ITargetable[]>();
+        public List<ITargetable[]> previousChosenTargets = new List<ITargetable[]>();
         
         /// <summary>
         /// Valores previos del proceso de resolución
@@ -91,6 +91,8 @@ namespace Effect{
 public interface ITargetable{
     // public Transform targeterTransform;
     T GetComponent<T>();
+
+    public Transform targeterTransform {get;}
 
     T GetComponentInChildren<T>();
 }

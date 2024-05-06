@@ -95,6 +95,8 @@ public class CombatController : GameMode
 	public override void nextPhase(){
         currentPhase = (CombatPhases)(((int)currentPhase+1) % (int)CombatPhases.cleanup); 
     }
+
+	
 }
 
 

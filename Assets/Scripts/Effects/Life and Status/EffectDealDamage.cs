@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using CardHouse;
+using Common.Coroutines;
 using CustomInspector;
 using UnityEngine;
 
@@ -25,7 +26,9 @@ namespace Effect{
             
             foreach(var target in targets){
                 if(target is Entity entity){
-                    entity.damage(amount.getValue(context));
+                    var damage = amount.getValue(context);
+                    yield return UCoroutine.Yield(entity.damage(damage)).Start(entity);
+                    Debug.Log($"Dealt {damage} damage",entity);
                     //TODO: Use damage animation corroutine
                     //TODO: Allow simultaneous damage
                     yield return new WaitForSeconds(0.2f);

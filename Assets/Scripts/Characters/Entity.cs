@@ -107,9 +107,20 @@ public partial class Entity : MonoBehaviour, ITargetable
     [HorizontalLine(3f, message ="Interface")]
 
     /// <summary>
-    /// EIndica el punto en el que se pone el marcador de target
+    /// Indica el punto en el que se pone el marcador de target
     /// </summary>
-    public Transform targeterTransform;
+    [SerializeField]
+    private Transform _targeterTransform;
+
+    /// <summary>
+    /// Indica el punto en el que se pone el marcador de target
+    /// </summary>
+    public Transform targeterTransform  {get=> _targeterTransform;}
+
+    /// <summary>
+    /// Muestra la salud del personaje
+    /// </summary>
+    public HealthDisplay healthDisplay;
 
 
     /// <summary>

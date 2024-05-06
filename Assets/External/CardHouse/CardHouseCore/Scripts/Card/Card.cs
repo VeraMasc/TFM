@@ -36,6 +36,16 @@ namespace CardHouse
         public float UpsideDownChance = 0.5f;
         public Transform RootToRotateWhenUpsideDown;
 
+        /// <summary>
+        /// Indica el punto en el que se pone el marcador de target
+        /// </summary>
+        [SerializeField]
+        private Transform _targeterTransform;
+
+        /// <summary>
+        /// Indica el punto en el que se pone el marcador de target
+        /// </summary>
+        public Transform targeterTransform  {get=> _targeterTransform;}
         public Homing FaceHoming;
         public Turning FaceTurning;
         public Scaling FaceScaling;

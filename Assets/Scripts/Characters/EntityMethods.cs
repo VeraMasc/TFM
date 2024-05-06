@@ -26,6 +26,7 @@ public partial class Entity
             health += amount;
             //TODO: invoke healing trigger
             //TODO: add healing animation
+            healthDisplay.onHealthChanged();
         }
         coReturn(returnAction, amount);
         yield break;
@@ -42,10 +43,10 @@ public partial class Entity
         //TODO: Replacement effects
         if (amount>0){
             health -= amount;
-            
+            healthDisplay.onHealthChanged();
+
             //TODO: invoke damage trigger
             //TODO: add damage animation
-            yield return StartCoroutine(kill());
         }
         coReturn(returnAction, amount);
         yield break;
