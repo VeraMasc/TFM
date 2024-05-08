@@ -94,6 +94,8 @@ public class CardResolveOperator : Activatable
             Destroy(this);
     }
 
+    
+
     protected override void OnActivate(){
         resolve = true;
     }
@@ -146,7 +148,7 @@ public class CardResolveOperator : Activatable
     /// </summary>
     /// <param name="card"></param>
     /// <returns></returns>
-    protected IEnumerator precalculateCard(Card card){
+    public IEnumerator precalculateCard(Card card){
         precalculating = true;
         //TODO: Alternative Cast Modes
         //TODO: Set targets
@@ -157,8 +159,9 @@ public class CardResolveOperator : Activatable
             if(effect != null){
                 yield return StartCoroutine(simpleCard.effects?.baseEffect.precalculate(simpleCard.effects.context, this));
             }
-            
+            simpleCard.effects.context.precalculated = true;
         }
+        Debug.Log("Precalcutated");
         precalculating = false;
     }
 
@@ -193,8 +196,12 @@ public class CardResolveOperator : Activatable
 
         if(activeCard?.data is MyCardSetup simpleCard){
             context = simpleCard.effects.context;
-            if(context == null){
+
+            
+            //Requerir que sea precalculada
+            if(context?.precalculated != true){
                 Debug.LogError($"Card was not precalculated. Remember not to mount cards directly, use {nameof(castCard)}",simpleCard);
+                resolve =false;
                 yield break;
             }
             Debug.Log(context.self);

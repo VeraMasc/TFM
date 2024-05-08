@@ -126,7 +126,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 30
       y: 4
       width: 14
       height: 17
@@ -138,18 +138,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 30, y: 4}
   - name: TargettingArrow2_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: -0.06666667}
+    pivot: {x: 0.5, y: -0.045454547}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 26
+      x: 4
       y: 4
-      width: 12
-      height: 15
+      width: 18
+      height: 22
     spriteID: d05d3979fa69be54189a348a99f6df0d
     spriteBone: []
     spriteOutline: []
@@ -158,18 +158,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 26, y: 4}
+    uvTransform: {x: 4, y: 4}
   - name: TargettingArrow2_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: -0.14285715}
+    pivot: {x: 0.5, y: -0.06666667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 46
-      y: 4
+      x: 4
+      y: 34
       width: 12
-      height: 14
+      height: 15
     spriteID: 95fe1b7257526bb44ab021ddae4f965f
     spriteBone: []
     spriteOutline: []
@@ -178,7 +178,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 46, y: 4}
+    uvTransform: {x: 4, y: 34}
   - name: TargettingArrow2_Frame_3
     originalName: 
     pivot: {x: 0.5, y: -0.14285715}
@@ -186,8 +186,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 29
+      x: 24
+      y: 34
       width: 12
       height: 14
     spriteID: e5fc443733f3c334297d7e9ab54e1ef6
@@ -198,7 +198,27 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 29}
+    uvTransform: {x: 24, y: 34}
+  - name: TargettingArrow2_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 44
+      y: 34
+      width: 12
+      height: 14
+    spriteID: 05aa0839811e371418592ccac39df837
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 44, y: 34}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -219,18 +239,18 @@ ScriptedImporter:
     - name: TargettingArrow2_Frame_1
       frameIndex: 1
       cellRect:
-        x: 10
+        x: 7
         y: 1
-        width: 12
-        height: 15
+        width: 18
+        height: 22
       spriteId: d05d3979fa69be54189a348a99f6df0d
     - name: TargettingArrow2_Frame_2
       frameIndex: 2
       cellRect:
         x: 10
-        y: 2
+        y: 1
         width: 12
-        height: 14
+        height: 15
       spriteId: 95fe1b7257526bb44ab021ddae4f965f
     - name: TargettingArrow2_Frame_3
       frameIndex: 3
@@ -240,6 +260,14 @@ ScriptedImporter:
         width: 12
         height: 14
       spriteId: e5fc443733f3c334297d7e9ab54e1ef6
+    - name: TargettingArrow2_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 10
+        y: 2
+        width: 12
+        height: 14
+      spriteId: 05aa0839811e371418592ccac39df837
     linkedCells: []
     parentIndex: -1
   platformSettings:

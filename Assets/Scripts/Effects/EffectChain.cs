@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Common.Coroutines;
 using CustomInspector;
 using Effect;
 using UnityEngine;
@@ -69,7 +70,7 @@ public class EffectChain
     public IEnumerator precalculate(Context context, CardResolveOperator stack){
         foreach(var effect in list){
             if(effect is IPrecalculable pre){
-                pre.precalculate(stack, context);
+                yield return UCoroutine.Yield(pre.precalculate(stack, context));
             }
             else break;
         }

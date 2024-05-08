@@ -5,8 +5,8 @@
 ### DOCUMENTACIÓN
 
 - [ ] Diagrama de Gant es demasiado generico
-- [ ] Presupuesto - 
-Texto + tabla (salarios empleados) + Costes variables??
+- [ ] Presupuesto 
+  - [ ] Texto + tabla (salarios empleados) + Costes variables??
 - [ ] Revisar Objetivos
   - [ ] Objetivos Secundarios como extras
 - [ ] Usar calculos del presupuesto en estrategia de marketing y modelo de negocio

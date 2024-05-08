@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Common.Coroutines;
 using CustomInspector;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -226,7 +227,16 @@ namespace CardHouse
                 }
             }
 
-            
+            if(this.data is MyCardSetup setup){
+                var zone = group?.GetComponent<GroupZone>();
+
+                if(zone.zone == GroupName.Stack){
+                    UCoroutine.YieldAwait( ()=>!Homing.seeking)
+                        .Then( ()=> StartCoroutine(CardResolveOperator.singleton.precalculateCard(this)))
+                        .Start(this);
+                }
+                
+            }
             
         }
 
@@ -249,7 +259,7 @@ namespace CardHouse
                 //Cambiar el contexto de la carta
                 setup.effects.sourceZone = zone?.zone ?? GroupName.None;
                 setup.effects.sourceGroup = group;
-                
+                setup.effects.context.precalculated=false;
             }
         }
         /// <summary>

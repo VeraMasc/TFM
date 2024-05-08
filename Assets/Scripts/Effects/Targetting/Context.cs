@@ -50,6 +50,13 @@ namespace Effect{
         /// </summary>
         public CardGroup resolutionPile;
 
+        /// <summary>
+        /// Indica si ha sido precalculado o no
+        /// </summary>
+        public bool precalculated;
+
+
+
         
         /// <summary>
         /// Create context without owner or controller
@@ -95,4 +102,15 @@ public interface ITargetable{
     public Transform targeterTransform {get;}
 
     T GetComponentInChildren<T>();
+}
+
+/// <summary>
+/// Indica cómo gestionar la ejecución del contexto
+/// </summary>
+public enum ExecutionMode{
+    normal,
+    /// <summary>
+    /// Indica que la ejecución se ha de cancelar
+    /// </summary>
+    cancel
 }
