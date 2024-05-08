@@ -131,7 +131,7 @@ namespace CardHouse
             var failedDragFromThisGroup = HilightedGroup == null && cardComponent != null && MountedCards.Contains(cardComponent);
             if (failedDragFromThisGroup)
             {
-                Strategy.Apply(MountedCards);
+                //Strategy.Apply(MountedCards);
             }
 
             if (HilightedGroup != this)

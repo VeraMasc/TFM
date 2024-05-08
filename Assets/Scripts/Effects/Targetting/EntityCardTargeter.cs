@@ -26,7 +26,8 @@ namespace Effect
         
 
         public override void resolveTarget(Effect.Context context){
-            var origin = source.getTargets(context) as Entity[];
+            var origin = source.getTargets(context).OfType<Entity>();
+
             //Get groups
             var zonedGroups = GameObject.FindObjectsOfType<GroupZone>()
                 .Where(group => zones.Contains(group.zone) );
@@ -35,10 +36,10 @@ namespace Effect
 
             switch(relation){
                 case EntityRelation.controls: 
-                    cards = cards.Where(card => origin.Contains(card?.GetComponent<CardOwnership>().controller));
+                    cards = cards.Where(card => origin.Contains(card?.GetComponent<CardOwnership>()?.controller));
                     break;
                 case EntityRelation.owns: 
-                    cards = cards.Where(card => origin.Contains(card?.GetComponent<CardOwnership>().owner));
+                    cards = cards.Where(card => origin.Contains(card?.GetComponent<CardOwnership>()?.owner));
                     break;
                 default:
                     Debug.LogError("Invalid relation"); break;

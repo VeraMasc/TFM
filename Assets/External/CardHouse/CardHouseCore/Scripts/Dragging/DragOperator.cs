@@ -46,7 +46,7 @@ namespace CardHouse
             {
                 if (UseDragSwell)
                 {
-                    MyScaling.StartSeeking(1f);
+                    //MyScaling.StartSeeking(1f);
                 }
                 Dragging.Instance.StopDragging();
             }
