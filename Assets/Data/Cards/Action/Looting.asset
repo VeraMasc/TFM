@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
-  m_Name: Punch
+  m_Name: Looting
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
-  cardName: Punch
-  cardText: Deal 1 damage to target entity
+  cardName: Test Looting
+  cardText: Test Looting
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
-  typeList: 01000000
+  typeList: 
   cost:
-    costText: 1
-    value: 1
+    costText: 
+    value: 0
     colors: 
   effects:
     baseEffect:
       list:
-      - rid: 8129478013255417856
-      - rid: 3644647386710540302
+      - rid: 8129478013255417868
+      - rid: 8129478013255417866
     abilities: []
     staticEffects:
       list: []
@@ -41,32 +41,33 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 3644647386710540302
-      type: {class: DealDamage, ns: Effect, asm: Assembly-CSharp}
+    - rid: 8129478013255417866
+      type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
       data:
-        targeter:
-          rid: 3644647386710540303
-        amount:
-          rid: 3644647386710540304
-    - rid: 3644647386710540303
+        message:
+          rid: 8129478013255417867
+    - rid: 8129478013255417867
       type: {class: ReuseTargeter, ns: , asm: Assembly-CSharp}
       data:
         index: 0
-    - rid: 3644647386710540304
-      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
-      data:
-        value: 1
-    - rid: 8129478013255417856
+    - rid: 8129478013255417868
       type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
       data:
         effects:
-        - rid: 8129478013255417858
-    - rid: 8129478013255417858
+        - rid: 8129478013255417871
+    - rid: 8129478013255417871
       type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
       data:
         targeter:
-          rid: 8129478013255417859
-    - rid: 8129478013255417859
+          rid: 8129478013255417872
+    - rid: 8129478013255417872
+      type: {class: EntityCardTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        source:
+          rid: 8129478013255417873
+        relation: 0
+        zones: 04000000
+    - rid: 8129478013255417873
       type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}
       data:
-        contextual: 4
+        contextual: 0

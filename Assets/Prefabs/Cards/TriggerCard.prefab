@@ -464,6 +464,7 @@ Transform:
   m_Children:
   - {fileID: 6462243022907097789}
   - {fileID: 6462243022722680617}
+  - {fileID: 1731466487517522452}
   m_Father: {fileID: 6462243022253552647}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -572,6 +573,37 @@ MonoBehaviour:
   scaling: {fileID: 902705501117539568}
   turning: {fileID: 8922238288351519658}
   isHidden: 0
+--- !u!1 &4795567573240523577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1731466487517522452}
+  m_Layer: 0
+  m_Name: TargettingAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1731466487517522452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4795567573240523577}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8760211600781583232}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5276661955848549923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,6 +1151,7 @@ MonoBehaviour:
   CanBeUpsideDown: 0
   UpsideDownChance: 0.5
   RootToRotateWhenUpsideDown: {fileID: 0}
+  _targeterTransform: {fileID: 1731466487517522452}
   FaceHoming: {fileID: 7792711141432044011}
   FaceTurning: {fileID: 8922238288351519658}
   FaceScaling: {fileID: 902705501117539568}
@@ -1286,6 +1319,9 @@ MonoBehaviour:
       owner: {fileID: 0}
       controller: {fileID: 0}
       resolutionPile: {fileID: 0}
+      precalculated: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
   source: {fileID: 0}
   references:
     version: 2

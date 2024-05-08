@@ -161,7 +161,6 @@ public class CardResolveOperator : Activatable
             }
             simpleCard.effects.context.precalculated = true;
         }
-        Debug.Log("Precalcutated");
         precalculating = false;
     }
 
@@ -212,6 +211,7 @@ public class CardResolveOperator : Activatable
         //Reset state
         resolve =false;
         activeCard=null;
+        GameUI.singleton?.viewFocusedTargeting(null);
         GameMode.current.checkState();
     }
 

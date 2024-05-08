@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using CardHouse;
 using Common.Coroutines;
 using CustomInspector;
@@ -70,6 +71,11 @@ public class GameUI : MonoBehaviour
     public IEnumerable<ITargetable> possibleTargets;
 
     public List<ITargetable> chosenTargets;
+
+    /// <summary>
+    /// Targets que tienen un marker puesto
+    /// </summary>
+    public List<ITargetable> markedTargets = new();
 
     /// <summary>
     /// Indica si la interfaz está ocupada esperando algún input
@@ -182,6 +188,7 @@ public class GameUI : MonoBehaviour
             returnAction(chosenTargets.ToArray());
         }
         clearInputs();
+        viewFocusedTargeting(null);
     }
 
     /// <summary>
@@ -205,8 +212,40 @@ public class GameUI : MonoBehaviour
         foreach(var targetable in possibleTargets){
             var detector = targetable?.GetComponentInChildren<TargetDetector>();
             detector?.resetTargeting();
+            TargetDetector.clearTargetMarkers(targetable);
         }
         possibleTargets = null;
+    }
+
+    /// <summary>
+    /// Muestra el targeting de la carta en focus o de la carta que está encima del stack
+    /// </summary>
+    /// <param name="focusedCard"></param>
+    public void viewFocusedTargeting(Card focusedCard){
+        clearAllTargeting();
+        focusedCard ??= CardResolveOperator.singleton.stack.MountedCards.LastOrDefault();
+
+        if(focusedCard?.data is MyCardSetup setup){
+            var targetGroups = setup.effects?.context?.previousChosenTargets ?? new();
+            int num = 1;
+            foreach(var group in targetGroups){
+                foreach (var targetable in group)
+                {
+                    TargetDetector.putTargetMarker(targetable,num);
+                }
+                num++;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Limpia todos los marcadores de targets activos
+    /// </summary>
+    public void clearAllTargeting(){
+        foreach (var targetable in markedTargets){
+            TargetDetector.clearTargetMarkers(targetable);
+        }
+        markedTargets = new();
     }
 
     private static GameUI _singleton;

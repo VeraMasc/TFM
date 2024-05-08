@@ -1,7 +1,7 @@
 
 using System;
 
-namespace Effect.Value{
+namespace Effect.Value.Entities{
     [Serializable]
     public class CardsInHand:NumericCheck{
         //TODO: Add value<entity> parameter

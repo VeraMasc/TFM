@@ -39,12 +39,14 @@ public class TargetDetector : MonoBehaviour
                 targetIndex = 0;
                 Debug.Log($"Targeted {actualTarget} (Target Nº {targetIndex})", (UnityEngine.Object)actualTarget);
                 GameUI.singleton.chosenTargets.Add(actualTarget);
+                putTargetMarker(actualTarget,-1);
                 
             }
             else if(isTarget){
                 Debug.Log($"UnTargeted {actualTarget} (Target Nº {targetIndex})", (UnityEngine.Object)actualTarget);
                 targetIndex = -1;
                 GameUI.singleton.chosenTargets.Remove(actualTarget);
+                clearTargetMarkers(actualTarget);
             }
         }
             
@@ -64,6 +66,24 @@ public class TargetDetector : MonoBehaviour
     /// <returns></returns>
     public bool isValid(){
         return GameUI.singleton.possibleTargets?.Any((target)=> target == actualTarget) ?? false;
+    }
+
+    /// <summary>
+    /// Pone un target marker sobre el targetable especificado
+    /// </summary>
+    /// <param name="targetable"></param>
+    /// <param name="number"></param>
+    public static void putTargetMarker(ITargetable targetable, int number){
+        var prefab = GameUI.singleton.prefabs.targettingIndicator;
+        var instance = Instantiate(prefab, targetable.targeterTransform);
+
+        GameUI.singleton.markedTargets.Add(targetable);
+    }
+
+    public static void clearTargetMarkers(ITargetable targetable){
+        foreach(Transform child in targetable.targeterTransform){
+            Destroy(child.gameObject);
+        }
     }
 }
 
