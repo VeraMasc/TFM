@@ -1209,6 +1209,7 @@ GameObject:
   - component: {fileID: 8115627860224966699}
   - component: {fileID: 7985154722195594859}
   - component: {fileID: 2778886679916029807}
+  - component: {fileID: 6593651234132696140}
   m_Layer: 0
   m_Name: ActionCard
   m_TagString: Untagged
@@ -1295,6 +1296,7 @@ MonoBehaviour:
   CanBeUpsideDown: 0
   UpsideDownChance: 0.5
   RootToRotateWhenUpsideDown: {fileID: 0}
+  _targeterTransform: {fileID: 0}
   FaceHoming: {fileID: 7792711141432044011}
   FaceTurning: {fileID: 8922238288351519658}
   FaceScaling: {fileID: 902705501117539568}
@@ -1492,6 +1494,7 @@ MonoBehaviour:
       owner: {fileID: 0}
       controller: {fileID: 0}
       resolutionPile: {fileID: 0}
+      precalculated: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
   references:
@@ -1580,6 +1583,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6593651234132696140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6462243022253552644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0de0d8cdf8a6c54cb5b5a0ac65aee28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetIndex: -1
 --- !u!1 &6462243022722680614
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,6 +35,7 @@ MonoBehaviour:
       owner: {fileID: 0}
       controller: {fileID: 0}
       resolutionPile: {fileID: 0}
+      precalculated: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
   references:
@@ -58,7 +59,7 @@ MonoBehaviour:
     - rid: 8129478007116791810
       type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}
       data:
-        contextual: 3
+        contextual: 4
     - rid: 8129478007116791811
       type: {class: ReuseTargeter, ns: , asm: Assembly-CSharp}
       data:

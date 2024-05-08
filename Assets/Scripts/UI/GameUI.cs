@@ -85,7 +85,7 @@ public class GameUI : MonoBehaviour
     public static void setFocus(CardGroup group){
         var old = singleton?.focusGroup;
         if(singleton){ //Evita errores si no hay UI
-            if(old != group){
+            if(old != group && group?.MountedCards?.Count != 0){
                 singleton.focusGroup = group;
                 singleton.spreadScrollbar?.gameObject.SetActive(true);
                 resetFocusScroll();
@@ -203,7 +203,7 @@ public class GameUI : MonoBehaviour
             return;
         //Resetear todos los targets    
         foreach(var targetable in possibleTargets){
-            var detector = targetable?.GetComponent<TargetDetector>();
+            var detector = targetable?.GetComponentInChildren<TargetDetector>();
             detector?.resetTargeting();
         }
         possibleTargets = null;

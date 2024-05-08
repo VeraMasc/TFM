@@ -5,6 +5,7 @@ using NaughtyAttributes;
 using UnityEngine;
 using CardHouse;
 using System.Linq;
+using UnityEngine.Serialization;
 
 
 /// <summary>
@@ -20,7 +21,7 @@ public class DecklistDefinition : ScriptableObject, IDeckDefinition
     public List<CardDefinition> CardCollection {
         get { 
            return CardsetCollection.SelectMany( set => { 
-                return Enumerable.Repeat(set.card, Math.Max(0,set.amount));
+                return Enumerable.Repeat(set.card as CardDefinition, Math.Max(0,set.amount));
            }).ToList();
         }
     }
@@ -35,7 +36,8 @@ public class DecklistDefinition : ScriptableObject, IDeckDefinition
 [Serializable]
 public struct CardCopies{
     [HorizontalGroup(true,size = 2)]
-    public CardDefinition card;
+    [FormerlySerializedAs("card")]
+    public MyCardDefinition card;
     [HorizontalGroup(size = 1)]
     public int amount;
 }

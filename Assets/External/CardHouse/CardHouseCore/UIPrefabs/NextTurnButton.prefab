@@ -179,6 +179,7 @@ MonoBehaviour:
           m_StringArgument: Hovered
           m_BoolArgument: 0
         m_CallState: 2
+  keyBindings: 20000000
   ClickGates:
     Gates: []
 --- !u!114 &6840036618326548686

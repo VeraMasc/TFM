@@ -11,9 +11,14 @@ namespace Effect{
     /// Pide al jugador que seleccione un target entre las opciones ofrecidas
     /// </summary>
     [Serializable]
-    public class ChooseTargetFrom:Targeted, IValueEffect
+    public class ChooseSeveralFrom:Targeted, IValueEffect
     {
 
+        /// <summary>
+        /// Condición requerida para aceptar el input
+        /// </summary>
+        [SerializeReference, SubclassSelector]
+        public BaseCondition condition;
         public override IEnumerator execute(CardResolveOperator stack, Context context)
         {
             
@@ -24,12 +29,12 @@ namespace Effect{
                 GameUI.singleton.possibleTargets= targets.ToArray();
                 yield return UCoroutine.Yield(GameUI.singleton.getTargets(targets, 
                 ()=>{
-                    return GameUI.singleton.chosenTargets?.Count == 1;
+                    return condition?.check(context) ?? true;
                 }, 
                 (value)=>{
                     context.previousTargets[pos]= value;
                     context.previousChosenTargets.Add(value);
-                }, true));
+                }));
                 
             }
             
