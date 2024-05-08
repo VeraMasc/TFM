@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using CardHouse;
+using Common.Coroutines;
 using CustomInspector;
 using UnityEngine;
 using UnityEngine.UI;
@@ -141,7 +142,12 @@ public class GameUI : MonoBehaviour
     /// <summary>
     /// Genera la interfaz de confirmación y espera a que se escojan los targets
     /// </summary>
-    public IEnumerator getTargets(IEnumerable<ITargetable> targetables, Func<bool> validator,  Action<ITargetable[]> returnAction)
+    /// <param name="targetables"></param>
+    /// <param name="validator"></param>
+    /// <param name="returnAction"></param>
+    /// <param name="autoAccept">Acepta el input automáticamente en cuanto introduces un valor válido</param>
+    /// <returns></returns>
+    public IEnumerator getTargets(IEnumerable<ITargetable> targetables, Func<bool> validator,  Action<ITargetable[]> returnAction, bool autoAccept = false)
     {
         clearInputs();
         possibleTargets = targetables;
@@ -154,7 +160,18 @@ public class GameUI : MonoBehaviour
         activeUserInput = instance;
         do{
             activeUserInput.isFinished = false;
-            yield return activeUserInput.waitTillFinished;
+
+            if(autoAccept){
+                //Espera al primer valor válido
+                instance.autoConfirm = true;
+                yield return UCoroutine.YieldAwait(validator);
+                break;
+            }
+            else{
+                //Esperar confirmación
+                yield return activeUserInput.waitTillFinished;
+            }
+            
             if(activeUserInput.isCancelled){
                 break;
             }

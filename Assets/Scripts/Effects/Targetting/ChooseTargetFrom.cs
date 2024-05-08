@@ -31,7 +31,7 @@ namespace Effect{
                     Debug.Log(value.FirstOrDefault());
                     context.previousTargets[pos]= value;
                     context.previousChosenTargets.Add(value);
-                }));
+                }, true));
                 
             }
             
