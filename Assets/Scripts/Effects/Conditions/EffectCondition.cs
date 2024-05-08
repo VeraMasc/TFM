@@ -11,7 +11,7 @@ namespace Effect{
         /// <summary>
         /// Comprueba si se cumple la condición
         /// </summary>
-        public virtual bool check(Effect.Context context){
+        public virtual bool check(object inputs, Context context){
             throw new NotImplementedException();
         }
     }

@@ -26,7 +26,7 @@ MonoBehaviour:
   effects:
     baseEffect:
       list:
-      - rid: 3644647386710540300
+      - rid: 8129478007116791817
       - rid: 3644647386710540302
     abilities:
     - rid: 8129477892417519617
@@ -42,15 +42,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 3644647386710540300
-      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
-      data:
-        targeter:
-          rid: 3644647386710540301
-    - rid: 3644647386710540301
-      type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}
-      data:
-        contextual: 4
     - rid: 3644647386710540302
       type: {class: DealDamage, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -82,3 +73,19 @@ MonoBehaviour:
       type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: Entered
+    - rid: 8129478007116791817
+      type: {class: ChooseSeveralFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478007116791818
+        condition:
+          rid: 8129478007116791822
+    - rid: 8129478007116791818
+      type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}
+      data:
+        contextual: 4
+    - rid: 8129478007116791822
+      type: {class: AmountCondition, ns: Effect.Condition, asm: Assembly-CSharp}
+      data:
+        min: 1
+        max: 2

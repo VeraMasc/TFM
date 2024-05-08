@@ -29,7 +29,8 @@ namespace Effect{
                 GameUI.singleton.possibleTargets= targets.ToArray();
                 yield return UCoroutine.Yield(GameUI.singleton.getTargets(targets, 
                 ()=>{
-                    return condition?.check(context) ?? true;
+                    var chosen = GameUI.singleton.chosenTargets;
+                    return condition?.check(chosen, context) ?? true;
                 }, 
                 (value)=>{
                     context.previousTargets[pos]= value;

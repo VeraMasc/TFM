@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 
-namespace Effect{
+namespace Effect.Condition{
     [Serializable]
     public class PayCost:BaseCondition
     {
@@ -12,7 +12,7 @@ namespace Effect{
         /// <summary>
         /// Comprueba si se cumple la condición
         /// </summary>
-        public override bool check(Effect.Context context){
+        public override bool check(object input, Context context){
             return cost.canBePaid(context);
         }
     }

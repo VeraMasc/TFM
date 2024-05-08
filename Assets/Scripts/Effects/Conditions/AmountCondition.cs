@@ -1,0 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+using System.Linq;
+
+
+namespace Effect.Condition{
+    /// <summary>
+    /// Requiere que haya una cantidad concreta de algo
+    /// </summary>
+    [Serializable]
+    public class AmountCondition:BaseCondition
+    {
+        
+        public int min=0;
+        public int max=2;
+
+        public override bool check(object inputs, Context context){
+            //Cast to collection of elements
+            if(inputs is IEnumerable<object> collection){
+                var amount = collection.Count();
+                return amount <=max && amount >= min;
+            }
+
+            Debug.LogError($"Type {inputs?.GetType()} not accepted in condition{this.GetType().Name}");
+            return false;
+        }
+    }
+}

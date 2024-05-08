@@ -5,13 +5,14 @@ using CustomInspector;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using Effect;
 
 
 /// <summary>
 /// Reusa el último set de targets utilizado
 /// </summary>
 [Serializable]
-public class ReuseTargeter:EffectTargeter
+public class ReuseTargeter:EffectTargeter,IValue
 {
     /// <summary>
     /// Posición del elemento desde el último índice
@@ -27,7 +28,10 @@ public class ReuseTargeter:EffectTargeter
         
         _targets = extractTarget(context, index);
     }
-
+    public object getValueObj(Context context)
+    {
+        return extractTarget(context, index);
+    }
 
     /// <summary>
     /// Extrae un valor de la pila de targets guardados
@@ -48,4 +52,6 @@ public class ReuseTargeter:EffectTargeter
         return targets;
         
     }
+
+    
 }

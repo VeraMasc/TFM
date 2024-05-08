@@ -11,7 +11,7 @@ namespace Effect{
     [Serializable]
     public abstract class GetPlayerChoice : EffectScript, IValueEffect
     {
-        
+        //TODO: eliminar? Reworkear como Interfaz?
     }
 
     /// <summary>
