@@ -27,7 +27,8 @@ MonoBehaviour:
     baseEffect:
       list:
       - rid: 8129478013255417868
-      - rid: 8129478013255417866
+      - rid: 8129478014803116032
+      - rid: 8129478015182176256
     abilities: []
     staticEffects:
       list: []
@@ -41,15 +42,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8129478013255417866
-      type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
-      data:
-        message:
-          rid: 8129478013255417867
-    - rid: 8129478013255417867
-      type: {class: ReuseTargeter, ns: , asm: Assembly-CSharp}
-      data:
-        index: 0
     - rid: 8129478013255417868
       type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -71,3 +63,33 @@ MonoBehaviour:
       type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}
       data:
         contextual: 0
+    - rid: 8129478014803116032
+      type: {class: Discard, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478014803116033
+        cards:
+          rid: 8129478014803116034
+    - rid: 8129478014803116033
+      type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8129478014803116034
+      type: {class: ReuseTargeter, ns: , asm: Assembly-CSharp}
+      data:
+        index: 1
+    - rid: 8129478015182176256
+      type: {class: Draw, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478015182176257
+        amount:
+          rid: 8129478015182176259
+    - rid: 8129478015182176257
+      type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8129478015182176259
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 2

@@ -84,7 +84,10 @@ public abstract class MyCardSetup : CardSetup
             this.cardName = baseCard.cardName;
             gameObject.name = baseCard.cardName;
 
-            Image.sprite = baseCard.Art ?? Image.sprite;
+            if(baseCard.Art != null){
+                Image.sprite = baseCard.Art;
+            }
+            
             if (baseCard.BackArt != null)
             {
                 BackImage.sprite = baseCard.BackArt;

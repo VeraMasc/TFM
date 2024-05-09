@@ -1,7 +1,10 @@
 using System;
+using System.Linq;
 using System.Collections;
 using Common.Coroutines;
 using UnityEngine;
+using CardHouse;
+using System.Collections.Generic;
 
 
 namespace Effect
@@ -10,16 +13,16 @@ namespace Effect
     public class Discard : Targeted, ICost
     {
         /// <summary>
-        /// Cantidad a descartar
+        /// Cartas a descartar
         /// </summary>
         [SerializeReference, SubclassSelector]
-        public Value.Numeric amount;
+        public IValue cards;
 
         public bool canBePaid(Context context)
         {
-            if(context.controller != null){
-                var cardsInHand = context.controller.hand.MountedCards.Count;
-                return cardsInHand >= amount.getValue(context);
+            var toDiscard = cards.getValueObj(context);
+            if(context.controller != null && toDiscard is IEnumerable<Card> collection){
+                return collection.All( card => context.controller.hand.MountedCards.Contains(card));
             }
             return false;
         }
@@ -27,7 +30,13 @@ namespace Effect
         public override IEnumerator executeForeach(ITargetable target,CardResolveOperator stack, Context context)
         {
             if(target is Entity entity){
-                yield return entity.discard(amount.getValue(context));
+                if(cards.getValueObj(context) is IEnumerable<ITargetable> collection){
+                    yield return UCoroutine.Yield(entity.discard(collection.OfType<Card>().ToArray()));
+                }
+                else{
+                    Debug.Log(cards.getValueObj(context) );
+                }
+                
                 
             }else{
                 Debug.LogError($"Target of {this.GetType().Name} is \"{target.GetType().Name}\" not an entity", (UnityEngine.Object)context.self);

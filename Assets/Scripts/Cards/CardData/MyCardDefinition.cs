@@ -11,6 +11,7 @@ public class MyCardDefinition : CardDefinition
     [TextArea(3, 10)]
     public string cardText;
 
+    [CustomInspector.Preview]
     public Sprite Art;
 
     public Sprite Frame;

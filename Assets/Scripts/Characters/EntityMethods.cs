@@ -83,10 +83,14 @@ public partial class Entity
     /// </summary>
     /// <param name="amount">cuantas cartas ha de descartar</param>
     /// <returns></returns>
-    public IEnumerator discard(int amount, Action<Card[]> returnAction = null){
-        Card[] chosen= new Card[0];
+    public IEnumerator discard(Card[] cards ,float duration = 0.75f, Action<Card[]> returnAction = null){
+        var chosen = hand.MountedCards.Intersect(cards).ToArray();
+        if(chosen.Count() >0){
+            yield return StartCoroutine(CardTransferOperator.sendCards(chosen,discarded,duration/chosen.Count(),burstSend:true));
+        }
+
         coReturn(returnAction, chosen);
-        throw new NotImplementedException();
+
 
     }
     

@@ -15,7 +15,7 @@ MonoBehaviour:
   BackArt: {fileID: 0}
   cardName: Punch
   cardText: Deal 1 damage to target entity
-  Art: {fileID: 0}
+  Art: {fileID: 2743558016449953626, guid: 8ffc0cd9b54a8a7418f3c0235cd12f39, type: 3}
   Frame: {fileID: 0}
   help: []
   typeList: 01000000
