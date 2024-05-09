@@ -76,7 +76,12 @@ public class TargetDetector : MonoBehaviour
     public static void putTargetMarker(ITargetable targetable, int number){
         var prefab = GameUI.singleton.prefabs.targettingIndicator;
         var instance = Instantiate(prefab, targetable.targeterTransform);
-
+        
+        if(instance.transform.lossyScale.x >4){
+            var transform =instance.transform;
+            transform.localScale = Vector3.one;
+            transform.localScale = new Vector3 (4/transform.lossyScale.x, 4/transform.lossyScale.y, 4/transform.lossyScale.z);
+        }
         GameUI.singleton.markedTargets.Add(targetable);
     }
 

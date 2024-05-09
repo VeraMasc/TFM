@@ -94,6 +94,13 @@ public partial class Entity
 
     }
 
+    /// <summary>
+    /// Mete cartas en el fondo del mazo y roba la misma cantidad
+    /// </summary>
+    /// <param name="cards"></param>
+    /// <param name="duration"></param>
+    /// <param name="returnAction"></param>
+    /// <returns></returns>
     public IEnumerator reDraw(Card[] cards ,float duration = 0.75f, Action<Card[]> returnAction = null){
         var chosen = hand.MountedCards.Intersect(cards).ToArray();
         if(chosen.Count() >0){
@@ -107,6 +114,13 @@ public partial class Entity
 
     }
     
+    public IEnumerator shuffle(){
+        foreach(var card in deck.MountedCards){
+            card.SetFacing(CardFacing.FaceDown,true);
+        }
+        deck.Shuffle();
+        yield return new WaitForSeconds(0.3f);
+    }
 
     /// <summary>
     /// El jugador descarta cartas al azar

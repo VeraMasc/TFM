@@ -75,7 +75,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
@@ -87,7 +87,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 7
+    defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 0
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638505996190152042
+  platformSettingsDirtyTick: 638508658268001031
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,7 +121,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: TargettingArrow2_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: -0.05882353}
+    pivot: {x: 0.5, y: 0.88235295}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -141,7 +141,7 @@ ScriptedImporter:
     uvTransform: {x: 30, y: 4}
   - name: TargettingArrow2_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: -0.045454547}
+    pivot: {x: 0.5, y: 0.6818182}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -161,7 +161,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: TargettingArrow2_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: -0.06666667}
+    pivot: {x: 0.5, y: 1}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -181,7 +181,7 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 34}
   - name: TargettingArrow2_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: -0.14285715}
+    pivot: {x: 0.5, y: 1}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -201,7 +201,7 @@ ScriptedImporter:
     uvTransform: {x: 24, y: 34}
   - name: TargettingArrow2_Frame_4
     originalName: 
-    pivot: {x: 0.5, y: -0.14285715}
+    pivot: {x: 0.5, y: 1}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
