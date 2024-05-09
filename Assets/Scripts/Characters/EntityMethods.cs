@@ -93,6 +93,19 @@ public partial class Entity
 
 
     }
+
+    public IEnumerator reDraw(Card[] cards ,float duration = 0.75f, Action<Card[]> returnAction = null){
+        var chosen = hand.MountedCards.Intersect(cards).ToArray();
+        if(chosen.Count() >0){
+            yield return StartCoroutine(CardTransferOperator.sendCards(chosen,deck,duration/chosen.Count(),sendTo:GroupTargetType.First, burstSend:true));
+
+            yield return StartCoroutine(draw(chosen.Count(),duration));
+        }
+
+        coReturn(returnAction, chosen);
+
+
+    }
     
 
     /// <summary>

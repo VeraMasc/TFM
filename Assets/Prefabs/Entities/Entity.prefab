@@ -1673,6 +1673,10 @@ PrefabInstance:
       value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 2908464568799007497, guid: 2826c0dd0131e1d49a4dec592d16dc7e, type: 3}
+      propertyPath: ForcedFacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908464568799007497, guid: 2826c0dd0131e1d49a4dec592d16dc7e, type: 3}
       propertyPath: invertStackHeight
       value: 1
       objectReference: {fileID: 0}
@@ -1753,9 +1757,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8886081498073769511, guid: 2826c0dd0131e1d49a4dec592d16dc7e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8599903308082577149}
-    - targetCorrespondingSourceObject: {fileID: 8886081498073769511, guid: 2826c0dd0131e1d49a4dec592d16dc7e, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8431918611037207940}
   m_SourcePrefab: {fileID: 100100000, guid: 2826c0dd0131e1d49a4dec592d16dc7e, type: 3}
 --- !u!4 &2050872776178013482 stripped
@@ -1768,24 +1769,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8886081498073769511, guid: 2826c0dd0131e1d49a4dec592d16dc7e, type: 3}
   m_PrefabInstance: {fileID: 7433083322345435912}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8599903308082577149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2050872776178013487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6894986c8c3e4248bd3ec61ceac255d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RunOnStart: 0
-  instaShuffle: 1
-  CardPrefab: {fileID: 6462243022253552644, guid: 693bcb068c4f97a4e85d3f3c745cb0fe, type: 3}
-  DeckDefinition: {fileID: 0}
-  Deck: {fileID: 0}
-  OnSetupCompleteEventChain: []
 --- !u!114 &8431918611037207940
 MonoBehaviour:
   m_ObjectHideFlags: 0

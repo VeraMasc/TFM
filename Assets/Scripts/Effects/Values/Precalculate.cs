@@ -13,7 +13,7 @@ namespace Effect{
     public class Precalculate: EffectScript, IPrecalculable
     {
         [SerializeReference, SubclassSelector]
-        List<IValueEffect> effects;
+        public List<IValueEffect> effects;
 
         /// <summary>
         /// No effect

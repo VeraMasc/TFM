@@ -15,6 +15,8 @@ public class CombatController : GameMode
     /// </summary>
     public List<Entity> turnOrder;
 
+	public Entity currentTurn => turnOrder?.LastOrDefault();
+
 	/// <summary>
 	/// Fase actual del combate
 	/// </summary>
@@ -59,15 +61,12 @@ public class CombatController : GameMode
 		yield return new WaitForEndOfFrame();
 		yield return new WaitForSeconds(0.2f);
 		var entities = GameController.singleton?.entities ?? new List<Entity>();
-        // //Initial card draw
-        // foreach(var entity in entities){
-			
-		// 	yield return StartCoroutine(entity.draw(4));
-        // }
+        //Initial card draw
+        
 		yield return UCoroutine.YieldInParallel(
 				entities.Select(entity => entity.draw(4))
 			.ToArray());
-		
+		generateTurnOrder();
         yield break;
     }
 
@@ -96,6 +95,16 @@ public class CombatController : GameMode
         currentPhase = (CombatPhases)(((int)currentPhase+1) % (int)CombatPhases.cleanup); 
     }
 
+	/// <summary>
+	/// La entidad actual usa su redraw gratuito
+	/// </summary>
+	public void freeRedraw(){
+		var entity = currentTurn;
+		if(entity==null)
+			return;
+
+		StartCoroutine(Effect.ReDraw.basicRedraw(1,entity));
+	}
 	
 }
 
