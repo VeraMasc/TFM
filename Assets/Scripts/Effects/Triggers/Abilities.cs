@@ -4,6 +4,7 @@ using System.Collections;
 using CardHouse;
 using Common.Coroutines;
 using UnityEngine;
+using System.Linq;
 
 namespace Effect{
     /// <summary>
@@ -33,6 +34,13 @@ namespace Effect{
                 var routine =CardResolveOperator.singleton.triggerEffect(card,EffectChain.cloneFrom(effects));
                 yield return UCoroutine.Yield(routine);
             }
+
+        }
+
+        /// <summary>
+        /// Gestiona los cambios de zona
+        /// </summary>
+        public virtual void onChangeZone(GroupName zone){
 
         }
 
@@ -73,10 +81,16 @@ namespace Effect{
 
 
         /// <summary>
-        /// Activa o desactiva la habilidad al cambiar de zona según corresponda
+        /// Activa o desactiva el trigger de la habilidad al cambiar de zona según corresponda
         /// </summary>
-        public void onChangeZone(){
-
+        public override void onChangeZone(GroupName zone){
+            if(activeZones.Contains(zone)){
+                trigger.subscribe(source, listener);
+            }
+            else{
+                //TODO: no desuscribir la carta entera
+                trigger.unsubscribe(source);
+            }
         }
     }
 

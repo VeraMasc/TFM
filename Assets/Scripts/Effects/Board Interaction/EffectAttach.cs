@@ -45,10 +45,10 @@ namespace Effect{
                 group.Mount(self);
                 yield return UCoroutine.YieldAwait(()=>self.Homing.seeking);
 
-                var zone = group.GetComponent<GroupZone>();
-                if(zone){
-                    yield return UCoroutine.Yield(zone.callEnterTrigger((Card)self));
-                }
+                // var zone = group.GetComponent<GroupZone>();
+                // if(zone){
+                //     yield return UCoroutine.Yield(zone.callEnterTrigger((Card)self));
+                // }
                 
             }
             

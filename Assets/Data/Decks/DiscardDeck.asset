@@ -10,19 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4d37e2e35cf24e4aac2aa54f5ee035d, type: 3}
-  m_Name: TestActionDeck
+  m_Name: DiscardDeck
   m_EditorClassIdentifier: 
   cardBackArt: {fileID: 2025458771616860364, guid: 165278c9f2aab5540982b9adcb5ebc2a, type: 3}
   CardsetCollection:
-  - card: {fileID: 11400000, guid: 0a1551408bdb0e6459b9201ebc22f7f4, type: 2}
+  - card: {fileID: 11400000, guid: 79ab3e01ceebb0e4dafc4f8f923e3cdd, type: 2}
     amount: 10
-  - card: {fileID: 11400000, guid: 7a254520b453c85419b27b16f1e745ea, type: 2}
-    amount: 0
-  - card: {fileID: 11400000, guid: 6cc07854cbaaeab4aa6d5631c8c7aa6d, type: 2}
-    amount: 10
-  - card: {fileID: 11400000, guid: b09a5f40a0380724e869a7cfc7d3f501, type: 2}
-    amount: 10
-  - card: {fileID: 11400000, guid: cb3aabc59d7eb7b4cbbc1aa3a14fe236, type: 2}
-    amount: 0
   - card: {fileID: 11400000, guid: ea65a734769fddf4f8f8502506ad9bb2, type: 2}
     amount: 10

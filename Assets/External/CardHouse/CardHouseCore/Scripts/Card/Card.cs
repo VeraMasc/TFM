@@ -235,15 +235,19 @@ namespace CardHouse
 
             if(this.data is MyCardSetup setup){
                 var zone = group?.GetComponent<GroupZone>();
-
-                //Update ability subscriptions
-                setup.effects.refreshAbilitySuscriptions(zone.zone);
+                CardResolveOperator.singleton.stackUI.refresh();
+                var afterAnimation = UCoroutine.YieldAwait( ()=>!Homing.seeking);
                 if(zone.zone == GroupName.Stack){
-                    UCoroutine.YieldAwait( ()=>!Homing.seeking)
-                        .Then( ()=> StartCoroutine(CardResolveOperator.singleton.precalculateCard(this)))
-                        .Start(this);
+                        afterAnimation = afterAnimation
+                        .Then(CardResolveOperator.singleton.precalculateCard(this));
                 }
                 
+                afterAnimation = afterAnimation.Then(()=>{
+                    //Update ability subscriptions
+                    setup.effects.refreshAbilitySuscriptions(zone.zone);
+                }).Then(zone.callEnterTrigger(this));
+                
+                afterAnimation.Start(this);
             }
             
         }

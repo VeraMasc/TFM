@@ -38,7 +38,12 @@ public class GroupZone : MonoBehaviour
 
             case GroupName.Deck:
                 break;
-
+            case GroupName.Hand:
+                break;
+            case GroupName.Stack:
+                break;
+            case GroupName.None:
+                break;
             default: 
                 Debug.LogError($"No enter event behavior defined for {zone}",card);
                 break;

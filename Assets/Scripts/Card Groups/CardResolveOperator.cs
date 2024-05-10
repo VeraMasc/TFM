@@ -161,6 +161,7 @@ public class CardResolveOperator : Activatable
             }
             simpleCard.effects.context.precalculated = true;
         }
+        Debug.Log("Precalculated",card);
         precalculating = false;
     }
 
@@ -173,9 +174,7 @@ public class CardResolveOperator : Activatable
         Debug.Log("Casting card");
         stack.Mount(card);
         yield return UCoroutine.YieldAwait( ()=>!card.Homing.seeking);
-        var routine = StartCoroutine(precalculateCard(card));
-        yield return new WaitForSeconds(0.5f);
-        yield return routine;
+        yield return new WaitForSeconds(0.1f);
         
     }
     /// <summary>
@@ -267,9 +266,9 @@ public class CardResolveOperator : Activatable
         }
         yield return StartCoroutine(CardTransferOperator.sendCard(card,group));
         var zone = group.GetComponent<GroupZone>();
-        if (zone){
-            yield return StartCoroutine(zone.callEnterTrigger(card));
-        }
+        // if (zone){
+        //     yield return StartCoroutine(zone.callEnterTrigger(card));
+        // }
     }
 
 
@@ -297,6 +296,7 @@ public class CardResolveOperator : Activatable
     public IEnumerator triggerEffect(Card source, EffectChain triggered){
         var card = createTriggerCard(source,triggered, transform);
         Debug.Log(card.name,card);
+        
         yield return StartCoroutine(castCard(card));
     }
 }

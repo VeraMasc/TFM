@@ -22,7 +22,7 @@ public class BaseCardEffects{
     /// Lista de habilidades de la carta
     /// </summary>
     [SerializeReference, SubclassSelector]
-    public List<Ability> abilities;
+    public List<Ability> abilities = new();
 
     /// <summary>
     /// Efectos estáticos 
@@ -50,15 +50,20 @@ public class BaseCardEffects{
             Debug.LogError("Can't subscribe triggered abilities without a context");
             return;
         }
-            
+        Debug.Log("Refresh abilities", (UnityEngine.Object)context.self);
         //TODO: add disabling of triggers based on zone
         foreach(var ability in abilities.OfType<TriggeredAbility>()){
-            if(ability.source == null){
-                //Initialize
-                ability.source= (CardHouse.Card)(context?.self);
-                ability.listener = (val) => ability.executeAbility(context,val);
+            if(ability is TriggeredAbility triggered)
+            {
+                
+                //Initialize if needed
+                ability.source ??= (CardHouse.Card)(context?.self);
+                ability.listener ??= (val) => ability.executeAbility(context,val);
+                    
                 ability.trigger.subscribe(ability.source, ability.listener);
+                
             }
+            
             
         }
     }
