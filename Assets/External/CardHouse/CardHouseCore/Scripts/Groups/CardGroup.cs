@@ -325,6 +325,7 @@ namespace CardHouse
             {
                 CollidersEntered += isEntry ? 1 : -1;
                 SetAsActiveGroup(CollidersEntered > 0);
+                cardComponent?.outlineRenderer?.gameObject?.SetActive(isEntry);
             }
         }
 
