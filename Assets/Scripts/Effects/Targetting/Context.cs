@@ -102,6 +102,8 @@ public interface ITargetable{
     public Transform targeterTransform {get;}
 
     T GetComponentInChildren<T>();
+
+    public SpriteRenderer outlineRenderer {get;}
 }
 
 /// <summary>

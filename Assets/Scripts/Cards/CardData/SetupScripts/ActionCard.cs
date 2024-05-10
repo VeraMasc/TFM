@@ -27,7 +27,6 @@ public class ActionCard : MyCardSetup, IActionable
             effects = action.effects;
             effects = action.effects.cloneAll();
             effects.setContext(GetComponent<Card>());
-            effects.refreshTriggerSuscriptions();
         }
         else {
             Debug.LogError($"Wrong Definition for ActionCard: {data?.GetType()?.Name}",data);

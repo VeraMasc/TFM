@@ -47,6 +47,12 @@ namespace CardHouse
         /// Indica el punto en el que se pone el marcador de target
         /// </summary>
         public Transform targeterTransform  {get=> _targeterTransform;}
+
+        [SerializeField]
+        private SpriteRenderer _outlineRenderer;
+
+        public SpriteRenderer outlineRenderer {get=> _outlineRenderer;}
+
         public Homing FaceHoming;
         public Turning FaceTurning;
         public Scaling FaceScaling;
@@ -230,6 +236,8 @@ namespace CardHouse
             if(this.data is MyCardSetup setup){
                 var zone = group?.GetComponent<GroupZone>();
 
+                //Update ability subscriptions
+                setup.effects.refreshAbilitySuscriptions(zone.zone);
                 if(zone.zone == GroupName.Stack){
                     UCoroutine.YieldAwait( ()=>!Homing.seeking)
                         .Then( ()=> StartCoroutine(CardResolveOperator.singleton.precalculateCard(this)))

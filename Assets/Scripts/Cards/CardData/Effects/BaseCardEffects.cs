@@ -43,9 +43,9 @@ public class BaseCardEffects{
 
     [NaughtyAttributes.Button("Refresh Triggers")]
     /// <summary>
-    /// Actualiza el estado de las suscripciones a los eventos de los triggers
+    /// Actualiza el estado de las suscripciones a los eventos de los triggers y permite activar las activated abilities
     /// </summary>
-    public void refreshTriggerSuscriptions(){
+    public void refreshAbilitySuscriptions(GroupName zone){
         if(context?.self== null){
             Debug.LogError("Can't subscribe triggered abilities without a context");
             return;

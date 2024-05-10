@@ -35,6 +35,13 @@ namespace Effect{
             }
 
         }
+
+        /// <summary>
+        /// Zonas en las que se encuentran activas las habilidades
+        /// </summary>
+        public virtual IEnumerable<GroupName> activeZones{
+            get=> new GroupName[]{GroupName.Board};
+        }
     }
 
     /// <summary>

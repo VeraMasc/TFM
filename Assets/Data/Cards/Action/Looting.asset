@@ -57,7 +57,7 @@ MonoBehaviour:
       data:
         source:
           rid: 8129478013255417873
-        relation: 0
+        relation: 2
         zones: 04000000
     - rid: 8129478013255417873
       type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}

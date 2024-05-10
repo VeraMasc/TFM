@@ -159,7 +159,12 @@ public class GameUI : MonoBehaviour
         possibleTargets = targetables;
         chosenTargets = new();
 
-        //TODO: add checks for invalid inputs
+        //Highlight options
+        foreach(var target in possibleTargets){
+            if(target?.outlineRenderer){
+                target.outlineRenderer.gameObject.SetActive(true);
+            }
+        }
         
         //Crea la interfaz de confirmación
         var instance = Instantiate(prefabs.confirmationInput, userInputRoot);
@@ -213,6 +218,12 @@ public class GameUI : MonoBehaviour
             var detector = targetable?.GetComponentInChildren<TargetDetector>();
             detector?.resetTargeting();
             TargetDetector.clearTargetMarkers(targetable);
+
+            //Remove outlines
+            if(targetable?.outlineRenderer){
+                targetable.outlineRenderer.gameObject.SetActive(false);
+            }
+        
         }
         possibleTargets = null;
     }

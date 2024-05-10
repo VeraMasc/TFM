@@ -117,6 +117,11 @@ public partial class Entity : MonoBehaviour, ITargetable
     /// </summary>
     public Transform targeterTransform  {get=> _targeterTransform;}
 
+    [SerializeField]
+    private SpriteRenderer _outlineRenderer;
+
+    public SpriteRenderer outlineRenderer {get=> _outlineRenderer;}
+
     /// <summary>
     /// Muestra la salud del personaje
     /// </summary>

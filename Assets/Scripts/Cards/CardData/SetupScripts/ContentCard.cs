@@ -26,7 +26,7 @@ public class ContentCard : MyCardSetup
         {
             effects = contentCard.effects.cloneAll();
             effects.setContext(GetComponent<Card>());
-            effects.refreshTriggerSuscriptions();
+            effects.refreshAbilitySuscriptions(GroupName.None);
         }
         refreshValues();
     }
