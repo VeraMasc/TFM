@@ -67,7 +67,7 @@ public abstract class GameMode : MonoBehaviour
 
         if(!stack.isEmpty){ //Primero resolver cosas del stack
             if(!stack.precalculating){//No resolver si esá precalculando
-                stack.resolve = true;
+                stack.startResolve = true;
             }
         }
         else{

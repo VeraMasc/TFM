@@ -1245,7 +1245,7 @@ MonoBehaviour:
   UseMyScale: 1
   groupScale: 2.5
   angularCardOffset: 5
-  MarginalCardOffset: 0.05
+  MarginalCardOffset: 0.1
   spiralWidth: 2.5
 --- !u!114 &7312961452308913437
 MonoBehaviour:
@@ -1268,6 +1268,7 @@ MonoBehaviour:
     owner: {fileID: 0}
     controller: {fileID: 0}
     resolutionPile: {fileID: 0}
+    precalculated: 0
   currentUserInput:
     rid: -2
   stackUI: {fileID: 9129879107559195709}

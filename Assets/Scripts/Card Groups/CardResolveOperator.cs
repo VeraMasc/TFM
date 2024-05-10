@@ -19,10 +19,16 @@ public class CardResolveOperator : Activatable
     [SelfFill, ForceFill]
     public CardGroup stack;
 
+
+    /// <summary>
+    /// Indica si empezar a resolver
+    /// </summary>
+    public bool startResolve;
+
     /// <summary>
     /// Indica si está resolviendo 
     /// </summary>
-    public bool resolve;
+    public bool resolving;
 
     /// <summary>
     /// Indica si está precalculando (esperando inputs)
@@ -97,32 +103,32 @@ public class CardResolveOperator : Activatable
     
 
     protected override void OnActivate(){
-        resolve = true;
+        startResolve = true;
     }
 
 
     /// <summary>
     /// Indica si el stack no está siendo usado ahora mismo
     /// </summary>
-    public bool isEmpty => !resolve && stack.MountedCards.Count == 0;
+    public bool isEmpty => !resolving && stack.MountedCards.Count == 0;
     /// <summary>
     /// Espera hasta que el stack esté libre
     /// </summary>
     public IEnumerator waitTillEmpty{
-        get => UCoroutine.YieldAwait(()=> !resolve && stack.MountedCards.Count == 0);
+        get => UCoroutine.YieldAwait(()=> !resolving && stack.MountedCards.Count == 0);
     }
 
     /// <summary>
     /// Espera hasta que el stack esté libre
     /// </summary>
     public IEnumerator waitTillOpen{
-        get => UCoroutine.YieldAwait(()=> !resolve && !precalculating &&
+        get => UCoroutine.YieldAwait(()=> !resolving && !precalculating &&
             (stack.MountedCards.Count == 0));
     }
 
     void Update()
     {
-        if(resolve && activeCard == null){
+        if(startResolve && activeCard == null){
             StartCoroutine(resolveCard());
         }
     }
@@ -182,12 +188,14 @@ public class CardResolveOperator : Activatable
     /// </summary>
     /// <returns></returns>
     protected IEnumerator resolveCard(){
+        startResolve=false; 
         if(!activeCard && stack.MountedCards.Count==0){
-            resolve=false; //No hay nada más que resolver
+            //No hay nada más que resolver
             yield break;
         }
+        resolving=true;
         //Get card
-        activeCard ??= stack.MountedCards.Last();
+        activeCard = stack.MountedCards.Last();
 
         //Set up current card
         sendTo = GroupName.Discard;
@@ -198,8 +206,8 @@ public class CardResolveOperator : Activatable
             
             //Requerir que sea precalculada
             if(context?.precalculated != true){
-                Debug.LogError($"Card was not precalculated. Remember not to mount cards directly, use {nameof(castCard)}",simpleCard);
-                resolve =false;
+                Debug.LogError($"Card '{context.self}' was not precalculated. Remember not to mount cards directly, use {nameof(castCard)}", (UnityEngine.Object)context.self);
+                startResolve =false;
                 yield break;
             }
             Debug.Log(context.self);
@@ -208,7 +216,7 @@ public class CardResolveOperator : Activatable
         
 
         //Reset state
-        resolve =false;
+        resolving =false;
         activeCard=null;
         GameUI.singleton?.viewFocusedTargeting(null);
         GameMode.current.checkState();
@@ -281,7 +289,7 @@ public class CardResolveOperator : Activatable
     /// <returns>Carta de trigger generada</returns>
     public Card createTriggerCard(Card source, EffectChain triggered, Transform at){
         var prefab = GameController.singleton.creationManager.triggerPrefab;
-        var trigger = Instantiate(prefab, at.position, at.rotation);
+        var trigger = Instantiate(prefab, at.position - at.forward, at.rotation);
         var card = trigger.GetComponent<Card>();
         card.data = trigger; //Save trigger reference
         trigger.ApplyTrigger(source, triggered);
