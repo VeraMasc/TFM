@@ -10,24 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
-  m_Name: Madness
+  m_Name: SharedHysteria
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
-  cardName: Madness
-  cardText: 
+  cardName: Shared Hysteria
+  cardText: Whenever you discard one or more cards, enchanted entity discards a card
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
-  typeList: 
+  typeList: 0200000005000000
   cost:
     costText: 
     value: 0
     colors: 
   effects:
     baseEffect:
-      list: []
-    abilities:
-    - rid: 8129478057838772224
+      list:
+      - rid: 8129478007116791808
+      - rid: 3644647512751472640
+    abilities: []
     staticEffects:
       list: []
     context:
@@ -40,40 +41,26 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8129478057838772224
-      type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+    - rid: 3644647512751472640
+      type: {class: Attach, ns: Effect, asm: Assembly-CSharp}
       data:
-        source: {fileID: 0}
-        effects:
-        - rid: 8129478057838772225
-        - rid: 8129478057838772228
-        trigger: {fileID: 11400000, guid: 6c8110e8ffaf22341a790fb320905cc2, type: 2}
-    - rid: 8129478057838772225
+        targeter:
+          rid: 8129478007116791811
+    - rid: 8129478007116791808
       type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
       data:
         effects:
-        - rid: 8129478057838772226
-    - rid: 8129478057838772226
+        - rid: 8129478007116791809
+    - rid: 8129478007116791809
       type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
       data:
         targeter:
-          rid: 8129478057838772227
-    - rid: 8129478057838772227
+          rid: 8129478007116791810
+    - rid: 8129478007116791810
       type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}
       data:
         contextual: 4
-    - rid: 8129478057838772228
-      type: {class: DealDamage, ns: Effect, asm: Assembly-CSharp}
-      data:
-        targeter:
-          rid: 8129478057838772229
-        amount:
-          rid: 8129478057838772230
-    - rid: 8129478057838772229
+    - rid: 8129478007116791811
       type: {class: ReuseTargeter, ns: , asm: Assembly-CSharp}
       data:
         index: 0
-    - rid: 8129478057838772230
-      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
-      data:
-        value: 3

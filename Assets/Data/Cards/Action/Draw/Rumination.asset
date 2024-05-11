@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
-  m_Name: Looting
+  m_Name: Rumination
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
-  cardName: Test Looting
-  cardText: Test Looting
+  cardName: Rumination
+  cardText: 'Extra cost: Discard a card
+
+    Draw two cards.'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []

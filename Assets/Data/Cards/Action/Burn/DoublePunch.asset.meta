@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: cb3aabc59d7eb7b4cbbc1aa3a14fe236
+labels:
+- Burn
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000

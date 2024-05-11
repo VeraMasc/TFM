@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 0a1551408bdb0e6459b9201ebc22f7f4
+guid: 0e8f662c7b8f1d245bde9d5679d586a9
 labels:
-- Burn
+- CardDraw
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000

@@ -42,5 +42,7 @@ public enum ActionSubtypes{
     Spell,
     Melee,
     Hex,
-    Blessing
+    Blessing,
+    Enchantment,
+    Mental
 }
