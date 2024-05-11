@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 namespace CardHouse
 {
@@ -24,6 +25,10 @@ namespace CardHouse
             {
                 var seekerSet = seekerSets?.GetSeekerSetFor(cards[i]);
                 var heightOffset = MarginalCardOffset * i;
+                var activeProxy = cards[i]?.activeProxy;
+                if(activeProxy){
+                    activeProxy.forceSeeking();
+                }
 
                 cards[i].Homing.StartSeeking(transform.position + Vector3.back * MountedCardAltitude + heightOffset, seekerSet?.Homing );
                 if (Straighten)

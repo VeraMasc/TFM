@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Common.Coroutines;
 using CustomInspector;
 using UnityEngine;
@@ -68,6 +69,17 @@ namespace CardHouse
         public Action<Card, CardGroup> OnMount;
 
         bool IsFocused;
+
+        /// <summary>
+        /// Proxies de la carta en cuestión
+        /// </summary>
+        public List<CardProxy> proxies;
+
+        /// <summary>
+        /// Proxy that is currently active
+        /// </summary>
+        public CardProxy activeProxy => proxies?.Where(p =>p.isActiveProxy)
+                    ?.FirstOrDefault();
 
         public static Action<Card> OnCardFocused;
 

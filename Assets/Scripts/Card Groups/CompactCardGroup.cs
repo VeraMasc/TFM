@@ -20,7 +20,7 @@ public class CompactCardGroup : CardHouse.CardGroup
                 card.displayHiding(false);
             }
             else{
-                if(mountedPrev!=null){ //Is covering a previous card?
+                if(mountedPrev!=null && mountedPrev.activeProxy==null){ //Is covering a previous card?
                     mountedPrev.displayHiding(true);
                 }
                 mountedPrev=card; //Save as previous card

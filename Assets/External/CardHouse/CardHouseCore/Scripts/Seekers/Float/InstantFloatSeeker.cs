@@ -1,3 +1,4 @@
+using UnityEngine;
 namespace CardHouse
 {
     public class InstantFloatSeeker : Seeker<float>
