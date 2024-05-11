@@ -153,7 +153,7 @@ public class GameUI : MonoBehaviour
     /// <param name="returnAction"></param>
     /// <param name="autoAccept">Acepta el input automáticamente en cuanto introduces un valor válido</param>
     /// <returns></returns>
-    public IEnumerator getTargets(IEnumerable<ITargetable> targetables, Func<bool> validator,  Action<ITargetable[]> returnAction, bool autoAccept = false)
+    public IEnumerator getTargets(IEnumerable<ITargetable> targetables, Func<bool> validator,  Action<ITargetable[]> returnAction, bool autoAccept = false, InputParameters config=null)
     {
         clearInputs();
         possibleTargets = targetables;
@@ -175,7 +175,7 @@ public class GameUI : MonoBehaviour
             if(autoAccept){
                 //Espera al primer valor válido
                 instance.autoConfirm = true;
-                yield return UCoroutine.YieldAwait(validator);
+                yield return UCoroutine.YieldAwait(()=> validator() || (activeUserInput?.isCancelled?? false));
                 break;
             }
             else{
@@ -191,6 +191,11 @@ public class GameUI : MonoBehaviour
         //Devolver valor
         if(!activeUserInput.isCancelled && chosenTargets != null){
             returnAction(chosenTargets.ToArray());
+        }else{
+            //Cancelar
+            if(config?.context != null){
+                    config.context.mode = ExecutionMode.cancel;
+            }
         }
         clearInputs();
         viewFocusedTargeting(null);

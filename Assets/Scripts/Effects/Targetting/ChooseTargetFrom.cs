@@ -20,8 +20,11 @@ namespace Effect{
             var targets = targeter.getTargets(context);
             var pos = context.previousTargets.Count-1;
             if(pos>=0){
-                
+                var config = new InputParameters(){
+                    context=context
+                };
                 GameUI.singleton.possibleTargets= targets.ToArray();
+                //Get player inputs
                 yield return UCoroutine.Yield(GameUI.singleton.getTargets(targets, 
                 ()=>{
                     return GameUI.singleton.chosenTargets?.Count == 1;
@@ -29,7 +32,7 @@ namespace Effect{
                 (value)=>{
                     context.previousTargets[pos]= value;
                     context.previousChosenTargets.Add(value);
-                }, true));
+                }, true,config));
                 
             }
             

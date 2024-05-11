@@ -55,7 +55,10 @@ namespace Effect{
         /// </summary>
         public bool precalculated;
 
-
+        /// <summary>
+        /// Modo de ejecución
+        /// </summary>
+        public ExecutionMode mode;
 
         
         /// <summary>

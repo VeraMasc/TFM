@@ -21,11 +21,13 @@ namespace Effect{
         public BaseCondition condition;
         public override IEnumerator execute(CardResolveOperator stack, Context context)
         {
-            
             var targets = targeter.getTargets(context);
             var pos = context.previousTargets.Count-1;
             if(pos>=0){
-                
+                var config = new InputParameters(){
+                    context=context
+                };
+                //Get player input
                 GameUI.singleton.possibleTargets= targets.ToArray();
                 yield return UCoroutine.Yield(GameUI.singleton.getTargets(targets, 
                 ()=>{
@@ -35,7 +37,7 @@ namespace Effect{
                 (value)=>{
                     context.previousTargets[pos]= value;
                     context.previousChosenTargets.Add(value);
-                }));
+                },config:config));
                 
             }
             

@@ -42,3 +42,18 @@ public abstract class PlayerInputBase : MonoBehaviour
     
 
 }
+
+/// <summary>
+/// Gestiona los posibles parámetros que se pueden enviar a un input
+/// </summary>
+public class InputParameters
+{
+    /// <summary>
+    /// Testo a mostrar al jugador
+    /// </summary>
+    public string text;
+    /// <summary>
+    /// Contexto en el que se llama al input
+    /// </summary>
+    public Effect.Context context;
+}
