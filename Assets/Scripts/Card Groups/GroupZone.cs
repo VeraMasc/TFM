@@ -11,6 +11,8 @@ public class GroupZone : MonoBehaviour
 {
     public GroupName zone;
 
+    public Entity owner;
+
     /// <summary>
     /// Ejecuta los triggers de entrada de una zona en la carta especificada
     /// </summary>

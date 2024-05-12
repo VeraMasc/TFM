@@ -296,9 +296,10 @@ MonoBehaviour:
   OnPlay:
     m_PersistentCalls:
       m_Calls: []
+  proxies: []
   attachedGroup: {fileID: 0}
   actualCard: {fileID: 0}
-  isActiveProxy: 0
+  isActiveProxy: 1
 --- !u!114 &6535325827544121614
 MonoBehaviour:
   m_ObjectHideFlags: 0

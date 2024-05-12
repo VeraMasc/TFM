@@ -290,7 +290,7 @@ namespace CardHouse
         /// Evento de finalización del homing seeker 
         /// </summary>
         public void OnFinishHoming(){
-            if(Group?.Strategy?.compactDisplay == true && GameUI.focus != Group){
+            if(Group?.Strategy?.compactDisplay == true && GameUI.focus != Group && !activeProxy){
                 //Actualiza la visiblidad de las cartas al acabar de colocar una
                 Assert.IsTrue(Group is CompactCardGroup, "Compact display rquiere Compact Card Group");
                 (Group as CompactCardGroup).updateCardVisibility();

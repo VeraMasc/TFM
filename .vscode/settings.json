@@ -73,6 +73,5 @@
     "peacock.color": "#f9e64f",
     "dotnet.preferCSharpExtension": true,
     "dotnet.defaultSolution": "TFM.sln",
-    "csharp.maxProjectFileCountForDiagnosticAnalysis": 25,
     "dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "openFiles"
 }

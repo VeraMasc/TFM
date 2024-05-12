@@ -1057,6 +1057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zone: 5
+  owner: {fileID: 0}
 --- !u!114 &2014230508
 MonoBehaviour:
   m_ObjectHideFlags: 0

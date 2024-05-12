@@ -28,6 +28,7 @@ namespace CardHouse
                 var activeProxy = cards[i]?.activeProxy;
                 if(activeProxy){
                     activeProxy.forceSeeking();
+                    continue;
                 }
 
                 cards[i].Homing.StartSeeking(transform.position + Vector3.back * MountedCardAltitude + heightOffset, seekerSet?.Homing );

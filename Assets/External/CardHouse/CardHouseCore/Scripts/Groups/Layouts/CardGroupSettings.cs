@@ -44,6 +44,8 @@ namespace CardHouse
             for (var i = 0; i < cards.Count; i++)
             {
                 var card = cards[i];
+                var activeProxy = cards[i]?.activeProxy;
+
                 if (ForcedFacing != CardFacing.None)
                 {
                     var flipSpeed = 1f;
@@ -53,12 +55,12 @@ namespace CardHouse
                     }
                     cards[i].SetFacing(ForcedFacing, immediate: instaFlip, spd: flipSpeed);
                 }
-                if (ForcedInteractability != GroupInteractability.None)
+                if (ForcedInteractability != GroupInteractability.None || activeProxy)
                 {
                     var col = card.GetComponent<Collider2D>();
                     if (col)
                     {
-                        col.enabled = ForcedInteractability == GroupInteractability.Active
+                        col.enabled = (activeProxy != null) || ForcedInteractability == GroupInteractability.Active
                                       || ForcedInteractability == GroupInteractability.OnlyTopActive && i == cards.Count - 1;
                     }
 
@@ -83,10 +85,13 @@ namespace CardHouse
         /// Actualiza la colocación de las cartas montadas para debugging.
         /// </summary>
         protected virtual void refreshMountedCards(){
-            if(!Application.isPlaying)
+            if(!Application.isPlaying){
+                Debug.LogError("Execute only when game is playing");
                 return;
+            }
+                
             var group= GetComponent<CardGroup>();
-            group?.ApplyStrategy();
+            group.ApplyStrategy();
         }
     }
 }

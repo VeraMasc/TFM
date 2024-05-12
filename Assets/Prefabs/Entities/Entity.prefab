@@ -75,6 +75,7 @@ MonoBehaviour:
     decklist: {fileID: 11400000, guid: 12b88745db0c7934d9776cf0ef24d635, type: 2}
     abilities: []
   _targeterTransform: {fileID: 8874131370722691191}
+  _outlineRenderer: {fileID: 0}
   healthDisplay: {fileID: 2783436868272723967}
 --- !u!114 &4144307295828993303
 MonoBehaviour:
@@ -525,6 +526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zone: 2
+  owner: {fileID: 4702649497764106639}
 --- !u!1001 &700588598850528534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -782,6 +784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zone: 1
+  owner: {fileID: 4702649497764106639}
 --- !u!1 &8226670384602023833 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7272184986376822153, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
@@ -971,6 +974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zone: 7
+  owner: {fileID: 4702649497764106639}
 --- !u!1 &4673116314347862499 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7272184986376822153, guid: 0ba2a742026126f498ca76981686a7ad, type: 3}
@@ -1782,6 +1786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zone: 3
+  owner: {fileID: 4702649497764106639}
 --- !u!114 &5007226722705940203 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2475471035369827811, guid: 2826c0dd0131e1d49a4dec592d16dc7e, type: 3}
@@ -2100,6 +2105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zone: 5
+  owner: {fileID: 4702649497764106639}
 --- !u!1001 &8979412163958560945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2214,6 +2220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zone: 4
+  owner: {fileID: 4702649497764106639}
 --- !u!4 &6283558071726778807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3147709442397729030, guid: 6b8900182d9eb2e468a4233a8e7dab40, type: 3}

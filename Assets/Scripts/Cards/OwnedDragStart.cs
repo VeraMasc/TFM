@@ -14,17 +14,23 @@ namespace CardHouse
     public class OwnedDragStart : Gate<NoParams>
     {
         Card MyCard;
+        CardOwnership ownership;
         DragOperator MyDraggable;
 
         void Awake()
         {
             MyCard = GetComponent<Card>();
             MyDraggable = GetComponent<DragOperator>();
+            ownership = GetComponent<CardOwnership>();
         }
 
         protected override bool IsUnlockedInternal(NoParams gateParams)
         {
-            var owner = MyCard?.Group?.GetComponent<GroupOwner>()?.owner;
+            ownership ??= GetComponent<CardOwnership>();
+            if(ownership){
+                return ownership.owner.team == EntityTeam.player;
+            }
+            var owner = MyCard?.Group?.GetComponent<GroupZone>()?.owner;
             return owner != null && owner?.team == EntityTeam.player;
         }
     }
