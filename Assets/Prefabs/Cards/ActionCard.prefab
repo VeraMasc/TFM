@@ -570,6 +570,9 @@ MonoBehaviour:
   visualElements:
   - {fileID: 6462243021699527151}
   - {fileID: 6462243021217859701}
+  - {fileID: 7830487393114019728}
+  - {fileID: 7555831563581082531}
+  - {fileID: 713805214403847438}
   homing: {fileID: 7792711141432044011}
   scaling: {fileID: 902705501117539568}
   turning: {fileID: 8922238288351519658}
@@ -1397,6 +1400,7 @@ MonoBehaviour:
   OnPlay:
     m_PersistentCalls:
       m_Calls: []
+  proxies: []
   attachedGroup: {fileID: 0}
 --- !u!114 &1250395176001841023
 MonoBehaviour:
@@ -1582,6 +1586,7 @@ MonoBehaviour:
       controller: {fileID: 0}
       resolutionPile: {fileID: 0}
       precalculated: 0
+      mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
   references:

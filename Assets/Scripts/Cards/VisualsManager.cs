@@ -37,4 +37,24 @@ public class VisualsManager : MonoBehaviour
     public void toggleVisuals(){
         hideVisuals(!isHidden);
     }
+
+    public void cloneFace(Transform newParent){
+
+        //Copy face
+        var front = transform.Find("Front");
+        if(!front)
+            return;
+        var newFront = Instantiate(front,newParent);
+        newFront.localScale = new Vector3(1,0.8f,1);
+        newFront.gameObject.SetActiveRecursively(true);
+
+
+        //Copy outline
+        var outline = transform.Find("Outline");
+        if(!outline)
+            return;
+        var newOutline = Instantiate(outline,newParent);
+        newOutline.localScale = new Vector3(1,0.8f,1);
+
+    }
 }
