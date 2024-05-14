@@ -9,12 +9,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "TFM/UIPrefabs")]
 public class UIPrefabs : ScriptableObject
 {
-    /// <summary>
-    /// Prefab de la barra de scroll
-    /// </summary>
-    public GameObject scrollbar;
-
-    public GameObject clickBlocker;
+    
 
     [HorizontalLine(3,message = "User Inputs")]
     public NumericInput numericInput;
@@ -22,6 +17,18 @@ public class UIPrefabs : ScriptableObject
     public YesNoInput yesNoInput;
 
     public YesNoInput confirmationInput;
+
+    public CardSelectInput cardSelectInput;
+
+    [HorizontalLine(3,message = "Components")]
+    /// <summary>
+    /// Prefab de la barra de scroll
+    /// </summary>
+    public GameObject scrollbar;
+
+    public GameObject clickBlocker;
+
+    public CardSelectOption cardSelectOption;
 
     [HorizontalLine(3,message = "Indicators")]
     public SpriteRenderer targettingIndicator;
