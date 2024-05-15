@@ -34,7 +34,17 @@ namespace Effect{
                 yield return UCoroutine.Yield(effect.execute(stack,context));
             }
         }
+        public static IEnumerator precalculateEffects(IEnumerable<EffectScript> effects, Context context){
+        var stack = CardResolveOperator.singleton;
+        foreach(var effect in effects){
+            if(effect is IPrecalculable pre){
+                yield return UCoroutine.Yield(pre.precalculate(stack, context));
+            }
+            else break;
+        }
     }
+    }
+    
     
 
     /// <summary>

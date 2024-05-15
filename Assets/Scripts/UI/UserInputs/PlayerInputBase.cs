@@ -39,7 +39,9 @@ public abstract class PlayerInputBase : MonoBehaviour
         isFinished=true;
     }
 
-    
+    public virtual void setInputConfig(InputParameters parameters){
+
+    }
 
 }
 
@@ -56,4 +58,13 @@ public class InputParameters
     /// Contexto en el que se llama al input
     /// </summary>
     public Effect.Context context;
+
+    /// <summary>
+    /// Lista de valores que ha de usar el input
+    /// </summary>
+    public object[] values;
+    /// <summary>
+    /// Objeto con otros valores de configuración
+    /// </summary>
+    public object extraConfig;
 }

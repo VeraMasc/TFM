@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Modal
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
-  cardName: 
-  cardText: 
+  cardName: Modal
+  cardText: "Choose one:\n<link=\"a\">\u2022 Mode 1</link>\n<link=\"b\">\u2022 Mode
+    2</link>"
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
+  typeList: 
   cost:
     costText: 
     value: 0
@@ -33,6 +35,10 @@ MonoBehaviour:
       owner: {fileID: 0}
       controller: {fileID: 0}
       resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
   references:
     version: 2
     RefIds:
@@ -40,10 +46,10 @@ MonoBehaviour:
       type: {class: ModalEffect, ns: Effect, asm: Assembly-CSharp}
       data:
         modes:
-        - text: Mode 1
+        - id: a
           effects:
           - rid: 3644647386710540292
-        - text: Mode 2
+        - id: b
           effects:
           - rid: 3644647386710540290
     - rid: 3644647386710540290

@@ -1,8 +1,10 @@
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using CardHouse;
 using UnityEngine;
 using System.Globalization;
+using TMPro;
 
 
 /// <summary>
@@ -13,6 +15,7 @@ public class CardSelectOption : MonoBehaviour
 
     public CardSelectInput parent;
     public Card actualCard;
+    public TextMeshPro textBox;
     public int index=-1;
     public bool selected;
     public SpriteRenderer outline;
@@ -28,9 +31,38 @@ public class CardSelectOption : MonoBehaviour
         
     }
 
+
     public void setSourceCard(Card card){
         actualCard=card;
         useCardVisuals(card);
+    }
+
+    /// <summary>
+    /// Configura una opción modal
+    /// </summary>
+    /// <param name="mode"></param>
+    public void setMode(ModalOptionSettings mode){
+        var info = textBox?.textInfo;
+        
+        if(info==null)
+            return;
+        if(mode.tag !=""){
+            var chosenLink = info.linkInfo
+                .Where( link => link.GetLinkID() == mode.tag)
+                .FirstOrDefault();
+            if(chosenLink.textComponent != null){
+                var text = chosenLink.GetLinkText();
+                textBox.text=text;
+            }
+            else{
+                Debug.LogError($"Could not find link tag with id={mode.tag}");
+                textBox.text=$"<i>Could not find link tag with id={mode.tag}</i>";
+            }
+                
+            
+        }
+
+        
     }
 
     public void OnMouseDown()
@@ -41,6 +73,8 @@ public class CardSelectOption : MonoBehaviour
         }
         else{
             parent.chosen.Add(index);
+            if(parent.maxChoices==1)
+                parent.confirmChoice();
         }
         selected = !selected;
         refreshOutlineColor(true);
@@ -73,8 +107,12 @@ public class CardSelectOption : MonoBehaviour
             outline.color = new Color(1,1,1,0);
         }
         
+        textBox = transform.Find("Front(Clone)/CardText")?.GetComponent<TextMeshPro>();
+        textBox?.ForceMeshUpdate(forceTextReparsing:true);
     }
+
 }
+
 
 
 

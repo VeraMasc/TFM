@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Hex
-  cardText: Hex test
+  cardText: 'Hex test
+
+    <link="test">Test Modal Text</link>'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -36,6 +38,7 @@ MonoBehaviour:
       controller: {fileID: 0}
       resolutionPile: {fileID: 0}
       precalculated: 0
+      mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
   references:

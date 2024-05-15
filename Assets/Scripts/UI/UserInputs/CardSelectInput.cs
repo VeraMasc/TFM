@@ -38,6 +38,24 @@ public class CardSelectInput : PlayerInputBase
         
     }
 
+    public override void setInputConfig(InputParameters parameters){
+        //Generate cards
+        if(parameters?.values is ModalOptionSettings[] modals){
+            addModalOptions((Card)parameters.context.self, modals);
+        }else if (parameters?.values is Card[] cards){
+            addCardOptions(cards);
+        }
+
+        //Set other config
+        if(parameters.extraConfig is ExtraInputOptions extra){
+            maxChoices = extra.maxChoices;
+        }
+    }
+
+    public override void confirmChoice(){
+        inputValue = chosen;
+        isFinished=true;
+    }
     /// <summary>
     /// Añade una lista de cartas como opciones
     /// </summary>
@@ -57,8 +75,17 @@ public class CardSelectInput : PlayerInputBase
     /// <summary>
     /// Añade una lista de cartas como opciones
     /// </summary>
-    public void addModalOptions(Card basecard){
-
+    public void addModalOptions(Card basecard, IEnumerable<ModalOptionSettings> modes){
+        var prefab = GameUI.singleton.prefabs.cardSelectOption;
+        var index = 0;
+        foreach(var mode in modes){
+            var instance = Instantiate(prefab, displayRoot);
+            instance.parent = this;
+            instance.index = index;
+            instance.setSourceCard(basecard);
+            instance.setMode(mode);
+            index++;
+        }
     }
 
     [NaughtyAttributes.Button]
@@ -68,4 +95,14 @@ public class CardSelectInput : PlayerInputBase
 
         addCardOptions(cards);
     }
+    public class ExtraInputOptions{
+        public int maxChoices;
+    }
+}
+/// <summary>
+/// Permite configurar las opciones modales
+/// </summary>
+public class ModalOptionSettings{
+    public string tag;
+    public string text;
 }

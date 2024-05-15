@@ -130,14 +130,17 @@ public class GameUI : MonoBehaviour
     /// Genera la interfaz del input y espera a que devuelva un valor
     /// </summary>
     /// <returns></returns>
-    public IEnumerator getInput(PlayerInputBase input, Action<object> returnAction){
+    public IEnumerator getInput(PlayerInputBase input, Action<object> returnAction, InputParameters config=null){
         clearInputs();
         //Crea un bloqueador para inpedir que los inputs traspasen
         Instantiate(prefabs.clickBlocker,userInputRoot);
         
         //Crea la interfaz de input (HA DE IR DESPUÉS DEL BLOQUEADOR)
         var instance = Instantiate(input,userInputRoot);
+        if(config!=null)
+            instance.setInputConfig(config);
         activeUserInput = instance;
+        //Esperar
         yield return activeUserInput.waitTillFinished;
         if(!activeUserInput.isCancelled){
             returnAction.Invoke(instance.inputValue);

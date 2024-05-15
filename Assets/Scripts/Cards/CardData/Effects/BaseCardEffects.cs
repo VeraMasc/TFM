@@ -50,7 +50,6 @@ public class BaseCardEffects{
             Debug.LogError("Can't subscribe triggered abilities without a context");
             return;
         }
-        Debug.Log("Refresh abilities", (UnityEngine.Object)context.self);
         //TODO: add disabling of triggers based on zone
         foreach(var ability in abilities.OfType<TriggeredAbility>()){
             if(ability is TriggeredAbility triggered)
