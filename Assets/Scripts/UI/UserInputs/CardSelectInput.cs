@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CardHouse;
 using UnityEngine;
 using System.Linq;
+using Effect;
 
 /// <summary>
 /// Gestiona los selectores de cartas o de opciones modales
@@ -105,4 +106,5 @@ public class CardSelectInput : PlayerInputBase
 public class ModalOptionSettings{
     public string tag;
     public string text;
+    public Ability ability;
 }

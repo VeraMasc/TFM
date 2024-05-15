@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using CardHouse;
 using Common.Coroutines;
 using Effect;
 using Effect.Status;
@@ -58,6 +59,39 @@ namespace Effect
                     }
                 }
                 index++;
+            }
+            
+        }
+
+
+        public static IEnumerator castModal(Card card, IEnumerable<ModalOptionSettings> modes){
+            var modeSettings = modes.ToArray();
+            List<int> ret = null;
+            if(card?.data is MyCardSetup setup){
+                //Generar diálogo modal
+                yield return UCoroutine.Yield(GameUI.singleton.getInput(GameUI.singleton.prefabs.cardSelectInput, 
+                obj => {
+                    ret = (List<int>)obj;
+                },
+                new InputParameters{ values= (object[])modeSettings, 
+                    context= new Context(setup?.effects?.context)
+                }));
+
+                //Usar resultado
+                if(ret.Count >0){
+                    var index = ret.First();
+                    Debug.Log($"Cast modal index: {index}");
+                    var settings = modeSettings[index];
+
+                    if(settings.tag == string.Empty && settings.ability == null){//Default cast
+                        yield return UCoroutine.Yield(CardResolveOperator.singleton.castCard(card));
+                    }
+                    else if (settings.ability is ActivatedAbility activated){
+                        var ownership = card.GetComponent<CardOwnership>();
+                        var activator = ownership?.controller ?? card.Group?.GetComponent<GroupZone>()?.owner;
+                        yield return UCoroutine.Yield(activated.activateAbility(activator));
+                    }
+                }
             }
             
         }

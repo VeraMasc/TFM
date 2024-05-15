@@ -51,17 +51,16 @@ public class BaseCardEffects{
             return;
         }
         //TODO: add disabling of triggers based on zone
-        foreach(var ability in abilities.OfType<TriggeredAbility>()){
+        foreach(var ability in abilities){
+            //Initialize if needed
+            ability.source ??= (CardHouse.Card)(context?.self);
             if(ability is TriggeredAbility triggered)
             {
-                
-                //Initialize if needed
-                ability.source ??= (CardHouse.Card)(context?.self);
-                ability.listener ??= (val) => ability.executeAbility(context,val);
-                    
-                ability.trigger.subscribe(ability.source, ability.listener);
-                
+                //Initialize trigger if needed
+                triggered.listener ??= (val) => triggered.executeAbility(context,val);
             }
+
+            ability.onChangeZone(zone);
             
             
         }

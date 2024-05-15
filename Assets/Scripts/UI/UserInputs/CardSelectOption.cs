@@ -46,7 +46,8 @@ public class CardSelectOption : MonoBehaviour
         
         if(info==null)
             return;
-        if(mode.tag !=""){
+        Debug.Log(mode.tag);
+        if(mode.tag !=string.Empty){
             var chosenLink = info.linkInfo
                 .Where( link => link.GetLinkID() == mode.tag)
                 .FirstOrDefault();
@@ -59,7 +60,6 @@ public class CardSelectOption : MonoBehaviour
                 textBox.text=$"<i>Could not find link tag with id={mode.tag}</i>";
             }
                 
-            
         }
 
         

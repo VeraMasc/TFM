@@ -14,6 +14,8 @@ namespace Effect{
     [Serializable]
     public abstract class Ability
     {
+
+        public string id;
         /// <summary>
         /// Carta que contiene la habilidad
         /// </summary>
@@ -34,6 +36,9 @@ namespace Effect{
                 var routine =CardResolveOperator.singleton.triggerEffect(card,EffectChain.cloneFrom(effects));
                 yield return UCoroutine.Yield(routine);
             }
+            else{
+                Debug.LogError("Can't generate trigger from non-card");
+            }
 
         }
 
@@ -49,6 +54,13 @@ namespace Effect{
         /// </summary>
         public virtual IEnumerable<GroupName> activeZones{
             get=> new GroupName[]{GroupName.Board};
+        }
+
+        /// <summary>
+        /// Indica si la habilidad funciona en una zona concreta
+        /// </summary>
+        public virtual bool isActiveIn(GroupName zone){
+            return activeZones.Contains(zone);
         }
     }
 
@@ -84,7 +96,7 @@ namespace Effect{
         /// Activa o desactiva el trigger de la habilidad al cambiar de zona según corresponda
         /// </summary>
         public override void onChangeZone(GroupName zone){
-            if(activeZones.Contains(zone)){
+            if(isActiveIn(zone)){
                 trigger.subscribe(source, listener);
             }
             else{
@@ -126,10 +138,11 @@ namespace Effect{
             //TODO: abilities with owner different than controller
             var context = new Context(source, activator);
 
-            if(!cost.canBePaid(context))
+            if(cost?.canBePaid(context) == false)
                 yield break;
             
-            cost.payCost(context);
+            if(cost!= null)
+                yield return UCoroutine.Yield(cost.payCost(context));
             
             yield return UCoroutine.Yield(executeAbility(context));
         }

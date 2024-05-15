@@ -30,7 +30,8 @@ MonoBehaviour:
       list:
       - rid: 8129478007116791808
       - rid: 3644647512751472640
-    abilities: []
+    abilities:
+    - rid: 8129478161961320448
     staticEffects:
       list: []
     context:
@@ -44,6 +45,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 3644647512751472640
       type: {class: Attach, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -67,3 +70,12 @@ MonoBehaviour:
       type: {class: ReuseTargeter, ns: , asm: Assembly-CSharp}
       data:
         index: 0
+    - rid: 8129478161961320448
+      type: {class: ActivatedZoneAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: test
+        source: {fileID: 0}
+        effects: []
+        cost:
+          rid: -2
+        activeZoneList: 04000000
