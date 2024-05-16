@@ -67,6 +67,7 @@ public class CombatController : GameMode
 				entities.Select(entity => entity.draw(4))
 			.ToArray());
 		generateTurnOrder();
+		StartCoroutine(setupPhase());
         yield break;
     }
 
@@ -92,8 +93,19 @@ public class CombatController : GameMode
         }
     }
 	public override void nextPhase(){
-        currentPhase = (CombatPhases)(((int)currentPhase+1) % (int)CombatPhases.cleanup); 
+        currentPhase = (CombatPhases)(((int)currentPhase+1) % (int)CombatPhases.cleanup);
+		if(currentPhase == CombatPhases.setup){
+			nextTurn();
+			StartCoroutine(setupPhase());
+		}
     }
+
+	public void nextTurn(){
+		turnOrder.RemoveAt(turnOrder.Count -1);
+		if(!turnOrder.Any()){
+			generateTurnOrder();
+		}
+	}
 
 	/// <summary>
 	/// La entidad actual usa su redraw gratuito
@@ -106,6 +118,16 @@ public class CombatController : GameMode
 		StartCoroutine(Effect.ReDraw.basicRedraw(1,entity));
 	}
 	
+	/// <summary>
+	/// Se encarga de ejecutar todas las partes del inicio de un turno
+	/// </summary>
+	/// <returns></returns>
+	public IEnumerator setupPhase(){
+		var z = transform.position.z;
+		transform.position = (Vector2) currentTurn.targeterTransform.transform.position;
+		transform.position += Vector3.forward * z;
+		yield break;
+	}
 }
 
 
