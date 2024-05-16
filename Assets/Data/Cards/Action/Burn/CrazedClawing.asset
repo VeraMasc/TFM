@@ -18,6 +18,7 @@ MonoBehaviour:
   Art: {fileID: 2849627945461822617, guid: c098e1a924a8fc14c890d4c2462c1374, type: 3}
   Frame: {fileID: 0}
   help: []
+  speedType: 1
   typeList: 
   cost:
     costText: 
@@ -35,6 +36,7 @@ MonoBehaviour:
       controller: {fileID: 0}
       resolutionPile: {fileID: 0}
       precalculated: 0
+      mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
   references:
@@ -43,6 +45,7 @@ MonoBehaviour:
     - rid: 8129478057838772224
       type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
       data:
+        id: 
         source: {fileID: 0}
         effects:
         - rid: 8129478057838772225

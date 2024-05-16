@@ -5,6 +5,7 @@ using NaughtyAttributes;
 using System.Collections.Generic;
 using CustomInspector;
 using Button = NaughtyAttributes.ButtonAttribute;
+using HorizontalLineAttribute = CustomInspector.HorizontalLineAttribute;
 
 
 /// <summary>
@@ -13,8 +14,13 @@ using Button = NaughtyAttributes.ButtonAttribute;
 public class ActionCard : MyCardSetup, IActionable
 {
 
-    
-    
+    [HorizontalLine(3, message ="Speed")]
+    public SpeedTypes speedType;
+
+    /// <summary>
+    /// Objeto que muestra la velocidad de la carta
+    /// </summary>
+    public GameObject speedLabel;
 
     /// <summary>
     /// Aplica la configuración de la carta
@@ -24,6 +30,12 @@ public class ActionCard : MyCardSetup, IActionable
         base.Apply(data);
         if (data is ActionCardDefinition action)
         {
+            //Speed
+            speedType = action.speedType;
+            GameController.singleton.creationManager
+                .replaceCardTypeline(GetComponent<Card>());
+            
+            //Effects
             effects = action.effects;
             effects = action.effects.cloneAll();
             effects.setContext(GetComponent<Card>());

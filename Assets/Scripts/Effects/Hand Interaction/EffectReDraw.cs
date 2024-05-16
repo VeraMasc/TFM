@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using CardHouse;
 using Common.Coroutines;
 using UnityEngine;
@@ -22,7 +23,7 @@ namespace Effect
 
         public override IEnumerator executeForeach(ITargetable target,CardResolveOperator stack, Context context)
         {
-            if(target is Entity entity){
+            if(target is Entity entity){ //Redraw para entidades
                 if(cards.getValueObj(context) is IEnumerable<ITargetable> collection){
                     yield return UCoroutine.Yield(entity.reDraw(collection.OfType<Card>().ToArray()));
                 }
@@ -30,6 +31,12 @@ namespace Effect
                     Debug.Log(cards.getValueObj(context) );
                 }
                 
+                
+            }if(target is Card card){ //Redraw para cartas individuales
+                var zone = card.Group.GetComponent<GroupZone>();
+                if(zone.zone == GroupName.Hand){
+                    yield return UCoroutine.Yield(zone.owner.reDraw(new Card[]{card}));
+                }
                 
             }else{
                 Debug.LogError($"Target of {this.GetType().Name} is \"{target.GetType().Name}\" not an entity", (UnityEngine.Object)context.self);

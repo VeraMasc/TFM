@@ -26,7 +26,10 @@ public class VisualsManager : MonoBehaviour
     public void hideVisuals(bool hide){
         if(isHidden != hide){
             foreach(var element in visualElements){
-                element.SetActive(!hide);
+                foreach (Transform child in element.transform)
+                {
+                    child.gameObject.SetActive(!hide);
+                }
             }
         isHidden = hide;
         }

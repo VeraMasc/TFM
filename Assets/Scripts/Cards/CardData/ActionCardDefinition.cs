@@ -13,7 +13,10 @@ using System.Collections.Generic;
 [CreateAssetMenu(menuName = "Cards/Card Definition/Action")]
 public class ActionCardDefinition : MyCardDefinition
 {
-
+    /// <summary>
+    /// Velocidad de uso de la carta
+    /// </summary>
+    public SpeedTypes speedType;
     [SerializeField]
     List<ActionSubtypes> typeList;
 
@@ -36,6 +39,12 @@ public class ActionCardDefinition : MyCardDefinition
     {
         return string.Join(", ",typeList);
     }
+}
+
+public enum SpeedTypes{
+    Action,
+    Reaction,
+    Ritual
 }
 
 public enum ActionSubtypes{

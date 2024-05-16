@@ -75,7 +75,19 @@ MonoBehaviour:
       data:
         id: test
         source: {fileID: 0}
-        effects: []
+        effects:
+        - rid: 8129478187144708096
         cost:
           rid: -2
         activeZoneList: 04000000
+    - rid: 8129478187144708096
+      type: {class: ReDraw, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478187144708097
+        cards:
+          rid: -2
+    - rid: 8129478187144708097
+      type: {class: ContextualObjectTargeter, ns: , asm: Assembly-CSharp}
+      data:
+        contextual: 0

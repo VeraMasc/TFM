@@ -25,6 +25,12 @@ public class CardCreationManager : ScriptableObject
     [AssetsOnly]
     public TriggerCard triggerPrefab;
 
+    [HorizontalLine(3, message ="Card Types")]
+
+    public GameObject actionTypeline;
+    public GameObject reactionTypeline;
+    public GameObject triggerTypeline;
+
     [HorizontalLine(3, message ="Other Prefabs")]
 
     [AssetsOnly]
@@ -68,6 +74,34 @@ public class CardCreationManager : ScriptableObject
             return newCard; 
         }
         return null;
+    }
+
+    /// <summary>
+    /// Busca el typeline de una carta y lo remplaza por el que corrsponda
+    /// </summary>
+    /// <param name="card"></param>
+    public void replaceCardTypeline(Card card){
+        if(card.data is ActionCard action){
+            if (action.speedType == SpeedTypes.Reaction){
+                action.speedLabel = replaceTypeline(action.speedLabel, reactionTypeline);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Reemplaza el typeline po otro y devuelve la instancia
+    /// </summary>
+    /// <param name="typeline"></param>
+    /// <param name="replacement"></param>
+    /// <returns></returns>
+    public GameObject replaceTypeline(GameObject typeline, GameObject replacement){
+        var newTypeline = Instantiate(replacement,typeline.transform.parent);
+        //Mantener nombre y posición
+        newTypeline.name = typeline.name;
+        var index =typeline.transform.GetSiblingIndex();
+        newTypeline.transform.SetSiblingIndex(index);
+        Destroy(typeline);
+        return newTypeline;
     }
 
     /// <summary>

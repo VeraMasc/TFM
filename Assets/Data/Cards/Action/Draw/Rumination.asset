@@ -20,7 +20,8 @@ MonoBehaviour:
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
-  typeList: 
+  speedType: 0
+  typeList: 00000000
   cost:
     costText: 
     value: 0
@@ -39,6 +40,7 @@ MonoBehaviour:
       controller: {fileID: 0}
       resolutionPile: {fileID: 0}
       precalculated: 0
+      mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
   references:
