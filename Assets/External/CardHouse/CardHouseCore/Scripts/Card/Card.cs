@@ -244,7 +244,9 @@ namespace CardHouse
                     break;
                 }
             }
-
+            //Eliminar outline al mover la carta
+            outlineRenderer?.gameObject?.SetActive(false);
+            
             if(this.data is MyCardSetup setup){
                 var zone = group?.GetComponent<GroupZone>();
                 CardResolveOperator.singleton.stackUI.refresh();

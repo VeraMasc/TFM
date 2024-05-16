@@ -21,7 +21,7 @@ MonoBehaviour:
   Frame: {fileID: 0}
   help: []
   speedType: 0
-  typeList: 00000000
+  typeList: 05000000
   cost:
     costText: 
     value: 0

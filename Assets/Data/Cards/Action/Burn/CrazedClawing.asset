@@ -15,11 +15,11 @@ MonoBehaviour:
   BackArt: {fileID: 0}
   cardName: Crazed Clawing
   cardText: Whenever this card becomes spent, deal 2 damage to target entity
-  Art: {fileID: 2849627945461822617, guid: c098e1a924a8fc14c890d4c2462c1374, type: 3}
+  Art: {fileID: 7661334728954290958, guid: c098e1a924a8fc14c890d4c2462c1374, type: 3}
   Frame: {fileID: 0}
   help: []
   speedType: 1
-  typeList: 
+  typeList: 01000000
   cost:
     costText: 
     value: 0

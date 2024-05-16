@@ -76,12 +76,16 @@ namespace Effect
                 new InputParameters{ values= (object[])modeSettings, 
                     context= new Context(setup?.effects?.context)
                 }));
+                
+                //Quitar outline al acabar
+                card.outlineRenderer?.gameObject?.SetActive(false);
 
                 //Usar resultado
                 if(ret.Count >0){
                     var index = ret.First();
                     Debug.Log($"Cast modal index: {index}");
                     var settings = modeSettings[index];
+                    
 
                     if(settings.tag == string.Empty && settings.ability == null){//Default cast
                         yield return UCoroutine.Yield(CardResolveOperator.singleton.castCard(card));

@@ -5,6 +5,7 @@ using CardHouse;
 using UnityEngine;
 using System.Globalization;
 using TMPro;
+using Effect;
 
 
 /// <summary>
@@ -46,7 +47,8 @@ public class CardSelectOption : MonoBehaviour
         
         if(info==null)
             return;
-        Debug.Log(mode.tag);
+        
+        //Mostrar solo el texto del modo
         if(mode.tag !=string.Empty){
             var chosenLink = info.linkInfo
                 .Where( link => link.GetLinkID() == mode.tag)
@@ -62,6 +64,12 @@ public class CardSelectOption : MonoBehaviour
                 
         }
 
+        //Marcar como trigger si no es cast ability
+        if(mode.ability is ActivatedAbility activated && !(activated is CastAbility)){
+            var speedType = transform.Find("Front(Clone)/CardType");
+            var creator = GameController.singleton?.creationManager;
+            creator?.replaceTypeline(speedType.gameObject, creator?.triggerTypeline);
+        }
         
     }
 
@@ -109,6 +117,8 @@ public class CardSelectOption : MonoBehaviour
         
         textBox = transform.Find("Front(Clone)/CardText")?.GetComponent<TextMeshPro>();
         textBox?.ForceMeshUpdate(forceTextReparsing:true);
+
+        
     }
 
 }
