@@ -256,10 +256,12 @@ namespace CardHouse
                         .Then(CardResolveOperator.singleton.precalculateCard(this));
                 }
                 
-                afterAnimation = afterAnimation.Then(()=>{
+                afterAnimation = afterAnimation
+                .Then(zone.callEnterTrigger(this)) //Call before refreshing subscriptions
+                .Then(()=>{
                     //Update ability subscriptions
                     setup.effects.refreshAbilitySuscriptions(zone.zone);
-                }).Then(zone.callEnterTrigger(this));
+                });
                 
                 afterAnimation.Start(this);
             }

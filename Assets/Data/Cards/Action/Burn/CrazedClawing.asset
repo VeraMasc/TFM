@@ -51,6 +51,7 @@ MonoBehaviour:
         - rid: 8129478057838772225
         - rid: 8129478057838772228
         trigger: {fileID: 11400000, guid: 6c8110e8ffaf22341a790fb320905cc2, type: 2}
+        activeZoneList: 04000000
     - rid: 8129478057838772225
       type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
       data:

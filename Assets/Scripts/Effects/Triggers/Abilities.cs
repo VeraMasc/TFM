@@ -79,6 +79,14 @@ namespace Effect{
         /// </summary>
         public Func<object,IEnumerator> listener;
 
+         /// <summary>
+        /// Lista de zonas en las que está disponible
+        /// </summary>
+        public List<GroupName> activeZoneList = new List<GroupName>(){GroupName.Board};
+        public override IEnumerable<GroupName> activeZones{
+            get=> activeZoneList;
+        }
+
         /// <summary>
         /// Ejecuta la habilidad con un parámetro inicial
         /// </summary>

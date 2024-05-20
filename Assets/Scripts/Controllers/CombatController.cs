@@ -135,7 +135,7 @@ public class CombatController : GameMode
 
 		}
 		else if(currentPhase == CombatPhases.cleanup){
-
+			phaseCoroutine =StartCoroutine(cleanupPhase());
 		}
 	}
 	public void nextTurn(){
@@ -174,6 +174,16 @@ public class CombatController : GameMode
 
 		//End coroutine
 		phaseCoroutine = null;
+		nextPhase();
+	}
+
+
+	/// <summary>
+	/// Se encarga de ejecutar todas las partes del final de un turno
+	/// </summary>
+	/// <returns></returns>
+	public IEnumerator cleanupPhase(){
+		yield return StartCoroutine(currentTurn.enforceHandSize());
 		nextPhase();
 	}
 

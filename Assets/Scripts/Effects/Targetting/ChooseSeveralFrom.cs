@@ -5,6 +5,7 @@ using Effect.Value;
 using System.Collections;
 using System.Linq;
 using Common.Coroutines;
+using System.Collections.Generic;
 
 namespace Effect{
     /// <summary>
@@ -43,6 +44,20 @@ namespace Effect{
             
             
             yield break;
+        }
+
+        public static IEnumerator validatedChoice(IEnumerable<ITargetable> targets, Func<List<ITargetable>,bool> validator, Action<ITargetable[]> returnAction= null)
+        {
+            
+            yield return UCoroutine.Yield(GameUI.singleton.getTargets(targets, 
+                ()=> validator(GameUI.singleton.chosenTargets),
+                returnAction,config:new InputParameters()));
+        }
+
+        public static IEnumerator amountChoice(IEnumerable<ITargetable> targets, int amount, Action<ITargetable[]> returnAction= null)
+        {
+            Func<List<ITargetable>,bool> validator = (List<ITargetable> chosen)=> chosen.Count == amount;
+            yield return UCoroutine.Yield(validatedChoice(targets,validator,returnAction));
         }
     }
 }

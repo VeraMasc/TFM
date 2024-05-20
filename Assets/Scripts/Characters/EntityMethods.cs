@@ -79,21 +79,7 @@ public partial class Entity
         yield break;
     }
 
-    /// <summary>
-    /// El jugador descarta varias cartas. 
-    /// </summary>
-    /// <param name="amount">cuantas cartas ha de descartar</param>
-    /// <returns></returns>
-    public IEnumerator discard(Card[] cards ,float duration = 0.75f, Action<Card[]> returnAction = null){
-        var chosen = hand.MountedCards.Intersect(cards).ToArray();
-        if(chosen.Count() >0){
-            yield return StartCoroutine(CardTransferOperator.sendCards(chosen,discarded,duration/chosen.Count(),burstSend:true));
-        }
-
-        coReturn(returnAction, chosen);
-
-
-    }
+   
 
     /// <summary>
     /// Mete cartas en el fondo del mazo y roba la misma cantidad
@@ -123,6 +109,23 @@ public partial class Entity
         yield return new WaitForSeconds(0.3f);
     }
 
+
+     /// <summary>
+    /// El jugador descarta varias cartas. 
+    /// </summary>
+    /// <param name="amount">cuantas cartas ha de descartar</param>
+    /// <returns></returns>
+    public IEnumerator discardCards(Card[] cards ,float duration = 0.75f, Action<Card[]> returnAction = null){
+        var chosen = hand.MountedCards.Intersect(cards).ToArray();
+        if(chosen.Count() >0){
+            yield return StartCoroutine(CardTransferOperator.sendCards(chosen,discarded,duration/chosen.Count(),burstSend:true));
+        }
+
+        coReturn(returnAction, chosen);
+
+
+    }
+
     /// <summary>
     /// El jugador descarta cartas al azar
     /// </summary>
@@ -133,6 +136,13 @@ public partial class Entity
         var cards =hand.Get(GroupTargetType.Random, amount);
         yield return StartCoroutine(CardTransferOperator.sendCards(cards,discarded,0.5f));
         coReturn(returnAction, cards.ToArray());
+    }
+
+    public IEnumerator enforceHandSize(Action<Card[]> returnAction = null){
+        var diff = hand.MountedCards.Count - maxHandSize;
+        if(diff>0){
+            yield return StartCoroutine(Discard.discardChoice(this,diff));
+        }
     }
 
     /// <summary>

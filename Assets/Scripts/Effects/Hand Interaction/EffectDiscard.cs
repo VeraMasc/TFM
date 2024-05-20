@@ -31,7 +31,7 @@ namespace Effect
         {
             if(target is Entity entity){
                 if(cards.getValueObj(context) is IEnumerable<ITargetable> collection){
-                    yield return UCoroutine.Yield(entity.discard(collection.OfType<Card>().ToArray()));
+                    yield return UCoroutine.Yield(entity.discardCards(collection.OfType<Card>().ToArray()));
                 }
                 else{
                     Debug.Log(cards.getValueObj(context) );
@@ -46,6 +46,19 @@ namespace Effect
         public IEnumerator payCost(Context context)
         {
             yield return UCoroutine.Yield(execute(CardResolveOperator.singleton, context));
+        }
+
+        /// <summary>
+        /// Hace que una entidad escoja cómo descartar varias cartas
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public static IEnumerator discardChoice(Entity entity, int amount){
+            var cards = entity.hand.MountedCards.ToList();
+            ITargetable[] chosen = null;
+            yield return UCoroutine.Yield(ChooseSeveralFrom.amountChoice(cards,amount, (value)=> {chosen=value;}));
+            yield return UCoroutine.Yield(entity.discardCards(chosen.OfType<Card>().ToArray()));
         }
     }
 }
