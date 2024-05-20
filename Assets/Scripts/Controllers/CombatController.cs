@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CardHouse;
 using Common.Coroutines;
+using CustomInspector;
 using UnityEngine;
 
 /// <summary>
@@ -22,7 +23,11 @@ public class CombatController : GameMode
 	/// </summary>
 	public CombatPhases currentPhase;
 
-
+	/// <summary>
+	/// Gestor de todas las IAs
+	/// </summary>
+	[SelfFill]
+	public AIDirector aiDirector;
 
 	/// <summary>
 	/// Campo de juego
@@ -61,13 +66,16 @@ public class CombatController : GameMode
 		yield return new WaitForEndOfFrame();
 		yield return new WaitForSeconds(0.2f);
 		var entities = GameController.singleton?.entities ?? new List<Entity>();
+		
         //Initial card draw
         
 		yield return UCoroutine.YieldInParallel(
-				entities.Select(entity => entity.draw(4))
-			.ToArray());
+				entities.Select(entity => UCoroutine.Yield(entity.draw(4,1.5f)))
+			.ToArray()).Start(this);
+		
+
 		generateTurnOrder();
-		StartCoroutine(setupPhase());
+		executePhase();
         yield break;
     }
 
@@ -91,20 +99,30 @@ public class CombatController : GameMode
             turnOrder.Add(entities[chosenIndex]);
             entities.RemoveAt(chosenIndex);
         }
+		getPriorityOrder();
     }
 	public override void nextPhase(){
         currentPhase = (CombatPhases)(((int)currentPhase+1) % (int)CombatPhases.cleanup);
-		if(currentPhase == CombatPhases.setup){
-			nextTurn();
-			StartCoroutine(setupPhase());
-		}
+		executePhase();
     }
 
+
+	/// <summary>
+	/// Ejecuta la fase actual
+	/// </summary>
+	public void executePhase(){
+		Debug.Log($"Executing phase{currentPhase}");
+		if(currentPhase == CombatPhases.setup){
+			StartCoroutine(setupPhase());
+			nextTurn();
+		}
+	}
 	public void nextTurn(){
 		turnOrder.RemoveAt(turnOrder.Count -1);
 		if(!turnOrder.Any()){
 			generateTurnOrder();
 		}
+		getPriorityOrder();
 	}
 
 	/// <summary>
@@ -126,8 +144,16 @@ public class CombatController : GameMode
 		var z = transform.position.z;
 		transform.position = (Vector2) currentTurn.targeterTransform.transform.position;
 		transform.position += Vector3.forward * z;
+		yield return StartCoroutine(currentTurn.draw(1));
 		yield break;
 	}
+
+	public override void getPriorityOrder(){
+        priorityOrder = currentTurn.team == EntityTeam.player?
+			new List<EntityTeam>(){EntityTeam.player,EntityTeam.enemy}:
+			new List<EntityTeam>(){EntityTeam.enemy,EntityTeam.player};
+		aiDirector.onPriorityChange();
+    }
 }
 
 

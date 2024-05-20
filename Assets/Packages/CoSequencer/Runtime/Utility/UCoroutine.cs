@@ -466,9 +466,19 @@ namespace Common.Coroutines
         /// <summary> Executes two coroutines simultaenously </summary>
         public static IEnumerator YieldInParallel(IEnumerator first, IEnumerator second)
         {
-            while (first.MoveNext() | second.MoveNext())
+            bool fistActive, secondActive;
+            while ((fistActive =first.MoveNext()) | (secondActive =second.MoveNext()))
             {
-                yield return null;
+                if(fistActive){
+                    yield return first.Current;
+                }
+                else if(secondActive){
+                    yield return second.Current;
+                }
+                else{
+                    yield break;
+                }
+                
             }
         }
 
@@ -479,14 +489,20 @@ namespace Common.Coroutines
             do
             {
                 running = false;
+                object current =null;
                 for (int i = 0; i < coroutines.Length; ++i)
                 {
                     var coroutine = coroutines[i];
-                    running |= coroutine.MoveNext();
+                    if(coroutine.MoveNext()){
+                        running = true;
+                        current= coroutine.Current;
+                    }
+                    
                 }
-                yield return null;
+                yield return current;
             }
             while (running);
+
         }
         #endregion
 

@@ -72,10 +72,13 @@ public partial class Entity
         if(amount <=0)
             yield break;
         var cards =deck.Get(GroupTargetType.Last, amount);
-        yield return StartCoroutine(
+        yield return StartCoroutine( 
             CardTransferOperator.sendCards(cards,hand, duration/amount, burstSend:true)
+            .Then(()=> Debug.Log($"{amount} Cards sent"))
         );
+        Debug.Log("Finished Drawing cards");
         coReturn(returnAction, cards.ToArray());
+        yield break;
     }
 
     /// <summary>

@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Entity (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 215740959656015274, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2670358441236307117, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -1162,6 +1166,10 @@ PrefabInstance:
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1265546452}
+    - target: {fileID: 8236133951238512785, guid: 8e1a80ee125b22e4ca77986d824d02bb, type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: playerPassPriority
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

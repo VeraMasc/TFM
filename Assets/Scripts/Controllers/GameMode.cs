@@ -20,6 +20,22 @@ public abstract class GameMode : MonoBehaviour
     /// </summary>
     public CardResolveOperator effectStack;
 
+    /// <summary>
+    /// Orden de prioridad de los equipos
+    /// </summary>
+    public List<EntityTeam> priorityOrder;
+
+    /// <summary>
+    /// Índice de la prioridad actual
+    /// </summary>
+    [SerializeField]
+    protected int priorityIndex;
+
+    /// <summary>
+    /// Indica quién tiene la prioridad ahora mismo
+    /// </summary>
+    public EntityTeam currentPriority => priorityOrder[priorityIndex];
+
 	///<summary>Recupera el modo de juego actual</summary>
 	public static GameMode current
 	{
@@ -62,18 +78,32 @@ public abstract class GameMode : MonoBehaviour
     /// <summary>
     /// Activa la acción de paso de fase/turno o resolución de cartas según sea necesario
     /// </summary>
-    public virtual void passPriority(){
+    public void passPriority(EntityTeam team){
         var stack = CardResolveOperator.singleton;
 
-        if(!stack.isEmpty){ //Primero resolver cosas del stack
-            if(!stack.precalculating){//No resolver si esá precalculando
-                stack.startResolve = true;
+        if(team == currentPriority){ //pasar solo si tiene prioridad
+            priorityIndex++;
+        }
+        
+        if(priorityIndex >= priorityOrder.Count){ //Si ambos pasan
+            priorityIndex=0;//Reset
+
+            if(!stack.isEmpty){ //Primero resolver cosas del stack
+                if(!stack.precalculating){//No resolver si esá precalculando
+                    stack.startResolve = true;
+                }
+            }
+            else{
+                nextPhase();
             }
         }
-        else{
-            nextPhase();
+        if(this is CombatController combat){
+            combat.aiDirector.onPriorityChange();
         }
+        
     }
+    
+    public void playerPassPriority() => passPriority(EntityTeam.player);
 
     /// <summary>
     /// Pasa a la siguiente fase
@@ -96,4 +126,8 @@ public abstract class GameMode : MonoBehaviour
             }
         }
 	}
+
+    public virtual void getPriorityOrder(){
+        priorityOrder = new List<EntityTeam>(){EntityTeam.player};
+    }
 }

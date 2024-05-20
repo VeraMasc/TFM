@@ -206,7 +206,7 @@ public partial class Entity : MonoBehaviour, ITargetable
     }
 }
 
-
+[Serializable]
 public enum EntityTeam{
     none,
     player,

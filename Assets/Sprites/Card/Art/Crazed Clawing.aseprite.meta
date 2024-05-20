@@ -299,6 +299,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 52, y: 78}
+  - name: Crazed Clawing_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: 0.13793103}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 115
+      width: 40
+      height: 29
+    spriteID: 98bde6a367a2c6246bced342e5c17517
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 52, y: 115}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -380,6 +400,14 @@ ScriptedImporter:
         width: 40
         height: 29
       spriteId: c71840e275a853446a553d654a6dbe3c
+    - name: Crazed Clawing_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 4
+        y: 29
+        width: 40
+        height: 29
+      spriteId: 98bde6a367a2c6246bced342e5c17517
     linkedCells: []
     parentIndex: -1
   platformSettings:
