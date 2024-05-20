@@ -11,5 +11,7 @@ namespace Common.Coroutines
                 target.StopCoroutine(self);
             }
         }
+
+        
     }
 }

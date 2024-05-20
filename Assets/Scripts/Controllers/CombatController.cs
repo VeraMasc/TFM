@@ -24,6 +24,11 @@ public class CombatController : GameMode
 	public CombatPhases currentPhase;
 
 	/// <summary>
+	/// Corrutina activa de la fase actual, no se pueden activar otras corrutinas de fase hasta que acabe
+	/// </summary>
+	public Coroutine phaseCoroutine;
+
+	/// <summary>
 	/// Gestor de todas las IAs
 	/// </summary>
 	[SelfFill]
@@ -70,10 +75,10 @@ public class CombatController : GameMode
         //Initial card draw
         
 		yield return UCoroutine.YieldInParallel(
-				entities.Select(entity => UCoroutine.Yield(entity.draw(4,1.5f)))
+				entities.Select(entity => UCoroutine.Yield(entity.draw(4)))
 			.ToArray()).Start(this);
 		
-
+		yield return new WaitForSeconds(0.5f);
 		generateTurnOrder();
 		executePhase();
         yield break;
@@ -102,7 +107,10 @@ public class CombatController : GameMode
 		getPriorityOrder();
     }
 	public override void nextPhase(){
-        currentPhase = (CombatPhases)(((int)currentPhase+1) % (int)CombatPhases.cleanup);
+        currentPhase = (CombatPhases)(((int)currentPhase+1) % CombatPhases.GetNames(typeof(CombatPhases)).Length);
+		if(currentPhase == CombatPhases.setup){
+			nextTurn();
+		}
 		executePhase();
     }
 
@@ -111,10 +119,23 @@ public class CombatController : GameMode
 	/// Ejecuta la fase actual
 	/// </summary>
 	public void executePhase(){
+		if(phaseCoroutine != null){
+			Debug.LogWarning("A phase coroutine is already active! Wait for it to finish before starting another");
+		}
+
 		Debug.Log($"Executing phase{currentPhase}");
+		
 		if(currentPhase == CombatPhases.setup){
-			StartCoroutine(setupPhase());
-			nextTurn();
+			phaseCoroutine =StartCoroutine(setupPhase());
+		}
+		else if(currentPhase == CombatPhases.main){
+
+		}
+		else if(currentPhase == CombatPhases.end){
+
+		}
+		else if(currentPhase == CombatPhases.cleanup){
+
 		}
 	}
 	public void nextTurn(){
@@ -144,8 +165,16 @@ public class CombatController : GameMode
 		var z = transform.position.z;
 		transform.position = (Vector2) currentTurn.targeterTransform.transform.position;
 		transform.position += Vector3.forward * z;
+
+		//Select active entity hand if possible
+		currentTurn.trySelectPlayer();
+		
+
 		yield return StartCoroutine(currentTurn.draw(1));
-		yield break;
+
+		//End coroutine
+		phaseCoroutine = null;
+		nextPhase();
 	}
 
 	public override void getPriorityOrder(){

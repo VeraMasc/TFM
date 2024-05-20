@@ -135,7 +135,6 @@ namespace CardHouse
                     }
                     else {
                         corroutine.Start(card);
-                        Debug.Log("Draw start");
                     }
                     yield return new WaitForSeconds(delay);
                 }
