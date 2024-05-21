@@ -57,7 +57,16 @@ namespace Effect
         public static IEnumerator discardChoice(Entity entity, int amount){
             var cards = entity.hand.MountedCards.ToList();
             ITargetable[] chosen = null;
-            yield return UCoroutine.Yield(ChooseSeveralFrom.amountChoice(cards,amount, (value)=> {chosen=value;}));
+
+            if(entity.AI == null){
+                yield return UCoroutine.Yield(ChooseSeveralFrom.amountChoice(cards,amount, (value)=> {chosen=value;}));
+            }
+            else{
+                chosen = entity.AI.rejectTargets(cards, new ChoiceInfo(){
+                    amount = amount,
+                });
+            }
+            
             yield return UCoroutine.Yield(entity.discardCards(chosen.OfType<Card>().ToArray()));
         }
     }

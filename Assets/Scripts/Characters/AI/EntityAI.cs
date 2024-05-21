@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using CustomInspector;
+using Effect;
 using UnityEngine;
 
 /// <summary>
@@ -48,6 +49,32 @@ public class EntityAI : MonoBehaviour
         yield break;
     }
 
+    /// <summary>
+    /// Escoge los mejores targets de una lista de opciones
+    /// </summary>
+    /// <returns></returns>
+    public virtual ITargetable[] chooseTargets(IEnumerable<ITargetable> options, ChoiceInfo info){
+        
+        if(info.amount != -1){
+            var ret = options.TakeRandom(info.amount);
+            return ret.ToArray();
+        }
+        return options.ToArray();
+    }
+
+    /// <summary>
+    /// Escoje los peores targets de una lista de opciones. Usado para cosas como descarte o similares
+    /// </summary>
+    /// <returns></returns>
+    public virtual ITargetable[] rejectTargets(IEnumerable<ITargetable> options, ChoiceInfo info){
+        
+        
+        if(info.amount != -1){
+            var ret = options.TakeRandom(info.amount);
+            return ret.ToArray();
+        }
+        return options.ToArray();
+    }
 
 }
 
