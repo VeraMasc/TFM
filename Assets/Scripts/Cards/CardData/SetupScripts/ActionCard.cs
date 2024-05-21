@@ -51,6 +51,17 @@ public class ActionCard : MyCardSetup, IActionable
         cardTextBox.text = cardText;
     }
 
+    /// <summary>
+    /// Comprueba si la acción tiene el timing adecuado para ser usada ahora mismo
+    /// </summary>
+    /// <returns></returns>
+    public bool checkCastTiming(Entity user){
+        if(speedType == SpeedTypes.Reaction)
+            return true;
+
+        return GameMode.current.isSpeedValid(user, speedType);
+        
+    }
     
 }
 

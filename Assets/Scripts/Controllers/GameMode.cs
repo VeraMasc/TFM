@@ -54,6 +54,17 @@ public abstract class GameMode : MonoBehaviour
         //Por defecto, es turno de todos
         return true;
     }
+
+    /// <summary>
+    /// Indica si una velocidad de acción es válida para una entidad
+    /// </summary>
+    /// <param name="entity"></param>
+    /// <returns></returns>
+    public virtual bool isSpeedValid(Entity entity, SpeedTypes speed){
+        //Por defecto, es turno de todos
+        return true;
+    }
+    
     protected TriggerManager triggerManager => GameController.singleton.triggerManager;
     
 

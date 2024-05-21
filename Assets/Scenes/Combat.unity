@@ -1460,6 +1460,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Combat Tabletop
       objectReference: {fileID: 0}
+    - target: {fileID: 3353782006047465881, guid: 8e1a80ee125b22e4ca77986d824d02bb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 3353782006047465881, guid: 8e1a80ee125b22e4ca77986d824d02bb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.58
+      objectReference: {fileID: 0}
     - target: {fileID: 5480126176995788071, guid: 8e1a80ee125b22e4ca77986d824d02bb, type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -1472,6 +1480,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5505759916410081507, guid: 8e1a80ee125b22e4ca77986d824d02bb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -45321276268037160, guid: 7511064529af56340aa3265066a15a91, type: 3}
     - target: {fileID: 8236133951238512785, guid: 8e1a80ee125b22e4ca77986d824d02bb, type: 3}
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 

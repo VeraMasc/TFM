@@ -85,8 +85,16 @@ public class CombatController : GameMode
     }
 
 	public override bool isEntityTurn(Entity entity){
-        var first = turnOrder.FirstOrDefault();
-        return first == entity;
+        return entity == currentTurn;
+    }
+
+	public override bool isSpeedValid(Entity entity, SpeedTypes speed){
+        if(speed == SpeedTypes.Reaction){
+			return true;
+		}
+
+		return GameMode.current.isEntityTurn(entity) && currentPhase == CombatPhases.main;
+		
     }
 
 	/// <summary>
