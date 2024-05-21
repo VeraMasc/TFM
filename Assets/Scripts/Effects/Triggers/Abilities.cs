@@ -33,7 +33,7 @@ namespace Effect{
         public virtual IEnumerator executeAbility(Context context){
             var self = context.self;
             if(self is Card card){
-                var routine =CardResolveOperator.singleton.triggerEffect(card,EffectChain.cloneFrom(effects));
+                var routine =CardResolveOperator.singleton.triggerEffect(card,EffectChain.cloneFrom(effects), useActiveTriggers);
                 yield return UCoroutine.Yield(routine);
             }
             else{
@@ -55,6 +55,11 @@ namespace Effect{
         public virtual IEnumerable<GroupName> activeZones{
             get=> new GroupName[]{GroupName.Board};
         }
+
+        /// <summary>
+        /// Marca si hay que usar triggers activos para la habilidad
+        /// </summary>
+        public virtual bool useActiveTriggers => false;
 
         /// <summary>
         /// Indica si la habilidad funciona en una zona concreta
@@ -147,6 +152,7 @@ namespace Effect{
         [SerializeReference,SubclassSelector]
         public ICost cost;
 
+        public override bool useActiveTriggers => true;
         public virtual IEnumerator activateAbility(Entity activator){
             //TODO: abilities with owner different than controller
             var context = new Context(source, activator);

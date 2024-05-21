@@ -172,6 +172,15 @@ public class CardResolveOperator : Activatable
             if(simpleCard.effects?.context?.mode==ExecutionMode.cancel){
                 simpleCard.effects.sourceGroup.Mount(card);
             }
+            else { //Reset priority
+                if(card.data is TriggerCard trigger && !trigger.isActiveTrigger){ //Use turn priority for triggers
+                    GameMode.current.getPriorityOrder();
+                }else{//Use response priority for actions
+                    var activeSide = simpleCard.effects.context.controller.team;
+                    GameMode.current.getResponsePriority(activeSide);
+                }
+                
+            }
         }
         Debug.Log("Precalculated",card);
         precalculating = false;
@@ -293,12 +302,13 @@ public class CardResolveOperator : Activatable
     /// <param name="triggered">Cadena de efectos a desencadenar</param>
     /// <param name="at">Posición en la que generar la carta</param>
     /// <returns>Carta de trigger generada</returns>
-    public Card createTriggerCard(Card source, EffectChain triggered, Transform at){
+    public Card createTriggerCard(Card source, EffectChain triggered, Transform at, bool isActive){
         var prefab = GameController.singleton.creationManager.triggerPrefab;
         var trigger = Instantiate(prefab, at.position - at.forward, at.rotation);
         var card = trigger.GetComponent<Card>();
         card.data = trigger; //Save trigger reference
         trigger.ApplyTrigger(source, triggered);
+        trigger.isActiveTrigger = isActive; //Marcar como trigger activo o no
         return card;
     }
 
@@ -307,8 +317,9 @@ public class CardResolveOperator : Activatable
     /// </summary>
     /// <param name="source">Carta que ha causado el trigger</param>
     /// <param name="triggered">Cadena de efectos a desencadenar</param>
-    public IEnumerator triggerEffect(Card source, EffectChain triggered){
-        var card = createTriggerCard(source,triggered, transform);
+    /// <param name="isActive">Indica si es un trigger generado activamente o no</param>
+    public IEnumerator triggerEffect(Card source, EffectChain triggered, bool isActive){
+        var card = createTriggerCard(source,triggered, transform, isActive);
         Debug.Log(card.name,card);
         
         yield return StartCoroutine(castCard(card));

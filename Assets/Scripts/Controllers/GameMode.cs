@@ -75,6 +75,8 @@ public abstract class GameMode : MonoBehaviour
         }
     }
 
+    
+
     /// <summary>
     /// Activa la acción de paso de fase/turno o resolución de cartas según sea necesario
     /// </summary>
@@ -86,14 +88,15 @@ public abstract class GameMode : MonoBehaviour
         }
         
         if(priorityIndex >= priorityOrder.Count){ //Si ambos pasan
-            priorityIndex=0;//Reset
 
             if(!stack.isEmpty){ //Primero resolver cosas del stack
                 if(!stack.precalculating){//No resolver si esá precalculando
                     stack.startResolve = true;
                 }
+                getPriorityOrder();
             }
             else{
+                getPriorityOrder();
                 nextPhase();
             }
         }
@@ -127,7 +130,22 @@ public abstract class GameMode : MonoBehaviour
         }
 	}
 
+    /// <summary>
+    /// Obtiene la prioridad base en un turno
+    /// </summary>
     public virtual void getPriorityOrder(){
+        priorityIndex = 0;
         priorityOrder = new List<EntityTeam>(){EntityTeam.player};
+        
+    }
+
+    /// <summary>
+    /// Obtiene la prioridad de respuesta a una acción
+    /// </summary>
+    /// <param name="inResponseTo">jugador que ha realizado la acción</param>
+    public virtual void getResponsePriority(EntityTeam inResponseTo){
+        priorityIndex = 0;
+        priorityOrder = new List<EntityTeam>(){EntityTeam.player};
+        
     }
 }

@@ -24,7 +24,7 @@ namespace Effect{
         public override IEnumerator execute(CardResolveOperator stack, Context context)
         {
             if(context.self is Card card){
-                var routine =CardResolveOperator.singleton.triggerEffect(card,EffectChain.cloneFrom(trigger));
+                var routine =CardResolveOperator.singleton.triggerEffect(card,EffectChain.cloneFrom(trigger),false);
                 yield return UCoroutine.Yield(routine);
             } 
             

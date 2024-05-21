@@ -192,6 +192,15 @@ public class CombatController : GameMode
         priorityOrder = currentTurn.team == EntityTeam.player?
 			new List<EntityTeam>(){EntityTeam.player,EntityTeam.enemy}:
 			new List<EntityTeam>(){EntityTeam.enemy,EntityTeam.player};
+		priorityIndex = 0;
+		aiDirector.onPriorityChange();
+    }
+
+	public override void getResponsePriority(EntityTeam inResponseTo){
+        priorityOrder = inResponseTo == EntityTeam.player?
+			new List<EntityTeam>(){EntityTeam.player,EntityTeam.enemy}:
+			new List<EntityTeam>(){EntityTeam.enemy,EntityTeam.player};
+		priorityIndex = 0;
 		aiDirector.onPriorityChange();
     }
 }

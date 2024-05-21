@@ -183,7 +183,7 @@ public class ExplorationController : GameMode
         var revealTrigger = data?.getEffectsAs<ContentCardEffects>()?.revealEffect;
 
         if(revealTrigger?.isEmpty==false){
-            yield return StartCoroutine(effectStack.triggerEffect(contentCard,revealTrigger));
+            yield return StartCoroutine(effectStack.triggerEffect(contentCard,revealTrigger,false));
             yield return effectStack.waitTillEmpty;
         }
         

@@ -18,6 +18,11 @@ public class TriggerCard : MyCardSetup
     /// </summary>
     public Card source;
 
+    /// <summary>
+    /// Indica que es un trigger creado activamente por un jugador
+    /// </summary>
+    public bool isActiveTrigger;
+
     public override void Apply(CardDefinition data)
     {
         throw new Exception("Don't create triggers with Apply");
