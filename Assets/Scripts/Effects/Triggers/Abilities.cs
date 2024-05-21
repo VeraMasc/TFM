@@ -60,7 +60,12 @@ namespace Effect{
         /// Indica si la habilidad funciona en una zona concreta
         /// </summary>
         public virtual bool isActiveIn(GroupName zone){
-            return activeZones.Contains(zone);
+            var zoneList = activeZones;
+
+            if(zoneList.Any() && zoneList.First() == GroupName.None) //None indica que funciona siempre
+                return true;
+
+            return zoneList.Contains(zone);
         }
     }
 

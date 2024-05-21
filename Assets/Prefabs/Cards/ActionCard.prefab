@@ -1117,6 +1117,7 @@ GameObject:
   - component: {fileID: 3933146397753655278}
   - component: {fileID: 4422412827157916637}
   - component: {fileID: 3024928638207673461}
+  - component: {fileID: 7973210440378153036}
   - component: {fileID: 3320165275064857739}
   - component: {fileID: 5556669140430897052}
   - component: {fileID: 2914116058162343881}
@@ -1272,7 +1273,8 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   GroupDropGates:
-    Gates: []
+    Gates:
+    - {fileID: 7973210440378153036}
   TargetCardGates:
     Gates: []
   OnDragEnd:
@@ -1358,6 +1360,19 @@ MonoBehaviour:
   Handler: {fileID: 2235789090670168063}
   ActiveMessage: Active
   InactiveMessage: Dim
+--- !u!114 &7973210440378153036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6462243022253552644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bbcd74f22bd04249907dc4f8d8ed8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 1
 --- !u!114 &3320165275064857739
 MonoBehaviour:
   m_ObjectHideFlags: 0

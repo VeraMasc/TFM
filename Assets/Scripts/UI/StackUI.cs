@@ -11,7 +11,7 @@ public class StackUI : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    public Transform sourceSplineOrigin;
+    public SplineAnchorFollow sourceSplineOrigin;
 
     /// <summary>
     /// 
@@ -39,8 +39,10 @@ public class StackUI : MonoBehaviour
         
         if(card?.data is TriggerCard trigger){//Si es un trigger
             //TODO: Make sourcespline follow source card
-            sourceSplineOrigin.position = trigger.source.transform.position;
+            sourceSplineOrigin.target = trigger.source.transform;
+            sourceSplineOrigin.followTarget();
             sourceSpline.SetActive(true);
+
             return;
         }
         sourceSpline.SetActive(false);

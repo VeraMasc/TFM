@@ -2,9 +2,9 @@ using CardHouse;
 
 
 /// <summary>
-/// Gestiona el cuando se puede hacer drag a una carta de acción
+/// Gestiona el cuando se puede dejar una carta en el stack
 /// </summary>
-public class ActionDragGate : Gate<NoParams>
+public class CastDropGate : Gate<DropParams>
 {
     Card MyCard;
 
@@ -13,16 +13,21 @@ public class ActionDragGate : Gate<NoParams>
         MyCard = GetComponent<Card>();
     }
 
-    protected override bool IsUnlockedInternal(NoParams gateParams)
+    protected override bool IsUnlockedInternal(DropParams gateParams)
     {
+        if(gateParams?.Target?.GetComponent<GroupZone>()?.zone != GroupName.Stack)
+            return true; //limitar solo drops al stack
+        
         var isDragLocked = GameUI.singleton?.isBusy ?? false; //Está esperando inputs?
         //Is precalculating?
         isDragLocked =isDragLocked || (CardResolveOperator.singleton?.precalculating ?? false);
 
-        //Is other group focused //TODO: take proxies into account
-        isDragLocked = isDragLocked || 
-            (GameUI.singleton?.focusGroup != null && MyCard.Group != GameUI.singleton?.focusGroup);
 
+        if(MyCard.data is ActionCard action && action.speedType!= SpeedTypes.Reaction){
+            if(CardResolveOperator.singleton?.isEmpty !=true){
+                isDragLocked=true;
+            }
+        }
         
         return !isDragLocked;
         // if (MyCard.Group != GroupRegistry.Instance.Get(GroupName.Board, null))

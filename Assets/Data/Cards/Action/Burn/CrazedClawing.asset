@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Crazed Clawing
-  cardText: Whenever this card becomes spent, deal 2 damage to target entity
+  cardText: Whenever this card is used or discarded, deal 2 damage to target entity
   Art: {fileID: 7661334728954290958, guid: c098e1a924a8fc14c890d4c2462c1374, type: 3}
   Frame: {fileID: 0}
   help: []
@@ -51,7 +51,7 @@ MonoBehaviour:
         - rid: 8129478057838772225
         - rid: 8129478057838772228
         trigger: {fileID: 11400000, guid: 6c8110e8ffaf22341a790fb320905cc2, type: 2}
-        activeZoneList: 04000000
+        activeZoneList: 0400000006000000
     - rid: 8129478057838772225
       type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
       data:
