@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using CardHouse;
 
 
@@ -23,6 +24,11 @@ public class ActionDragGate : Gate<NoParams>
         isDragLocked = isDragLocked || 
             (GameUI.singleton?.focusGroup != null && MyCard.Group != GameUI.singleton?.focusGroup);
 
+        //No arrastrar cartas en el campo
+        var zone = MyCard.Group?.GetComponent<GroupZone>();
+        if(zone && zone.zone == GroupName.Board){
+            isDragLocked = true;
+        }
         
         return !isDragLocked;
         // if (MyCard.Group != GroupRegistry.Instance.Get(GroupName.Board, null))

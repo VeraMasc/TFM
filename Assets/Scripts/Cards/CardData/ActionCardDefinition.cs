@@ -53,5 +53,6 @@ public enum ActionSubtypes{
     Hex,
     Blessing,
     Enchantment,
-    Mental
+    Mental,
+    Aura
 }

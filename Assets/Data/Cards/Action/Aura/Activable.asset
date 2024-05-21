@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: Activable
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Activable
+  cardText: 
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  speedType: 0
+  typeList: 
+  cost:
+    costText: 
+    value: 0
+    colors: 
+  effects:
+    baseEffect:
+      list:
+      - rid: 8129478308107124752
+    abilities:
+    - rid: 8129478308107124753
+    staticEffects:
+      list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8129478308107124752
+      type: {class: EnterBoard, ns: Effect, asm: Assembly-CSharp}
+    - rid: 8129478308107124753
+      type: {class: ActivatedZoneAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: 
+        source: {fileID: 0}
+        effects: []
+        cost:
+          rid: -2
+        speed: 1
+        activeZoneList: 05000000

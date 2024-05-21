@@ -81,7 +81,7 @@ namespace Effect
                 card.outlineRenderer?.gameObject?.SetActive(false);
 
                 //Usar resultado
-                if(ret.Count >0){
+                if(ret != null && ret.Count >0){
                     var index = ret.First();
                     Debug.Log($"Cast modal index: {index}");
                     var settings = modeSettings[index];

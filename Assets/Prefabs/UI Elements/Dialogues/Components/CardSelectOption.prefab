@@ -53,8 +53,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   actualCard: {fileID: 0}
+  textBox: {fileID: 0}
   index: -1
   selected: 0
+  outline: {fileID: 0}
+  collider: {fileID: -7919700878156606860}
 --- !u!222 &6356967954031884722
 CanvasRenderer:
   m_ObjectHideFlags: 0

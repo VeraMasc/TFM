@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using CustomInspector;
 using Button = NaughtyAttributes.ButtonAttribute;
 using HorizontalLineAttribute = CustomInspector.HorizontalLineAttribute;
+using System.Linq;
+using Effect;
 
 
 /// <summary>
@@ -61,6 +63,27 @@ public class ActionCard : MyCardSetup, IActionable
 
         return GameMode.current.isSpeedValid(user, speedType);
         
+    }
+
+    /// <summary>
+    /// Comprueba si la acción cumple todos los requisitos para ser usada
+    /// </summary>
+    /// <returns></returns>
+    public bool checkIfCastable(Entity user){
+
+        return checkCastTiming(user);
+        
+    }
+
+    /// <summary>
+    /// Comprueba si alguna habilidad de la carta tiene timing válido
+    /// </summary>
+    /// <param name="user"></param>
+    /// <returns></returns>
+    public bool checkActivationTiming(Entity user){
+        return effects.abilities
+            .OfType<ActivatedAbility>()
+            .Any( ab => ab.checkActivationTiming(user));
     }
     
 }

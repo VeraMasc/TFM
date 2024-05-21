@@ -107,4 +107,9 @@ public class ModalOptionSettings{
     public string tag;
     public string text;
     public Ability ability;
+
+    /// <summary>
+    /// Desactiva la opción en el selector
+    /// </summary>
+    public bool disabled;
 }

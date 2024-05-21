@@ -20,6 +20,8 @@ public class CardSelectOption : MonoBehaviour
     public int index=-1;
     public bool selected;
     public SpriteRenderer outline;
+
+    public Collider2D collider;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +71,13 @@ public class CardSelectOption : MonoBehaviour
             var speedType = transform.Find("Front(Clone)/CardType");
             var creator = GameController.singleton?.creationManager;
             creator?.replaceTypeline(speedType.gameObject, creator?.triggerTypeline);
+        }
+
+        //Desactivar si no se puede usar
+        if(mode.disabled){
+            collider.enabled=false;
+            outline.color = Color.red;
+            outline.enabled=true;
         }
         
     }

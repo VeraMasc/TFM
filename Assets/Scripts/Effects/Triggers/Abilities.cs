@@ -153,6 +153,26 @@ namespace Effect{
         public ICost cost;
 
         public override bool useActiveTriggers => true;
+
+        /// <summary>
+        /// Velocidad de activación de la habilidad
+        /// </summary>
+        public SpeedTypes speed = SpeedTypes.Reaction;
+
+        public virtual bool checkActivationTiming(Entity user){
+            if(speed == SpeedTypes.Reaction)
+                return true;
+
+            return GameMode.current.isSpeedValid(user, speed);
+        }
+
+        /// <summary>
+        /// Devuelve si se cumplen todas las condiciones para poder activarla
+        /// </summary>
+        public virtual bool canActivate (Entity user){
+            //TODO: add mana requirements
+            return checkActivationTiming(user);
+        }
         public virtual IEnumerator activateAbility(Entity activator){
             //TODO: abilities with owner different than controller
             var context = new Context(source, activator);

@@ -64,7 +64,7 @@ public abstract class GameMode : MonoBehaviour
         //Por defecto, es turno de todos
         return true;
     }
-    
+
     protected TriggerManager triggerManager => GameController.singleton.triggerManager;
     
 
@@ -93,6 +93,9 @@ public abstract class GameMode : MonoBehaviour
     /// </summary>
     public void passPriority(EntityTeam team){
         var stack = CardResolveOperator.singleton;
+
+        if(GameUI.singleton?.activeUserInput) //No pasar si el usuario ha de introducir valores
+            return;
 
         if(team == currentPriority){ //pasar solo si tiene prioridad
             priorityIndex++;
