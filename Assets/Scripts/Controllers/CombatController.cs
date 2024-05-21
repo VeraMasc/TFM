@@ -171,7 +171,7 @@ public class CombatController : GameMode
 		
 
 		yield return StartCoroutine(currentTurn.draw(1));
-
+		yield return CardResolveOperator.singleton.waitTillEmpty;
 		//End coroutine
 		phaseCoroutine = null;
 		nextPhase();
@@ -184,6 +184,7 @@ public class CombatController : GameMode
 	/// <returns></returns>
 	public IEnumerator cleanupPhase(){
 		yield return StartCoroutine(currentTurn.enforceHandSize());
+		yield return CardResolveOperator.singleton.waitTillEmpty;
 		nextPhase();
 	}
 
