@@ -4,6 +4,8 @@ using TMPro;
 using System.Collections.Generic;
 using CustomInspector;
 using Button = NaughtyAttributes.ButtonAttribute;
+using Effect;
+using System.Linq;
 
 
 /// <summary>
@@ -110,5 +112,44 @@ public abstract class MyCardSetup : CardSetup
             throw new System.Exception($"Can't initialize card with {data?.GetType()?.Name}");
         }
         
+    }
+
+    /// <summary>
+    /// Intenta usar la carta como efecto modal
+    /// </summary>
+    /// <returns> Si se ha podido usar como modal o no</returns>
+    public bool tryCastAsModal(){
+        var cardComponent = GetComponent<Card>();
+        var modes = effects.abilities.OfType<CastAbility>()
+            .Cast<ActivatedAbility>();
+        var currentZone = cardComponent.Group?.GetComponent<GroupZone>();
+        if(currentZone){
+            modes = modes.Concat(effects.abilities
+                .OfType<ActivatedZoneAbility>()
+                .Where(ab => ab.isActiveIn(currentZone.zone))
+            );
+        }
+        
+        if(modes.Any()){
+            cardComponent.Group?.ApplyStrategy(); //Devolver a la mano
+            //Configuración de cada modo
+            var controller = effects?.context?.controller;
+            var settings = modes.Select(m => new ModalOptionSettings(){
+                    tag = m.id,
+                    ability = m,
+                    disabled = !m.canActivate(controller),
+                }
+            );
+            if(this is ActionCard action){
+                //Add default cast mode
+                settings = settings.Prepend(new ModalOptionSettings(){
+                    tag=string.Empty,
+                    disabled = !action.checkIfCastable(controller),
+                });
+            }
+            StartCoroutine(ModalEffect.castModal(cardComponent,settings));
+            return true;
+        }
+        return false;
     }
 }

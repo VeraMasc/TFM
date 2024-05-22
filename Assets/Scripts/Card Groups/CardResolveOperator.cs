@@ -187,7 +187,7 @@ public class CardResolveOperator : Activatable
     }
 
     /// <summary>
-    /// Manda una carta al stack y la precalcula
+    /// Manda una carta al stack y la precalcula 
     /// </summary>
     /// <param name="card">Carta a enviar</param>
 
@@ -197,6 +197,24 @@ public class CardResolveOperator : Activatable
         yield return UCoroutine.YieldAwait( ()=>!card.Homing.seeking);
         yield return new WaitForSeconds(0.1f);
         
+    }
+
+    /// <summary>
+    /// Abre los modales de uso de la carta si los hay o la usa directamente
+    /// </summary>
+    /// <param name="card"></param>
+    /// <returns></returns>
+    public IEnumerator playerUseCard(Card card){
+        Debug.Log("Using card");
+        if(card.data is MyCardSetup setup){
+            var modal = setup.tryCastAsModal();
+            if(modal){
+                yield return new WaitForEndOfFrame();
+                yield return UCoroutine.YieldAwait(()=> !GameUI.singleton.activeUserInput);
+                yield break;
+            }
+        }
+        yield return StartCoroutine(castCard(card));
     }
     /// <summary>
     /// Resuelve la siguiente carta de la secuencia

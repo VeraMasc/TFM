@@ -14,13 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Rumination
-  cardText: 'Extra cost: Discard a card
-
-    Draw two cards.'
+  cardText: Discard a card, draw two cards.
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
-  speedType: 0
+  speedType: 1
   typeList: 05000000
   cost:
     costText: 

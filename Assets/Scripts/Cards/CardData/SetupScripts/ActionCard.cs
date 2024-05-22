@@ -86,5 +86,7 @@ public class ActionCard : MyCardSetup, IActionable
             .Any( ab => ab.checkActivationTiming(user));
     }
     
+
+    
 }
 

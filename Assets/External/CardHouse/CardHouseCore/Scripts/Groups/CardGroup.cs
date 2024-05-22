@@ -200,41 +200,13 @@ namespace CardHouse
                             cardComponent.GetComponent<CardLoyalty>().PlayerIndex = (int)GroupRegistry.Instance.GetOwnerIndex(cardComponent.Group);
                         }
 
-                        //TODO: Make this into its own function
                         var zone = GetComponent<GroupZone>();
                         if(zone.zone == GroupName.Stack) //Gestionar modos de casteo
                         {
                             if(cardComponent.data is MyCardSetup setup){
-                                var modes = setup.effects.abilities.OfType<CastAbility>()
-                                    .Cast<ActivatedAbility>();
-                                var currentZone = cardComponent.Group?.GetComponent<GroupZone>();
-                                if(currentZone){
-                                    modes = modes.Concat(setup.effects.abilities
-                                        .OfType<ActivatedZoneAbility>()
-                                        .Where(ab => ab.isActiveIn(currentZone.zone))
-                                    );
-                                }
                                 
-                                if(modes.Any()){
-                                    cardComponent.Group?.ApplyStrategy(); //Devolver a la mano
-                                    //Configuración de cada modo
-                                    var controller = setup.effects?.context?.controller;
-                                    var settings = modes.Select(m => new ModalOptionSettings(){
-                                            tag = m.id,
-                                            ability = m,
-                                            disabled = !m.canActivate(controller),
-                                        }
-                                    );
-                                    if(setup is ActionCard action){
-                                        //Add default cast mode
-                                        settings = settings.Prepend(new ModalOptionSettings(){
-                                            tag=string.Empty,
-                                            disabled = !action.checkIfCastable(controller),
-                                        });
-                                    }
-                                    StartCoroutine(ModalEffect.castModal(cardComponent,settings));
-                                    break;
-                                }
+                                if(setup.tryCastAsModal())
+                                    break; //No continuar si se puede usar como modal
                             }
                             
                         }
