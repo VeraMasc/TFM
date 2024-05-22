@@ -511,6 +511,24 @@ namespace CardHouse
             return null;
         }
 
+        /// <summary>
+        /// Devuelve el índice a usar para poner la carta en el top o el bottom
+        /// </summary>
+        /// <param name="mode"></param>
+        /// <returns></returns>
+        public int? getModeIndex(MountingMode? mode){
+            int? insertPoint=null;
+            switch (mode)
+            {
+                case MountingMode.Top:
+                    break;
+                case MountingMode.Bottom:
+                    insertPoint = 0;
+                    break;
+            }
+            return insertPoint;
+        }
+
         public void Shuffle(bool isInstant = false)
         {
             var newMountedCards = new List<Card>();

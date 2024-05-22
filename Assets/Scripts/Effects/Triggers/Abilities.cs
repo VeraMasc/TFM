@@ -110,10 +110,17 @@ namespace Effect{
         /// <param name="value">Valor inicial que insertar</param>
         /// <returns></returns>
         public virtual IEnumerator executeAbility(Context context, object value){
+            if(condition?.check(value,context)==false)
+                yield break;//Salir si no se cumple la condición
             context.previousValues.Add(value);
             yield return UCoroutine.Yield( executeAbility(context));
         }
 
+        public override IEnumerator executeAbility(Context context){
+            if(condition?.check(null,context)==false)
+                yield break;//Salir si no se cumple la condición
+            yield return UCoroutine.Yield(base.executeAbility(context));
+        }
 
         /// <summary>
         /// Activa o desactiva el trigger de la habilidad al cambiar de zona según corresponda
