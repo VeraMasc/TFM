@@ -10,16 +10,30 @@ public class AdvancedDragDetector : DragDetector
     float dblClickTimer;
     void OnMouseDown()
         {
-            if (!IsActive || !DragGates.AllUnlocked(null) || (EventSystem.current?.IsPointerOverGameObject() ?? false) || GameUI.singleton.activeUserInput)
+            if (!IsActive || (EventSystem.current?.IsPointerOverGameObject() ?? false) || GameUI.singleton.activeUserInput)
+                return; //Click desactivado
+                
+            dblClickTimer = dblClickCooldown;
+
+            if (!DragGates.AllUnlocked(null) ){ //Check for dblclick
+                Card card = GetComponent<Card>();
+                Debug.Log("Can't drag");
+                if(dblClickTimer>0 &&  card.data is MyCardSetup setup)
+                {
+                    Debug.Log("Try activate");
+                    setup.tryActivateAsModal();
+                    
+                }
                 return;
+            }
+                
             
             if(dblClickTimer>0){
                 var card = GetComponent<Card>();
-                Debug.Log("Dbl click");
                 StartCoroutine(CardResolveOperator.singleton.playerUseCard(card));
                 return;
             }
-            dblClickTimer = dblClickCooldown;
+            
             isDragging = true;
             OnDragStart.Invoke();
         }

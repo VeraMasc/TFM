@@ -25,8 +25,9 @@ public class CastDropGate : Gate<DropParams>
 
         if(MyCard.data is ActionCard action && action.speedType!= SpeedTypes.Reaction){
             var context = action.effects.context;
+            var sourceZone = gateParams.Source?.GetComponent<GroupZone>()?.zone;
             if(CardResolveOperator.singleton?.isEmpty !=true ||
-                !(action.checkCastTiming(context.controller) || action.checkActivationTiming(context.controller)))
+                !(action.checkCastTiming(context.controller) || action.checkActivationTiming(context.controller, sourceZone)))
             {
                 isDragLocked=true;
             }

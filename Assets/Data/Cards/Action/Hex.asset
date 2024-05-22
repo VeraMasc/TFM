@@ -16,10 +16,11 @@ MonoBehaviour:
   cardName: Hex
   cardText: 'Hex test
 
-    <link="test">Test Modal Text</link>'
+    <link="test">Redraw 2</link>'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
+  speedType: 0
   typeList: 0000000002000000
   cost:
     costText: 
@@ -79,6 +80,7 @@ MonoBehaviour:
         - rid: 8129478187144708096
         cost:
           rid: -2
+        speed: 1
         activeZoneList: 04000000
     - rid: 8129478187144708096
       type: {class: ReDraw, ns: Effect, asm: Assembly-CSharp}

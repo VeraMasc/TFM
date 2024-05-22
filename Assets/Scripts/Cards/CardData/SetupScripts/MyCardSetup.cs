@@ -152,4 +152,39 @@ public abstract class MyCardSetup : CardSetup
         }
         return false;
     }
+
+    /// <summary>
+    /// Intenta activar las habilidades de la carta
+    /// </summary>
+    /// <returns></returns>
+    public bool tryActivateAsModal(){
+        var cardComponent = GetComponent<Card>();
+        
+
+        var currentZone = cardComponent.Group?.GetComponent<GroupZone>();
+        //No cast abilities
+        var modes = effects.abilities.OfType<ActivatedAbility>()
+            .Where(ability => !(ability is CastAbility));
+            
+        if(currentZone){
+            //Filtrar por zona de actividad
+            modes = modes.Where(ab => ab.isActiveIn(currentZone.zone));
+            
+        }
+        
+        if(modes.Any()){
+            
+            //Configuración de cada modo
+            var controller = effects?.context?.controller;
+            var settings = modes.Select(m => new ModalOptionSettings(){
+                    tag = m.id,
+                    ability = m,
+                    disabled = !m.canActivate(controller),
+                }
+            );
+            StartCoroutine(ModalEffect.castModal(cardComponent,settings));
+            return true;
+        }
+        return false;
+    }
 }

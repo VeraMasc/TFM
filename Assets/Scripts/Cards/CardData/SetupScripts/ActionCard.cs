@@ -80,9 +80,10 @@ public class ActionCard : MyCardSetup, IActionable
     /// </summary>
     /// <param name="user"></param>
     /// <returns></returns>
-    public bool checkActivationTiming(Entity user){
+    public bool checkActivationTiming(Entity user, GroupName? zone){
         return effects.abilities
             .OfType<ActivatedAbility>()
+            .Where(ab => zone == null || ab.isActiveIn((GroupName)zone))
             .Any( ab => ab.checkActivationTiming(user));
     }
     
