@@ -12,8 +12,8 @@ public class AdvancedDragDetector : DragDetector
         {
             if (!IsActive || (EventSystem.current?.IsPointerOverGameObject() ?? false) || GameUI.singleton.activeUserInput)
                 return; //Click desactivado
-                
-            dblClickTimer = dblClickCooldown;
+
+            
 
             if (!DragGates.AllUnlocked(null) ){ //Check for dblclick
                 Card card = GetComponent<Card>();
@@ -24,6 +24,7 @@ public class AdvancedDragDetector : DragDetector
                     setup.tryActivateAsModal();
                     
                 }
+                dblClickTimer = dblClickCooldown;
                 return;
             }
                 
@@ -33,7 +34,7 @@ public class AdvancedDragDetector : DragDetector
                 StartCoroutine(CardResolveOperator.singleton.playerUseCard(card));
                 return;
             }
-            
+            dblClickTimer = dblClickCooldown;
             isDragging = true;
             OnDragStart.Invoke();
         }

@@ -34,7 +34,7 @@ namespace Effect{
             var self = context.self;
             if(self is Card card){
                 var routine =CardResolveOperator.singleton.triggerEffect(card,EffectChain.cloneFrom(effects), useActiveTriggers);
-                yield return UCoroutine.Yield(routine);
+                yield return routine.Start(card);
             }
             else{
                 Debug.LogError("Can't generate trigger from non-card");
@@ -98,6 +98,12 @@ namespace Effect{
         }
 
         /// <summary>
+        /// Condiciones que ha de cumplir
+        /// </summary>
+        [SerializeReference,SubclassSelector]
+        public BaseCondition condition;
+
+        /// <summary>
         /// Ejecuta la habilidad con un parámetro inicial
         /// </summary>
         /// <param name="context">Contexto de ejecución</param>
@@ -105,7 +111,6 @@ namespace Effect{
         /// <returns></returns>
         public virtual IEnumerator executeAbility(Context context, object value){
             context.previousValues.Add(value);
-            //TODO: Triggers for inputs not generating properly
             yield return UCoroutine.Yield( executeAbility(context));
         }
 

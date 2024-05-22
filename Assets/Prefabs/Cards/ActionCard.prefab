@@ -1293,6 +1293,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   isDragging: 0
+  dblClickCooldown: 0.2
 --- !u!114 &6535325827544121614
 MonoBehaviour:
   m_ObjectHideFlags: 0

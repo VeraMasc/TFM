@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using CardHouse;
+using Common.Coroutines;
 using Effect;
 using UnityEngine;
 
@@ -57,9 +58,9 @@ public class BaseCardEffects{
             if(ability is TriggeredAbility triggered)
             {
                 //Initialize trigger if needed
-                triggered.listener ??= (val) => triggered.executeAbility(context,val);
+                triggered.listener ??= (val) => UCoroutine.Yield(triggered.executeAbility(context,val));
             }
-
+            
             ability.onChangeZone(zone);
             
             

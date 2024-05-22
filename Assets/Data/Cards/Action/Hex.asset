@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Hex
-  cardText: 'Hex test
+  cardText: 'Enchant target entity
 
-    <link="test">Redraw 2</link>'
+    <link="redraw">Redraw 2</link>'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -33,6 +33,7 @@ MonoBehaviour:
       - rid: 3644647512751472640
     abilities:
     - rid: 8129478161961320448
+    - rid: 8129478324054130699
     staticEffects:
       list: []
     context:
@@ -74,7 +75,7 @@ MonoBehaviour:
     - rid: 8129478161961320448
       type: {class: ActivatedZoneAbility, ns: Effect, asm: Assembly-CSharp}
       data:
-        id: test
+        id: redraw
         source: {fileID: 0}
         effects:
         - rid: 8129478187144708096
@@ -93,3 +94,14 @@ MonoBehaviour:
       type: {class: ContextualObjectTargeter, ns: , asm: Assembly-CSharp}
       data:
         contextual: 0
+    - rid: 8129478324054130699
+      type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: 
+        source: {fileID: 0}
+        effects:
+        - rid: -2
+        trigger: {fileID: 11400000, guid: 5c5ab869e1b0f014fa3e48e724aa9364, type: 2}
+        activeZoneList: 05000000
+        condition:
+          rid: -2

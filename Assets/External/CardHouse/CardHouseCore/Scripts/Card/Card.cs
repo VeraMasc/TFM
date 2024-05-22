@@ -251,6 +251,7 @@ namespace CardHouse
                 var zone = group?.GetComponent<GroupZone>();
                 CardResolveOperator.singleton.stackUI.refresh();
                 var afterAnimation = UCoroutine.YieldAwait( ()=>!Homing.seeking);
+                
                 if(zone.zone == GroupName.Stack){
                         afterAnimation = afterAnimation
                         .Then(CardResolveOperator.singleton.precalculateCard(this));

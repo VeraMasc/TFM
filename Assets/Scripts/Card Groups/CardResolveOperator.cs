@@ -122,8 +122,11 @@ public class CardResolveOperator : Activatable
     /// Espera hasta que el stack esté libre
     /// </summary>
     public IEnumerator waitTillOpen{
-        get => UCoroutine.YieldAwait(()=> !resolving && !precalculating &&
-            (stack.MountedCards.Count == 0));
+        get => UCoroutine.YieldAwait(()=> !resolving && !precalculating);
+    }
+
+    public IEnumerator waitTillPrecalculated{
+        get => UCoroutine.YieldAwait(()=> !precalculating);
     }
 
     void Update()
@@ -155,10 +158,12 @@ public class CardResolveOperator : Activatable
     /// <param name="card"></param>
     /// <returns></returns>
     public IEnumerator precalculateCard(Card card){
+        //Continuar solo si no se está precalculando
+        yield return UCoroutine.YieldAwait(()=>!precalculating);
         precalculating = true;
-        //TODO: Alternative Cast Modes
-        //TODO: Set targets
-        if(card.data is MyCardSetup simpleCard)
+
+        if(card.data is MyCardSetup simpleCard 
+            && (simpleCard.effects?.context?.precalculated != true))
         {   
             simpleCard.effects?.setContext(card);//Create context
             var effect = simpleCard.effects?.baseEffect;
@@ -196,6 +201,7 @@ public class CardResolveOperator : Activatable
         stack.Mount(card);
         yield return UCoroutine.YieldAwait( ()=>!card.Homing.seeking);
         yield return new WaitForSeconds(0.1f);
+        yield return waitTillPrecalculated;
         
     }
 
@@ -213,8 +219,16 @@ public class CardResolveOperator : Activatable
                 yield return UCoroutine.YieldAwait(()=> !GameUI.singleton.activeUserInput);
                 yield break;
             }
+            else if( setup is  ActionCard action){
+                //Mirar si se puede lanzar de forma normal
+                if(action.checkIfCastable(action.effects.context.controller)){
+                    StartCoroutine(castCard(card));
+                }
+                    
+                yield break;
+            }
         }
-        yield return StartCoroutine(castCard(card));
+        Debug.LogError($"Can't use non action card {card}",card);
     }
     /// <summary>
     /// Resuelve la siguiente carta de la secuencia
@@ -337,9 +351,9 @@ public class CardResolveOperator : Activatable
     /// <param name="triggered">Cadena de efectos a desencadenar</param>
     /// <param name="isActive">Indica si es un trigger generado activamente o no</param>
     public IEnumerator triggerEffect(Card source, EffectChain triggered, bool isActive){
+        yield return waitTillPrecalculated;
         var card = createTriggerCard(source,triggered, transform, isActive);
         Debug.Log(card.name,card);
-        
         yield return StartCoroutine(castCard(card));
     }
 }

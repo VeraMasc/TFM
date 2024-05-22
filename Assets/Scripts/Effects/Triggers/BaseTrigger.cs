@@ -48,8 +48,11 @@ namespace Effect{
         /// Invoca el evento usando los parámetros ya asignados
         /// </summary>
         public virtual IEnumerator invoke(){
+            var resolver = CardResolveOperator.singleton;
             foreach(var key in subscribers.Keys){
-                yield return UCoroutine.Yield(subscribers[key].Invoke(eventData));
+                
+                yield return resolver.StartCoroutine(subscribers[key].Invoke(eventData));
+                Debug.Log($"Finished invoking trigger {key}",key);
             }
         }
 
@@ -58,7 +61,7 @@ namespace Effect{
         /// </summary>
         public virtual IEnumerator invoke(T eventData){
             this.eventData = eventData;
-            return invoke();
+            yield return invoke();
         }
 
         /// <summary>
@@ -93,8 +96,9 @@ namespace Effect{
     {
         //TODO: Poner en archivo aparte
         public override IEnumerator invoke(){
+            var resolver = CardResolveOperator.singleton;
             foreach(var key in subscribers.Keys){
-                yield return UCoroutine.Yield(subscribers[key].Invoke(eventData));
+                yield return resolver.StartCoroutine(subscribers[key].Invoke(eventData));
             }
         }
 
