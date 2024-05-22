@@ -10,6 +10,7 @@ namespace CardHouse
         Board,
         Stack,
         Lost,
+        Skills,
         A,
         B,
         C,

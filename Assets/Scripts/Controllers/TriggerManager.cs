@@ -85,9 +85,9 @@ public class TriggerManager : ScriptableObject
     /// //TODO: Crear trigger "personal" (que agrupa los objetos por jugador)
     /// </summary>
     [HorizontalLine(3,message = "Timing")]
-    public PersonalTrigger onBeginTurn;
+    public GlobalTrigger onBeginTurn;
 
-    public PersonalTrigger onEndTurn;
+    public GlobalTrigger onEndTurn;
 
     //TODO: Crear trigger "regional" (que agrupa los objetos por zona)
 }

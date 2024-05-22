@@ -33,7 +33,7 @@ namespace Effect{
         public virtual IEnumerator executeAbility(Context context){
             var self = context.self;
             if(self is Card card){
-                var routine =CardResolveOperator.singleton.triggerEffect(card,EffectChain.cloneFrom(effects), useActiveTriggers);
+                var routine =CardResolveOperator.singleton.triggerAbilityEffect(card, this, useActiveTriggers);
                 yield return routine.Start(card);
             }
             else{

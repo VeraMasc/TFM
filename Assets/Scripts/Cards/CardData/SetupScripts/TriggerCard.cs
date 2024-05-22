@@ -47,4 +47,14 @@ public class TriggerCard : MyCardSetup
             baseEffect = triggered.clone() //Asigna el trigger como efecto base
         };
     }
+
+    /// <summary>
+    /// Permite cambiar el texto de los triggers
+    /// </summary>
+    /// <param name="newText"></param>
+    public void changeText(string newText){
+        Debug.Log($"Text changed to: {newText}");
+        cardText = newText;
+        cardTextBox.text = cardText;
+    }
 }

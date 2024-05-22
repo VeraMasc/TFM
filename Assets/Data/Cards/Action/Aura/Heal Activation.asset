@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Heal Activable
-  cardText: <link="ability">Target ally heals 2 life</link>
+  cardText: 'Whenever this enters the field, draw a card.
+
+
+    <link="ability">0:Target
+    ally heals 2 life. Use only as an action</link>'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []

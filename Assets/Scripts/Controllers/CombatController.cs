@@ -136,11 +136,14 @@ public class CombatController : GameMode
 		if(currentPhase == CombatPhases.setup){
 			phaseCoroutine =StartCoroutine(setupPhase());
 		}
+		else if(currentPhase == CombatPhases.start){
+			phaseCoroutine =StartCoroutine(startPhase());
+		}
 		else if(currentPhase == CombatPhases.main){
 
 		}
 		else if(currentPhase == CombatPhases.end){
-
+			phaseCoroutine =StartCoroutine(endPhase());
 		}
 		else if(currentPhase == CombatPhases.cleanup){
 			phaseCoroutine =StartCoroutine(cleanupPhase());
@@ -183,6 +186,21 @@ public class CombatController : GameMode
 		//End coroutine
 		phaseCoroutine = null;
 		nextPhase();
+	}
+
+	/// <summary>
+	/// Se encarga de ejecutar los eventos de inicio de turno
+	/// </summary>
+	/// <returns></returns>
+	public IEnumerator startPhase(){
+		yield return StartCoroutine(triggerManager.onBeginTurn.invoke());
+	}
+
+	/// <summary>
+	/// Se encarga de ejecutar los eventos de final de turno
+	/// </summary>
+	public IEnumerator endPhase(){
+		yield return StartCoroutine(triggerManager.onEndTurn.invoke());
 	}
 
 

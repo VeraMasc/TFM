@@ -40,7 +40,7 @@ namespace Effect{
         /// Función para pruebas
         /// </summary>
         [NaughtyAttributes.Button("Invoke All")]
-        private void invokeAll(){
+        protected void invokeAll(){
             UCoroutine.Yield(invoke()).Start(GameController.singleton);
         }
 
@@ -88,11 +88,8 @@ namespace Effect{
         
     }
 
-    /// <summary>
-    /// Trigger de efecto global (afecta a todos los objetos con el trigger por igual)
-    /// </summary>
-    // [CreateAssetMenu(menuName = "Trigger/GlobalTrigger")]
-    public class GlobalTrigger<T> :BaseTrigger<T>
+    
+    public abstract class GlobalTrigger<T> :BaseTrigger<T>
     {
         //TODO: Poner en archivo aparte
         public override IEnumerator invoke(){
@@ -101,8 +98,7 @@ namespace Effect{
                 yield return resolver.StartCoroutine(subscribers[key].Invoke(eventData));
             }
         }
-
         
     }
-
+  
 }

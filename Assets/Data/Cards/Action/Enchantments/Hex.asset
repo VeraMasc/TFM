@@ -16,6 +16,9 @@ MonoBehaviour:
   cardName: Hex
   cardText: 'Enchant target entity
 
+    <link="hex">At the beginning of the enchanted
+    entity''s turn, they lose 1 life</link>
+
     <link="redraw">Redraw 2</link>'
   Art: {fileID: 0}
   Frame: {fileID: 0}
@@ -97,11 +100,26 @@ MonoBehaviour:
     - rid: 8129478324054130699
       type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
       data:
-        id: 
+        id: hex
         source: {fileID: 0}
         effects:
-        - rid: -2
-        trigger: {fileID: 11400000, guid: 5c5ab869e1b0f014fa3e48e724aa9364, type: 2}
+        - rid: 8129478324054130700
+        trigger: {fileID: 11400000, guid: cc3f20ded2a76da4e95c8be5474472d9, type: 2}
         activeZoneList: 05000000
         condition:
           rid: -2
+    - rid: 8129478324054130700
+      type: {class: DealDamage, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478324054130701
+        amount:
+          rid: 8129478324054130702
+    - rid: 8129478324054130701
+      type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}
+      data:
+        contextual: 5
+    - rid: 8129478324054130702
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 1

@@ -356,4 +356,28 @@ public class CardResolveOperator : Activatable
         Debug.Log(card.name,card);
         yield return StartCoroutine(castCard(card));
     }
+
+    public IEnumerator triggerAbilityEffect(Card source, Ability ability, bool isActive){
+        yield return waitTillPrecalculated;
+        var chain = EffectChain.cloneFrom(ability?.effects);
+        var card = createTriggerCard(source,chain, transform, isActive);
+        
+        //Change text
+        if(ability.id != string.Empty){
+            var trigger = (TriggerCard)card.data;
+            trigger.cardTextBox?.ForceMeshUpdate(forceTextReparsing:true); //IMPORTANTE
+
+            var chosenLink = trigger.cardTextBox.textInfo.linkInfo
+                .Where( link => link.GetLinkID() == ability?.id)
+                .FirstOrDefault();
+
+            if(chosenLink.textComponent != null){
+                trigger.changeText(chosenLink.GetLinkText());
+            }
+            
+        }
+        //Execute
+        Debug.Log(card.name,card);
+        yield return StartCoroutine(castCard(card));
+    }
 }

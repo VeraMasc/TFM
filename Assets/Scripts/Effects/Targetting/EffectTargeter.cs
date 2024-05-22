@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using CardHouse;
 using CustomInspector;
 using UnityEngine;
@@ -144,7 +145,17 @@ public class ContextualEntityTargeter:EffectTargeter
             case ContextualEntityTargets.opponents:
                 _targets =  GameController.singleton.getEnemies(context.controller.team).ToArray();
                 break;
+            case ContextualEntityTargets.attachedTo:
+                if (context.self is Card card){
+                    var group = card.Group?.GetComponent<GroupZone>();
+                    if(group?.owner){
+                        singleTarget = group.owner;
+                    }
+                }
+                
+                break;
         }
+        _targets ??= new ITargetable[0];
     }
 }
 
@@ -169,5 +180,6 @@ public enum ContextualEntityTargets{
     owner,
     allies,
     opponents,
-    everyone
+    everyone,
+    attachedTo
 }

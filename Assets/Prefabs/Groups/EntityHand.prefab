@@ -287,7 +287,7 @@ MonoBehaviour:
   groupScale: 1
   invertOrder: 0
   selected: 0
-  MarginalCardOffset: 0.05
+  MarginalCardOffset: 0.08
   ArcCenterOffset: {x: 0, y: -5}
   ArcMargin: 0.3
   selectedScale: 1.8

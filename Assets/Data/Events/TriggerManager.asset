@@ -27,5 +27,5 @@ MonoBehaviour:
   onCast: {fileID: 0}
   onSpent: {fileID: 0}
   onUseAction: {fileID: 0}
-  onBeginTurn: {fileID: 0}
-  onEndTurn: {fileID: 0}
+  onBeginTurn: {fileID: 11400000, guid: cc3f20ded2a76da4e95c8be5474472d9, type: 2}
+  onEndTurn: {fileID: 11400000, guid: 0c270b7eb608d444e813e45e4159c3b9, type: 2}
