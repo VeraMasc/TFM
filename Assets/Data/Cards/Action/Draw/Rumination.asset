@@ -62,9 +62,9 @@ MonoBehaviour:
         relation: 2
         zones: 04000000
     - rid: 8129478013255417873
-      type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}
+      type: {class: ContextualEntityTargeter, ns: Effect , asm: Assembly-CSharp}
       data:
-        contextual: 0
+        contextual: 0 
     - rid: 8129478014803116032
       type: {class: Discard, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -73,11 +73,11 @@ MonoBehaviour:
         cards:
           rid: 8129478014803116034
     - rid: 8129478014803116033
-      type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}
+      type: {class: ContextualEntityTargeter, ns: Effect , asm: Assembly-CSharp}
       data:
         contextual: 0
     - rid: 8129478014803116034
-      type: {class: ReuseTargeter, ns: , asm: Assembly-CSharp}
+      type: {class: ReuseTargeter, ns: Effect , asm: Assembly-CSharp}
       data:
         index: 1
     - rid: 8129478015182176256
@@ -88,7 +88,7 @@ MonoBehaviour:
         amount:
           rid: 8129478015182176259
     - rid: 8129478015182176257
-      type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}
+      type: {class: ContextualEntityTargeter, ns: Effect , asm: Assembly-CSharp}
       data:
         contextual: 0
     - rid: 8129478015182176259

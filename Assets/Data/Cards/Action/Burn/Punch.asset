@@ -49,7 +49,7 @@ MonoBehaviour:
         amount:
           rid: 3644647386710540304
     - rid: 3644647386710540303
-      type: {class: ReuseTargeter, ns: , asm: Assembly-CSharp}
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         index: 0
     - rid: 3644647386710540304
@@ -67,6 +67,6 @@ MonoBehaviour:
         targeter:
           rid: 8129478013255417859
     - rid: 8129478013255417859
-      type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         contextual: 4

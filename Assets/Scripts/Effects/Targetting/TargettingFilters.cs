@@ -70,6 +70,30 @@ namespace Effect
                 return ret;
             }
         }
+
+
+
+        /// <summary>
+        /// Filtra cartas de forma aleatoria
+        /// </summary>
+        [Serializable]
+        public class RandomSelection:TargetFilter
+        {
+            [SerializeReference,SubclassSelector]
+            public IValue amount;
+
+
+            public override void resolveTarget(Effect.Context context){
+                var rawTargets = targeter.getTargets(context);
+
+                var val = amount.getValueObj(context);
+                if(rawTargets != null && val is int number){
+                    _targets = rawTargets.TakeRandom(number).ToArray();
+                }
+                
+            }
+        }
+
     }
 
 }

@@ -73,11 +73,7 @@ MonoBehaviour:
       type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
       data:
         targeter:
-          rid: 8129478324054130691
-    - rid: 8129478324054130691
-      type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}
-      data:
-        contextual: 2
+          rid: 8129478347398053923
     - rid: 8129478324054130692
       type: {class: Heal, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -86,7 +82,7 @@ MonoBehaviour:
         amount:
           rid: 8129478324054130694
     - rid: 8129478324054130693
-      type: {class: ReuseTargeter, ns: , asm: Assembly-CSharp}
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         index: 0
     - rid: 8129478324054130694
@@ -108,14 +104,14 @@ MonoBehaviour:
       type: {class: Draw, ns: Effect, asm: Assembly-CSharp}
       data:
         targeter:
-          rid: 8129478324054130697
+          rid: -2
         amount:
           rid: 8129478324054130698
-    - rid: 8129478324054130697
-      type: {class: ContextualEntityTargeter, ns: , asm: Assembly-CSharp}
-      data:
-        contextual: 0
     - rid: 8129478324054130698
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 1
+    - rid: 8129478347398053923
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 2

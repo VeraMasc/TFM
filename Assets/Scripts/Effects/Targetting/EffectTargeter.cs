@@ -92,73 +92,76 @@ public abstract class EffectTargeter
 
 }
 
-[Serializable]
-public class ContextualObjectTargeter:EffectTargeter
-{
-    public ContextualObjTargets contextual;
-    public override void resolveTarget(Effect.Context context){
-        switch(contextual){
-            case ContextualObjTargets.self:
-                singleTarget= context.self;
-                break;
-            
-            case ContextualObjTargets.parent:
-                singleTarget =getObjParent(context.self);
-                break;
-            
-            case ContextualObjTargets.all:
-                _targets = GameController.singleton.getTargetablesOnBoard()
-                    .Where(t=> isValidTarget(t,context)).ToArray();
-                break;
-            default:
-                throw new NotImplementedException();
-        }
-    }
 
-}
-
-/// <summary>
-/// Targets entities by context
-/// </summary>
-[Serializable]
-public class ContextualEntityTargeter:EffectTargeter
-{
-    public ContextualEntityTargets contextual;
-    public override void resolveTarget(Effect.Context context){
-        switch(contextual){
-            case ContextualEntityTargets.controller:
-                singleTarget= context.controller;
-                break;
-            
-            case ContextualEntityTargets.owner:
-                singleTarget = context.owner;
-                break;
-            
-            case ContextualEntityTargets.allies:
-                _targets = GameController.singleton.getMembers(context.controller.team).ToArray();
-                break;
-
-            case ContextualEntityTargets.everyone:
-                _targets = GameController.singleton.entities.ToArray();
-                break;
-
-            case ContextualEntityTargets.opponents:
-                _targets =  GameController.singleton.getEnemies(context.controller.team).ToArray();
-                break;
-            case ContextualEntityTargets.attachedTo:
-                if (context.self is Card card){
-                    var group = card.Group?.GetComponent<GroupZone>();
-                    if(group?.owner){
-                        singleTarget = group.owner;
-                    }
-                }
+namespace Effect{
+    
+    [Serializable]
+    public class ContextualObjectTargeter:EffectTargeter
+    {
+        public ContextualObjTargets contextual;
+        public override void resolveTarget(Effect.Context context){
+            switch(contextual){
+                case ContextualObjTargets.self:
+                    singleTarget= context.self;
+                    break;
                 
-                break;
+                case ContextualObjTargets.parent:
+                    singleTarget =getObjParent(context.self);
+                    break;
+                
+                case ContextualObjTargets.all:
+                    _targets = GameController.singleton.getTargetablesOnBoard()
+                        .Where(t=> isValidTarget(t,context)).ToArray();
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
         }
-        _targets ??= new ITargetable[0];
+
+    }
+
+    /// <summary>
+    /// Targets entities by context
+    /// </summary>
+    [Serializable]
+    public class ContextualEntityTargeter:EffectTargeter
+    {
+        public ContextualEntityTargets contextual;
+        public override void resolveTarget(Effect.Context context){
+            switch(contextual){
+                case ContextualEntityTargets.controller:
+                    singleTarget= context.controller;
+                    break;
+                
+                case ContextualEntityTargets.owner:
+                    singleTarget = context.owner;
+                    break;
+                
+                case ContextualEntityTargets.allies:
+                    _targets = GameController.singleton.getMembers(context.controller.team).ToArray();
+                    break;
+
+                case ContextualEntityTargets.everyone:
+                    _targets = GameController.singleton.entities.ToArray();
+                    break;
+
+                case ContextualEntityTargets.opponents:
+                    _targets =  GameController.singleton.getEnemies(context.controller.team).ToArray();
+                    break;
+                case ContextualEntityTargets.attachedTo:
+                    if (context.self is Card card){
+                        var group = card.Group?.GetComponent<GroupZone>();
+                        if(group?.owner){
+                            singleTarget = group.owner;
+                        }
+                    }
+                    
+                    break;
+            }
+            _targets ??= new ITargetable[0];
+        }
     }
 }
-
 /// <summary>
 /// Targets contextuales de elementos del juego
 /// </summary>

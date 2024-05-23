@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: ReturnToHand
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Return To Hand
+  cardText: 
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  speedType: 1
+  typeList: 00000000
+  cost:
+    costText: 
+    value: 0
+    colors: 
+  effects:
+    baseEffect:
+      list:
+      - rid: 8129478347398053904
+      - rid: 8129478330713112579
+    abilities: []
+    staticEffects:
+      list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 8129478330713112579
+      type: {class: SendTo, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478347398053912
+        zone: 4
+        mode: 0
+    - rid: 8129478347398053904
+      type: {class: TargetAsValue, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478347398053905
+    - rid: 8129478347398053905
+      type: {class: RandomSelection, ns: Effect.Filter, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478347398053910
+        amount:
+          rid: 8129478347398053908
+    - rid: 8129478347398053908
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 2
+    - rid: 8129478347398053910
+      type: {class: EntityCardTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        source:
+          rid: 8129478347398053913
+        relation: 0
+        zones: 
+    - rid: 8129478347398053912
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8129478347398053913
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
