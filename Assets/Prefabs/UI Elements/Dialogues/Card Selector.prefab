@@ -121,6 +121,7 @@ MonoBehaviour:
   chosen: 
   options: []
   displayRoot: {fileID: 3073155347018576360}
+  scaleDown: 4
 --- !u!1001 &2133475021180337772
 PrefabInstance:
   m_ObjectHideFlags: 0

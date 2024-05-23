@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Heal Activable
-  cardText: 'Whenever this enters the field, draw a card.
+  cardText: '<link="enter">Whenever this enters the field, draw a card.</link>
 
 
     <link="ability">0:Target
@@ -23,7 +23,7 @@ MonoBehaviour:
   Frame: {fileID: 0}
   help: []
   speedType: 0
-  typeList: 00000000
+  typeList: 0000000006000000
   cost:
     costText: 
     value: 0

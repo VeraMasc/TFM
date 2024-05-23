@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using CardHouse;
+using Common.Coroutines;
 using CustomInspector;
 using UnityEngine;
 
@@ -25,7 +26,8 @@ namespace Effect{
             
             foreach(var target in targets){
                 if(target is Entity entity){
-                    entity.heal(amount.getValue(context));
+                    yield return entity.heal(amount.getValue(context))
+                        .Start(entity);
                     
                     //TODO: Allow simultaneous damage
                     yield return new WaitForSeconds(0.2f);

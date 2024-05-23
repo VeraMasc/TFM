@@ -26,17 +26,33 @@ public class CardSelectInput : PlayerInputBase
     public List<CardSelectOption> options;
 
     public Transform displayRoot;
+
+    public float scaleDown = 5f;
     
     // Start is called before the first frame update
     void Start()
     {
-        displayRoot.position = new Vector3(0,0, displayRoot.position.z);
+        updateResolution();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnPreRender()
+    {
+        updateResolution();
+        
+    }
+
+    
+
+    void LateUpdate()
     {
         
+        updateResolution();
+    }
+
+    public void updateResolution(){
+        displayRoot.position = new Vector3(0,0, displayRoot.position.z);
+        displayRoot.localScale = 1080f/Screen.height/scaleDown * new Vector3(1,1,0)
+            + Vector3.forward;
     }
 
     public override void setInputConfig(InputParameters parameters){
