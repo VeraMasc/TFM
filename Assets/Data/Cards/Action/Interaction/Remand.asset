@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: Remand
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Remand
+  cardText: Return target pending action to its owner's hand
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  speedType: 1
+  typeList: 00000000
+  cost:
+    costText: 
+    value: 0
+    colors: 
+  effects:
+    baseEffect:
+      list:
+      - rid: 8129478330713112576
+      - rid: 8129478330713112579
+    abilities: []
+    staticEffects:
+      list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8129478330713112576
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8129478347398053888
+    - rid: 8129478330713112579
+      type: {class: SendTo, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478330713112580
+        zone: 4
+        mode: 0
+    - rid: 8129478330713112580
+      type: {class: ReuseTargeter, ns: , asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8129478347398053888
+      type: {class: SelectCardsFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478347398053890
+        condition:
+          rid: -2
+    - rid: 8129478347398053890
+      type: {class: CardType, ns: Effect.Filter, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478347398053891
+        noTriggers: 0
+        speedtypes: 
+        subtypes: 
+    - rid: 8129478347398053891
+      type: {class: ZoneCardTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        zones: 06000000
+        exclude:
+          rid: 8129478347398053893
+        condition:
+          rid: -2
+    - rid: 8129478347398053893
+      type: {class: ContextualObjectTargeter, ns: , asm: Assembly-CSharp}
+      data:
+        contextual: 0

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d37e2e35cf24e4aac2aa54f5ee035d, type: 3}
+  m_Name: ControlDeck
+  m_EditorClassIdentifier: 
+  cardBackArt: {fileID: 2025458771616860364, guid: 165278c9f2aab5540982b9adcb5ebc2a, type: 3}
+  CardsetCollection:
+  - card: {fileID: 11400000, guid: 0a1551408bdb0e6459b9201ebc22f7f4, type: 2}
+    amount: 5
+  - card: {fileID: 11400000, guid: 7a254520b453c85419b27b16f1e745ea, type: 2}
+    amount: 0
+  - card: {fileID: 11400000, guid: b09a5f40a0380724e869a7cfc7d3f501, type: 2}
+    amount: 5
+  - card: {fileID: 11400000, guid: 362c9af70a8b9e441bc3f9f08d99f36d, type: 2}
+    amount: 15
+  - card: {fileID: 11400000, guid: ea65a734769fddf4f8f8502506ad9bb2, type: 2}
+    amount: 5
+  - card: {fileID: 11400000, guid: 9cf11c5beeb50c644b604894eebef983, type: 2}
+    amount: 5

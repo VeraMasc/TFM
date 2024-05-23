@@ -27,6 +27,8 @@ public class CardSelectInput : PlayerInputBase
 
     public Transform displayRoot;
 
+    public SpriteRenderer background;
+
     public float scaleDown = 5f;
     
     // Start is called before the first frame update
@@ -53,6 +55,8 @@ public class CardSelectInput : PlayerInputBase
         displayRoot.position = new Vector3(0,0, displayRoot.position.z);
         displayRoot.localScale = 1080f/Screen.height/scaleDown * new Vector3(1,1,0)
             + Vector3.forward;
+
+        background.transform.position= displayRoot.position + Vector3.forward;
     }
 
     public override void setInputConfig(InputParameters parameters){

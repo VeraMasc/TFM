@@ -17,7 +17,10 @@ namespace Effect{
 
         public override IEnumerator executeForeach(ITargetable target, CardResolveOperator stack, Context context)
         {
+            
             if(target is Card card ){
+
+
                 CardGroup group = null;
                 var ownership = card.GetComponent<CardOwnership>();
                 switch(zone){
@@ -27,6 +30,12 @@ namespace Effect{
                     case GroupName.Hand:
                         group = ownership?.owner?.hand;
                         break;    
+                }
+
+                //Destruir triggers
+                if(ownership.owner == null || card.data is TriggerCard){
+                    card.Group.UnMount(card);
+                    GameObject.Destroy(card.gameObject);
                 }
 
                 if(group == null){

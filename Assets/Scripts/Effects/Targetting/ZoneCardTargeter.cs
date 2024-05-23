@@ -21,7 +21,12 @@ namespace Effect
         public List<GroupName> zones=new();
 
         [SerializeReference, SubclassSelector]
+        public EffectTargeter exclude;
+
+        [SerializeReference, SubclassSelector]
         public BaseCondition condition;
+
+        
         
 
         public override void resolveTarget(Effect.Context context){
@@ -32,6 +37,12 @@ namespace Effect
                 .Where(group => zones.Contains(group.zone) );
             
             var cards = zonedGroups.SelectMany(group => group.GetComponent<CardGroup>()?.MountedCards);
+
+            //Si hay que excluir ciertas cartas
+            if(exclude != null){
+                var excluded = exclude.getTargets(context);
+                cards = cards.Except(excluded).Cast<Card>();
+            }
 
             _targets = cards.ToArray();
         }
