@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
-  m_Name: ReturnToHand
+  m_Name: RandomRecover
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Return To Hand
-  cardText: 
+  cardText: Return 3 random spent cards to the bottom of your deck
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   speedType: 1
-  typeList: 00000000
+  typeList: 05000000
   cost:
     costText: 
     value: 0
@@ -48,8 +48,8 @@ MonoBehaviour:
       data:
         targeter:
           rid: 8129478347398053912
-        zone: 4
-        mode: 0
+        zone: 3
+        mode: 1
     - rid: 8129478347398053904
       type: {class: TargetAsValue, ns: Effect, asm: Assembly-CSharp}
       data:

@@ -20,7 +20,7 @@ namespace Effect{
             
             if(target is Card card ){
 
-
+                
                 CardGroup group = null;
                 var ownership = card.GetComponent<CardOwnership>();
                 switch(zone){

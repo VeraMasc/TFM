@@ -39,6 +39,11 @@ public class BaseCardEffects{
 
     public CardGroup sourceGroup;
 
+    /// <summary>
+    /// Momento en el que se produjo el cambio de zona (en segundos desde inicio del juego)
+    /// </summary>
+    public double entryTime;
+
 
    
 

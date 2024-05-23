@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using Common.Coroutines;
 using UnityEngine;
@@ -20,6 +21,12 @@ namespace Effect{
         /// </summary>
         public override IEnumerator execute(CardResolveOperator stack, Effect.Context context){
             //Does nothing
+            //TODO: handle targets having changed zones or becoming invalid
+            var validators = effects.OfType<ValidateTargets>();
+            foreach(var validator in validators){
+                Debug.Log("Validating targets");
+                validator.validate(context);
+            }
             yield break;
         }
 

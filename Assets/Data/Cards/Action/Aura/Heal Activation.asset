@@ -45,6 +45,7 @@ MonoBehaviour:
       mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
+    entryTime: 0
   references:
     version: 2
     RefIds:
@@ -95,23 +96,27 @@ MonoBehaviour:
         id: enter
         source: {fileID: 0}
         effects:
-        - rid: 8129478324054130696
+        - rid: 8129478356213956609
         trigger: {fileID: 11400000, guid: cac14767393c4824fabee3093dd3288e, type: 2}
         activeZoneList: 00000000
         condition:
           rid: -2
-    - rid: 8129478324054130696
-      type: {class: Draw, ns: Effect, asm: Assembly-CSharp}
-      data:
-        targeter:
-          rid: -2
-        amount:
-          rid: 8129478324054130698
-    - rid: 8129478324054130698
-      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
-      data:
-        value: 1
     - rid: 8129478347398053923
       type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         contextual: 2
+    - rid: 8129478356213956609
+      type: {class: Draw, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478356213956610
+        amount:
+          rid: 8129478356213956611
+    - rid: 8129478356213956610
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8129478356213956611
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 1

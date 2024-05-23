@@ -28,6 +28,7 @@ MonoBehaviour:
     baseEffect:
       list:
       - rid: 8129478330713112576
+      - rid: 8129478355893092353
       - rid: 8129478330713112579
     abilities: []
     staticEffects:
@@ -40,6 +41,7 @@ MonoBehaviour:
       mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
+    entryTime: 0
   references:
     version: 2
     RefIds:
@@ -59,16 +61,23 @@ MonoBehaviour:
       type: {class: ZoneCardTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         zones: 05000000
+        exclude:
+          rid: -2
         condition:
           rid: -2
     - rid: 8129478330713112579
       type: {class: SendTo, ns: Effect, asm: Assembly-CSharp}
       data:
         targeter:
-          rid: 8129478330713112580
+          rid: 8129478355893092352
         zone: 4
         mode: 0
-    - rid: 8129478330713112580
-      type: {class: ReuseTargeter, ns: , asm: Assembly-CSharp}
+    - rid: 8129478355893092352
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         index: 0
+    - rid: 8129478355893092353
+      type: {class: ValidateTargets, ns: Effect, asm: Assembly-CSharp}
+      data:
+        requireAll: 0
+        targetIndexes: 00000000

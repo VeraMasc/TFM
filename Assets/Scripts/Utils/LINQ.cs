@@ -9,8 +9,9 @@ public static class LINQExtensions
         var list = data.ToList();
         var ret = new List<T>();
 
-        for(var i =0; i<amount; i++){
+        for(var i =0; i<amount && list.Any(); i++){
             int index = UnityEngine.Random.Range(0,list.Count());
+            Debug.Log(index);
             ret.Add(list.ElementAt(index));
 
             if(!allowRepetitions){//Quitar elementos ya usados

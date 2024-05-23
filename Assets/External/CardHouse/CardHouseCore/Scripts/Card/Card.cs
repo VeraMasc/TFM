@@ -288,6 +288,7 @@ namespace CardHouse
                 //Cambiar el contexto de la carta
                 setup.effects.sourceZone = zone?.zone ?? GroupName.None;
                 setup.effects.sourceGroup = group;
+                setup.effects.entryTime = Time.timeAsDouble;
                 setup.effects.context.precalculated=false;
             }
         }
