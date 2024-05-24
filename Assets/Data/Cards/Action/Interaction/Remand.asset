@@ -28,7 +28,7 @@ MonoBehaviour:
     baseEffect:
       list:
       - rid: 8129478330713112576
-      - rid: 8129478330713112579
+      - rid: 8129478356213956634
     abilities: []
     staticEffects:
       list: []
@@ -40,6 +40,7 @@ MonoBehaviour:
       mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
+    entryTime: 0
   references:
     version: 2
     RefIds:
@@ -50,17 +51,6 @@ MonoBehaviour:
       data:
         effects:
         - rid: 8129478347398053888
-    - rid: 8129478330713112579
-      type: {class: SendTo, ns: Effect, asm: Assembly-CSharp}
-      data:
-        targeter:
-          rid: 8129478330713112580
-        zone: 4
-        mode: 0
-    - rid: 8129478330713112580
-      type: {class: ReuseTargeter, ns: , asm: Assembly-CSharp}
-      data:
-        index: 0
     - rid: 8129478347398053888
       type: {class: SelectCardsFrom, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -88,3 +78,14 @@ MonoBehaviour:
       type: {class: ContextualObjectTargeter, ns: , asm: Assembly-CSharp}
       data:
         contextual: 0
+    - rid: 8129478356213956634
+      type: {class: SendTo, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478356213956635
+        zone: 0
+        mode: 0
+    - rid: 8129478356213956635
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 1

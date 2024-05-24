@@ -74,6 +74,8 @@ namespace Effect
                     //Cancelar ejecución si no hay suficientes valores válidos
                     if(validated.Length ==0 || requireAll){
                         Debug.Log("Invalid target found");
+                        
+                        //TODO: eliminar marcadores de target en context.previousChosenTargets 
                         context.mode = ExecutionMode.cancel;
                     }
                 }

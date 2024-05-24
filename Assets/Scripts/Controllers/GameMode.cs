@@ -61,8 +61,11 @@ public abstract class GameMode : MonoBehaviour
     /// <param name="entity"></param>
     /// <returns></returns>
     public virtual bool isSpeedValid(Entity entity, SpeedTypes speed){
-        //Por defecto, es turno de todos
-        return true;
+        if(speed == SpeedTypes.Reaction){
+			return true;
+		}
+
+		return GameMode.current.isEntityTurn(entity) && CardResolveOperator.singleton.isEmpty;
     }
 
     protected TriggerManager triggerManager => GameController.singleton.triggerManager;

@@ -28,7 +28,7 @@ MonoBehaviour:
     baseEffect:
       list:
       - rid: 8129478330713112576
-      - rid: 8129478355893092353
+      - rid: 8129478356213956612
       - rid: 8129478330713112579
     abilities: []
     staticEffects:
@@ -76,7 +76,7 @@ MonoBehaviour:
       type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         index: 0
-    - rid: 8129478355893092353
+    - rid: 8129478356213956612
       type: {class: ValidateTargets, ns: Effect, asm: Assembly-CSharp}
       data:
         requireAll: 0

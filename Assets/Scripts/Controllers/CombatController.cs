@@ -93,7 +93,7 @@ public class CombatController : GameMode
 			return true;
 		}
 
-		return GameMode.current.isEntityTurn(entity) && currentPhase == CombatPhases.main;
+		return GameMode.current.isEntityTurn(entity) && currentPhase == CombatPhases.main && CardResolveOperator.singleton.isEmpty;
 		
     }
 
