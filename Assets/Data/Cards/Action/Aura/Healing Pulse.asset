@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: Healing Pulse
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Healing Pulse
+  rawText: '{enter: Whenever ~ enters the field, all allies regain 2 life.}
+
+
+'
+  parsedText: '<link="enter">Whenever Healing Pulse enters the field, all allies
+    regain 2 life.</link>
+
+
+'
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  speedType: 0
+  typeList: 0000000006000000
+  cost:
+    costText: 
+    value: 0
+    colors: 
+  effects:
+    baseEffect:
+      list:
+      - rid: 8129478308107124752
+    abilities:
+    - rid: 8129478324054130695
+    staticEffects:
+      list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+    entryTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8129478308107124752
+      type: {class: EnterBoard, ns: Effect, asm: Assembly-CSharp}
+    - rid: 8129478324054130695
+      type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: enter
+        source: {fileID: 0}
+        effects:
+        - rid: 8129478356213956636
+        trigger: {fileID: 11400000, guid: cac14767393c4824fabee3093dd3288e, type: 2}
+        activeZoneList: 00000000
+        condition:
+          rid: -2
+    - rid: 8129478356213956636
+      type: {class: Heal, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478356213956637
+        amount:
+          rid: 8129478356213956638
+    - rid: 8129478356213956637
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 2
+    - rid: 8129478356213956638
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 2

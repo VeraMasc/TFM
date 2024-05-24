@@ -19,6 +19,9 @@ public class ActionCard : MyCardSetup, IActionable
     [HorizontalLine(3, message ="Speed")]
     public SpeedTypes speedType;
 
+    public TextMeshPro costText;
+    public ManaCost cost;
+
     /// <summary>
     /// Objeto que muestra la velocidad de la carta
     /// </summary>
@@ -41,6 +44,10 @@ public class ActionCard : MyCardSetup, IActionable
             effects = action.effects;
             effects = action.effects.cloneAll();
             effects.setContext(GetComponent<Card>());
+
+            //Cost
+            cost = action.cost;
+            costText.text = MyCardDefinition.parseCost(cost.asCardText());
         }
         else {
             Debug.LogError($"Wrong Definition for ActionCard: {data?.GetType()?.Name}",data);

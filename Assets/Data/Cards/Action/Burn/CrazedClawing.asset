@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Crazed Clawing
-  cardText: Whenever this card is used or discarded, deal 2 damage to target entity
+  rawText: Whenever this card is used or discarded, deal 2 damage to target entity
+  parsedText: Whenever this card is used or discarded, deal 2 damage to target entity
   Art: {fileID: 7661334728954290958, guid: c098e1a924a8fc14c890d4c2462c1374, type: 3}
   Frame: {fileID: 0}
   help: []
   speedType: 1
   typeList: 01000000
   cost:
-    costText: 
-    value: 0
-    colors: 
+    costText: DW
+    value: 2
+    colors: DW
   effects:
     baseEffect:
       list: []
@@ -39,9 +40,12 @@ MonoBehaviour:
       mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
+    entryTime: 0
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 8129478057838772224
       type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -52,6 +56,8 @@ MonoBehaviour:
         - rid: 8129478057838772228
         trigger: {fileID: 11400000, guid: 6c8110e8ffaf22341a790fb320905cc2, type: 2}
         activeZoneList: 0400000006000000
+        condition:
+          rid: -2
     - rid: 8129478057838772225
       type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -73,7 +79,7 @@ MonoBehaviour:
           rid: 8129478057838772229
         amount:
           rid: 8129478057838772230
-    - rid: 8129478057838772229 
+    - rid: 8129478057838772229
       type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         index: 0

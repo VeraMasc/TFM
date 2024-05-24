@@ -28,6 +28,27 @@ namespace Effect{
         [ReadOnly, HorizontalGroup(), Indent]
         public string colors;
 
+
+        /// <summary>
+        /// Devuelve el valor en el formato de texto de las cartas
+        /// </summary>
+        /// <returns></returns>
+        public string asCardText(){
+            var segments = manaSegments.Match(costText);
+            var digits = segments.Groups[1];
+            var colored = segments.Groups[2];
+            var ret = "";
+            if(digits.Length>0){
+                ret+=$"{{{digits}}}";
+            }
+            if(colored.Length>0){
+                foreach( var pip in colored.Value){
+                    ret+=$"{{{pip}}}";
+                }
+            }
+            return ret;
+        }
+
         /// <summary>
         /// Comprueba que el coste tiene sentido
         /// </summary>

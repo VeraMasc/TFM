@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Remand
-  cardText: Return target pending action to its owner's hand
+  rawText: Return target pending action to its owner's hand
+  parsedText: Return target pending action to its owner's hand
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   speedType: 1
   typeList: 00000000
   cost:
-    costText: 
-    value: 0
-    colors: 
+    costText: FF
+    value: 2
+    colors: F
   effects:
     baseEffect:
       list:
@@ -63,7 +64,7 @@ MonoBehaviour:
       data:
         targeter:
           rid: 8129478347398053891
-        noTriggers: 0
+        noTriggers: 1
         speedtypes: 
         subtypes: 
     - rid: 8129478347398053891

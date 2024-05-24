@@ -1237,8 +1237,8 @@ MonoBehaviour:
     toolbarAttributeExamples:
       edit: 0
       create: 0
-      animal: 0
-      type: 0
+      animal: 1
+      type: 2
     tooltipBoxAttributeExamples:
       myGameObject: {fileID: 0}
       myFloat: 0

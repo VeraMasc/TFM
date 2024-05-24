@@ -94,7 +94,7 @@ public abstract class MyCardSetup : CardSetup
             {
                 BackImage.sprite = baseCard.BackArt;
             }
-            cardText = baseCard.cardText;
+            cardText = baseCard.parsedText;
             cardTextBox.text = cardText;
             cardName = baseCard.cardName;
             cardNameBox.text = cardName;

@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Double Punch
-  cardText: Deal 1 damage to up to 2 target entities
+  rawText: Deal 1 damage to up to 2 target entities
+  parsedText: Deal 1 damage to up to 2 target entities
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
+  speedType: 0
   typeList: 01000000
   cost:
-    costText: 1
-    value: 1
+    costText: 2
+    value: 2
     colors: 
   effects:
     baseEffect:
@@ -37,11 +39,15 @@ MonoBehaviour:
       controller: {fileID: 0}
       resolutionPile: {fileID: 0}
       precalculated: 0
+      mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
+    entryTime: 0
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 3644647386710540302
       type: {class: DealDamage, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -60,10 +66,14 @@ MonoBehaviour:
     - rid: 8129477892417519617
       type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
       data:
+        id: 
         source: {fileID: 0}
         effects:
         - rid: 8129477892417519618
         trigger: {fileID: 11400000, guid: cac14767393c4824fabee3093dd3288e, type: 2}
+        activeZoneList: 05000000
+        condition:
+          rid: -2
     - rid: 8129477892417519618
       type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
       data:

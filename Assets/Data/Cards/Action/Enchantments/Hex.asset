@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Hex
-  cardText: 'Enchant target entity
+  rawText: 'Enchant target entity
+
+    <link="hex">At the beginning of the enchanted
+    entity''s turn, they lose 1 life</link>
+
+    <link="redraw">Redraw 2</link>'
+  parsedText: 'Enchant target entity
 
     <link="hex">At the beginning of the enchanted
     entity''s turn, they lose 1 life</link>
@@ -26,9 +32,9 @@ MonoBehaviour:
   speedType: 0
   typeList: 0000000002000000
   cost:
-    costText: 
-    value: 0
-    colors: 
+    costText: D
+    value: 1
+    colors: D
   effects:
     baseEffect:
       list:
@@ -47,6 +53,7 @@ MonoBehaviour:
       mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
+    entryTime: 0
   references:
     version: 2
     RefIds:

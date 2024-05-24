@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Bounce
-  cardText: Return target permanent to its owner's hand
+  rawText: Return target permanent to its owner's hand
+  parsedText: Return target permanent to its owner's hand
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   speedType: 1
   typeList: 
   cost:
-    costText: 
-    value: 0
-    colors: 
+    costText: 1N
+    value: 2
+    colors: N
   effects:
     baseEffect:
       list:

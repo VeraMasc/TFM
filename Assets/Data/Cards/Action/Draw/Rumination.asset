@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Rumination
-  cardText: Discard a card, draw two cards.
+  rawText: Discard a card, draw two cards.
+  parsedText: Discard a card, draw two cards.
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   speedType: 1
   typeList: 05000000
   cost:
-    costText: 
-    value: 0
-    colors: 
+    costText: W
+    value: 1
+    colors: W
   effects:
     baseEffect:
       list:
@@ -41,6 +42,7 @@ MonoBehaviour:
       mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
+    entryTime: 0
   references:
     version: 2
     RefIds:
@@ -62,9 +64,9 @@ MonoBehaviour:
         relation: 2
         zones: 04000000
     - rid: 8129478013255417873
-      type: {class: ContextualEntityTargeter, ns: Effect , asm: Assembly-CSharp}
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
-        contextual: 0 
+        contextual: 0
     - rid: 8129478014803116032
       type: {class: Discard, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -73,11 +75,11 @@ MonoBehaviour:
         cards:
           rid: 8129478014803116034
     - rid: 8129478014803116033
-      type: {class: ContextualEntityTargeter, ns: Effect , asm: Assembly-CSharp}
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         contextual: 0
     - rid: 8129478014803116034
-      type: {class: ReuseTargeter, ns: Effect , asm: Assembly-CSharp}
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         index: 1
     - rid: 8129478015182176256
@@ -88,7 +90,7 @@ MonoBehaviour:
         amount:
           rid: 8129478015182176259
     - rid: 8129478015182176257
-      type: {class: ContextualEntityTargeter, ns: Effect , asm: Assembly-CSharp}
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         contextual: 0
     - rid: 8129478015182176259
