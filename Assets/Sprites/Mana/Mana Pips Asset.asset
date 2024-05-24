@@ -89,6 +89,12 @@ MonoBehaviour:
     m_HashCode: 65
   - m_ElementType: 2
     m_Unicode: 65534
+    m_GlyphIndex: 22
+    m_Scale: 1
+    m_Name: V
+    m_HashCode: 86
+  - m_ElementType: 2
+    m_Unicode: 65534
     m_GlyphIndex: 2
     m_Scale: 1
     m_Name: V
@@ -450,6 +456,22 @@ MonoBehaviour:
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: 875100279893446721, guid: 5bcb6303d56f61542a00c67114eb7997, type: 3}
+  - m_Index: 22
+    m_Metrics:
+      m_Width: 20
+      m_Height: 20
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 18
+      m_HorizontalAdvance: 20
+    m_GlyphRect:
+      m_X: 60
+      m_Y: 60
+      m_Width: 20
+      m_Height: 20
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 8981371416327088028, guid: 5bcb6303d56f61542a00c67114eb7997, type: 3}
   - m_Index: 21
     m_Metrics:
       m_Width: 20
@@ -466,22 +488,6 @@ MonoBehaviour:
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: 6255772467762414241, guid: 5bcb6303d56f61542a00c67114eb7997, type: 3}
-  - m_Index: 22
-    m_Metrics:
-      m_Width: 20
-      m_Height: 20
-      m_HorizontalBearingX: -10
-      m_HorizontalBearingY: 20
-      m_HorizontalAdvance: 20
-    m_GlyphRect:
-      m_X: 60
-      m_Y: 60
-      m_Width: 20
-      m_Height: 20
-    m_Scale: 1
-    m_AtlasIndex: 0
-    m_ClassDefinitionType: 0
-    sprite: {fileID: 8981371416327088028, guid: 5bcb6303d56f61542a00c67114eb7997, type: 3}
   - m_Index: 23
     m_Metrics:
       m_Width: 20
@@ -492,6 +498,22 @@ MonoBehaviour:
     m_GlyphRect:
       m_X: 60
       m_Y: 88
+      m_Width: 20
+      m_Height: 20
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 9222281553512754858, guid: 5bcb6303d56f61542a00c67114eb7997, type: 3}
+  - m_Index: 23
+    m_Metrics:
+      m_Width: 18
+      m_Height: 18
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 16
+      m_HorizontalAdvance: 18
+    m_GlyphRect:
+      m_X: 60
+      m_Y: 60
       m_Width: 20
       m_Height: 20
     m_Scale: 1

@@ -258,6 +258,7 @@ namespace CardHouse
                 }
                 
                 afterAnimation = afterAnimation
+                .Then(zone.callLeaveTrigger(this))
                 .Then(zone.callEnterTrigger(this)) //Call before refreshing subscriptions
                 .Then(()=>{
                     //Update ability subscriptions

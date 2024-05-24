@@ -65,7 +65,7 @@ MonoBehaviour:
       m_Y: 28
       m_Width: 16
       m_Height: 16
-    m_Scale: 1
+    m_Scale: 0.5
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: 5539772759358476377, guid: e3ef31c4fc4c68240940431ff2bf9eda, type: 3}
@@ -81,7 +81,7 @@ MonoBehaviour:
       m_Y: 4
       m_Width: 16
       m_Height: 16
-    m_Scale: 1
+    m_Scale: 0.5
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: 5632113061452938833, guid: e3ef31c4fc4c68240940431ff2bf9eda, type: 3}

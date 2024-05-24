@@ -42,7 +42,7 @@ public class TriggerManager : ScriptableObject
     public LocalTrigger onDestroy;
 
     /// <summary>
-    /// Se activa cuando el objeto deja el campo
+    /// Se activa cuando el objeto deja una zona
     /// </summary>
     public LocalTrigger onLeave;
 

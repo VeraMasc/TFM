@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Return To Hand
-  cardText: 
+  rawText: 
+  parsedText: 
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   speedType: 1
   typeList: 00000000
   cost:
-    costText: 
-    value: 0
-    colors: 
+    costText: N
+    value: 1
+    colors: N
   effects:
     baseEffect:
       list:
@@ -40,6 +41,7 @@ MonoBehaviour:
       mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
+    entryTime: 0
   references:
     version: 2
     RefIds:

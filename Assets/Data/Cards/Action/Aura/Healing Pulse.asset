@@ -17,9 +17,22 @@ MonoBehaviour:
   rawText: '{enter: Whenever ~ enters the field, all allies regain 2 life.}
 
 
+    {leave:
+    Whenever ~ leaves the field, all allies regain 3 life.}
+
+    (Regaining life
+    doesn''t overheal)
+
+
 '
   parsedText: '<link="enter">Whenever Healing Pulse enters the field, all allies
     regain 2 life.</link>
+
+
+    <link="leave">Whenever Healing Pulse leaves the field,
+    all allies regain 3 life.</link>
+
+    (Regaining life doesn''t overheal)
 
 
 '
@@ -29,15 +42,16 @@ MonoBehaviour:
   speedType: 0
   typeList: 0000000006000000
   cost:
-    costText: 
-    value: 0
-    colors: 
+    costText: VN
+    value: 2
+    colors: VN
   effects:
     baseEffect:
       list:
       - rid: 8129478308107124752
     abilities:
     - rid: 8129478324054130695
+    - rid: 8129478374543065092
     staticEffects:
       list: []
     context:
@@ -74,6 +88,7 @@ MonoBehaviour:
           rid: 8129478356213956637
         amount:
           rid: 8129478356213956638
+        overheal: 0
     - rid: 8129478356213956637
       type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -82,3 +97,30 @@ MonoBehaviour:
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 2
+    - rid: 8129478374543065092
+      type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: leave
+        source: {fileID: 0}
+        effects:
+        - rid: 8129478374543065093
+        trigger: {fileID: 11400000, guid: 40da7b8342106f7449f0b690b67d436f, type: 2}
+        activeZoneList: 05000000
+        condition:
+          rid: -2
+    - rid: 8129478374543065093
+      type: {class: Heal, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478374543065094
+        amount:
+          rid: 8129478374543065095
+        overheal: 0
+    - rid: 8129478374543065094
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 2
+    - rid: 8129478374543065095
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 3

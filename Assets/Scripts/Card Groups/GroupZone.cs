@@ -51,5 +51,12 @@ public class GroupZone : MonoBehaviour
                 break;
         }
         yield break;
+
+        
+    }
+
+    public IEnumerator callLeaveTrigger(Card card){
+        var trigger = GameController.singleton.triggerManager;
+        yield return StartCoroutine(trigger.onLeave.invokeOn(card));
     }
 }

@@ -19,6 +19,8 @@ namespace Effect{
         /// </summary>
         [SerializeReference, SubclassSelector]
         public Value.Numeric amount;
+
+        public bool overheal=true;
  
         public override IEnumerator execute(CardResolveOperator stack, Effect.Context context)
         {
@@ -26,7 +28,7 @@ namespace Effect{
             
             foreach(var target in targets){
                 if(target is Entity entity){
-                    yield return entity.heal(amount.getValue(context))
+                    yield return entity.heal(amount.getValue(context), overheal)
                         .Start(entity);
                     
                     //TODO: Allow simultaneous damage

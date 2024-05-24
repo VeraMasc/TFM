@@ -13,17 +13,18 @@ MonoBehaviour:
   m_Name: RandomRecover
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
-  cardName: Return To Hand
-  cardText: Return 3 random spent cards to the bottom of your deck
+  cardName: Return To Deck
+  rawText: Return 3 random spent cards to the bottom of your deck
+  parsedText: Return 3 random spent cards to the bottom of your deck
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   speedType: 1
   typeList: 05000000
   cost:
-    costText: 
-    value: 0
-    colors: 
+    costText: D
+    value: 1
+    colors: D
   effects:
     baseEffect:
       list:
@@ -40,6 +41,7 @@ MonoBehaviour:
       mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
+    entryTime: 0
   references:
     version: 2
     RefIds:

@@ -20,10 +20,17 @@ public partial class Entity
     /// <param name="amount">Cantidad de vida a curar. Si es < 0 se ignora </param>
     /// <param name="returnAction">Devuelve la curación que realmente se ha efectuado</param>
     /// <returns></returns>
-    public IEnumerator heal(int amount, Action<int> returnAction = null){
+    public IEnumerator heal(int amount, bool overheal = true, Action<int> returnAction = null){
         //TODO: Replacement effects
+
+        if(!overheal && amount > maxHealth-health){
+                amount = maxHealth-health; //Prevent overheal
+        }
+        //Ignorar curación negativa
         if (amount>0){
+            
             health += amount;
+            
             //TODO: invoke healing trigger
             //TODO: add healing animation
             healthDisplay.onHealthChanged();
