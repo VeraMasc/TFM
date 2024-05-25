@@ -38,17 +38,17 @@ namespace Effect{
                 yield break;
             }
 
-            
-            if(context.effector is TriggerCard trigger){//Si es trigger, mover la carta directamente
+            //Si es trigger, mover la carta directamente
+            if(context.effector is Card effectCard && effectCard.data is TriggerCard trigger)
+            {
                 //TODO: no funciona. Arreglar
+                
                 var self = (Card)context.self;
+                Debug.Log($"attach trigger from {self}",self);
                 group.Mount(self);
                 yield return UCoroutine.YieldAwait(()=>self.Homing.seeking);
 
-                // var zone = group.GetComponent<GroupZone>();
-                // if(zone){
-                //     yield return UCoroutine.Yield(zone.callEnterTrigger((Card)self));
-                // }
+               
                 
             }
             

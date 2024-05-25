@@ -257,14 +257,17 @@ namespace CardHouse
                         .Then(CardResolveOperator.singleton.precalculateCard(this));
                 }
                 
-                afterAnimation = afterAnimation
-                .Then(zone.callLeaveTrigger(this))
-                .Then(zone.callEnterTrigger(this)) //Call before refreshing subscriptions
-                .Then(()=>{
-                    //Update ability subscriptions
-                    setup.effects.refreshAbilitySuscriptions(zone.zone);
-                });
-                
+                //Si ha cambiado de zona...
+                if(zone.zone != setup.effects.sourceZone){
+                    //Llamar triggers
+                    afterAnimation = afterAnimation
+                    .Then(zone.callLeaveTrigger(this))
+                    .Then(zone.callEnterTrigger(this)) //Call before refreshing subscriptions
+                    .Then(()=>{
+                        //Update ability subscriptions
+                        setup.effects.refreshAbilitySuscriptions(zone.zone);
+                    });
+                }
                 afterAnimation.Start(this);
             }
             

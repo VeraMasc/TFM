@@ -59,6 +59,7 @@ namespace Effect
             ITargetable[] chosen = null;
 
             if(entity.AI == null){
+                entity.trySelectPlayer();
                 yield return UCoroutine.Yield(ChooseSeveralFrom.amountChoice(cards,amount, (value)=> {chosen=value;}));
             }
             else{

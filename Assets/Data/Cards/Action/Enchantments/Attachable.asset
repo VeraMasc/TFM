@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: Attachable
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Attachable
+  rawText: '{attach: attach ~ to target entity}'
+  parsedText: <link="attach">attach Attachable to target entity</link>
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  speedType: 1
+  typeList: 
+  cost:
+    costText: 
+    value: 0
+    colors: 
+  effects:
+    baseEffect:
+      list:
+      - rid: 8129478393277448194
+    abilities:
+    - rid: 8129478393277448195
+    staticEffects:
+      list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+    entryTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8129478393277448194
+      type: {class: EnterBoard, ns: Effect, asm: Assembly-CSharp}
+    - rid: 8129478393277448195
+      type: {class: ActivatedAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: attach
+        source: {fileID: 0}
+        effects:
+        - rid: 8129478393277448211
+        - rid: 8129478393277448205
+        cost:
+          rid: -2
+        speed: 1
+    - rid: 8129478393277448205
+      type: {class: Attach, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478393277448206
+    - rid: 8129478393277448206
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8129478393277448211
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8129478393277448213
+    - rid: 8129478393277448213
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478393277448215
+    - rid: 8129478393277448215
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 4
