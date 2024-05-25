@@ -207,7 +207,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 74
-      y: 152
+      y: 151
       width: 15
       height: 6
     spriteID: a1a70aff524d0f140bb3ee6ee7047ce9
@@ -218,7 +218,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 74, y: 152}
+    uvTransform: {x: 74, y: 151}
   - name: TypeBox_Frame_4
     originalName: 
     pivot: {x: 1.6, y: 1.0833333}
@@ -281,7 +281,7 @@ ScriptedImporter:
     uvTransform: {x: 74, y: 98}
   - name: TypeBox_Frame_7
     originalName: 
-    pivot: {x: 1.6428571, y: 1.1818181}
+    pivot: {x: 1.6428571, y: 1.2}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -289,7 +289,7 @@ ScriptedImporter:
       x: 74
       y: 118
       width: 14
-      height: 11
+      height: 10
     spriteID: ba4bbc7a68f43cf4bb3706eaf0ddf9a2
     spriteBone: []
     spriteOutline: []
@@ -327,7 +327,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 74
-      y: 137
+      y: 136
       width: 15
       height: 7
     spriteID: 2f9d9df21cb28a1489bd2280f9926863
@@ -338,7 +338,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 74, y: 137}
+    uvTransform: {x: 74, y: 136}
   - name: Rarity Symbol
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -482,9 +482,9 @@ ScriptedImporter:
       frameIndex: 7
       cellRect:
         x: 1
-        y: 20
+        y: 21
         width: 14
-        height: 11
+        height: 10
       spriteId: ba4bbc7a68f43cf4bb3706eaf0ddf9a2
     - name: TypeBox_Frame_8
       frameIndex: 8

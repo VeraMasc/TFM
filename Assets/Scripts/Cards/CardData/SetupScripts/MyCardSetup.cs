@@ -30,6 +30,11 @@ public abstract class MyCardSetup : CardSetup
     public string cardText;
 
     /// <summary>
+    /// Reemplaza el texto de la carta de forma temporal
+    /// </summary>
+    public string tempText;
+
+    /// <summary>
     /// Tipo de la carta
     /// </summary>
     public string cardType;
@@ -95,7 +100,7 @@ public abstract class MyCardSetup : CardSetup
                 BackImage.sprite = baseCard.BackArt;
             }
             cardText = baseCard.parsedText;
-            cardTextBox.text = cardText;
+            applyText();
             cardName = baseCard.cardName;
             cardNameBox.text = cardName;
 
@@ -112,6 +117,18 @@ public abstract class MyCardSetup : CardSetup
             throw new System.Exception($"Can't initialize card with {data?.GetType()?.Name}");
         }
         
+    }
+
+    /// <summary>
+    /// Aplica el texto a la carta 
+    /// </summary>
+    public void applyText(){
+        if(!string.IsNullOrWhiteSpace(tempText)){
+            cardTextBox.text = tempText;
+        }
+        else{
+            cardTextBox.text = cardText;
+        }
     }
 
     /// <summary>
@@ -186,5 +203,21 @@ public abstract class MyCardSetup : CardSetup
             return true;
         }
         return false;
+    }
+
+    /// <summary>
+    /// Obtiene todos los links de una carta en base a sus ids
+    /// </summary>
+    /// <param name="ids"></param>
+    /// <returns></returns>
+    public IEnumerable<TMP_LinkInfo> getTextLinks(IEnumerable<string> ids){
+
+        var textLinks = cardTextBox.textInfo.linkInfo;
+        return textLinks
+            .Where(link => ids.Contains(link.GetLinkID()));
+
+        
+        
+        
     }
 }

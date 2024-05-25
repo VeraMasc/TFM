@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: Quick Recovery
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Quick Recovery
+  rawText: 'Choose one:
+
+    {1: :: Return target permanent you control to its owner''s
+    hand}
+
+    {2: :: Destroy target  hex that''s attached to an ally}
+
+    {3: ::
+    Put target spent action on the bottom of its owner''s library}'
+  parsedText: "Choose one:\n<link=\"1\">\u2022 Return target permanent you control
+    to its owner's hand</link>\n<link=\"2\">\u2022 Destroy target  hex that's attached
+    to an ally</link>\n<link=\"3\">\u2022 Put target spent action on the bottom of
+    its owner's library</link>"
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  speedType: 1
+  typeList: 
+  cost:
+    costText: 1N
+    value: 2
+    colors: N
+  effects:
+    baseEffect:
+      list:
+      - rid: 8129478393277448192
+    abilities: []
+    staticEffects:
+      list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+    entryTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8129478393277448192
+      type: {class: ModalEffect, ns: Effect, asm: Assembly-CSharp}
+      data:
+        maxChoices: 1
+        modes:
+        - id: 1
+          effects: []
+        - id: 2
+          effects: []
+        - id: 3
+          effects: []

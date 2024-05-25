@@ -63,6 +63,11 @@ public class MyCardDefinition : CardDefinition
         
         //Replace links
         parsed = Regex.Replace(parsed,@"\{(?:(\S+?):\s*)?(.*?)\}", "<link=\"$1\">$2</link>");
+        
+
+        // Replace symbols
+        parsed = Regex.Replace(parsed,@":: ", "• ");
+
         return parsed;
     }
 

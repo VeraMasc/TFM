@@ -20,6 +20,8 @@ public class ActionCardDefinition : MyCardDefinition
     [SerializeField]
     List<ActionSubtypes> typeList;
 
+    
+
 
     /// <summary>
     /// Coste de la carta

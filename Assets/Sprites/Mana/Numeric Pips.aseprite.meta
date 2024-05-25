@@ -159,6 +159,46 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 32}
+  - name: Numeric Pips_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 4
+      width: 20
+      height: 20
+    spriteID: aa560f0f42cafe44cb1e5b39d39bc4a4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: 4}
+  - name: Numeric Pips_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 32
+      width: 20
+      height: 20
+    spriteID: 7d20c38524343184e93040e9335e1601
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: 32}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -184,6 +224,22 @@ ScriptedImporter:
         width: 20
         height: 20
       spriteId: 1726afc1a031d5f4ab484b1a7f3f96cc
+    - name: Numeric Pips_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 0
+        y: 0
+        width: 20
+        height: 20
+      spriteId: aa560f0f42cafe44cb1e5b39d39bc4a4
+    - name: Numeric Pips_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 0
+        y: 0
+        width: 20
+        height: 20
+      spriteId: 7d20c38524343184e93040e9335e1601
     linkedCells: []
     parentIndex: -1
   platformSettings: []

@@ -44,8 +44,17 @@ namespace Effect
             foreach(var mode in modes){
                 if(chosen.Contains(index)){
                     yield return UCoroutine.Yield(Precalculate.precalculateEffects(mode.effects,context));
+
                 }
                 index++;
+            }
+
+            //Change text temporarily
+            if(context.self is Card card && card.data is MyCardSetup setup){
+                var links = setup.getTextLinks(chosen.Select(index=> modes[index].id));
+
+                setup.tempText = String.Join("\n", links.Select(l => l.GetLinkText()));
+                setup.applyText();
             }
         }
 
