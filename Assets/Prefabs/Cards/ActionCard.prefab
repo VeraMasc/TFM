@@ -226,7 +226,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 8
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
-  m_characterSpacing: -4
+  m_characterSpacing: -3
   m_wordSpacing: 0
   m_lineSpacing: -35
   m_lineSpacingMax: 0
@@ -1587,6 +1587,7 @@ MonoBehaviour:
   definition: {fileID: 0}
   cardName: 
   cardText: 
+  tempText: 
   cardType: 
   Image: {fileID: 6462243021699527057}
   FrameImage: {fileID: 3264143500656334108}

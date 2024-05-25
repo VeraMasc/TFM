@@ -291,6 +291,10 @@ namespace CardHouse
                 setup.effects.sourceGroup = group;
                 setup.effects.entryTime = Time.timeAsDouble;
                 setup.effects.context.precalculated=false;
+
+                //Eliminar texto temporal
+                setup.tempText ="";
+                setup.applyText();
             }
         }
         /// <summary>
