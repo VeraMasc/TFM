@@ -220,6 +220,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4953031497923648754, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7485738123799432934, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: c5988169093ad9d47889bda50c474f45, type: 3}
 --- !u!1001 &524209576
 PrefabInstance:
@@ -971,6 +974,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4953031497923648754, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7485738123799432934, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: c5988169093ad9d47889bda50c474f45, type: 3}
 --- !u!1 &1604181834
 GameObject:
@@ -1181,6 +1187,22 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: mana.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: mana.Array.data[0].color
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: mana.Array.data[1].color
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: mana.Array.data[2].color
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1204,6 +1226,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 7601985111721998083, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5341746211862488343, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 6cd0f53da56624442928897d4275e829, type: 3}
@@ -1290,6 +1315,22 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: mana.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: mana.Array.data[0].color
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: mana.Array.data[1].color
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: mana.Array.data[2].color
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1313,6 +1354,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 7601985111721998083, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5341746211862488343, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 6cd0f53da56624442928897d4275e829, type: 3}
@@ -1747,6 +1791,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entity
       objectReference: {fileID: 0}
+    - target: {fileID: 4439966646674678218, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_text
+      value: <sprite name="M"><sprite name="V">
+      objectReference: {fileID: 0}
     - target: {fileID: 4702649497764106639, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: board
       value: 
@@ -1758,6 +1806,26 @@ PrefabInstance:
     - target: {fileID: 6283558071726778807, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: mana.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: mana.Array.data[0].color
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: mana.Array.data[1].color
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: mana.Array.data[2].color
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: mana.Array.data[3].color
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1782,6 +1850,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 7601985111721998083, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5341746211862488343, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 6cd0f53da56624442928897d4275e829, type: 3}

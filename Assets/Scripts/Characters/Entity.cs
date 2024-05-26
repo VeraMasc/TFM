@@ -21,6 +21,11 @@ public partial class Entity : MonoBehaviour, ITargetable
     public EntityAI AI;
 
     /// <summary>
+    /// Contiene el maná que puede usar la entidad
+    /// </summary>
+    public ManaPool mana;
+
+    /// <summary>
     /// Salud máxima del personaje
     /// </summary>
     public int maxHealth =20;

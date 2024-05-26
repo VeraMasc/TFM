@@ -78,7 +78,7 @@ public class ActionCard : MyCardSetup, IActionable
     /// <returns></returns>
     public bool checkIfCastable(Entity user){
 
-        return checkCastTiming(user);
+        return checkCastTiming(user) && user.mana.canPay(cost);
         
     }
 

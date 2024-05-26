@@ -161,8 +161,8 @@ namespace Effect{
     [Serializable]
     public class ActivatedAbility : Ability, IActionable
     {
-        [SerializeReference,SubclassSelector]
-        public ICost cost;
+        
+        public ManaCost cost;
 
         public override bool useActiveTriggers => true;
 

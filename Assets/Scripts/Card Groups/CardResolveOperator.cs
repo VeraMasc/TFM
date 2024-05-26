@@ -195,9 +195,14 @@ public class CardResolveOperator : Activatable
     /// Manda una carta al stack y la precalcula 
     /// </summary>
     /// <param name="card">Carta a enviar</param>
-
-    public IEnumerator castCard(Card card){
+    public IEnumerator castCard(Card card, ManaCost alternativeCost = null){
         Debug.Log("Casting card");
+
+        //Set cast cost
+        if(card?.data is ActionCard action){ 
+            action.effects.paidCost = alternativeCost?? action.cost;
+        }
+        //Cast
         stack.Mount(card);
         yield return UCoroutine.YieldAwait( ()=>!card.Homing.seeking);
         yield return new WaitForSeconds(0.1f);

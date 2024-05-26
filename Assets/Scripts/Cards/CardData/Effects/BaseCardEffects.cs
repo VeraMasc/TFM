@@ -44,6 +44,11 @@ public class BaseCardEffects{
     /// </summary>
     public double entryTime;
 
+    /// <summary>
+    /// Coste que se ha pagado para usar esta carta 
+    /// </summary>
+    public ManaCost paidCost =null;
+
 
    
 

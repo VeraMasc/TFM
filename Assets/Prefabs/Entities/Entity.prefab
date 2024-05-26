@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 633910318609413980}
   - component: {fileID: 4702649497764106639}
+  - component: {fileID: 7145726789133635927}
   - component: {fileID: 4144307295828993303}
   m_Layer: 0
   m_Name: Entity
@@ -54,6 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AI: {fileID: 0}
+  mana: {fileID: 7145726789133635927}
   maxHealth: 20
   health: 20
   alive: 1
@@ -78,6 +80,20 @@ MonoBehaviour:
   _targeterTransform: {fileID: 8874131370722691191}
   _outlineRenderer: {fileID: 0}
   healthDisplay: {fileID: 2783436868272723967}
+--- !u!114 &7145726789133635927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3403992940546907739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5304970fbb275de46bfa4dab4d55624f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  display: {fileID: 4439966646674678218}
+  mana: []
 --- !u!114 &4144307295828993303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +293,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}

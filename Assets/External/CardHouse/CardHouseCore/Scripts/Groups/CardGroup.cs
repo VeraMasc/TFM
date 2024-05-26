@@ -207,6 +207,11 @@ namespace CardHouse
                                 
                                 if(setup.tryCastAsModal())
                                     break; //No continuar si se puede usar como modal
+
+                                //Add default mana cost if not modal
+                                if(setup is ActionCard action){
+                                    action.effects.paidCost = action.cost;
+                                }
                             }
                             
                         }

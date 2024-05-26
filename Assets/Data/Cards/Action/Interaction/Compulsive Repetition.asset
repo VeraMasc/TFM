@@ -17,18 +17,18 @@ MonoBehaviour:
   rawText: 'Lunatic only
 
 
-    Target spent card gains Overdo until end of turn.
-    Its cost is equal to its mana value.'
+    Target spent card gains Overdo equal to its cost until
+    end of turn.'
   parsedText: 'Lunatic only
 
 
-    Target spent card gains Overdo until end of turn.
-    Its cost is equal to its mana value.'
+    Target spent card gains Overdo equal to its cost
+    until end of turn.'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   speedType: 0
-  typeList: 
+  typeList: 05000000
   cost:
     costText: 
     value: 0
