@@ -21,6 +21,14 @@ public class ManaPool : MonoBehaviour
 
     public List<Mana> mana = new();
 
+
+    public bool tryToPay(ManaCost cost){
+        if(canPay(cost)){
+            pay(cost);
+            return true;
+        }
+        return false;
+    }
     public bool canPay(ManaCost cost){
         //TODO: implementar comprobación
         Debug.Log("Mana cost checked");

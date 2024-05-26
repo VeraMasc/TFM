@@ -173,6 +173,14 @@ public class CardResolveOperator : Activatable
             }
             simpleCard.effects.context.precalculated = true;
 
+            //Check if can be cast
+            if(simpleCard is ActionCard action){
+                var controller = action.effects.context.controller;
+                //Cancel if can't be paid
+                if(!controller.mana.tryToPay(action.effects.paidCost))
+                    simpleCard.effects.context.mode= ExecutionMode.cancel;
+            }
+
             //Return if cancelled
             if(simpleCard.effects?.context?.mode==ExecutionMode.cancel){
                 simpleCard.effects.sourceGroup.Mount(card);
