@@ -44,6 +44,11 @@ public class MyCardDefinition : CardDefinition
     public 
     void OnValidate() {
         parsedText = parseCardText(rawText,this);
+
+        //Validate abilities
+        if(this is ActionCardDefinition actionDef){
+            actionDef.effects.abilities.ForEach(a => a.validateValues());
+        }
     }
 
     /// <summary>

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using CustomInspector;
 using UnityEngine;
 
@@ -27,6 +28,11 @@ namespace CardHouse
         public float selectedHeight=1.5f;
 
         public float selectedWidthFactor=2f;
+
+        /// <summary>
+        /// Lista de proxies que mostrar en la mano
+        /// </summary>
+        public List<CardProxy> proxies = new();
 
         public override void Awake()
         {
@@ -73,6 +79,15 @@ namespace CardHouse
                 var scale = selected? selectedScale:(UseMyScale ? groupScale : 1);
 
                 cards[i].Scaling.StartSeeking(scale, seekerSet?.Scaling);
+
+                handleProxies();
+            }
+        }
+
+        public void handleProxies(){
+
+            foreach(var proxy in proxies.Where(p=>p.activeProxy)){
+
             }
         }
         

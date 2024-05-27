@@ -41,6 +41,7 @@ public class ActionCardDefinition : MyCardDefinition
     {
         return string.Join(", ",typeList);
     }
+    
 }
 
 public enum SpeedTypes{

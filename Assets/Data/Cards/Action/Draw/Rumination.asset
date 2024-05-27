@@ -31,7 +31,8 @@ MonoBehaviour:
       - rid: 8129478013255417868
       - rid: 8129478014803116032
       - rid: 8129478015182176256
-    abilities: []
+    abilities:
+    - rid: 8129478436797546507
     staticEffects:
       list: []
     context:
@@ -43,6 +44,10 @@ MonoBehaviour:
     sourceZone: 0
     sourceGroup: {fileID: 0}
     entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
   references:
     version: 2
     RefIds:
@@ -97,3 +102,27 @@ MonoBehaviour:
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 2
+    - rid: 8129478436797546507
+      type: {class: ZoneCastAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: overdo
+        source: {fileID: 0}
+        effects:
+        - rid: 8129478436797546508
+        costValue:
+          costText: 
+        cost:
+          costText: 
+          value: 0
+          colors: 
+        speed: 1
+        activeZoneList: 01000000
+    - rid: 8129478436797546508
+      type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
+      data:
+        message:
+          rid: 8129478436797546509
+    - rid: 8129478436797546509
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: Alt cast

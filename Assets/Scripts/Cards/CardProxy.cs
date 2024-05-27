@@ -4,10 +4,30 @@ using UnityEngine;
 using CardHouse;
 using NaughtyAttributes;
 
+/// <summary>
+/// Representa una carta que en realidad se encuentra en otro sitio.
+/// </summary>
 public class CardProxy : Card
 {
     public Card actualCard;
     public bool isActiveProxy;
+
+
+    /// <summary>
+    /// Crea un proxy de una carta concreta
+    /// </summary>
+    public static CardProxy createProxy(Card card, Entity user){
+        var prefab = GameController.singleton.creationManager.proxyPrefab;
+        var transform = card.transform;
+        var ret = Instantiate(prefab, transform.position, transform.rotation);
+        ret.actualCard = card;
+        ret.hookProxy();
+        if(user.hand.Strategy is HandLayout hand){
+            hand.proxies.Add(ret);
+            user.hand.ApplyStrategy();
+        }
+        return ret;
+    }
 
     [Button]
     public void setAsActive(){

@@ -40,6 +40,10 @@ namespace Effect{
                 Debug.LogError("Can't generate trigger from non-card");
             }
 
+            
+            
+        }
+        public virtual void validateValues(){
         }
 
         /// <summary>
@@ -161,7 +165,10 @@ namespace Effect{
     [Serializable]
     public class ActivatedAbility : Ability, IActionable
     {
-        
+        [SerializeField]
+        private SimpleManaCost costValue;
+
+        [HideInInspector]
         public ManaCost cost;
 
         public override bool useActiveTriggers => true;
@@ -196,6 +203,14 @@ namespace Effect{
                 yield return UCoroutine.Yield(cost.payCost(context));
             
             yield return UCoroutine.Yield(executeAbility(context));
+        }
+
+        public override void validateValues(){
+            if(this is ActivatedAbility active){
+                active.cost.costText = active.costValue.costText;
+                active.cost.parseCost();
+            }
+            
         }
     }
 }

@@ -134,4 +134,13 @@ namespace Effect{
         }
     }
 
+
+    /// <summary>
+    /// Versión simplificada del coste de maná
+    /// </summary>
+    [Serializable]
+    public class SimpleManaCost{
+        public string costText;
+    }
+
 }

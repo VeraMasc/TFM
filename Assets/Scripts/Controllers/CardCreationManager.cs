@@ -22,6 +22,8 @@ public class CardCreationManager : ScriptableObject
     [AssetsOnly]
     public ContentCard contentPrefab;
 
+    public CardProxy proxyPrefab;
+
     [AssetsOnly]
     public TriggerCard triggerPrefab;
 
