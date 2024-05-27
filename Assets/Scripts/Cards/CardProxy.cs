@@ -12,6 +12,8 @@ public class CardProxy : Card
     public Card actualCard;
     public bool isActiveProxy;
 
+    public CardGroup fakedGroup;
+
 
     /// <summary>
     /// Crea un proxy de una carta concreta
@@ -22,9 +24,9 @@ public class CardProxy : Card
         var ret = Instantiate(prefab, transform.position, transform.rotation);
         ret.actualCard = card;
         ret.hookProxy();
+        ret.fakedGroup = user.hand;
         if(user.hand.Strategy is HandLayout hand){
             hand.proxies.Add(ret);
-            user.hand.ApplyStrategy();
         }
         return ret;
     }
@@ -38,9 +40,13 @@ public class CardProxy : Card
 
     [Button]
     public void forceSeeking(){
+        //Asegurar que la carta se muestra y es interactuable
         setAsActive();
         actualCard.displayHiding(false);
+        var col = actualCard.GetComponent<Collider2D>();
+        col.enabled=true;
         actualCard.FlipAnimator.SetBool("FalseFaceUp",true);
+        //Move card
         actualCard.Homing.StartSeeking(transform.position);
         actualCard.Turning.StartSeeking(transform.rotation.eulerAngles.z);
         actualCard.Scaling.StartSeeking(transform.lossyScale.x);

@@ -15,6 +15,7 @@ MonoBehaviour:
   actionPrefab: {fileID: 5556669140430897052, guid: 693bcb068c4f97a4e85d3f3c745cb0fe, type: 3}
   roomPrefab: {fileID: 7566081132846205207, guid: 68ee0ccc2801f714984a492fae9ed02e, type: 3}
   contentPrefab: {fileID: 8698658893030579379, guid: 3432839a18d69ea4f81cbe943920a55c, type: 3}
+  proxyPrefab: {fileID: 894912001266375727, guid: 57ad54921f564db4d93d06b513537d6f, type: 3}
   triggerPrefab: {fileID: 3166081371672232547, guid: 567e3f00efb0d53428ef0cc60a10ae48, type: 3}
   actionTypeline: {fileID: 4937320428789057306, guid: 47ce17ded05f9154c8f4f2f6f3925223, type: 3}
   reactionTypeline: {fileID: 4937320428789057306, guid: 3bf7b0dbbaf8bfe4d811881261ae9eb2, type: 3}

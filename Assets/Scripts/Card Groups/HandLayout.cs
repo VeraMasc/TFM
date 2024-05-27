@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Common.Coroutines;
 using CustomInspector;
 using UnityEngine;
 
@@ -29,6 +30,8 @@ namespace CardHouse
 
         public float selectedWidthFactor=2f;
 
+        public float handProxySeparation = 0.4f;
+
         /// <summary>
         /// Lista de proxies que mostrar en la mano
         /// </summary>
@@ -55,19 +58,28 @@ namespace CardHouse
             if(selected)
                 width *= selectedWidthFactor;
 
-            var spacing = width / (cards.Count + 1);
+            var numProxies = proxies.Count;
+            var widthReduction = numProxies>0? handProxySeparation:0;
+            var spacing = (width-widthReduction) / (cards.Count + numProxies + 1);
+            
+            
+            var rootPos = selected? GameUI.singleton.handDetails.position :transform.position;
+
+            if(numProxies>0){
+                    rootPos+= Vector3.left * handProxySeparation/2;
+            }
             for (var i = 0; i < cards.Count; i++)
             {
-                var rootPos = selected? GameUI.singleton.handDetails.position :transform.position;
+                
                 var direction = invertOrder? transform.right:-transform.right;
                 var newPos = rootPos
                              + Vector3.back * (MountedCardAltitude + (cards.Count-i) * MarginalCardOffset)
                              + direction * width * -0.5f
-                             + direction * (i + 1) * spacing;
+                             + direction * (i + numProxies + 1) * spacing;
 
                 if(selected)
                     newPos += selectedHeight * Vector3.back;
-
+                
                 var seekerSet = seekerSets?.GetSeekerSetFor(cards[i]);
                 cards[i].Homing.StartSeeking(newPos, seekerSet?.Homing);
 
@@ -80,14 +92,32 @@ namespace CardHouse
 
                 cards[i].Scaling.StartSeeking(scale, seekerSet?.Scaling);
 
-                handleProxies();
             }
+
+            handleProxies(rootPos,width, spacing);
         }
 
-        public void handleProxies(){
+        public void handleProxies(Vector3 rootPos,float width,float spacing){
+            var i=0;
+            rootPos += Vector3.right * handProxySeparation;
+            foreach(var proxy in proxies){
 
-            foreach(var proxy in proxies.Where(p=>p.activeProxy)){
+                var direction = invertOrder? transform.right:-transform.right;
+                var newPos = rootPos
+                             + Vector3.back * (MountedCardAltitude + (proxies.Count-i) * MarginalCardOffset)
+                             + direction * width * -0.5f
+                             + direction * (i + 1) * spacing;
+                proxy.Homing.StartSeeking(newPos, null);
+                proxy.Turning.StartSeeking(0, null);
+                var scale = selected? selectedScale:(UseMyScale ? groupScale : 1);
+                proxy.Scaling.StartSeeking(scale, null);
 
+                if(proxy){
+                    UCoroutine.Yield(new WaitForEndOfFrame())
+                    .Then(()=>proxy.forceSeeking())
+                    .Start(proxy);
+                }
+                i++;
             }
         }
         

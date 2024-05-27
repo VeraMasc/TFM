@@ -1574,6 +1574,7 @@ MonoBehaviour:
   ForcedFacing: 0
   ForcedInteractability: 0
   compactDisplay: 0
+  displayEveryN: 4
   DragMountingMode: 0
   UseMyScale: 1
   groupScale: 1

@@ -15,16 +15,22 @@ public class CompactCardGroup : CardHouse.CardGroup
     /// </summary>
     public void updateCardVisibility(){
         Card mountedPrev = null;
+        var n = Strategy.displayEveryN >0? Strategy.displayEveryN: int.MaxValue;
+        var i = 0;
         foreach(var card in MountedCards){ //Iterate all cards
             if(card.Homing.seeking){ //Render Homing
                 card.displayHiding(false);
             }
             else{
-                if(mountedPrev!=null && mountedPrev.activeProxy==null){ //Is covering a previous card?
+                //Is covering a previous card?
+                if(mountedPrev!=null && mountedPrev.activeProxy==null){ 
                     mountedPrev.displayHiding(true);
                 }
-                mountedPrev=card; //Save as previous card
+                
+                if(i%n != 0)
+                    mountedPrev=card; //Save as previous card
             }
+            i++;
         }
     }
 

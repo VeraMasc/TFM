@@ -11,6 +11,8 @@ namespace CardHouse
         public bool Straighten = true;
 
         
+
+        
         protected override void ApplySpacing(List<Card> cards, SeekerSetList seekerSets = null)
         {
             

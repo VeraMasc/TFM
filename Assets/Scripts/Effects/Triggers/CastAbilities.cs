@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using CardHouse;
+using Common.Coroutines;
 using UnityEngine;
 
 
@@ -36,6 +37,10 @@ namespace Effect{
                 var entity = (source.data as ActionCard).effects.context?.controller;
                 proxy = CardProxy.createProxy(source,entity);
                 proxy.setAsActive();
+                //Hacer que el grupo se recalcule
+                UCoroutine.Yield(new WaitForEndOfFrame())
+                .Then(()=> (proxy.Group ?? proxy.fakedGroup).ApplyStrategy())
+                .Start(source);
             }
             else if(proxy){
                 proxy.undoSeeking();

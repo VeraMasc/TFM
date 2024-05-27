@@ -156,7 +156,7 @@ public abstract class MyCardSetup : CardSetup
                     disabled = !m.canActivate(controller),
                 }
             );
-            if(this is ActionCard action){
+            if(this is ActionCard action && action.effects.sourceZone == GroupName.Hand){
                 //Add default cast mode
                 settings = settings.Prepend(new ModalOptionSettings(){
                     tag=string.Empty,

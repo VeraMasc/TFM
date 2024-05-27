@@ -19,6 +19,12 @@ namespace CardHouse
         /// Reduce el renderizado a solo la carta superior a no ser que se le haga focus
         /// </summary>
         public bool compactDisplay;
+
+        /// <summary>
+        /// Si es compacto, 1 de cada N cartas será dibujada
+        /// </summary>
+        [ShowIf(nameof(compactDisplay))]
+        public int displayEveryN = 4;
         public MountingMode DragMountingMode = MountingMode.Top;
         public bool UseMyScale = false;
         [ShowIf("UseMyScale")]

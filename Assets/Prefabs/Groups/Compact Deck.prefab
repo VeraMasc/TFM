@@ -85,6 +85,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5749372205373354925, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
+      propertyPath: displayEveryN
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749372205373354925, guid: 8ef9c204c9cbcf643a6eb79764f29c97, type: 3}
       propertyPath: compactDisplay
       value: 1
       objectReference: {fileID: 0}
@@ -209,7 +213,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HilightOnCardEntry: 1
+  allowSubgroups: 1
   Hilight: {fileID: 8886081497493870272}
+  amountDisplay: {fileID: 0}
   DropGates:
     Gates:
     - {fileID: 8683149525955401308}
