@@ -46,18 +46,20 @@ namespace Effect{
             yield break;
         }
 
-        public static IEnumerator validatedChoice(IEnumerable<ITargetable> targets, Func<List<ITargetable>,bool> validator, Action<ITargetable[]> returnAction= null)
+        public static IEnumerator validatedChoice(IEnumerable<ITargetable> targets, Func<List<ITargetable>,bool> validator, Action<ITargetable[]> returnAction= null,bool canCancel=true)
         {
             
             yield return UCoroutine.Yield(GameUI.singleton.getTargets(targets, 
                 ()=> validator(GameUI.singleton.chosenTargets),
-                returnAction,config:new InputParameters()));
+                returnAction, config:new InputParameters(){
+                    canCancel=canCancel
+                }));
         }
 
-        public static IEnumerator amountChoice(IEnumerable<ITargetable> targets, int amount, Action<ITargetable[]> returnAction= null)
+        public static IEnumerator amountChoice(IEnumerable<ITargetable> targets, int amount, Action<ITargetable[]> returnAction= null, bool canCancel=true)
         {
             Func<List<ITargetable>,bool> validator = (List<ITargetable> chosen)=> chosen.Count == amount;
-            yield return UCoroutine.Yield(validatedChoice(targets,validator,returnAction));
+            yield return UCoroutine.Yield(validatedChoice(targets,validator,returnAction,canCancel));
         }
     }
 }

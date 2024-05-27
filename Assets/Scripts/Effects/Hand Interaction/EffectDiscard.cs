@@ -54,13 +54,13 @@ namespace Effect
         /// <param name="entity"></param>
         /// <param name="amount"></param>
         /// <returns></returns>
-        public static IEnumerator discardChoice(Entity entity, int amount){
+        public static IEnumerator discardChoice(Entity entity, int amount, bool canCancel=false){
             var cards = entity.hand.MountedCards.ToList();
             ITargetable[] chosen = null;
 
             if(entity.AI == null){
                 entity.trySelectPlayer();
-                yield return UCoroutine.Yield(ChooseSeveralFrom.amountChoice(cards,amount, (value)=> {chosen=value;}));
+                yield return UCoroutine.Yield(ChooseSeveralFrom.amountChoice(cards,amount, (value)=> {chosen=value;},false));
             }
             else{
                 chosen = entity.AI.rejectTargets(cards, new ChoiceInfo(){

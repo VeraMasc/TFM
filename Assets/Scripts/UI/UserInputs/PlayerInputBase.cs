@@ -67,4 +67,9 @@ public class InputParameters
     /// Objeto con otros valores de configuración
     /// </summary>
     public object extraConfig;
+
+    /// <summary>
+    /// Indica que la acción se puede cancelar
+    /// </summary>
+    public bool canCancel = true;
 }

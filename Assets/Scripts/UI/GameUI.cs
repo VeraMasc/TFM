@@ -179,17 +179,19 @@ public class GameUI : MonoBehaviour
                 //Espera al primer valor válido
                 instance.autoConfirm = true;
                 yield return UCoroutine.YieldAwait(()=> validator() || (activeUserInput?.isCancelled?? false));
-                break;
             }
             else{
                 //Esperar confirmación
                 yield return activeUserInput.waitTillFinished;
             }
-            
-            if(activeUserInput.isCancelled){
-                break;
+
+            //Reset if invalid cancel
+            if(activeUserInput.isCancelled && !config.canCancel){
+                chosenTargets= new();
+                activeUserInput.isCancelled = false;
+                clearTargeterMarkers();
             }
-        }while(validator() != true); //Probar hasta que haya un valor válido
+        }while(validator() != true && activeUserInput?.isCancelled != true); //Probar hasta que haya un valor válido
 
         //Devolver valor
         if(!activeUserInput.isCancelled && chosenTargets != null){
@@ -222,6 +224,14 @@ public class GameUI : MonoBehaviour
         if(possibleTargets == null)
             return;
         //Resetear todos los targets    
+        clearTargeterMarkers();
+        possibleTargets = null;
+    }
+
+    /// <summary>
+    /// Resetea todos los targeters y elimina los marcadores de target
+    /// </summary>
+    public void clearTargeterMarkers(){
         foreach(var targetable in possibleTargets){
             var detector = targetable?.GetComponentInChildren<TargetDetector>();
             detector?.resetTargeting();
@@ -231,9 +241,7 @@ public class GameUI : MonoBehaviour
             if(targetable?.outlineRenderer){
                 targetable.outlineRenderer.gameObject.SetActive(false);
             }
-        
         }
-        possibleTargets = null;
     }
 
     /// <summary>
