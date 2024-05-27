@@ -194,9 +194,9 @@ public class GameUI : MonoBehaviour
         }while(validator() != true && activeUserInput?.isCancelled != true); //Probar hasta que haya un valor válido
 
         //Devolver valor
-        if(!activeUserInput.isCancelled && chosenTargets != null){
-            returnAction(chosenTargets.ToArray());
-        }else{
+        chosenTargets ??= new();
+        returnAction(chosenTargets.ToArray());
+        if(activeUserInput.isCancelled){
             //Cancelar
             if(config?.context != null){
                     config.context.mode = ExecutionMode.cancel;

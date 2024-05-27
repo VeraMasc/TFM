@@ -25,9 +25,19 @@ public class CardSelectInput : PlayerInputBase
     /// </summary>
     public List<CardSelectOption> options;
 
+    /// <summary>
+    /// Raiz del display
+    /// </summary>
     public Transform displayRoot;
 
+    /// <summary>
+    /// Objeto que contiene la lista de opciones
+    /// </summary>
+    public Transform displayList;
+
     public SpriteRenderer background;
+
+    public SliderScrollbar scrollbar;
 
     public float scaleDown = 5f;
     
@@ -49,6 +59,7 @@ public class CardSelectInput : PlayerInputBase
     {
         
         updateResolution();
+        enableScrollIfNeeded();
     }
 
     public void updateResolution(){
@@ -71,6 +82,7 @@ public class CardSelectInput : PlayerInputBase
         if(parameters.extraConfig is ExtraInputOptions extra){
             maxChoices = extra.maxChoices;
         }
+        
     }
 
     public override void confirmChoice(){
@@ -85,12 +97,13 @@ public class CardSelectInput : PlayerInputBase
         var prefab = GameUI.singleton.prefabs.cardSelectOption;
         var index = 0;
         foreach(var card in cards){
-            var instance = Instantiate(prefab, displayRoot);
+            var instance = Instantiate(prefab, displayList);
             instance.parent = this;
             instance.index = index;
             instance.setSourceCard(card);
             index++;
         }
+        enableScrollIfNeeded();
     }
 
     /// <summary>
@@ -100,12 +113,24 @@ public class CardSelectInput : PlayerInputBase
         var prefab = GameUI.singleton.prefabs.cardSelectOption;
         var index = 0;
         foreach(var mode in modes){
-            var instance = Instantiate(prefab, displayRoot);
+            var instance = Instantiate(prefab, displayList);
             instance.parent = this;
             instance.index = index;
             instance.setSourceCard(basecard);
             instance.setMode(mode);
             index++;
+        }
+        enableScrollIfNeeded();
+    }
+
+    public void enableScrollIfNeeded(){
+        if(scrollbar.gameObject.activeInHierarchy)
+            return;
+        
+        var listRect = displayList as RectTransform;
+        var rootRect = displayRoot as RectTransform;
+        if(listRect.sizeDelta.x > rootRect.sizeDelta.x){
+            scrollbar.gameObject.SetActive(true);
         }
     }
 

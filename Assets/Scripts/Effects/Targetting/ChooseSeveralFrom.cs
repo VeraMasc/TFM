@@ -20,6 +20,7 @@ namespace Effect{
         /// </summary>
         [SerializeReference, SubclassSelector]
         public BaseCondition condition;
+
         public override IEnumerator execute(CardResolveOperator stack, Context context)
         {
             var targets = targeter.getTargets(context);

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using System.Linq;
 using Effect;
 using CardHouse;
+using Effect.Value;
 
 namespace Effect
 {
@@ -49,6 +50,25 @@ namespace Effect
         
 
         
+    }
+
+    /// <summary>
+    /// Devuelve N cartas del top del mazo
+    /// </summary>
+    [Serializable]
+    public class DeckTop:EffectTargeter
+    {
+        [SerializeReference, SubclassSelector]
+        public Numeric amount;
+        public override void resolveTarget(Effect.Context context){
+            int amountVal = (int)(amount.getValueObj(context));
+
+            if(context.controller== null || amountVal<=0)
+                return;
+            
+            var cards =context.controller.deck.Get(GroupTargetType.Last, amountVal);
+            _targets = cards.ToArray();
+        }
     }
 
     

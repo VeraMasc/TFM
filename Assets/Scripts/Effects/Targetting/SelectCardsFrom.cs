@@ -17,10 +17,22 @@ namespace Effect{
     {
 
         /// <summary>
+        /// Cantidad a escoger
+        /// </summary>
+        [SerializeReference, SubclassSelector]
+        public Numeric amount = new Numeric(1);
+
+        /// <summary>
         /// Condición requerida para aceptar el input
         /// </summary>
         [SerializeReference, SubclassSelector]
         public BaseCondition condition;
+
+        /// <summary>
+        /// Guarda también los valores no escogidos
+        /// </summary>
+        public bool storeUnchosen = false;
+
         public override IEnumerator execute(CardResolveOperator stack, Context context)
         {
             var targets = targeter.getTargets(context);
@@ -30,7 +42,7 @@ namespace Effect{
                     context=context
                 };
                 
-                List<int> ret = null;
+                List<int> ret = new();
 
                 //Generar diálogo modal
                 yield return UCoroutine.Yield(GameUI.singleton.getInput(GameUI.singleton.prefabs.cardSelectInput, 
@@ -38,9 +50,24 @@ namespace Effect{
                     ret = (List<int>)obj;
                 },
                 new InputParameters{ values= targets.OfType<Card>().ToArray(), 
-                    
+                    extraConfig = new CardSelectInput.ExtraInputOptions(){
+                        maxChoices = amount.getValue(context),
+                    }
                 }));
-                
+
+                //Remove original value
+                context.previousTargets.RemoveAt(context.previousTargets.Count-1);
+
+                //Get chosen
+                var results = ret.Select( n => targets[n]).ToArray();
+                //Guardar opciones no escogidas
+                if(storeUnchosen){
+                    context.previousTargets.Add(targets.Except(results).ToArray());
+                }
+
+                //Guardar opciones SI escogidas
+                context.previousTargets.Add(results);
+                context.previousChosenTargets.Add(results);
             }
             
             
