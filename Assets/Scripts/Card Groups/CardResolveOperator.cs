@@ -171,8 +171,14 @@ public class CardResolveOperator : Activatable
             if(effect != null){
                 yield return StartCoroutine(simpleCard.effects?.baseEffect.precalculate(simpleCard.effects.context, this));
             }
+            
+            //Return if cancelled
+            if(simpleCard.effects?.context?.mode==ExecutionMode.cancel){
+                simpleCard.effects.sourceGroup.Mount(card);
+                goto end;
+            }
             simpleCard.effects.context.precalculated = true;
-
+            
             //Check if can be cast
             if(simpleCard is ActionCard action){
                 var controller = action.effects.context.controller;
@@ -184,19 +190,29 @@ public class CardResolveOperator : Activatable
             //Return if cancelled
             if(simpleCard.effects?.context?.mode==ExecutionMode.cancel){
                 simpleCard.effects.sourceGroup.Mount(card);
+                goto end;
             }
-            else { //Reset priority
-                if(card.data is TriggerCard trigger && !trigger.isActiveTrigger){ //Use turn priority for triggers
-                    GameMode.current.getPriorityOrder();
-                }else{//Use response priority for actions
-                    var activeSide = simpleCard.effects.context.controller.team;
-                    GameMode.current.getResponsePriority(activeSide);
-                }
-                
+            else
+            { //Reset priority
+                resetPriority(card, simpleCard);
             }
         }
         Debug.Log("Precalculated",card);
+    end:
         precalculating = false;
+    }
+
+    private void resetPriority(Card card, MyCardSetup simpleCard)
+    {
+        if (card.data is TriggerCard trigger && !trigger.isActiveTrigger)
+        { //Use turn priority for triggers
+            GameMode.current.getPriorityOrder();
+        }
+        else
+        {//Use response priority for actions
+            var activeSide = simpleCard.effects.context.controller.team;
+            GameMode.current.getResponsePriority(activeSide);
+        }
     }
 
     /// <summary>

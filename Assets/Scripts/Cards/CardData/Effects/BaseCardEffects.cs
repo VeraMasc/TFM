@@ -97,6 +97,7 @@ public class BaseCardEffects{
         else{
             context = new Effect.Context(self,effector);
         }
+        context.mode = ExecutionMode.normal;
         
     }
     

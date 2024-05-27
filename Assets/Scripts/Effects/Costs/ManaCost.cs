@@ -29,6 +29,20 @@ namespace Effect{
         public string colors;
 
 
+        public ManaCost(){
+
+        }
+
+        /// <summary>
+        /// Copy constructor
+        /// </summary>
+        /// <param name="original"></param>
+        public ManaCost(ManaCost original){
+            costText = original.costText;
+            value = original.value;
+            colors = original.colors;
+        }
+
         /// <summary>
         /// Devuelve el valor en el formato de texto de las cartas
         /// </summary>
@@ -73,20 +87,50 @@ namespace Effect{
             var digits = segments.Groups[1];
             value = int.TryParse(digits.Value, out value)? value: 0;
             //Extrae el coste con "colores"
-            var colored = segments.Groups[2];
-            value += colored.Length;
-            colors = new string(colored.Value.ToUpper().Distinct().ToArray());
+            var coloredGroup = segments.Groups[2];
+            value += coloredGroup.Length;
+            colors = new string(coloredGroup.Value.ToUpper().Distinct().ToArray());
         }
 
 
+        /// <summary>
+        /// Indica si el coste puede ser pagado en el contexto actual
+        /// </summary>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public bool canBePaid(Effect.Context context){
-            //TODO: Implement mana costs
-            throw new NotImplementedException();
+            if(context?.controller == null) //No hay nadie que lo puede pagar
+                return false;
+                
+            return context.controller.mana.canPay(this);
         }
 
-        public IEnumerator payCost(Context context)
-        {
-            throw new NotImplementedException();
+        public IEnumerator payCost(Context context){
+            if(context?.controller == null) //No hay nadie que lo puede pagar
+                 yield break;
+            context.controller.mana.pay(this);
+            yield break;
+        }
+
+        /// <summary>
+        /// Parte del coste "coloreada"
+        /// </summary>
+        public string coloredCost {
+            get {
+                var segments = manaSegments.Match(costText);
+                var coloredGroup = segments.Groups[2];
+                return coloredGroup.Value.ToUpper();
+            }
+        }
+
+        /// <summary>
+        /// Resta un coste a otro
+        /// </summary>
+        /// <param name="cost">Cantidad a restar</param>
+        /// <returns></returns>
+        public ManaCost subtract(ManaCost cost){
+            var ret = new ManaCost(cost);
+            return ret;
         }
     }
 

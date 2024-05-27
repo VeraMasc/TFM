@@ -196,6 +196,7 @@ public partial class Entity : MonoBehaviour, ITargetable
     /// </summary>
     public void initialize(){
         health = maxHealth;
+        mana.updateDisplay();
     }
 
     /// <summary>
