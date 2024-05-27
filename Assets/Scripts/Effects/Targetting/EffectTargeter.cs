@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using CardHouse;
 using CustomInspector;
+using Effect;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,8 +15,18 @@ using UnityEngine.UI;
 [Serializable]
 public abstract class EffectTargeter 
 {
+    /// <summary>
+    /// Array con los targets resueltos
+    /// </summary>
     [SerializeField,ReadOnly]
     protected ITargetable[] _targets;
+    
+
+    /// <summary>
+    /// Contexto en el que se han resuelto los targets actuales
+    /// </summary>
+    [NonSerialized]
+    protected Context resolvedContext;
 
     /// <summary>
     /// Atajo para asignar un solo target
@@ -29,9 +40,10 @@ public abstract class EffectTargeter
     /// Obtiene el target resuelto (lo resuelve si es necesario)
     /// </summary>
     public ITargetable[] getTargets(Effect.Context context){
-        if(_targets == null){ //Resuelve el target si no lo ha hecho ya
+        if(_targets == null || resolvedContext != context){ //Resuelve el target si no lo ha hecho ya
             resolveTarget(context);
             storeTargets(context);
+            resolvedContext = context;
         }
         return _targets;
     }
