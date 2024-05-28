@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using CardHouse;
 using Common.Coroutines;
 using CustomInspector;
+using Effect.Duration;
 using Effect.Value;
 using UnityEngine;
 
@@ -38,13 +39,13 @@ namespace Effect{
     /// Efecto que Crea un trigger separado que se activa con retraso
     /// </summary>
     [Serializable]
-    public class CreateDelayedTrigger : EffectScript
+    public class CreateDelayedTrigger : CreateTrigger
     {
         /// <summary>
-        /// Efectos y condiciones del trigger a crear
+        /// Duración hasta que el trigger se produce
         /// </summary>
         [SerializeReference,SubclassSelector]
-        public Ability delayed;
+        public IDuration delay;
 
 
         public override IEnumerator execute(CardResolveOperator stack, Context context)
@@ -61,4 +62,29 @@ namespace Effect{
 
 
     }
+
+    namespace Duration
+    {
+        /// <summary>
+        /// Encapsula las clases que representan duraciones
+        /// </summary>
+        public interface IDuration{
+
+        }
+
+        /// <summary>
+        /// Dura hasta que se produce un trigger
+        /// </summary>
+        [Serializable]
+        public class UntilTrigger{
+            public BaseTrigger<object> trigger;
+
+            /// <summary>
+            /// Condiciones que ha de cumplir
+            /// </summary>
+            [SerializeReference,SubclassSelector]
+            public BaseCondition condition;
+        }
+    }
+    
 }

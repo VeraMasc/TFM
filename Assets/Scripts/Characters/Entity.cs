@@ -148,11 +148,11 @@ public partial class Entity : MonoBehaviour, ITargetable
 
         var skillAbilities = skills.MountedCards?.Select(card => card.data)
                 .OfType<SkillCard>()
-                .SelectMany(skill => skill?.effects?.abilities)
+                .SelectMany(skill => skill?.effects?.getAllAbilities())
                 .OfType<IActionable>();
 
         var permanentAbilities = myPermanents
-                .SelectMany(permanent => permanent?.effects?.abilities)
+                .SelectMany(permanent => permanent?.effects?.getAllAbilities())
                 .OfType<IActionable>();
 
 

@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Impulse
-  rawText: 
-  parsedText: 
+  rawText: Look at the top 3 cards of your deck, put one into your hand and send
+    the rest to the bottom
+  parsedText: Look at the top 3 cards of your deck, put one into your hand and send
+    the rest to the bottom
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []

@@ -47,6 +47,9 @@ namespace Effect{
                 group.Mount(card,index);
                 yield return new WaitForSeconds(0.1f);
             }
+            else{
+                Debug.Log(target.GetType());
+            }
         }
 
         public override IEnumerator execute(CardResolveOperator stack, Context context)

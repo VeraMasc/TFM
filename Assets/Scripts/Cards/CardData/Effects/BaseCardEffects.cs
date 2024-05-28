@@ -62,7 +62,7 @@ public class BaseCardEffects{
             return;
         }
         //TODO: add disabling of triggers based on zone
-        foreach(var ability in abilities){
+        foreach(var ability in getAllAbilities()){
             //Initialize if needed
             ability.source ??= (CardHouse.Card)(context?.self);
             if(ability is TriggeredAbility triggered)
@@ -75,6 +75,15 @@ public class BaseCardEffects{
             
             
         }
+    }
+
+
+    public IEnumerable<Ability> getAllAbilities(){
+        var mods = CardModifiers.getModifiers((CardHouse.Card)(context?.self))
+            .OfType<AbilityModifier>();
+        var modAbs =mods.SelectMany(m=>m.abilities);
+        var ret = abilities.Concat(modAbs);
+        return ret;
     }
 
     /// <summary>

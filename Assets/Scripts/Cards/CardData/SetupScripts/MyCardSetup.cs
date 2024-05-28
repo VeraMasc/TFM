@@ -137,11 +137,11 @@ public abstract class MyCardSetup : CardSetup
     /// <returns> Si se ha podido usar como modal o no</returns>
     public bool tryCastAsModal(){
         var cardComponent = GetComponent<Card>();
-        var modes = effects.abilities.OfType<UniversalCastAbility>()
+        var modes = effects.getAllAbilities().OfType<UniversalCastAbility>()
             .Cast<ActivatedAbility>();
         var currentZone = cardComponent.Group?.GetComponent<GroupZone>();
         if(currentZone){
-            modes = effects.abilities
+            modes = effects.getAllAbilities()
                 .OfType<ActivatedAbility>()
                 .Where(ab => ab.isActiveIn(currentZone.zone));
         }
@@ -181,7 +181,7 @@ public abstract class MyCardSetup : CardSetup
 
         var currentZone = cardComponent.Group?.GetComponent<GroupZone>();
         //No cast abilities
-        var modes = effects.abilities.OfType<ActivatedAbility>()
+        var modes = effects.getAllAbilities().OfType<ActivatedAbility>()
             .Where(ability => !(ability is CastAbility));
             
         if(currentZone){
