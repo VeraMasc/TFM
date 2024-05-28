@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using CardHouse;
 using Common.Coroutines;
@@ -12,7 +13,16 @@ namespace Effect{
     [Serializable]
     public abstract class CastAbility : ActivatedAbility
     {
-        
+        public override IEnumerator executeAbility(Context context){
+            //Execute pre-cast effects
+            var chain = EffectChain.cloneFrom(effects);
+            foreach(var effect in chain.list){
+                yield return UCoroutine.Yield(effect.execute(CardResolveOperator.singleton,context));
+            }
+            
+            yield return CardResolveOperator.singleton.castCard(source,cost)
+                .Start(source);
+        }
     }
 
     /// <summary>
@@ -35,7 +45,7 @@ namespace Effect{
         {
             if(isActiveIn(zone)){
                 var entity = (source.data as ActionCard).effects.context?.controller;
-                proxy = CardProxy.createProxy(source,entity);
+                proxy ??= CardProxy.createProxy(source,entity);
                 proxy.setAsActive();
                 //Hacer que el grupo se recalcule
                 UCoroutine.Yield(new WaitForEndOfFrame())
@@ -45,6 +55,7 @@ namespace Effect{
             else if(proxy){
                 proxy.undoSeeking();
                 proxy.DestroyCard();
+                proxy=null;
             }
         }
 

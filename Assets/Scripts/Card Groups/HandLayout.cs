@@ -94,13 +94,14 @@ namespace CardHouse
 
             }
 
-            handleProxies(rootPos,width, spacing);
+            var newRootpos = rootPos + Vector3.back * cards.Count * MarginalCardOffset;
+            handleProxies(newRootpos,width, spacing);
         }
 
         public void handleProxies(Vector3 rootPos,float width,float spacing){
             var i=0;
             rootPos += Vector3.right * handProxySeparation;
-            foreach(var proxy in proxies){
+            foreach(var proxy in proxies.Where(p => p?.isActiveProxy == true)){
 
                 var direction = invertOrder? transform.right:-transform.right;
                 var newPos = rootPos

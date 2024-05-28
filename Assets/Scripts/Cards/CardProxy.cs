@@ -88,5 +88,9 @@ public class CardProxy : Card
     void OnDestroy()
     {
         unHookProxy();
+        Group?.UnMount();
+        if(fakedGroup.Strategy is HandLayout hand){
+            hand.proxies.Remove(this);
+        }
     }
 }

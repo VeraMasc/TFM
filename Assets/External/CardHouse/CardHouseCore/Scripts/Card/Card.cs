@@ -108,7 +108,7 @@ namespace CardHouse
                 //TODO: Destroygroup default pile
                 attachedGroup.destroyGroup(GroupName.Discard);    
             }
-            Group.UnMount(this);
+            Group?.UnMount(this);
             Destroy(this.gameObject);
         }
 

@@ -199,9 +199,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1574354249304674023, guid: c5988169093ad9d47889bda50c474f45, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 8192776177125788070, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -953,9 +950,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1574354249304674023, guid: c5988169093ad9d47889bda50c474f45, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 8192776177125788070, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -1215,9 +1209,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4042583267136677142, guid: 6cd0f53da56624442928897d4275e829, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 6661255199042937431, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -1367,9 +1358,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4042583267136677142, guid: 6cd0f53da56624442928897d4275e829, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 6661255199042937431, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -1872,9 +1860,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4042583267136677142, guid: 6cd0f53da56624442928897d4275e829, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 6661255199042937431, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
