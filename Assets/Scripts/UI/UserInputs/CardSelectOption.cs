@@ -79,6 +79,12 @@ public class CardSelectOption : MonoBehaviour
             outline.color = Color.red;
             outline.enabled=true;
         }
+
+        if(mode.replaceCost != null){
+            var parsed = MyCardDefinition.parseCost(mode.replaceCost.asCardText());
+            var costIndicator = transform.Find("Front(Clone)/Cost")?.GetComponent<TextMeshPro>();
+            costIndicator.text = parsed;
+        }
         
     }
 

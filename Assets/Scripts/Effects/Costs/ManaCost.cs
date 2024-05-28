@@ -68,7 +68,7 @@ namespace Effect{
         /// </summary>
         /// <returns></returns>
         public bool isValid(){
-            return manaExpression.IsMatch(costText);
+            return manaExpression?.IsMatch(costText) ?? false;
         }
 
         /// <summary>

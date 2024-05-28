@@ -154,6 +154,12 @@ public class ModalOptionSettings{
     public Ability ability;
 
     /// <summary>
+    /// Indica que hay que reemplazar el coste con toro
+    /// </summary>
+    public ManaCost replaceCost;
+
+
+    /// <summary>
     /// Desactiva la opción en el selector
     /// </summary>
     public bool disabled;

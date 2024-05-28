@@ -14,8 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Rumination
-  rawText: Discard a card, draw two cards.
-  parsedText: Discard a card, draw two cards.
+  rawText: 'Discard a card, draw two cards.
+
+
+    {overdo: Overdo {W}{W}}'
+  parsedText: 'Discard a card, draw two cards.
+
+
+    <link="overdo">Overdo <sprite
+    name="W"><sprite name="W"></link>'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -110,11 +117,11 @@ MonoBehaviour:
         effects:
         - rid: 8129478445358383105
         costValue:
-          costText: 
+          costText: WW
         cost:
-          costText: 
-          value: 0
-          colors: 
+          costText: WW
+          value: 2
+          colors: W
         speed: 1
         activeZoneList: 01000000
         proxy: {fileID: 0}

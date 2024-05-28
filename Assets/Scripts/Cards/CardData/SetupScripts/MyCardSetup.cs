@@ -154,6 +154,7 @@ public abstract class MyCardSetup : CardSetup
                     tag = m.id,
                     ability = m,
                     disabled = !m.canActivate(controller),
+                    replaceCost = m.cost.value>0? m.cost: null,
                 }
             );
             if(this is ActionCard action && action.effects.sourceZone == GroupName.Hand){
