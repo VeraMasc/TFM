@@ -131,6 +131,7 @@ public class CombatController : GameMode
 			Debug.LogWarning("A phase coroutine is already active! Wait for it to finish before starting another");
 		}
 
+		
 		Debug.Log($"Executing phase{currentPhase}");
 		
 		if(currentPhase == CombatPhases.setup){
@@ -148,6 +149,7 @@ public class CombatController : GameMode
 		else if(currentPhase == CombatPhases.cleanup){
 			phaseCoroutine =StartCoroutine(cleanupPhase());
 		}
+		
 	}
 	public void nextTurn(){
 		turnOrder.RemoveAt(turnOrder.Count -1);

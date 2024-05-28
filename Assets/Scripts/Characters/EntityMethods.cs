@@ -66,6 +66,11 @@ public partial class Entity
     /// <returns></returns>
     public IEnumerator kill(Action<bool> returnAction = null){
         alive = false;
+        var cards = hand.MountedCards.ToArray();
+        yield return CardTransferOperator.sendCards(cards,lost,0.75f/cards.Count(),burstSend:true)
+            .Start(this);
+        
+        
         //TODO: invoke death trigger
         yield break;
     }
@@ -82,6 +87,8 @@ public partial class Entity
         yield return StartCoroutine( 
             CardTransferOperator.sendCards(cards,hand, duration/amount, burstSend:true)
         );
+        if(amount>cards.Count && deck.MountedCards.Count==0)
+            kill().Start(this);
         coReturn(returnAction, cards.ToArray());
         yield break;
     }

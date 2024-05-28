@@ -136,7 +136,7 @@ public abstract class GameMode : MonoBehaviour
 	/// Comprueba el estado actual de las cosas y realiza las acciones de estado correspondientes
 	/// </summary>
 	public virtual void checkState(){
-		
+		healthCheck();
 	}
 
     public virtual void healthCheck(){
