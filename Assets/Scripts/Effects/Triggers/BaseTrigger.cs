@@ -35,6 +35,11 @@ namespace Effect{
         public T eventData;
 
 
+        /// <summary>
+        /// Indica si el trigger genera logs al ser llamado
+        /// </summary>
+        public bool produceLogs;
+
 
         /// <summary>
         /// Función para pruebas
@@ -49,6 +54,7 @@ namespace Effect{
         /// </summary>
         public virtual IEnumerator invoke(){
             var resolver = CardResolveOperator.singleton;
+            generateLog();
             foreach(var key in subscribers.Keys){
                 
                 yield return resolver.StartCoroutine(subscribers[key].Invoke(eventData));
@@ -85,6 +91,19 @@ namespace Effect{
                 count = subscribers.Count;
             }
         }
+
+        /// <summary>
+        /// Genera el log
+        /// </summary>
+        public virtual void generateLog(object obj=null){
+            if(!produceLogs)
+                return;
+            var message = $"Invoking {this.name}";
+            if(obj!=null){
+                message += $" with {obj.ToString()}";
+            }
+            Debug.Log(message);
+        }
         
     }
 
@@ -94,6 +113,7 @@ namespace Effect{
         //TODO: Poner en archivo aparte
         public override IEnumerator invoke(){
             var resolver = CardResolveOperator.singleton;
+            generateLog();
             foreach(var key in subscribers.Keys){
                 yield return resolver.StartCoroutine(subscribers[key].Invoke(eventData));
             }

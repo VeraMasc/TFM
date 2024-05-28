@@ -1151,7 +1151,11 @@ MonoBehaviour:
       agingScript: {fileID: 0}
       myHuman: {fileID: 0}
     richTextAttributeExamples:
-      myRichText: We are <color=green><b>not</b></color> sad.
+      myRichText: 'We are <color=green><b>not</b></color> sad.
+
+        aa
+
+'
       myRichtText: 'We are <color=green>green</color> with envy.
 
 
@@ -1237,8 +1241,8 @@ MonoBehaviour:
     toolbarAttributeExamples:
       edit: 0
       create: 0
-      animal: 1
-      type: 2
+      animal: 0
+      type: 0
     tooltipBoxAttributeExamples:
       myGameObject: {fileID: 0}
       myFloat: 0

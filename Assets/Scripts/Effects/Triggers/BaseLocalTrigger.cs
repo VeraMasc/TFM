@@ -23,7 +23,7 @@ namespace Effect{
         /// </summary>
         /// <param name="card">Carta que puede o no estar suscrita</param>
         public virtual IEnumerator invokeOn(Card card, T eventData = default(T)){
-            
+            generateLog(card);
             if(subscribers.ContainsKey(card)){
                 yield return UCoroutine.Yield(subscribers[card].Invoke(eventData));
             }
