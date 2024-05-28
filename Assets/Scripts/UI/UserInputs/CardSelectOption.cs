@@ -6,6 +6,7 @@ using UnityEngine;
 using System.Globalization;
 using TMPro;
 using Effect;
+using System.Text.RegularExpressions;
 
 
 /// <summary>
@@ -56,7 +57,8 @@ public class CardSelectOption : MonoBehaviour
                 .Where( link => link.GetLinkID() == mode.tag)
                 .FirstOrDefault();
             if(chosenLink.textComponent != null){
-                var text = chosenLink.GetLinkText();
+                var text = chosenLink.getRawLinkText();
+                Debug.Log(text);
                 textBox.text=text;
             }
             else{
@@ -134,6 +136,8 @@ public class CardSelectOption : MonoBehaviour
         textBox?.ForceMeshUpdate(forceTextReparsing:true);
 
         
+    
+        
     }
 
 }
@@ -167,4 +171,25 @@ public class Colors
                         (int.Parse(b, NumberStyles.HexNumber) / 255f),
                         (int.Parse(alpha, NumberStyles.HexNumber) / 255f));
     }
+}
+
+public static class ExtendTMPLinks{
+
+    /// <summary>
+    /// Gets the raw text of the link
+    /// </summary>
+    /// <param name="link"></param>
+    /// <returns></returns>
+    private static Regex getlinkPattern(string id){
+        return new Regex(@$"<\s*link\s*=\s*""{id}""\s*>.*?<\/\s*link\s*>",RegexOptions.Singleline);
+    } 
+    public static string getRawLinkText(this TMP_LinkInfo link){
+        var id = link.GetLinkID();
+        var match = getlinkPattern(id).Match(link.textComponent.text);
+        Debug.Log(link.textComponent.text);
+        Debug.Log(getlinkPattern(id));
+        Debug.Log(match.Success);
+        return match.Value;
+    }
+
 }

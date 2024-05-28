@@ -207,7 +207,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: bfb96b5e33750dd45986299f710c39a8, type: 2}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
   m_TextStyleHashCode: -1183493901
@@ -1221,6 +1221,7 @@ MonoBehaviour:
   definition: {fileID: 0}
   cardName: 
   cardText: 
+  tempText: 
   cardType: 
   Image: {fileID: 6462243021699527057}
   FrameImage: {fileID: 3264143500656334108}
@@ -1242,6 +1243,11 @@ MonoBehaviour:
       mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
+    entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
   source: {fileID: 0}
   isActiveTrigger: 0
   references:

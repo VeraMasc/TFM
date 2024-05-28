@@ -19,13 +19,13 @@ MonoBehaviour:
     <link="hex">At the beginning of the enchanted
     entity''s turn, they lose 1 life</link>
 
-    <link="redraw">Redraw 2</link>'
+    <link="redraw">Redraw {2}</link>'
   parsedText: 'Enchant target entity
 
     <link="hex">At the beginning of the enchanted
     entity''s turn, they lose 1 life</link>
 
-    <link="redraw">Redraw 2</link>'
+    <link="redraw">Redraw <sprite name="2"></link>'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -54,6 +54,10 @@ MonoBehaviour:
     sourceZone: 0
     sourceGroup: {fileID: 0}
     entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
   references:
     version: 2
     RefIds:
@@ -89,8 +93,12 @@ MonoBehaviour:
         source: {fileID: 0}
         effects:
         - rid: 8129478187144708096
+        costValue:
+          costText: 
         cost:
-          rid: -2
+          costText: 
+          value: 0
+          colors: 
         speed: 1
         activeZoneList: 04000000
     - rid: 8129478187144708096

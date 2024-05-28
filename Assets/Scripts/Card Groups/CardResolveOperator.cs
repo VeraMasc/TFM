@@ -401,7 +401,7 @@ public class CardResolveOperator : Activatable
                 .FirstOrDefault();
 
             if(chosenLink.textComponent != null){
-                trigger.changeText(chosenLink.GetLinkText());
+                trigger.changeText(chosenLink.getRawLinkText());
             }
             
         }
