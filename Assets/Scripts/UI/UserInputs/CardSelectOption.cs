@@ -22,7 +22,7 @@ public class CardSelectOption : MonoBehaviour
     public bool selected;
     public SpriteRenderer outline;
 
-    public Collider2D collider;
+    public new Collider2D collider;
     // Start is called before the first frame update
     void Start()
     {
@@ -186,9 +186,7 @@ public static class ExtendTMPLinks{
     public static string getRawLinkText(this TMP_LinkInfo link){
         var id = link.GetLinkID();
         var match = getlinkPattern(id).Match(link.textComponent.text);
-        Debug.Log(link.textComponent.text);
-        Debug.Log(getlinkPattern(id));
-        Debug.Log(match.Success);
+
         return match.Value;
     }
 

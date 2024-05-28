@@ -157,7 +157,8 @@ public abstract class MyCardSetup : CardSetup
                     replaceCost = m.cost.value>0? m.cost: null,
                 }
             );
-            if(this is ActionCard action && action.effects.sourceZone == GroupName.Hand){
+            if(this is ActionCard action && currentZone.zone == GroupName.Hand){
+                Debug.Log(action.effects.sourceZone);
                 //Add default cast mode
                 settings = settings.Prepend(new ModalOptionSettings(){
                     tag=string.Empty,
