@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 14cdd34ce1713da46910f0e0101835d4
+guid: b19c885ed0dc840408d4932edb39b127
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 0
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638524892495340674
+  platformSettingsDirtyTick: 638524878656008130
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,9 +119,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Redraw Button
+  - name: Exile Pile
     originalName: 
-    pivot: {x: 0.5, y: 0.4666667}
+    pivot: {x: 0.5, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -129,8 +129,8 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 28
-      height: 30
-    spriteID: f61e2cc02d9cfcc418e5d10ab71ecca9
+      height: 40
+    spriteID: 5e455d266347dce4c9382d5f5a5f7a7b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,79 +139,23 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Redraw Button_Frame_1
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 42
-      width: 28
-      height: 30
-    spriteID: 6f272021feeedc740a9acb5010928d97
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 42}
-  - name: Redraw Button_Frame_2
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 80
-      width: 26
-      height: 28
-    spriteID: b9dc5c86f9702304cacb6977ac817ff6
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 80}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 749906709
-    name: Redraw Button
+    guid: 1142713485
+    name: Exile Pile
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Redraw Button_Frame_0
+    - name: Exile Pile
       frameIndex: 0
       cellRect:
-        x: 2
-        y: 2
+        x: 0
+        y: 0
         width: 28
-        height: 30
-      spriteId: f61e2cc02d9cfcc418e5d10ab71ecca9
-    - name: Redraw Button_Frame_1
-      frameIndex: 1
-      cellRect:
-        x: 2
-        y: 1
-        width: 28
-        height: 30
-      spriteId: 6f272021feeedc740a9acb5010928d97
-    - name: Redraw Button_Frame_2
-      frameIndex: 2
-      cellRect:
-        x: 3
-        y: 2
-        width: 26
-        height: 28
-      spriteId: b9dc5c86f9702304cacb6977ac817ff6
+        height: 40
+      spriteId: 5e455d266347dce4c9382d5f5a5f7a7b
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -265,4 +209,4 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 32}
+  canvasSize: {x: 28, y: 40}

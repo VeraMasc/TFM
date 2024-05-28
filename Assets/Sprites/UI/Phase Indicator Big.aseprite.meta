@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 14cdd34ce1713da46910f0e0101835d4
+guid: 0587f44d3351f8f4d81110627bd5308c
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 0
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638524892495340674
+  platformSettingsDirtyTick: 638524896162706417
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Redraw Button
+  - name: Phase Indicator Big
     originalName: 
-    pivot: {x: 0.5, y: 0.4666667}
+    pivot: {x: 0.5, y: -0.28571427}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 28
-      height: 30
-    spriteID: f61e2cc02d9cfcc418e5d10ab71ecca9
+      width: 120
+      height: 28
+    spriteID: b662c8f9fe3c70e478e0ed026e1b399b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,38 +139,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Redraw Button_Frame_1
+  - name: Phase Indicator Big_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: -0.28571427}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 42
-      width: 28
-      height: 30
-    spriteID: 6f272021feeedc740a9acb5010928d97
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 42}
-  - name: Redraw Button_Frame_2
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 80
-      width: 26
+      y: 40
+      width: 120
       height: 28
-    spriteID: b9dc5c86f9702304cacb6977ac817ff6
+    spriteID: 04e5e2beb4d18444b9e185a1d71cd54b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -178,40 +158,144 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 80}
+    uvTransform: {x: 4, y: 40}
+  - name: Phase Indicator Big_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.28571427}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 76
+      width: 120
+      height: 28
+    spriteID: ecb3af8b265fcd44080b1df90f7346f4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 76}
+  - name: Phase Indicator Big_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.28571427}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 112
+      width: 120
+      height: 28
+    spriteID: e7b682c28cef62b409397e29e6d9c103
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 112}
+  - name: Phase Indicator Big_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.28571427}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 148
+      width: 120
+      height: 28
+    spriteID: 8a90c04f372afb441a8f69d8475bc0c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 148}
+  - name: Phase Indicator Big_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.28571427}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 184
+      width: 120
+      height: 28
+    spriteID: 0c0a78451b99bca4ca3cc99f507e8d49
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 184}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 749906709
-    name: Redraw Button
+    guid: -1300063350
+    name: Phase Indicator Big
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Redraw Button_Frame_0
+    - name: Phase Indicator Big_Frame_0
       frameIndex: 0
       cellRect:
-        x: 2
-        y: 2
-        width: 28
-        height: 30
-      spriteId: f61e2cc02d9cfcc418e5d10ab71ecca9
-    - name: Redraw Button_Frame_1
+        x: 0
+        y: 44
+        width: 120
+        height: 28
+      spriteId: b662c8f9fe3c70e478e0ed026e1b399b
+    - name: Phase Indicator Big_Frame_1
       frameIndex: 1
       cellRect:
-        x: 2
-        y: 1
-        width: 28
-        height: 30
-      spriteId: 6f272021feeedc740a9acb5010928d97
-    - name: Redraw Button_Frame_2
+        x: 0
+        y: 44
+        width: 120
+        height: 28
+      spriteId: 04e5e2beb4d18444b9e185a1d71cd54b
+    - name: Phase Indicator Big_Frame_2
       frameIndex: 2
       cellRect:
-        x: 3
-        y: 2
-        width: 26
+        x: 0
+        y: 44
+        width: 120
         height: 28
-      spriteId: b9dc5c86f9702304cacb6977ac817ff6
+      spriteId: ecb3af8b265fcd44080b1df90f7346f4
+    - name: Phase Indicator Big_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 0
+        y: 44
+        width: 120
+        height: 28
+      spriteId: e7b682c28cef62b409397e29e6d9c103
+    - name: Phase Indicator Big_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
+        y: 44
+        width: 120
+        height: 28
+      spriteId: 8a90c04f372afb441a8f69d8475bc0c3
+    - name: Phase Indicator Big_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 0
+        y: 44
+        width: 120
+        height: 28
+      spriteId: 0c0a78451b99bca4ca3cc99f507e8d49
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -265,4 +349,4 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 32}
+  canvasSize: {x: 120, y: 72}
