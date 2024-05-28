@@ -84,6 +84,8 @@ namespace Effect{
 
         public void parseCost(){
             var segments = manaSegments.Match(costText);
+            if(segments == null)
+                return;
             var digits = segments.Groups[1];
             value = int.TryParse(digits.Value, out value)? value: 0;
             //Extrae el coste con "colores"

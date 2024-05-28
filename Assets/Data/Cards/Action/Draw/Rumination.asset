@@ -108,7 +108,7 @@ MonoBehaviour:
         id: overdo
         source: {fileID: 0}
         effects:
-        - rid: 8129478436797546508
+        - rid: 8129478445358383105
         costValue:
           costText: 
         cost:
@@ -117,12 +117,21 @@ MonoBehaviour:
           colors: 
         speed: 1
         activeZoneList: 01000000
-    - rid: 8129478436797546508
-      type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
+        proxy: {fileID: 0}
+    - rid: 8129478445358383105
+      type: {class: AddModifier, ns: Effect, asm: Assembly-CSharp}
       data:
-        message:
-          rid: 8129478436797546509
-    - rid: 8129478436797546509
-      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+        targeter:
+          rid: 8129478445358383107
+        modifiers:
+        - rid: 8129478445358383108
+    - rid: 8129478445358383107
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
-        value: Alt cast
+        contextual: 0
+    - rid: 8129478445358383108
+      type: {class: ForceZoneModifier, ns: , asm: Assembly-CSharp}
+      data:
+        modified: {fileID: 0}
+        singleUse: 1
+        sendTo: 2

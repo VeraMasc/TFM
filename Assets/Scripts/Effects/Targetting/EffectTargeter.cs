@@ -112,6 +112,7 @@ namespace Effect{
     {
         public ContextualObjTargets contextual;
         public override void resolveTarget(Effect.Context context){
+            //TODO: FInish all contextual targetes
             switch(contextual){
                 case ContextualObjTargets.self:
                     singleTarget= context.self;
@@ -124,6 +125,9 @@ namespace Effect{
                 case ContextualObjTargets.all:
                     _targets = GameController.singleton.getTargetablesOnBoard()
                         .Where(t=> isValidTarget(t,context)).ToArray();
+                    break;
+                case ContextualObjTargets.effector:
+                    singleTarget= context.effector;
                     break;
                 default:
                     throw new NotImplementedException();
@@ -187,6 +191,10 @@ public enum ContextualObjTargets{
     siblings,
     all,
     others,
+    /// <summary>
+    /// Carta o trigger que está produciendo el efecto
+    /// </summary>
+    effector,
     
 }
 

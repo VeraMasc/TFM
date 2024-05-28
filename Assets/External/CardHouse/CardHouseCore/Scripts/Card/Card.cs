@@ -252,13 +252,21 @@ namespace CardHouse
                 CardResolveOperator.singleton.stackUI.refresh();
                 var afterAnimation = UCoroutine.YieldAwait( ()=>!Homing.seeking);
                 
-                if(zone.zone == GroupName.Stack){
-                        afterAnimation = afterAnimation
-                        .Then(CardResolveOperator.singleton.precalculateCard(this));
-                }
+                
                 
                 //Si ha cambiado de zona...
                 if(zone.zone != setup.effects.sourceZone){
+                    
+                    if(zone.zone == GroupName.Stack){
+                        afterAnimation = afterAnimation
+                            .Then(CardResolveOperator.singleton.precalculateCard(this));
+                    }
+                    else{ //Activar modifiers si los hay
+                        var zoneMods = CardModifiers.getModifiers(this).OfType<ForceZoneModifier>();
+                        if(zoneMods.Select(m =>m.activate()).Any(v => v)){
+                            return; //No activar el resto de efectos si al menos un modificador ha tenido éxito
+                        }
+                    }
                     //Llamar triggers
                     afterAnimation = afterAnimation
                     .Then(zone.callLeaveTrigger(this))
