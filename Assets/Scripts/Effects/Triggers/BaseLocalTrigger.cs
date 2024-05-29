@@ -25,6 +25,7 @@ namespace Effect{
         public virtual IEnumerator invokeOn(Card card, T eventData = default(T)){
             generateLog(card);
             if(subscribers.ContainsKey(card)){
+                events.Invoke();
                 yield return UCoroutine.Yield(subscribers[card].Invoke(eventData));
             }
             else{ 

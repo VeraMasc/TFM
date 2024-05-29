@@ -61,6 +61,7 @@ public class BaseCardEffects{
             Debug.LogError("Can't subscribe triggered abilities without a context");
             return;
         }
+        
         //TODO: add disabling of triggers based on zone
         foreach(var ability in getAllAbilities()){
             //Initialize if needed

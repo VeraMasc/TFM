@@ -5,6 +5,7 @@ using CardHouse;
 using Common.Coroutines;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Events;
 
 namespace Effect{
     /// <summary>
@@ -21,11 +22,15 @@ namespace Effect{
         /// </summary>
         [HideInInspector]
         public Card source;
+
+        [NonSerialized]
+        public AbilityModifier modifier;
         /// <summary>
         /// Cadena de efectos a producir
         /// </summary>
         [SerializeReference, SubclassSelector]
         public List<EffectScript> effects;
+
 
         /// <summary>
         /// Genera un trigger con los efectos de la habilidad
@@ -33,6 +38,7 @@ namespace Effect{
         public virtual IEnumerator executeAbility(Context context){
             var self = context.self;
             if(self is Card card){
+                modifier?.onAbilityTrigger(this,context);
                 var routine =CardResolveOperator.singleton.triggerAbilityEffect(card, this, useActiveTriggers, context?.controller);
                 yield return routine.Start(card);
             }
@@ -40,6 +46,7 @@ namespace Effect{
                 Debug.LogError("Can't generate trigger from non-card");
             }
 
+            
             
             
         }
@@ -50,7 +57,7 @@ namespace Effect{
         /// Gestiona los cambios de zona
         /// </summary>
         public virtual void onChangeZone(GroupName zone){
-
+            
         }
 
         /// <summary>
@@ -116,13 +123,17 @@ namespace Effect{
         public virtual IEnumerator executeAbility(Context context, object value){
             if(condition?.check(value,context)==false)
                 yield break;//Salir si no se cumple la condición
+            
             context.previousValues.Add(value);
+            modifier?.onAbilityTrigger(this,context);
             yield return UCoroutine.Yield( executeAbility(context));
         }
 
         public override IEnumerator executeAbility(Context context){
             if(condition?.check(null,context)==false)
                 yield break;//Salir si no se cumple la condición
+
+            modifier?.onAbilityTrigger(this,context);
             yield return UCoroutine.Yield(base.executeAbility(context));
         }
 
@@ -130,6 +141,7 @@ namespace Effect{
         /// Activa o desactiva el trigger de la habilidad al cambiar de zona según corresponda
         /// </summary>
         public override void onChangeZone(GroupName zone){
+            
             if(isActiveIn(zone)){
                 trigger.subscribe(source, listener);
             }
@@ -153,6 +165,8 @@ namespace Effect{
         /// </summary>
         public override IEnumerator executeAbility(Context context){
             var chain = EffectChain.cloneFrom(effects);
+            
+            modifier?.onAbilityTrigger(this,context);
             foreach(var effect in chain.list){
                 yield return UCoroutine.Yield(effect.execute(CardResolveOperator.singleton,context));
             }

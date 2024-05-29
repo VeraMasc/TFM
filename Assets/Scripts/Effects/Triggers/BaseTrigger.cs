@@ -40,13 +40,17 @@ namespace Effect{
         /// </summary>
         public bool produceLogs;
 
+        public UnityEvent events;
+
 
         /// <summary>
         /// Función para pruebas
         /// </summary>
         [NaughtyAttributes.Button("Invoke All")]
         protected void invokeAll(){
+            events.AddListener(()=>Debug.Log("Test"));
             UCoroutine.Yield(invoke()).Start(GameController.singleton);
+            events.Invoke();
         }
 
         /// <summary>
@@ -55,7 +59,7 @@ namespace Effect{
         public virtual IEnumerator invoke(){
             var resolver = CardResolveOperator.singleton;
             generateLog();
-            foreach(var key in subscribers.Keys){
+            foreach(var key in subscribers.Keys.ToArray()){
                 
                 yield return resolver.StartCoroutine(subscribers[key].Invoke(eventData));
                 Debug.Log($"Finished invoking trigger {key}",key);
@@ -67,6 +71,7 @@ namespace Effect{
         /// </summary>
         public virtual IEnumerator invoke(T eventData){
             this.eventData = eventData;
+            events.Invoke();
             yield return invoke();
         }
 
@@ -114,9 +119,11 @@ namespace Effect{
         public override IEnumerator invoke(){
             var resolver = CardResolveOperator.singleton;
             generateLog();
-            foreach(var key in subscribers.Keys){
+            events.Invoke();
+            foreach(var key in subscribers.Keys.ToArray()){
                 yield return resolver.StartCoroutine(subscribers[key].Invoke(eventData));
             }
+           
         }
         
     }

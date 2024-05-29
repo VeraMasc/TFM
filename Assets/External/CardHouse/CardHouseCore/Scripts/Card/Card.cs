@@ -279,6 +279,7 @@ namespace CardHouse
                     .Then(zone.callLeaveTrigger(this))
                     .Then(zone.callEnterTrigger(this)) //Call before refreshing subscriptions
                     .Then(()=>{
+                        setup.GetComponent<CardModifiers>()?.refreshModifiers();
                         //Update ability subscriptions
                         setup.effects.refreshAbilitySuscriptions(zone.zone);
                     });

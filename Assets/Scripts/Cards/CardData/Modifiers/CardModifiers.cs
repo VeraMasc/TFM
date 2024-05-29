@@ -22,7 +22,9 @@ public class CardModifiers : MonoBehaviour
         //Get or create holder
         var holder = card.GetComponent<CardModifiers>();
         holder ??= card.gameObject.AddComponent<CardModifiers>();
-        holder.modifiers.Add(modifier.clone(card));
+        var newMod = modifier.clone(card);
+        holder.modifiers.Add(newMod);
+        newMod.initialize();
     }
 
     /// <summary>
@@ -50,6 +52,17 @@ public class CardModifiers : MonoBehaviour
         var holder = card.GetComponent<CardModifiers>();
         return holder?.modifiers ?? new(); //Devolver lista vacía si no hay
     }
+    
+
+    private void OnValidate() {
+        refreshModifiers();
+    }
+
+    public void refreshModifiers(){
+        foreach(var mod in modifiers){
+            mod.refresh();
+        }
+    }
 }
 
 
@@ -65,12 +78,16 @@ public abstract class BaseModifier
     [CustomInspector.ReadOnly]
     public Card modified;
 
+    public virtual void initialize(){
+        
+    }
+
     /// <summary>
     /// Clona el modificador
     /// </summary>
     /// <param name="card">Carta a la que modificará la copia</param>
     /// <returns></returns>
-    public BaseModifier clone(Card newModified = null){
+    public virtual BaseModifier clone(Card newModified = null){
         var data = JsonUtility.ToJson(this);
         var ret = (BaseModifier) JsonUtility.FromJson(data,this.GetType());
         if(newModified != null)
@@ -83,5 +100,9 @@ public abstract class BaseModifier
     /// </summary>
     public void removeSelf(){
         CardModifiers.removeModifier(modified, this);
+    }
+
+    public virtual void refresh(){
+        
     }
 }

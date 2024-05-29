@@ -5,6 +5,7 @@ using CardHouse;
 using Effect;
 using Effect.Duration;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 
@@ -12,26 +13,61 @@ using UnityEngine;
 /// Añade una habilidad a una carta en cuestión
 /// </summary>
 [Serializable]
-public abstract class AbilityModifier : BaseModifier
+public class AbilityModifier : BaseModifier
 {
     [SerializeReference,SubclassSelector]
     public List<Ability> abilities;
 
 
+    public virtual void onAbilityTrigger(Ability ability, Context context){
+        Debug.Log("onAbilityTrigger");
+        if(ability.id == "removeSelf"){
+            removeSelf();
+        }
+    }
+
+    
+    
+    
+    public override void initialize(){
+
+        refresh();
+        
+    }
+
+    public override void refresh(){
+        foreach(var ability in abilities){
+            ability.modifier = this;
+        }
+    }
 }
 
 /// <summary>
 /// Añade una habilidad temporalmente
 /// </summary>
 [Serializable]
-public class TemporaryAbilityModifier : BaseModifier
+public class TemporaryAbilityModifier : AbilityModifier
 {
-    [SerializeReference,SubclassSelector]
-    public List<Ability> abilities;
 
-    [SerializeReference,SubclassSelector]
-    public IDuration duration;
+    public TemporaryAbilityModifier(){
+        if(abilities?.Any() != true){
+            var selfDestruct = new HiddenTriggeredAbility(){
+            id="removeSelf",
+            effects = new(),
+            
+            };
+        
 
-    //TODO: complete 
+            
+            
+            abilities = new(){
+                selfDestruct
+            };
+        }
+        
+        
+    }
+
+    
 }
 

@@ -14,14 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Prepare For War
-  rawText: 
-  parsedText: 
+  rawText: 'Choose {M:{M}} or {F:{F}}.
+
+'
+  parsedText: 'Choose <link="M"><sprite name="M"></link> or <link="F"><sprite name="F"></link>.
+
+'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   effects:
     baseEffect:
       list:
+      - rid: 8129478482906054674
+      - rid: 8129478482906054675
       - rid: 8129478482906054670
     abilities:
     - rid: 8129478482906054667
@@ -40,7 +46,7 @@ MonoBehaviour:
       costText: 
       value: 0
       colors: 
-  speedType: 0
+  speedType: 1
   typeList: 
   cost:
     costText: 
@@ -49,6 +55,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 8129478482906054667
       type: {class: HiddenTriggeredAbility, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -89,3 +97,40 @@ MonoBehaviour:
       type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         contextual: 0
+    - rid: 8129478482906054674
+      type: {class: ModalEffect, ns: Effect, asm: Assembly-CSharp}
+      data:
+        maxChoices: 1
+        modes:
+        - id: M
+          effects: []
+        - id: F
+          effects: []
+    - rid: 8129478482906054675
+      type: {class: AddModifier, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478482906054676
+        modifiers:
+        - rid: 8129478489736740878
+    - rid: 8129478482906054676
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8129478489736740878
+      type: {class: ValueModifier, ns: , asm: Assembly-CSharp}
+      data:
+        modified: {fileID: 0}
+        abilities:
+        - rid: 8129478489736740879
+        id: 
+    - rid: 8129478489736740879
+      type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: removeSelf
+        source: {fileID: 0}
+        effects: []
+        trigger: {fileID: 11400000, guid: cac14767393c4824fabee3093dd3288e, type: 2}
+        activeZoneList: 00000000
+        condition:
+          rid: -2

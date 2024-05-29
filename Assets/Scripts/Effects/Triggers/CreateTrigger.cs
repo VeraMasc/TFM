@@ -7,6 +7,7 @@ using CustomInspector;
 using Effect.Duration;
 using Effect.Value;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Effect{
     /// <summary>
@@ -69,6 +70,10 @@ namespace Effect{
         /// Encapsula las clases que representan duraciones
         /// </summary>
         public interface IDuration{
+            public void setContext(Context context);
+            public void subscribe(Action action);
+
+            public void unsubscribe(Action action);
 
         }
 
@@ -76,14 +81,39 @@ namespace Effect{
         /// Dura hasta que se produce un trigger
         /// </summary>
         [Serializable]
-        public class UntilTrigger{
+        public class UntilTrigger:IDuration{
             public BaseTrigger<object> trigger;
+
+            public UnityAction listener;
 
             /// <summary>
             /// Condiciones que ha de cumplir
             /// </summary>
             [SerializeReference,SubclassSelector]
             public BaseCondition condition;
+
+            public Context context;
+            public void setContext(Context context){
+                this.context = context;
+                listener+=checkIfFinished;
+                trigger.events.AddListener(listener);
+            }
+
+            public bool isFinished;
+
+            public void checkIfFinished(){
+                isFinished = condition.check(null,context);
+            }
+
+            public IEnumerator waitTillFinished => UCoroutine.YieldAwait(()=>isFinished);
+
+            public void subscribe(Action action){
+                
+            }
+
+            public void unsubscribe(Action action){
+
+            }
         }
     }
     
