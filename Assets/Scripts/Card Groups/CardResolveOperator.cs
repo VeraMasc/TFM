@@ -219,12 +219,15 @@ public class CardResolveOperator : Activatable
     /// Manda una carta al stack y la precalcula 
     /// </summary>
     /// <param name="card">Carta a enviar</param>
-    public IEnumerator castCard(Card card, ManaCost alternativeCost = null){
+    public IEnumerator castCard(Card card, ManaCost alternativeCost = null, Entity caster=null){
         Debug.Log("Casting card");
 
         //Set cast cost
         if(card?.data is ActionCard action){ 
             action.effects.paidCost = alternativeCost?? action.cost;
+        }
+        if(caster && card.ownership){
+            card.ownership.controller = caster;
         }
         //Cast
         stack.Mount(card);
@@ -386,14 +389,15 @@ public class CardResolveOperator : Activatable
         yield return StartCoroutine(castCard(card));
     }
 
-    public IEnumerator triggerAbilityEffect(Card source, Ability ability, bool isActive){
+    public IEnumerator triggerAbilityEffect(Card source, Ability ability, bool isActive, Entity user= null)
+    {
         yield return waitTillPrecalculated;
         var chain = EffectChain.cloneFrom(ability?.effects);
         var card = createTriggerCard(source,chain, transform, isActive);
-        
+        var trigger = (TriggerCard)card.data;
+
         //Change text
         if(ability.id != string.Empty){
-            var trigger = (TriggerCard)card.data;
             trigger.cardTextBox?.ForceMeshUpdate(forceTextReparsing:true); //IMPORTANTE
 
             var chosenLink = trigger.cardTextBox.textInfo.linkInfo
@@ -405,8 +409,10 @@ public class CardResolveOperator : Activatable
             }
             
         }
+        
+
         //Execute
         Debug.Log(card.name,card);
-        yield return StartCoroutine(castCard(card));
+        yield return StartCoroutine(castCard(card, caster:user));
     }
 }

@@ -73,7 +73,8 @@ namespace Effect
         }
 
 
-        public static IEnumerator castModal(Card card, IEnumerable<ModalOptionSettings> modes){
+        public static IEnumerator castModal(Card card, IEnumerable<ModalOptionSettings> modes, Entity caster = null){
+
             var modeSettings = modes.ToArray();
             List<int> ret = null;
             if(card?.data is MyCardSetup setup){
@@ -101,8 +102,8 @@ namespace Effect
                     }
                     else if (settings.ability is ActivatedAbility activated){
                         var ownership = card.GetComponent<CardOwnership>();
-                        var activator = ownership?.controller ?? card.Group?.GetComponent<GroupZone>()?.owner;
-                        yield return UCoroutine.Yield(activated.activateAbility(activator));
+                        caster ??= ownership?.controller ?? card.Group?.GetComponent<GroupZone>()?.owner;
+                        yield return UCoroutine.Yield(activated.activateAbility(caster));
                     }
                 }
             }

@@ -175,35 +175,46 @@ public abstract class MyCardSetup : CardSetup
     /// Intenta activar las habilidades de la carta
     /// </summary>
     /// <returns></returns>
-    public bool tryActivateAsModal(){
+    public bool tryActivateAsModal(Entity user = null){
         var cardComponent = GetComponent<Card>();
-        
+        user ??=effects?.context?.controller;
 
         var currentZone = cardComponent.Group?.GetComponent<GroupZone>();
         //No cast abilities
         var modes = effects.getAllAbilities().OfType<ActivatedAbility>()
-            .Where(ability => !(ability is CastAbility));
+            .Where(ability => !(ability is CastAbility) && ability.checkControl(user));
             
         if(currentZone){
             //Filtrar por zona de actividad
             modes = modes.Where(ab => ab.isActiveIn(currentZone.zone));
-            
         }
+        
         
         if(modes.Any()){
             
             //Configuración de cada modo
-            var controller = effects?.context?.controller;
+            var controller = user;
             var settings = modes.Select(m => new ModalOptionSettings(){
                     tag = m.id,
                     ability = m,
                     disabled = !m.canActivate(controller),
                 }
             );
-            StartCoroutine(ModalEffect.castModal(cardComponent,settings));
+            StartCoroutine(ModalEffect.castModal(cardComponent,settings,user));
             return true;
         }
         return false;
+    }
+
+    /// <summary>
+    /// Indica si hay alguna habilidad que puede ser usada por esta entidad
+    /// </summary>
+    /// <param name="entity"></param>
+    /// <returns></returns>
+    public bool canActivate(Entity entity){
+        return effects.getAllAbilities().OfType<ActivatedAbility>()
+            .Where(ability => !(ability is CastAbility) && ability.checkControl(entity))
+            .Any();
     }
 
     /// <summary>

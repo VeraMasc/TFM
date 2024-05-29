@@ -21,7 +21,14 @@ public class AdvancedDragDetector : DragDetector
                 if(dblClickTimer>0 &&  card.data is MyCardSetup setup)
                 {
                     Debug.Log("Try activate");
-                    setup.tryActivateAsModal();
+                    
+                    setup.tryActivateAsModal(GameMode.current.selectedPlayer);
+                    // if(card.Group.GetComponent<GroupZone>()?.zone == GroupName.Board){
+                    //     setup.tryActivateAsModal();
+                    // }
+                    // else{
+                    //     setup.tryActivateAsModal();
+                    // }
                     
                 }
                 dblClickTimer = dblClickCooldown;

@@ -33,7 +33,7 @@ namespace Effect{
         public virtual IEnumerator executeAbility(Context context){
             var self = context.self;
             if(self is Card card){
-                var routine =CardResolveOperator.singleton.triggerAbilityEffect(card, this, useActiveTriggers);
+                var routine =CardResolveOperator.singleton.triggerAbilityEffect(card, this, useActiveTriggers, context?.controller);
                 yield return routine.Start(card);
             }
             else{
@@ -185,20 +185,31 @@ namespace Effect{
             return GameMode.current.isSpeedValid(user, speed);
         }
 
+
+        /// <summary>
+        /// Comprueba si una entidad concreta puede controlar esta habilidad
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public virtual bool checkControl(Entity user){
+            var control = source?.ownership;
+            return control.controller.team == user.team;
+        }
+
         /// <summary>
         /// Devuelve si se cumplen todas las condiciones para poder activarla
         /// </summary>
         public virtual bool canActivate (Entity user){
             //TODO: add mana requirements
-            return checkActivationTiming(user);
+            return checkActivationTiming(user) && checkControl(user);
         }
         public virtual IEnumerator activateAbility(Entity activator){
             //TODO: abilities with owner different than controller
-            var context = new Context(source, activator);
+           
+            var context = new Context(source, activator, source.ownership?.owner);
 
             if(cost?.canBePaid(context) == false)
                 yield break;
-            
             if(cost!= null)
                 yield return UCoroutine.Yield(cost.payCost(context));
             

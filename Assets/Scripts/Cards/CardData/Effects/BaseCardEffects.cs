@@ -99,7 +99,7 @@ public class BaseCardEffects{
             self = trigger.source;
         }
 
-        CardOwnership ownership = self?.GetComponent<CardOwnership>();
+        CardOwnership ownership = effector?.ownership;
         if(ownership){
             context = new Effect.Context(self, ownership, effector);
         }

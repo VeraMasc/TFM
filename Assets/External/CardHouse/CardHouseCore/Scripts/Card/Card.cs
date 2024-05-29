@@ -89,6 +89,13 @@ namespace CardHouse
         [CustomInspector.ReadOnly]
         public CardGroup attachedGroup;
 
+        /// <summary>
+        /// Card ownership (la recupera si no está asignada)
+        /// </summary>
+        public CardOwnership ownership => _ownership ??= GetComponent<CardOwnership>();
+
+        private CardOwnership _ownership;
+
         void Awake()
         {
             Homing = GetComponent<Homing>();

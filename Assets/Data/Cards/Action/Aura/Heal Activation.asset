@@ -49,7 +49,7 @@ MonoBehaviour:
       costText: 
       value: 0
       colors: 
-  speedType: 0
+  speedType: 1
   typeList: 0000000006000000
   cost:
     costText: 
@@ -68,7 +68,6 @@ MonoBehaviour:
         id: ability
         source: {fileID: 0}
         effects:
-        - rid: 8129478324054130689
         - rid: 8129478324054130692
         costValue:
           costText: V
@@ -76,30 +75,16 @@ MonoBehaviour:
           costText: V
           value: 1
           colors: V
-        speed: 0
+        speed: 1
         activeZoneList: 05000000
-    - rid: 8129478324054130689
-      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
-      data:
-        effects:
-        - rid: 8129478324054130690
-    - rid: 8129478324054130690
-      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
-      data:
-        targeter:
-          rid: 8129478347398053923
     - rid: 8129478324054130692
       type: {class: Heal, ns: Effect, asm: Assembly-CSharp}
       data:
         targeter:
-          rid: 8129478324054130693
+          rid: 8129478482466963456
         amount:
           rid: 8129478324054130694
         overheal: 1
-    - rid: 8129478324054130693
-      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
-      data:
-        index: 0
     - rid: 8129478324054130694
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
@@ -115,10 +100,6 @@ MonoBehaviour:
         activeZoneList: 00000000
         condition:
           rid: -2
-    - rid: 8129478347398053923
-      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
-      data:
-        contextual: 2
     - rid: 8129478356213956609
       type: {class: Draw, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -134,3 +115,7 @@ MonoBehaviour:
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 1
+    - rid: 8129478482466963456
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
