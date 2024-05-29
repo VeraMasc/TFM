@@ -66,7 +66,7 @@ namespace CardHouse
             var rootPos = selected? GameUI.singleton.handDetails.position :transform.position;
 
             if(numProxies>0){
-                    rootPos+= Vector3.left * handProxySeparation/2;
+                    rootPos+= (-transform.right) * handProxySeparation/2;
             }
             for (var i = 0; i < cards.Count; i++)
             {
@@ -100,7 +100,7 @@ namespace CardHouse
 
         public void handleProxies(Vector3 rootPos,float width,float spacing){
             var i=0;
-            rootPos += Vector3.right * handProxySeparation;
+            rootPos += transform.right * handProxySeparation;
             foreach(var proxy in proxies.Where(p => p?.isActiveProxy == true)){
 
                 var direction = invertOrder? transform.right:-transform.right;
