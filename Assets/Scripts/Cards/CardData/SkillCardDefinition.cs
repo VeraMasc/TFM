@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -9,10 +10,19 @@ using UnityEngine;
 public class SkillCardDefinition : MyCardDefinition
 {
 
-
-    [SerializeField]
-    public BaseCardEffects effects;
+    public int level;
 
     
+
+    [SerializeField]
+    public List<ActionSubtypes> typeList;
+
+
+    
+}
+
+public enum SkillTypes{
+    Core,
+    Class
 }
 

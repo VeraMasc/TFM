@@ -18,6 +18,7 @@ MonoBehaviour:
   onDeath: {fileID: 11400000, guid: f94cdc355d6f3fa459a60883041c496c, type: 2}
   onDamage: {fileID: 11400000, guid: 43b8d95b53c100e4786262461673c16d, type: 2}
   onHeal: {fileID: 0}
+  onUseAction: {fileID: 11400000, guid: 3938d40abee615146824a17ca2247d17, type: 2}
   onEnter: {fileID: 11400000, guid: cac14767393c4824fabee3093dd3288e, type: 2}
   onDestroy: {fileID: 11400000, guid: 244447d381f59d54788de5ed0713115c, type: 2}
   onLeave: {fileID: 11400000, guid: 40da7b8342106f7449f0b690b67d436f, type: 2}
@@ -26,7 +27,6 @@ MonoBehaviour:
   onEnterLost: {fileID: 11400000, guid: 75820d065f8ee9d4ebb0401cc56bf9d1, type: 2}
   onCast: {fileID: 11400000, guid: cefe06f9351daf746b9fa5274f14bd39, type: 2}
   onSpent: {fileID: 11400000, guid: bd9836565e4884d43a049dc97e8e3bbd, type: 2}
-  onUseAction: {fileID: 0}
   beforeBeginTurn: {fileID: 11400000, guid: cc3f20ded2a76da4e95c8be5474472d9, type: 2}
   onBeginTurn: {fileID: 11400000, guid: cc3f20ded2a76da4e95c8be5474472d9, type: 2}
   onMainPhase: {fileID: 11400000, guid: 2ad6f2efb1a1e9e49b48827a6db7a206, type: 2}

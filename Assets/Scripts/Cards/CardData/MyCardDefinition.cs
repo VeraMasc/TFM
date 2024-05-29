@@ -30,6 +30,9 @@ public class MyCardDefinition : CardDefinition
     [SerializeReference,SubclassSelector]
     public List<CardHelp> help;
 
+    [SerializeField,BackgroundColor(FixedColor.Purple)]
+    public BaseCardEffects effects;
+
     /// <summary>
     /// Devuelve el tipo de la carta
     /// </summary>
@@ -47,9 +50,8 @@ public class MyCardDefinition : CardDefinition
         parsedText = parseCardText(rawText,this);
 
         //Validate abilities
-        if(this is ActionCardDefinition actionDef){
-            actionDef.effects.abilities.ForEach(a => a.validateValues());
-        }
+        effects.abilities.ForEach(a => a.validateValues());
+        
     }
 
     /// <summary>

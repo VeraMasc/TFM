@@ -14,16 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Activable
-  cardText: 
+  rawText: 
+  parsedText: 
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
-  speedType: 0
-  typeList: 00000000
-  cost:
-    costText: 
-    value: 0
-    colors: 
   effects:
     baseEffect:
       list:
@@ -40,11 +35,20 @@ MonoBehaviour:
       mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
+    entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 0
+  typeList: 00000000
+  cost:
+    costText: 
+    value: 0
+    colors: 
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 8129478308107124752
       type: {class: EnterBoard, ns: Effect, asm: Assembly-CSharp}
     - rid: 8129478308107124753
@@ -53,7 +57,11 @@ MonoBehaviour:
         id: 
         source: {fileID: 0}
         effects: []
+        costValue:
+          costText: V
         cost:
-          rid: -2
+          costText: V
+          value: 1
+          colors: V
         speed: 1
         activeZoneList: 05000000

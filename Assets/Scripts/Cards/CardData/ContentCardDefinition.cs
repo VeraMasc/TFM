@@ -14,8 +14,6 @@ public class ContentCardDefinition : MyCardDefinition
 {
 
 
-    [SerializeField]
-    public ContentCardEffects effects;
 
     protected override void Awake() {
         base.Awake();

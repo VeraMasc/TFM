@@ -29,8 +29,6 @@ public class ActionCardDefinition : MyCardDefinition
     [Unfold]
     public ManaCost cost;
 
-    [SerializeField,BackgroundColor(FixedColor.Purple)]
-    public BaseCardEffects effects;
 
     protected override void Awake() {
         base.Awake();

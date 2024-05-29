@@ -29,12 +29,6 @@ MonoBehaviour:
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
-  speedType: 0
-  typeList: 0000000002000000
-  cost:
-    costText: D
-    value: 1
-    colors: D
   effects:
     baseEffect:
       list:
@@ -58,6 +52,12 @@ MonoBehaviour:
       costText: 
       value: 0
       colors: 
+  speedType: 0
+  typeList: 0000000002000000
+  cost:
+    costText: D
+    value: 1
+    colors: D
   references:
     version: 2
     RefIds:
@@ -94,10 +94,10 @@ MonoBehaviour:
         effects:
         - rid: 8129478187144708096
         costValue:
-          costText: 
+          costText: 2
         cost:
-          costText: 
-          value: 0
+          costText: 2
+          value: 2
           colors: 
         speed: 1
         activeZoneList: 04000000

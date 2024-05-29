@@ -19,12 +19,6 @@ MonoBehaviour:
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
-  speedType: 1
-  typeList: 
-  cost:
-    costText: 
-    value: 0
-    colors: 
   effects:
     baseEffect:
       list:
@@ -42,11 +36,19 @@ MonoBehaviour:
     sourceZone: 0
     sourceGroup: {fileID: 0}
     entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 1
+  typeList: 
+  cost:
+    costText: 
+    value: 0
+    colors: 
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 8129478393277448194
       type: {class: EnterBoard, ns: Effect, asm: Assembly-CSharp}
     - rid: 8129478393277448195
@@ -57,8 +59,12 @@ MonoBehaviour:
         effects:
         - rid: 8129478393277448211
         - rid: 8129478393277448205
+        costValue:
+          costText: 1
         cost:
-          rid: -2
+          costText: 1
+          value: 1
+          colors: 
         speed: 1
     - rid: 8129478393277448205
       type: {class: Attach, ns: Effect, asm: Assembly-CSharp}
