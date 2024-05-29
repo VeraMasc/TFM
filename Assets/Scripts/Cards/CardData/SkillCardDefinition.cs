@@ -23,6 +23,7 @@ public class SkillCardDefinition : MyCardDefinition
 
 public enum SkillTypes{
     Core,
-    Class
+    Class,
+    Innate
 }
 

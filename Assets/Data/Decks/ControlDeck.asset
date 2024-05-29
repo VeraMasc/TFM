@@ -24,7 +24,5 @@ MonoBehaviour:
     amount: 5
   - card: {fileID: 11400000, guid: 461935339f76bff43aa6de909be0161e, type: 2}
     amount: 10
-  - card: {fileID: 11400000, guid: 9cf11c5beeb50c644b604894eebef983, type: 2}
-    amount: 5
   - card: {fileID: 11400000, guid: 140525d51344e7a489699dd60525fbf3, type: 2}
     amount: 5
