@@ -120,7 +120,7 @@ namespace CardHouse
                 proxy.Scaling.StartSeeking(scale, null);
 
                 if(proxy){
-                    UCoroutine.Yield(new WaitForFixedUpdate())
+                    UCoroutine.Yield(new WaitForSeconds(0.02f))
                     .Then(()=>proxy.forceSeeking())
                     .Start(proxy);
                 }

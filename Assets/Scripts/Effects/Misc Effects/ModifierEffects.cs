@@ -29,7 +29,7 @@ namespace Effect{
 
         public override IEnumerator executeForeach(ITargetable target,CardResolveOperator stack, Context context)
         {
-            var val = param.getValueObj(context);
+            var val = param?.getValueObj(context);
             if(target is Card card){
                 foreach(var mod in modifiers){
                     CardModifiers.addModifier(card,mod,val);

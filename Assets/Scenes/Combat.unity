@@ -191,6 +191,10 @@ PrefabInstance:
       propertyPath: board
       value: 
       objectReference: {fileID: 2014230476}
+    - target: {fileID: 7818306146402712190, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      propertyPath: data.decklist
+      value: 
+      objectReference: {fileID: 11400000, guid: a73d912506c4cc14d86c33fae66ce03a, type: 2}
     - target: {fileID: 8858774047356355142, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.236

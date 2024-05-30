@@ -116,18 +116,8 @@ MonoBehaviour:
       data:
         modified: {fileID: 0}
         abilities:
-        - rid: 8129478489736740879
+        - rid: 8129478490245562402
         id: manaChoice
-    - rid: 8129478489736740879
-      type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
-      data:
-        id: removeSelf
-        source: {fileID: 0}
-        effects: []
-        trigger: {fileID: 11400000, guid: cac14767393c4824fabee3093dd3288e, type: 2}
-        activeZoneList: 00000000
-        condition:
-          rid: -2
     - rid: 8129478490245562394
       type: {class: ManaChoice, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -160,3 +150,13 @@ MonoBehaviour:
       data:
         index: 0
         destructive: 0
+    - rid: 8129478490245562402
+      type: {class: HiddenTriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: removeSelf
+        source: {fileID: 0}
+        effects: []
+        trigger: {fileID: 11400000, guid: 40da7b8342106f7449f0b690b67d436f, type: 2}
+        activeZoneList: 05000000
+        condition:
+          rid: -2
