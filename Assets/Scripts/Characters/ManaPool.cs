@@ -70,7 +70,6 @@ public class ManaPool : MonoBehaviour
     }
 
     public void pay(ManaCost cost){
-        //TODO: implementar pago
         if(infiniteMana)
             goto refresh;
         
@@ -101,7 +100,11 @@ public class ManaPool : MonoBehaviour
     }
 
     public void loseAll(){
-        //TODO: implementar perder todo el maná.
+        if(infiniteMana)
+            return;
+
+        pips.Clear();
+        updateDisplay();
     }
 
 

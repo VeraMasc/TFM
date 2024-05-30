@@ -1946,7 +1946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4673116313031919875, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.71875
+      value: 0.875
       objectReference: {fileID: 0}
     - target: {fileID: 4702649497764106639, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: board

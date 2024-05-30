@@ -181,8 +181,8 @@ public class CombatController : GameMode
 
 		//Select active entity hand if possible
 		currentTurn.trySelectPlayer();
-		
-
+		currentTurn.mana.loseAll();
+		yield return StartCoroutine(triggerManager.beforeBeginTurn.invoke());
 		yield return StartCoroutine(currentTurn.draw(1));
 		yield return CardResolveOperator.singleton.waitTillEmpty;
 		//End coroutine

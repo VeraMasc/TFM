@@ -46,12 +46,12 @@ MonoBehaviour:
       costText: 
       value: 0
       colors: 
-  speedType: 1
+  speedType: 0
   typeList: 
   cost:
-    costText: 
-    value: 0
-    colors: 
+    costText: MF
+    value: 2
+    colors: MF
   references:
     version: 2
     RefIds:

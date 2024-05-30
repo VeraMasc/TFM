@@ -28,7 +28,7 @@ MonoBehaviour:
   onCast: {fileID: 11400000, guid: cefe06f9351daf746b9fa5274f14bd39, type: 2}
   onSpent: {fileID: 11400000, guid: bd9836565e4884d43a049dc97e8e3bbd, type: 2}
   beforeBeginTurn: {fileID: 11400000, guid: cc3f20ded2a76da4e95c8be5474472d9, type: 2}
-  onBeginTurn: {fileID: 11400000, guid: cc3f20ded2a76da4e95c8be5474472d9, type: 2}
+  onBeginTurn: {fileID: 11400000, guid: cd8cd2122a1630b40b3d0860a42bb476, type: 2}
   onMainPhase: {fileID: 11400000, guid: 2ad6f2efb1a1e9e49b48827a6db7a206, type: 2}
   onEndTurn: {fileID: 11400000, guid: 0c270b7eb608d444e813e45e4159c3b9, type: 2}
   afterEndTurn: {fileID: 11400000, guid: 841c90c177899814097b9721a6021516, type: 2}

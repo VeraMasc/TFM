@@ -644,11 +644,12 @@ MonoBehaviour:
   ForcedFacing: 0
   ForcedInteractability: 0
   compactDisplay: 0
+  displayEveryN: 4
   DragMountingMode: 0
   UseMyScale: 1
   groupScale: 0.7
   CardsPerRow: -1
-  MarginalCardOffset: -0.005
+  MarginalCardOffset: -0.05
   Straighten: 1
 --- !u!114 &7698412226326198302
 MonoBehaviour:
