@@ -9,15 +9,13 @@ using UnityEngine;
 namespace Effect
 {
     [Serializable]
-    public class Targeted: EffectScript
+    public abstract class Targeted: EffectScript
     {
         /// <summary>
         /// Quién recibe el efecto
         /// </summary>
         [SerializeReference, SubclassSelector]
-        public EffectTargeter targeter = new ContextualObjectTargeter(){
-            contextual = ContextualObjTargets.self
-        };
+        public EffectTargeter targeter;
 
         /// <summary>
         /// Sobreescribir este método para cambiar qué targets individuales se consideran válidos

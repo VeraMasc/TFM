@@ -53,10 +53,11 @@ public class CardCreationManager : ScriptableObject
             return null;
         }
         if(position == Vector3.zero){
-            position = Vector3.back * 10;
+            position = Vector3.back *10;
         }
         var setup = Instantiate(prefab, position, Quaternion.identity);
         setup.Apply(definition);
+        
         return setup.GetComponent<Card>();
     }
 

@@ -15,6 +15,8 @@ namespace Effect{
 
         public MountingMode mode;
 
+        public float duration = 0.1f;
+
         public override IEnumerator executeForeach(ITargetable target, CardResolveOperator stack, Context context)
         {
             
@@ -22,7 +24,7 @@ namespace Effect{
 
                 
                 CardGroup group = null;
-                var ownership = card.GetComponent<CardOwnership>();
+                var ownership = card.ownership;
                 switch(zone){
                     case GroupName.Deck:
                         group = ownership?.owner?.deck;
@@ -33,8 +35,8 @@ namespace Effect{
                 }
 
                 //Destruir triggers
-                if(ownership.owner == null || card.data is TriggerCard){
-                    card.Group.UnMount(card);
+                if(ownership?.owner == null || card.data is TriggerCard){
+                    card.Group?.UnMount(card);
                     GameObject.Destroy(card.gameObject);
                 }
 
@@ -45,7 +47,7 @@ namespace Effect{
 
                 var index = group.getModeIndex(mode);
                 group.Mount(card,index);
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(duration);
             }
             else{
                 Debug.Log(target.GetType());

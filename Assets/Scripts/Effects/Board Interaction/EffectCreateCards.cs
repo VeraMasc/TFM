@@ -42,7 +42,9 @@ namespace Effect{
             var created = new List<Card>();
             foreach(var card in cards){
                 var newCard = creationManager.create(card); //Create card
-;               newCard.transform.localScale = Vector3.one * 4;
+;               
+                newCard.Scaling.StartSeeking(4);
+                newCard.Homing.StartSeeking(Vector3.back *8);
                 newCard.ownership.owner = entity;
                 switch (mode){
                     case Mode.inPlace:
@@ -62,9 +64,10 @@ namespace Effect{
                 }
                 
                 created.Add(newCard);
+                yield return new WaitForSeconds(0.4f);
             }
             context.previousTargets.Add(created.ToArray()); 
-            yield return new WaitForSeconds(0.5f);
+            
         }
 
         

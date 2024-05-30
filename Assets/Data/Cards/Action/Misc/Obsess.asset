@@ -16,12 +16,14 @@ MonoBehaviour:
   cardName: Obsess
   rawText: '<i>Lunatic only</i>
 
+
     Shuffle four cards named Fool''s Errand into
     your deck'
   parsedText: '<i>Lunatic only</i>
 
-    Shuffle four cards named Fool''s Errand into
-    your deck'
+
+    Shuffle four cards named Fool''s Errand
+    into your deck'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -30,6 +32,7 @@ MonoBehaviour:
       list:
       - rid: 8129478511095447565
       - rid: 8129478511095447566
+      - rid: 8129478512620077058
     abilities: []
     staticEffects:
       list: []
@@ -58,6 +61,8 @@ MonoBehaviour:
     - rid: 8129478511095447565
       type: {class: CreateCards, ns: Effect, asm: Assembly-CSharp}
       data:
+        targeter:
+          rid: 8129478512620077057
         cards:
         - {fileID: 11400000, guid: d8367e2964235054f881142fc7759f12, type: 2}
         - {fileID: 11400000, guid: d8367e2964235054f881142fc7759f12, type: 2}
@@ -71,7 +76,25 @@ MonoBehaviour:
           rid: 8129478511095447568
         zone: 3
         mode: 1
+        duration: 0.1
     - rid: 8129478511095447568
       type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         index: 0
+    - rid: 8129478512620077057
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8129478512620077058
+      type: {class: EntityEffect, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478512620077061
+        effectOption:
+          rid: 8129478512620077060
+    - rid: 8129478512620077060
+      type: {class: Shuffle, ns: Effect.Option, asm: Assembly-CSharp}
+    - rid: 8129478512620077061
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
