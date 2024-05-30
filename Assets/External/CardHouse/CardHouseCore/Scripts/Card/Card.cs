@@ -196,19 +196,19 @@ namespace CardHouse
                 isFocused = false;
             }
 
-            var notBoard = zone != GroupName.Board;
+            var isHand = zone == GroupName.Hand || (activeProxy && !Group.isFocused);
 
             var targetPos =  Vector3.zero;
             if(isFocused){
                 targetPos += new Vector3(0,0,-2);
 
-                if(notBoard){
+                if(isHand){
                     targetPos += new Vector3(0,0.9f,0);
                 }
             }
 
             FaceHoming.StartSeeking(targetPos, useLocalSpace: true);
-            FaceTurning.StartSeeking(isFocused && notBoard? Camera.main.transform.rotation.eulerAngles.z : 0, useLocalSpace: !isFocused);
+            FaceTurning.StartSeeking(isFocused && isHand? Camera.main.transform.rotation.eulerAngles.z : 0, useLocalSpace: !isFocused);
             FaceScaling.StartSeeking(isFocused ? 1.5f: 1f, useLocalSpace: true);
 
             if (isFocused)

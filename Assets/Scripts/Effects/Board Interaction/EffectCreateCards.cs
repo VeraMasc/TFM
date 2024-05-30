@@ -11,7 +11,7 @@ namespace Effect{
     /// Efecto que añade cartas a una zona 
     /// </summary>
     [Serializable]
-    public class CreateCards:EffectScript
+    public class CreateCards:Targeted
     {
         /// <summary>
         /// Cartas a duplicar //TODO: Card definitions as values
@@ -33,26 +33,37 @@ namespace Effect{
         //     return ret;
         // }
 
-        public override IEnumerator execute(CardResolveOperator stack, Effect.Context context)
+        public override IEnumerator executeForeach(ITargetable target, CardResolveOperator stack, Effect.Context context)
         {
-            var creationManager = GameController.singleton.creationManager;
-            foreach(var card in cards){
-                var setup = creationManager.create(card);
+            if(! (target is Entity entity))
+                yield break;
 
+            var creationManager = GameController.singleton.creationManager;
+            var created = new List<Card>();
+            foreach(var card in cards){
+                var newCard = creationManager.create(card); //Create card
+;               newCard.transform.localScale = Vector3.one * 4;
+                newCard.ownership.owner = entity;
                 switch (mode){
                     case Mode.inPlace:
                         if(context.self is Card source){
                             var index = source.Group.MountedCards.FindIndex(c=> c == source);
                             if (index >=0){
-                                var cardComp = setup.GetComponent<Card>();
-                                source.Group.Mount(cardComp,index+1);
+                                source.Group.Mount(newCard,index+1);
+                                
                             }
                         }
                         break;
+                    case Mode.nowhere:
+
+                        break;
+
                     //TODO: Implement other effect modes
                 }
+                
+                created.Add(newCard);
             }
-
+            context.previousTargets.Add(created.ToArray()); 
             yield return new WaitForSeconds(0.5f);
         }
 
@@ -71,7 +82,12 @@ namespace Effect{
             /// <summary>
             /// Crea las cartas en el campo
             /// </summary>
-            inBoard, 
+            inBoard,
+
+            /// <summary>
+            /// No asigna las cartas a ningún grupo
+            /// </summary>
+            nowhere  
         }
     }
    

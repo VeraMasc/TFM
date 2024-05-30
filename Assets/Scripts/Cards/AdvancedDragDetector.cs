@@ -34,12 +34,25 @@ public class AdvancedDragDetector : DragDetector
                 dblClickTimer = dblClickCooldown;
                 return;
             }
-                
+        
             
-            if(dblClickTimer>0){
+            
+            if(dblClickTimer>0 ){
                 var card = GetComponent<Card>();
-                StartCoroutine(CardResolveOperator.singleton.playerUseCard(card));
-                return;
+                var dropParams = new DropParams
+                {
+                    Source = card?.Group,
+                    Target = CardResolveOperator.singleton.stack,
+                    Card = card,
+                    DragType = DragAction.Mount
+                };
+
+                if(GroupDropGates.AllUnlocked(dropParams)){
+                    StartCoroutine(CardResolveOperator.singleton.playerUseCard(card));
+                    return;
+                }
+                
+    
             }
             dblClickTimer = dblClickCooldown;
             isDragging = true;

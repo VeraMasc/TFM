@@ -66,7 +66,8 @@ namespace CardHouse
                     var col = card.GetComponent<Collider2D>();
                     if (col)
                     {
-                        col.enabled = (activeProxy != null) || ForcedInteractability == GroupInteractability.Active
+                        //TODO: Extract this and make it clearer
+                        col.enabled = activeProxy != null || GameUI.focus == cards[i].Group || ForcedInteractability == GroupInteractability.Active
                                       || ForcedInteractability == GroupInteractability.OnlyTopActive && i == cards.Count - 1;
                     }
 

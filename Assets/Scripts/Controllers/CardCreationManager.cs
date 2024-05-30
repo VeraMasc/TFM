@@ -47,12 +47,14 @@ public class CardCreationManager : ScriptableObject
     /// <returns>la carta creada</returns>
     public Card create(CardDefinition definition, Vector3 position = default(Vector3)){
         var prefab = getSetup(definition);
-
+        
         if(prefab == null){
             Debug.LogError($"Can't find card setup for {definition}");
             return null;
         }
-        
+        if(position == Vector3.zero){
+            position = Vector3.back * 10;
+        }
         var setup = Instantiate(prefab, position, Quaternion.identity);
         setup.Apply(definition);
         return setup.GetComponent<Card>();

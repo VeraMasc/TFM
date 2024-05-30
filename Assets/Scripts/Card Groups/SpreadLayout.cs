@@ -53,8 +53,7 @@ namespace CardHouse
 
         protected override void ApplySpacing(List<Card> cards, SeekerSetList seekerSets = null)
         {
-            if(cards.Count <= 1)
-                return;
+            
             size = cards.Count;
             var width = size*cardSeparation;
             rect.sizeDelta = new Vector2(width, rect.sizeDelta.y); //Ajustar rect

@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: Obsess
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Obsess
+  rawText: '<i>Lunatic only</i>
+
+    Shuffle four cards named Fool''s Errand into
+    your deck'
+  parsedText: '<i>Lunatic only</i>
+
+    Shuffle four cards named Fool''s Errand into
+    your deck'
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  effects:
+    baseEffect:
+      list:
+      - rid: 8129478511095447565
+      - rid: 8129478511095447566
+    abilities: []
+    staticEffects:
+      list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+    entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 0
+  typeList: 
+  cost:
+    costText: D
+    value: 1
+    colors: D
+  references:
+    version: 2
+    RefIds:
+    - rid: 8129478511095447565
+      type: {class: CreateCards, ns: Effect, asm: Assembly-CSharp}
+      data:
+        cards:
+        - {fileID: 11400000, guid: d8367e2964235054f881142fc7759f12, type: 2}
+        - {fileID: 11400000, guid: d8367e2964235054f881142fc7759f12, type: 2}
+        - {fileID: 11400000, guid: d8367e2964235054f881142fc7759f12, type: 2}
+        - {fileID: 11400000, guid: d8367e2964235054f881142fc7759f12, type: 2}
+        mode: 3
+    - rid: 8129478511095447566
+      type: {class: SendTo, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478511095447568
+        zone: 3
+        mode: 1
+    - rid: 8129478511095447568
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0

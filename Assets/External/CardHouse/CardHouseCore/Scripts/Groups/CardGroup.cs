@@ -42,6 +42,11 @@ namespace CardHouse
 
         int CollidersEntered = 0;
 
+        /// <summary>
+        /// indica si el grupo se encuentra en modo focus
+        /// </summary>
+        public bool isFocused => GameUI.singleton?.focusGroup == this;
+
         public static CardGroup HilightedGroup
         {
             get

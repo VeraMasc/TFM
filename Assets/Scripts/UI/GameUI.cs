@@ -89,9 +89,14 @@ public class GameUI : MonoBehaviour
     /// </summary>
     /// <param name="group"></param>
     public static void setFocus(CardGroup group){
+        var zone = group?.GetComponent<GroupZone>()?.zone;
+        if(zone == GroupName.Hand){
+            group = null; //No hacer focus a la mano
+        }
+
         var old = singleton?.focusGroup;
         if(singleton){ //Evita errores si no hay UI
-            if(old != group && group?.MountedCards?.Count != 0){
+            if(group !=null && old != group && group?.MountedCards?.Count != 0){
                 singleton.focusGroup = group;
                 singleton.spreadScrollbar?.gameObject.SetActive(true);
                 resetFocusScroll();
@@ -192,6 +197,7 @@ public class GameUI : MonoBehaviour
                 clearTargeterMarkers();
             }
         }while(validator() != true && activeUserInput?.isCancelled != true); //Probar hasta que haya un valor válido
+        setFocus(null);// quitar focus
 
         //Devolver valor
         chosenTargets ??= new();
@@ -202,6 +208,7 @@ public class GameUI : MonoBehaviour
                     config.context.mode = ExecutionMode.cancel;
             }
         }
+        
         clearInputs();
         viewFocusedTargeting(null);
     }

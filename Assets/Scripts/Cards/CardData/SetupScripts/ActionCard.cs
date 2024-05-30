@@ -8,6 +8,7 @@ using Button = NaughtyAttributes.ButtonAttribute;
 using HorizontalLineAttribute = CustomInspector.HorizontalLineAttribute;
 using System.Linq;
 using Effect;
+using System.Text.RegularExpressions;
 
 
 /// <summary>

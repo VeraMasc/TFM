@@ -18,6 +18,7 @@ public class DecklistDefinition : ScriptableObject, IDeckDefinition
     private Sprite cardBackArt;
         
     public Sprite CardBackArt { get => cardBackArt; set => cardBackArt = value; }
+    
     public List<CardDefinition> CardCollection {
         get { 
            return CardsetCollection.SelectMany( set => { 
@@ -26,8 +27,16 @@ public class DecklistDefinition : ScriptableObject, IDeckDefinition
         }
     }
 
+    /// <summary>
+    /// Devuelve el tamaño total del mazo
+    /// </summary>
+    /// <returns></returns>
+    public int deckSize(){
+        return CardsetCollection.Select(c => c.amount).Sum();
+    }
+
     
-    
+    [ShowMethod(nameof(deckSize))]
     [Unfold]
     public List<CardCopies> CardsetCollection;
 }

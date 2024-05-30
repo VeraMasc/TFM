@@ -26,6 +26,7 @@ namespace Effect{
             var targets = targeter.getTargets(context);
             var pos = context.previousTargets.Count-1;
             if(pos>=0){
+                focusActiveCards(targets);
                 var config = new InputParameters(){
                     context=context
                 };

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using CustomInspector;
@@ -41,6 +42,13 @@ namespace Effect{
             costText = original.costText;
             value = original.value;
             colors = original.colors;
+        }
+
+        public ManaCost(IEnumerable<Mana> pips){
+            var colorless = pips.Where(p=>p.color== Mana.Colors.C).Count();
+            var colored = string.Join("",pips.Where(p=>p.color != Mana.Colors.C));
+            costText = colorless>0? colorless +colored: colored;
+            parseCost();
         }
 
         /// <summary>

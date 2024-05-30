@@ -17,25 +17,21 @@ MonoBehaviour:
   rawText: 'Lunatic only
 
 
-    Target spent card gains Overdo equal to its cost until
-    end of turn.'
+    Target one of your spent cards. It gains Overdo equal
+    to its cost until end of turn.'
   parsedText: 'Lunatic only
 
 
-    Target spent card gains Overdo equal to its cost
-    until end of turn.'
+    Target one of your spent cards. It gains Overdo
+    equal to its cost until end of turn.'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
-  speedType: 0
-  typeList: 05000000
-  cost:
-    costText: 
-    value: 0
-    colors: 
   effects:
     baseEffect:
-      list: []
+      list:
+      - rid: 8129478490245562559
+      - rid: 8129478511095447561
     abilities: []
     staticEffects:
       list: []
@@ -48,6 +44,58 @@ MonoBehaviour:
     sourceZone: 0
     sourceGroup: {fileID: 0}
     entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 1
+  typeList: 05000000
+  cost:
+    costText: 
+    value: 0
+    colors: 
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 8129478490245562559
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8129478490245562571
+    - rid: 8129478490245562571
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478490245562572
+    - rid: 8129478490245562572
+      type: {class: EntityCardTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        source:
+          rid: 8129478490245562573
+        relation: 0
+        zones: 01000000
+    - rid: 8129478490245562573
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8129478511095447561
+      type: {class: AddPresetModifier, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478511095447562
+        preset:
+          rid: 8129478511095447563
+    - rid: 8129478511095447562
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8129478511095447563
+      type: {class: OverDo, ns: Effect.Preset, asm: Assembly-CSharp}
+      data:
+        cost:
+          rid: 8129478511095447564
+    - rid: 8129478511095447564
+      type: {class: ManaValue, ns: Effect, asm: Assembly-CSharp}
+      data:
+        value:
+        - color: 1

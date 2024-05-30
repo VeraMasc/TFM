@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using CardHouse;
 using Common.Coroutines;
 using UnityEngine;
 
@@ -14,7 +15,9 @@ namespace Effect
         /// Quién recibe el efecto
         /// </summary>
         [SerializeReference, SubclassSelector]
-        public EffectTargeter targeter;
+        public EffectTargeter targeter = new ContextualObjectTargeter(){
+            contextual = ContextualObjTargets.self
+        };
 
         /// <summary>
         /// Sobreescribir este método para cambiar qué targets individuales se consideran válidos
@@ -52,6 +55,20 @@ namespace Effect
         public virtual IEnumerator executeForeach(ITargetable target,CardResolveOperator stack, Context context)
         {
             throw new NotImplementedException();
+        }
+
+
+        /// <summary>
+        /// Se encarga de hacer focus al grupo de las cartas entre las cuales has de elegir
+        /// </summary>
+        /// <param name="targets"></param>
+        public static void focusActiveCards(ITargetable[] targets){
+            if(targets.All(t => t is Card)){
+                var group = ((Card)targets.FirstOrDefault())?.Group;
+                if(targets.Cast<Card>().All(t => t.Group == group)){
+                    GameUI.setFocus(group);
+                }
+            }
         }
 
     }

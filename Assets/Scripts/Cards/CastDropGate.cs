@@ -26,10 +26,10 @@ public class CastDropGate : Gate<DropParams>
         if(MyCard.data is ActionCard action && action.speedType!= SpeedTypes.Reaction){
             var context = action.effects.context;
             var sourceZone = gateParams.Source?.GetComponent<GroupZone>()?.zone;
-            if(!(action.checkIfCastable(context.controller) || action.checkActivationTiming(context.controller, sourceZone)))
-            {
-                isDragLocked=true;
-            }
+            //Comprobar si se puede castear
+            var usable =  sourceZone == GroupName.Hand && action.checkIfCastable(context.controller);
+            usable= usable || action.checkActivationTiming(context.controller, sourceZone);
+            isDragLocked = isDragLocked || !usable;
         }
         
         return !isDragLocked;
