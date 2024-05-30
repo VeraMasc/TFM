@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Common.Coroutines;
@@ -61,12 +62,13 @@ namespace CardHouse
             var numProxies = proxies.Count;
             var widthReduction = numProxies>0? handProxySeparation:0;
             var spacing = (width-widthReduction) / (cards.Count + numProxies + 1);
-            
+            var xScaleSign = Math.Sign(transform.lossyScale.x);
+            var xAxis = transform.right*xScaleSign;
             
             var rootPos = selected? GameUI.singleton.handDetails.position :transform.position;
 
             if(numProxies>0){
-                    rootPos+= (-transform.right) * handProxySeparation/2;
+                    rootPos+= (-xAxis) * handProxySeparation/2;
             }
             for (var i = 0; i < cards.Count; i++)
             {
@@ -100,7 +102,11 @@ namespace CardHouse
 
         public void handleProxies(Vector3 rootPos,float width,float spacing){
             var i=0;
-            rootPos += transform.right * handProxySeparation;
+            var xScaleSign = Math.Sign(transform.lossyScale.x);
+            var xAxis = transform.right*xScaleSign;
+
+            rootPos += xAxis * handProxySeparation;
+            
             foreach(var proxy in proxies.Where(p => p?.isActiveProxy == true)){
 
                 var direction = invertOrder? transform.right:-transform.right;
@@ -114,7 +120,7 @@ namespace CardHouse
                 proxy.Scaling.StartSeeking(scale, null);
 
                 if(proxy){
-                    UCoroutine.Yield(new WaitForEndOfFrame())
+                    UCoroutine.Yield(new WaitForFixedUpdate())
                     .Then(()=>proxy.forceSeeking())
                     .Start(proxy);
                 }

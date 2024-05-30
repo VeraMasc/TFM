@@ -30,6 +30,8 @@ public class UIPrefabs : ScriptableObject
 
     public CardSelectOption cardSelectOption;
 
+    public CardSelectOption textSelectOption;
+
     [HorizontalLine(3,message = "Indicators")]
     public SpriteRenderer targettingIndicator;
 

@@ -15,6 +15,11 @@ namespace Effect{
     [Serializable]
     public class AddModifier : Targeted, IValueEffect
     {
+
+
+        [SerializeReference,SubclassSelector]
+        public IValue param;
+
         /// <summary>
         /// Lista de modificadores a añadir
         /// </summary>
@@ -24,9 +29,10 @@ namespace Effect{
 
         public override IEnumerator executeForeach(ITargetable target,CardResolveOperator stack, Context context)
         {
+            var val = param.getValueObj(context);
             if(target is Card card){
                 foreach(var mod in modifiers){
-                    CardModifiers.addModifier(card,mod);
+                    CardModifiers.addModifier(card,mod,val);
                 }
                 if(card.data is MyCardSetup setup){
                     var zone = card.Group?.GetComponent<GroupZone>();
@@ -44,6 +50,8 @@ namespace Effect{
 
     public class RemoveModifier : Targeted, IValueEffect
     {
+
+        
         /// <summary>
         /// Lista de modificadores a eliminar
         /// </summary>
@@ -55,6 +63,7 @@ namespace Effect{
         {
             if(target is Card card){
                 foreach(var mod in modifiers){
+                    //TODO: implement
                     CardModifiers.addModifier(card,mod);
                 }
                 
@@ -65,5 +74,33 @@ namespace Effect{
             yield break;
         }
 
+    }
+
+    [Serializable]
+    public class GetModifierValues : Targeted, IValueEffect
+    {
+        public List<string> ids;
+
+
+        
+        public override IEnumerator executeForeach(ITargetable target,CardResolveOperator stack, Context context)
+        {
+            if(target is Card card){
+                var modifiers = CardModifiers.getModifiers(card)
+                    .OfType<ValueModifier>();
+
+                var mod = modifiers.Where( m => ids.Contains(m.id) ).FirstOrDefault();
+                    
+                if(mod != null){
+                    context.previousValues.Add(mod.value);
+                    Debug.Log(mod.value);
+                }else
+                    Debug.LogError("Modifier Value Not FOund");
+            }
+            else{
+                Debug.LogError("Modifiers can only be extracted from cards");
+            }
+            yield break;
+        }
     }
 }

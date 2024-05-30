@@ -18,5 +18,12 @@ public class ValueModifier : AbilityModifier
     public string id;
     public object value;
 
+
+    public override void initialize(object initParams)
+    {
+        base.initialize(null);
+        value=initParams;
+    }
+
 }
 

@@ -26,7 +26,7 @@ MonoBehaviour:
   effects:
     baseEffect:
       list:
-      - rid: 8129478482906054674
+      - rid: 8129478490245562394
       - rid: 8129478482906054675
       - rid: 8129478482906054670
     abilities:
@@ -63,6 +63,7 @@ MonoBehaviour:
         id: 
         source: {fileID: 0}
         effects:
+        - rid: 8129478490245562398
         - rid: 8129478482906054668
         trigger: {fileID: 11400000, guid: cc3f20ded2a76da4e95c8be5474472d9, type: 2}
         activeZoneList: 05000000
@@ -74,7 +75,7 @@ MonoBehaviour:
         targeter:
           rid: 8129478482906054669
         pips:
-        - color: 1
+          rid: 8129478490245562401
     - rid: 8129478482906054669
       type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -97,20 +98,13 @@ MonoBehaviour:
       type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         contextual: 0
-    - rid: 8129478482906054674
-      type: {class: ModalEffect, ns: Effect, asm: Assembly-CSharp}
-      data:
-        maxChoices: 1
-        modes:
-        - id: M
-          effects: []
-        - id: F
-          effects: []
     - rid: 8129478482906054675
       type: {class: AddModifier, ns: Effect, asm: Assembly-CSharp}
       data:
         targeter:
           rid: 8129478482906054676
+        param:
+          rid: 8129478490245562397
         modifiers:
         - rid: 8129478489736740878
     - rid: 8129478482906054676
@@ -123,7 +117,7 @@ MonoBehaviour:
         modified: {fileID: 0}
         abilities:
         - rid: 8129478489736740879
-        id: 
+        id: manaChoice
     - rid: 8129478489736740879
       type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -134,3 +128,35 @@ MonoBehaviour:
         activeZoneList: 00000000
         condition:
           rid: -2
+    - rid: 8129478490245562394
+      type: {class: ManaChoice, ns: Effect, asm: Assembly-CSharp}
+      data:
+        maxChoices: 1
+        options:
+        - _: 0
+          values:
+          - color: 4
+        - _: 0
+          values:
+          - color: 1
+    - rid: 8129478490245562397
+      type: {class: ReuseValue, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        index: 0
+        destructive: 0
+    - rid: 8129478490245562398
+      type: {class: GetModifierValues, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478490245562399
+        ids:
+        - manaChoice
+    - rid: 8129478490245562399
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8129478490245562401
+      type: {class: ReuseValue, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        index: 0
+        destructive: 0

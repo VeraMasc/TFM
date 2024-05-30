@@ -19,4 +19,5 @@ MonoBehaviour:
   scrollbar: {fileID: 2000311336236126966, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
   clickBlocker: {fileID: 7288928211352237901, guid: 1108ec528f5ab9b4885defae5bda91db, type: 3}
   cardSelectOption: {fileID: -9061748488852993774, guid: e3e21a6213a15ac42a85ac7088ec4b2a, type: 3}
+  textSelectOption: {fileID: -9061748488852993774, guid: 266e1c80e9228c345bc4ce33a9dba221, type: 3}
   targettingIndicator: {fileID: 3789269043319051476, guid: 42656e53a833fb74ea72ba7a15218cf8, type: 3}

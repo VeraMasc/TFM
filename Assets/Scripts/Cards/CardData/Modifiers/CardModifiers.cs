@@ -18,13 +18,13 @@ public class CardModifiers : MonoBehaviour
     /// <summary>
     /// Añade un modificador concreto a una carta
     /// </summary>
-    public static void addModifier(Card card, BaseModifier modifier){
+    public static void addModifier(Card card, BaseModifier modifier, object initParams=null){
         //Get or create holder
         var holder = card.GetComponent<CardModifiers>();
         holder ??= card.gameObject.AddComponent<CardModifiers>();
         var newMod = modifier.clone(card);
         holder.modifiers.Add(newMod);
-        newMod.initialize();
+        newMod.initialize(initParams);
     }
 
     /// <summary>
@@ -78,7 +78,7 @@ public abstract class BaseModifier
     [CustomInspector.ReadOnly]
     public Card modified;
 
-    public virtual void initialize(){
+    public virtual void initialize(object initParams){
         
     }
 

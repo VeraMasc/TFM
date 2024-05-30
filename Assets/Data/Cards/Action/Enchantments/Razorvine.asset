@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: Razorvine
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Razorvine
+  rawText: 'Enchant target entity
+
+    <link="hex">Whenever enchanted entity uses
+    an action, they take 2 damage</link>'
+  parsedText: 'Enchant target entity
+
+    <link="hex">Whenever enchanted entity uses
+    an action, they take 2 damage</link>'
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  effects:
+    baseEffect:
+      list:
+      - rid: 8129478007116791808
+      - rid: 3644647512751472640
+    abilities:
+    - rid: 8129478324054130699
+    staticEffects:
+      list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+    entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 0
+  typeList: 0000000002000000
+  cost:
+    costText: 2N
+    value: 3
+    colors: N
+  references:
+    version: 2
+    RefIds:
+    - rid: 3644647512751472640
+      type: {class: Attach, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478007116791811
+    - rid: 8129478007116791808
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8129478007116791809
+    - rid: 8129478007116791809
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478007116791810
+    - rid: 8129478007116791810
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 4
+    - rid: 8129478007116791811
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8129478324054130699
+      type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: hex
+        source: {fileID: 0}
+        effects:
+        - rid: 8129478324054130700
+        trigger: {fileID: 11400000, guid: cc3f20ded2a76da4e95c8be5474472d9, type: 2}
+        activeZoneList: 05000000
+        condition:
+          rid: 8129478324054130703
+    - rid: 8129478324054130700
+      type: {class: DealDamage, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478324054130701
+        amount:
+          rid: 8129478324054130702
+    - rid: 8129478324054130701
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 5
+    - rid: 8129478324054130702
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 1
+    - rid: 8129478324054130703
+      type: {class: TurnCondition, ns: Effect.Condition, asm: Assembly-CSharp}
+      data:
+        turnOwner:
+          rid: 8129478324054130704
+    - rid: 8129478324054130704
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 5

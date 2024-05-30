@@ -116,7 +116,7 @@ public class ManaPool : MonoBehaviour
         var generic = pips.Count( m => m.color == Mana.Colors.C);
 
         var letters = pips.Where(m => m.color != Mana.Colors.C)
-            .Select(m => $"{{{m.color.ToString()}}}");
+            .Select(m => $"{{{m}}}");
         
         var rawText = String.Join("",letters);
         if(generic>0){
@@ -147,6 +147,11 @@ public class Mana{
         this.color = color;
     }
 
+
+    public override string ToString()
+    {
+        return color.ToString();
+    }
 
     /// <summary>
     /// Enum de los colores de maná que hay

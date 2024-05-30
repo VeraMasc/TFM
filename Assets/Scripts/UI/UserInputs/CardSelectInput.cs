@@ -4,6 +4,7 @@ using CardHouse;
 using UnityEngine;
 using System.Linq;
 using Effect;
+using System;
 
 /// <summary>
 /// Gestiona los selectores de cartas o de opciones modales
@@ -77,6 +78,16 @@ public class CardSelectInput : PlayerInputBase
         }else if (parameters?.values is Card[] cards){
             addCardOptions(cards);
         }
+        else if (parameters?.values is Mana[][] manaOptions){
+            var asText = manaOptions.Select(
+                arr =>{ 
+                    
+                    var raw = string.Join("",arr.Select(m => $"{{{m}}}"));
+                    return MyCardDefinition.parseCost(raw);
+                });
+                
+            addTextOptions(asText);
+        }
 
         //Set other config
         if(parameters.extraConfig is ExtraInputOptions extra){
@@ -101,6 +112,21 @@ public class CardSelectInput : PlayerInputBase
             instance.parent = this;
             instance.index = index;
             instance.setSourceCard(card);
+            index++;
+        }
+        enableScrollIfNeeded();
+    }
+
+
+    public void addTextOptions(IEnumerable<string> strings){
+
+        var prefab = GameUI.singleton.prefabs.textSelectOption;
+        var index = 0;
+        foreach(var str in strings){
+            var instance = Instantiate(prefab, displayList);
+            instance.parent = this;
+            instance.index = index;
+            instance.setText(str);
             index++;
         }
         enableScrollIfNeeded();

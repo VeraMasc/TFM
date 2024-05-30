@@ -41,6 +41,10 @@ public class CardSelectOption : MonoBehaviour
         useCardVisuals(card);
     }
 
+    public void setText(string text){
+        textBox.text = text;
+    }
+
     /// <summary>
     /// Configura una opción modal
     /// </summary>

@@ -29,7 +29,7 @@ public class AbilityModifier : BaseModifier
     
     
     
-    public override void initialize(){
+    public override void initialize(object initParams){
 
         refresh();
         

@@ -15,15 +15,26 @@ namespace Effect{
     public class AddMana : Targeted, IValueEffect
     {
         
-        public List<Mana> pips;
+        [SerializeReference, SubclassSelector]
+        public IValue pips = new ManaValue();
 
 
 
         public override IEnumerator executeForeach(ITargetable target, CardResolveOperator stack, Context context)
         {
-            if(target is Entity entity){
-                entity.mana.pips.AddRange(pips);
-                entity.mana.updateDisplay();
+            if(target is Entity entity ){
+                var val = pips.getValueObj(context);
+                Debug.Log(val);
+                if( val is ICollection<Mana> collection)
+                {
+                    
+                    entity.mana.pips.AddRange(collection);
+                    entity.mana.updateDisplay();
+                }
+                else{
+                    Debug.LogError($"Can't add non-mana values ({pips.getValueObj(context).GetType().Name})");
+                }
+                
             }else{
                 Debug.LogError("Only entities can add mana");
             }
@@ -33,5 +44,11 @@ namespace Effect{
 
 
 
+    }
+
+    [Serializable]
+    public class ManaValue:Value<List<Mana>>, IValue
+    {
+        
     }
 }
