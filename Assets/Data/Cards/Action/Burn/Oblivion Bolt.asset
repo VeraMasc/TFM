@@ -14,16 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Oblivion Bolt
-  rawText: Forget up to 5 of your spent cards, deal that much damage to any other
-    entity
-  parsedText: Forget up to 5 of your spent cards, deal that much damage to any other
-    entity
+  rawText: Forget up to 4 of your cards that are spent or in your hand, deal that
+    much damage to any other entity
+  parsedText: Forget up to 4 of your cards that are spent or in your hand, deal that
+    much damage to any other entity
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   effects:
     baseEffect:
-      list: []
+      list:
+      - rid: 8129478523905638416
+      - rid: 8129478523905638422
     abilities: []
     staticEffects:
       list: []
@@ -43,9 +45,81 @@ MonoBehaviour:
   speedType: 0
   typeList: 
   cost:
-    costText: 
-    value: 0
-    colors: 
+    costText: 1D
+    value: 2
+    colors: D
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 8129478523905638416
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8129478523905638417
+        - rid: 8129478523905638420
+        - rid: 8129478523905638430
+    - rid: 8129478523905638417
+      type: {class: ChooseSeveralFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478523905638418
+        condition:
+          rid: 8129478523905638432
+    - rid: 8129478523905638418
+      type: {class: EntityCardTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        source:
+          rid: 8129478523905638419
+        relation: 0
+        zones: 0400000001000000
+    - rid: 8129478523905638419
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8129478523905638420
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478523905638421
+    - rid: 8129478523905638421
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 4
+    - rid: 8129478523905638422
+      type: {class: DealDamage, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478523905638423
+        amount:
+          rid: 8129478523905638424
+    - rid: 8129478523905638423
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8129478523905638424
+      type: {class: Count, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 0
+        input:
+          rid: 8129478523905638426
+    - rid: 8129478523905638426
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 1
+    - rid: 8129478523905638430
+      type: {class: SendTo, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478523905638431
+        zone: 2
+        mode: 0
+        duration: 0.1
+    - rid: 8129478523905638431
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 1
+    - rid: 8129478523905638432
+      type: {class: AmountCondition, ns: Effect.Condition, asm: Assembly-CSharp}
+      data:
+        min: 0
+        max: 4

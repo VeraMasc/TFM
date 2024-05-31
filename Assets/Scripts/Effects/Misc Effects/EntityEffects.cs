@@ -44,5 +44,16 @@ namespace Effect{
                 yield return entity.shuffle().Start(entity);
             }
         }
+
+        [Serializable]
+        public class Exhaust:EntityEffectOption{
+            [SerializeReference, SubclassSelector]
+            public IValue amount = new Numeric(1);
+            public override IEnumerator executeOption(Entity entity, Context context)
+            {
+                var num = (int)amount.getValueObj(context);
+                yield return entity.mill(num).Start(entity);
+            }
+        }
     }
 }

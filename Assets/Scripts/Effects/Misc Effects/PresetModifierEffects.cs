@@ -120,6 +120,60 @@ namespace Effect{
             }
         }
 
+        
+        /// <summary>
+        /// Rethink: Mi versión  de cycling
+        /// </summary>
+        [Serializable]
+        public class Rethink:ModifierPreset{
+            [SerializeReference,SubclassSelector]
+            public IValue cost = new ManaValue();
+
+            protected Ability getAbility(ActionCard action,Context context){
+
+                var mana = (List<Mana>)cost?.getValueObj(context);
+                return new ActivatedZoneAbility(){
+                                id = "rethink",
+                                cost = new ManaCost(mana),
+                                speed = SpeedTypes.Reaction,
+                                activeZoneList = new List<GroupName>(){GroupName.Hand},
+                                //Fuerza al exilio tras usarlo
+                                effects = new List<EffectScript>{
+                                    new ReDraw(){
+                                        targeter = new ContextualObjectTargeter(ContextualObjTargets.self),
+                                    }
+                                }
+                            };
+            }
+            public override void applyTo(Card card, Context context){
+                if( card.data is ActionCard action){
+
+                    var ability =  getAbility(action, context);
+
+                    //Crea el modificador de cast
+                    var castmodifier = new AbilityModifier(){
+                        abilities = new(){
+                           ability
+                        }
+                    };
+                    
+                    
+                    CardModifiers.addModifier(card,castmodifier);
+                }
+            }
+
+            public override void applyAsAbility(Card card, Context context)
+            {
+                if( card.data is ActionCard action){
+
+                    Debug.Log($"Apply to {card}");
+
+                    var zoneCast =  getAbility(action, context);
+                    action.effects.abilities.Add(zoneCast);
+                }
+            }
+        }
+
         [Serializable]
         public class Prophecise:ModifierPreset{
             [SerializeReference,SubclassSelector]

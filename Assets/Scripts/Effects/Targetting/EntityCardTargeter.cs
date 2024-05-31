@@ -41,9 +41,13 @@ namespace Effect
                 case EntityRelation.owns: 
                     cards = cards.Where(card => origin.Contains(card?.GetComponent<CardOwnership>()?.owner));
                     break;
+                case EntityRelation.inZone:
+                    cards = zonedGroups.Where( 
+                            g => origin.Contains(g.owner)
+                        ).SelectMany(g => g.GetComponent<CardGroup>()?.MountedCards);
+                    break;
                 default:
                     Debug.LogError("Invalid relation"); break;
-                case EntityRelation.inZone: break;
             }
             _targets = cards.ToArray();
         }

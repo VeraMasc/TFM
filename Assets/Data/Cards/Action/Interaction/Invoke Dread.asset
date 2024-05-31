@@ -14,8 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Invoke Dread
-  rawText: Each entity discards 2 cards
-  parsedText: Each entity discards 2 cards
+  rawText: 'Each entity discards 2 cards
+
+
+    {rethink: Rethink 1D}'
+  parsedText: 'Each entity discards 2 cards
+
+
+    <link="rethink">Rethink 1D</link>'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []

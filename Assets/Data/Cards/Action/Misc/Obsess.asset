@@ -21,7 +21,7 @@ MonoBehaviour:
     your deck
 
 
-    Overdo {D}{W}'
+    {overdo: Overdo {D}{W}}'
   parsedText: '<i>Lunatic only</i>
 
 
@@ -29,7 +29,7 @@ MonoBehaviour:
     into your deck
 
 
-    Overdo <sprite name="D"><sprite name="W">'
+    <link="overdo">Overdo <sprite name="D"><sprite name="W"></link>'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []

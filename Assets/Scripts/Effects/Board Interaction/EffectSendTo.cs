@@ -9,7 +9,7 @@ namespace Effect{
     /// Efecto que manda una carta de una zona a otra
     /// </summary>
     [Serializable]
-    public class SendTo : Targeted
+    public class SendTo : Targeted, IValueEffect
     {
         public GroupName zone;
 
@@ -31,7 +31,13 @@ namespace Effect{
                         break;
                     case GroupName.Hand:
                         group = ownership?.owner?.hand;
-                        break;    
+                        break;
+                    case GroupName.Exile:
+                        group = ownership?.owner?.exile;
+                        break;
+                    case GroupName.Lost:
+                        group = ownership?.owner?.lost;
+                        break;
                 }
 
                 //Destruir triggers
