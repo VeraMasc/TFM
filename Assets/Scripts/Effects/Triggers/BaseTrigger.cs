@@ -110,6 +110,15 @@ namespace Effect{
             Debug.Log(message);
         }
         
+        public virtual void OnEnable()
+        {
+            subscribers = new();
+            count=0;
+        }
+
+        public virtual void OnValidate() {
+            count = subscribers.Count;
+        }
     }
 
     
@@ -125,6 +134,7 @@ namespace Effect{
             }
            
         }
+        
         
     }
   

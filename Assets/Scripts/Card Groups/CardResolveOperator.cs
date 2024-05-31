@@ -193,7 +193,15 @@ public class CardResolveOperator : Activatable
                 goto end;
             }
             else
-            { //Reset priority
+            { 
+                //Trigger events
+                if(simpleCard is ActionCard){
+                    var data = new Card[]{card};
+                    yield return GameController.singleton.triggerManager
+                        .onUseAction.invoke(data)
+                        .Start(card);
+                }
+                //Reset priority
                 resetPriority(card, simpleCard);
             }
         }

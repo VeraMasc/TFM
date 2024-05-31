@@ -135,7 +135,7 @@ public class GameUI : MonoBehaviour
     /// Genera la interfaz del input y espera a que devuelva un valor
     /// </summary>
     /// <returns></returns>
-    public IEnumerator getInput(PlayerInputBase input, Action<object> returnAction, InputParameters config=null){
+    public IEnumerator getInput(PlayerInputBase input, Action<object> returnAction,  InputParameters config=null){
         clearInputs();
         //Crea un bloqueador para inpedir que los inputs traspasen
         Instantiate(prefabs.clickBlocker,userInputRoot);
@@ -145,10 +145,30 @@ public class GameUI : MonoBehaviour
         if(config!=null)
             instance.setInputConfig(config);
         activeUserInput = instance;
-        //Esperar
-        yield return activeUserInput.waitTillFinished;
-        if(!activeUserInput.isCancelled){
-            returnAction.Invoke(instance.inputValue);
+
+        do{
+            activeUserInput.isFinished = false;
+
+            
+            //Esperar confirmación
+            yield return activeUserInput.waitTillFinished;
+            
+
+            //Reset if invalid cancel
+            if(activeUserInput.isCancelled && !config.canCancel){
+                chosenTargets= new();
+                activeUserInput.isCancelled = false;
+                clearTargeterMarkers();
+            }
+        }while(activeUserInput.isFinished != true && activeUserInput?.isCancelled != true); //Probar hasta que haya un valor válido
+        
+        //Devolver valor
+        returnAction(instance.inputValue);
+        if(activeUserInput.isCancelled){
+            //Cancelar
+            if(config?.context != null){
+                    config.context.mode = ExecutionMode.cancel;
+            }
         }
         clearInputs();
     }

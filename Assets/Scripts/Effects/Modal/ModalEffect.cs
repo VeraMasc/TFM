@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CardHouse;
 using Common.Coroutines;
+using DTT.Utils.Extensions;
 using Effect;
 using Effect.Status;
 using UnityEngine;
@@ -40,22 +41,25 @@ namespace Effect
                 }));
 
             //Precalculate chosen modes
-            int index=0;
-            foreach(var mode in modes){
-                if(chosen.Contains(index)){
-                    yield return UCoroutine.Yield(Precalculate.precalculateEffects(mode.effects,context));
+            if(chosen?.Any()??false){
+                int index=0;
+                foreach(var mode in modes){
+                    if(chosen.Contains(index)){
+                        yield return UCoroutine.Yield(Precalculate.precalculateEffects(mode.effects,context));
 
+                    }
+                    index++;
                 }
-                index++;
-            }
 
-            //Change text temporarily
-            if(context.self is Card card && card.data is MyCardSetup setup){
-                var links = setup.getTextLinks(chosen.Select(index=> modes[index].id));
+                //Change text temporarily
+                if(context.self is Card card && card.data is MyCardSetup setup){
+                    var links = setup.getTextLinks(chosen.Select(index=> modes[index].id));
 
-                setup.tempText = String.Join("\n", links.Select(l => l.getRawLinkText()));
-                setup.applyText();
+                    setup.tempText = String.Join("\n", links.Select(l => l.getRawLinkText()));
+                    setup.applyText();
+                }
             }
+            
         }
 
         public override IEnumerator execute(CardResolveOperator stack, Context context)

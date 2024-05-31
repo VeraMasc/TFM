@@ -56,6 +56,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 3644647512751472640
       type: {class: Attach, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -86,10 +88,10 @@ MonoBehaviour:
         source: {fileID: 0}
         effects:
         - rid: 8129478324054130700
-        trigger: {fileID: 11400000, guid: cc3f20ded2a76da4e95c8be5474472d9, type: 2}
+        trigger: {fileID: 11400000, guid: 3938d40abee615146824a17ca2247d17, type: 2}
         activeZoneList: 05000000
         condition:
-          rid: 8129478324054130703
+          rid: -2
     - rid: 8129478324054130700
       type: {class: DealDamage, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -105,12 +107,3 @@ MonoBehaviour:
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 1
-    - rid: 8129478324054130703
-      type: {class: TurnCondition, ns: Effect.Condition, asm: Assembly-CSharp}
-      data:
-        turnOwner:
-          rid: 8129478324054130704
-    - rid: 8129478324054130704
-      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
-      data:
-        contextual: 5
