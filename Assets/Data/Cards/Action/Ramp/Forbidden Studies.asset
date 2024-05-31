@@ -1,0 +1,162 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: Forbidden Studies
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Forbidden Studies
+  rawText: 'Choose {D:{D}} or {W:{W}}.
+
+'
+  parsedText: 'Choose <link="D"><sprite name="D"></link> or <link="W"><sprite name="W"></link>.
+
+'
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  effects:
+    baseEffect:
+      list:
+      - rid: 8129478490245562394
+      - rid: 8129478482906054675
+      - rid: 8129478482906054670
+    abilities:
+    - rid: 8129478482906054667
+    staticEffects:
+      list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+    entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 0
+  typeList: 03000000
+  cost:
+    costText: DW
+    value: 2
+    colors: DW
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8129478482906054667
+      type: {class: HiddenTriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: 
+        source: {fileID: 0}
+        effects:
+        - rid: 8129478490245562398
+        - rid: 8129478482906054668
+        trigger: {fileID: 11400000, guid: cc3f20ded2a76da4e95c8be5474472d9, type: 2}
+        activeZoneList: 05000000
+        condition:
+          rid: 8129478482906054672
+    - rid: 8129478482906054668
+      type: {class: AddMana, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478482906054669
+        pips:
+          rid: 8129478490245562401
+    - rid: 8129478482906054669
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8129478482906054670
+      type: {class: Attach, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478482906054671
+    - rid: 8129478482906054671
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8129478482906054672
+      type: {class: TurnCondition, ns: Effect.Condition, asm: Assembly-CSharp}
+      data:
+        turnOwner:
+          rid: 8129478482906054673
+    - rid: 8129478482906054673
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8129478482906054675
+      type: {class: AddModifier, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478482906054676
+        param:
+          rid: 8129478490245562397
+        modifiers:
+        - rid: 8129478489736740878
+    - rid: 8129478482906054676
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8129478489736740878
+      type: {class: ValueModifier, ns: , asm: Assembly-CSharp}
+      data:
+        modified: {fileID: 0}
+        abilities:
+        - rid: 8129478490245562402
+        id: manaChoice
+    - rid: 8129478490245562394
+      type: {class: ManaChoice, ns: Effect, asm: Assembly-CSharp}
+      data:
+        maxChoices: 1
+        options:
+        - _: 0
+          values:
+          - color: 2
+        - _: 0
+          values:
+          - color: 5
+    - rid: 8129478490245562397
+      type: {class: ReuseValue, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        index: 0
+        destructive: 0
+    - rid: 8129478490245562398
+      type: {class: GetModifierValues, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478490245562399
+        ids:
+        - manaChoice
+    - rid: 8129478490245562399
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8129478490245562401
+      type: {class: ReuseValue, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        index: 0
+        destructive: 0
+    - rid: 8129478490245562402
+      type: {class: HiddenTriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: removeSelf
+        source: {fileID: 0}
+        effects: []
+        trigger: {fileID: 11400000, guid: 40da7b8342106f7449f0b690b67d436f, type: 2}
+        activeZoneList: 05000000
+        condition:
+          rid: -2

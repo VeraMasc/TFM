@@ -83,7 +83,7 @@ public class BaseCardEffects{
         var mods = CardModifiers.getModifiers((CardHouse.Card)(context?.self))
             .OfType<AbilityModifier>();
         var modAbs =mods.SelectMany(m=>m.abilities);
-        var ret = abilities.Concat(modAbs);
+        var ret = abilities.Concat(modAbs).ToList();
         return ret;
     }
 

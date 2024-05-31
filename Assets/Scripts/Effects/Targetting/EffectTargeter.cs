@@ -111,6 +111,14 @@ namespace Effect{
     public class ContextualObjectTargeter:EffectTargeter
     {
         public ContextualObjTargets contextual;
+
+        public ContextualObjectTargeter(){
+
+        }
+
+        public ContextualObjectTargeter(ContextualObjTargets cont){
+            contextual = cont;
+        }
         public override void resolveTarget(Effect.Context context){
             //TODO: FInish all contextual targetes
             switch(contextual){

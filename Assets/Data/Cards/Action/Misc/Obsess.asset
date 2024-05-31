@@ -18,12 +18,18 @@ MonoBehaviour:
 
 
     Shuffle four cards named Fool''s Errand into
-    your deck'
+    your deck
+
+
+    Overdo {D}{W}'
   parsedText: '<i>Lunatic only</i>
 
 
     Shuffle four cards named Fool''s Errand
-    into your deck'
+    into your deck
+
+
+    Overdo <sprite name="D"><sprite name="W">'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -33,7 +39,8 @@ MonoBehaviour:
       - rid: 8129478511095447565
       - rid: 8129478511095447566
       - rid: 8129478512620077058
-    abilities: []
+    abilities:
+    - rid: 8129478512620077062
     staticEffects:
       list: []
     context:
@@ -98,3 +105,20 @@ MonoBehaviour:
       type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         contextual: 0
+    - rid: 8129478512620077062
+      type: {class: PresetAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: 
+        source: {fileID: 0}
+        effects: []
+        presets:
+        - rid: 8129478523905638407
+    - rid: 8129478523905638407
+      type: {class: OverDo, ns: Effect.Preset, asm: Assembly-CSharp}
+      data:
+        cost:
+          rid: 8129478523905638408
+    - rid: 8129478523905638408
+      type: {class: ManaValue, ns: Effect, asm: Assembly-CSharp}
+      data:
+        mana: DW

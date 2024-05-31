@@ -51,6 +51,9 @@ namespace Effect{
             parseCost();
         }
 
+        [NonSerialized]
+        public List<Mana> pips = new();
+
         /// <summary>
         /// Devuelve el valor en el formato de texto de las cartas
         /// </summary>
@@ -60,8 +63,10 @@ namespace Effect{
             var digits = segments.Groups[1];
             var colored = segments.Groups[2];
             var ret = "";
+
             if(digits.Length>0){
                 ret+=$"{{{digits}}}";
+                
             }
             if(colored.Length>0){
                 foreach( var pip in colored.Value){
@@ -96,10 +101,17 @@ namespace Effect{
                 return;
             var digits = segments.Groups[1];
             value = int.TryParse(digits.Value, out value)? value: 0;
+            pips.AddRange(Enumerable.Repeat(new Mana(Mana.Colors.C),digits.Length));
+
             //Extrae el coste con "colores"
             var coloredGroup = segments.Groups[2];
             value += coloredGroup.Length;
             colors = new string(coloredGroup.Value.ToUpper().Distinct().ToArray());
+            //To pips
+            foreach(var letter in coloredGroup.Value){
+                var mana = (Mana.Colors)Enum.Parse(typeof(Mana.Colors), letter.ToString());
+                pips.Add(new Mana(mana));
+            }
         }
 
 

@@ -47,8 +47,22 @@ namespace Effect{
     }
 
     [Serializable]
-    public class ManaValue:Value<List<Mana>>, IValue
+    public class ManaValue:IValue
     {
-        
+        public string mana;
+
+        private ManaCost parsed=null;
+
+        public object getValueObj(Context context)
+        {
+            if(mana == parsed?.costText){ //Si ya lo había calculado antes
+                return parsed?.pips ?? new List<Mana>();
+            }
+
+            parsed ??= new ManaCost();
+            parsed.costText = mana;
+            parsed.parseCost();
+            return parsed.pips;
+        }
     }
 }

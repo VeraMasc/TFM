@@ -17,12 +17,18 @@ MonoBehaviour:
   - card: {fileID: 11400000, guid: 79ab3e01ceebb0e4dafc4f8f923e3cdd, type: 2}
     amount: 4
   - card: {fileID: 11400000, guid: ea65a734769fddf4f8f8502506ad9bb2, type: 2}
-    amount: 10
-  - card: {fileID: 11400000, guid: b09a5f40a0380724e869a7cfc7d3f501, type: 2}
-    amount: 4
+    amount: 6
   - card: {fileID: 11400000, guid: 41e7b0dadd726494f8df78c25d857fed, type: 2}
     amount: 4
   - card: {fileID: 11400000, guid: fc249f2d7699d0f49885d349a8b6c2aa, type: 2}
     amount: 4
   - card: {fileID: 11400000, guid: 3b23d4d073fbce5409de944fa8b40f60, type: 2}
-    amount: 10
+    amount: 6
+  - card: {fileID: 11400000, guid: beff376dc7d109140a07f85b7a69c2ed, type: 2}
+    amount: 4
+  - card: {fileID: 11400000, guid: 2a759b09ecdc9a1488ec10191b0c74fe, type: 2}
+    amount: 4
+  - card: {fileID: 11400000, guid: e642d1025eb2bd141bb0c95f9851078f, type: 2}
+    amount: 2
+  - card: {fileID: 11400000, guid: 0c21773b7f3550b438da894534d0384d, type: 2}
+    amount: 4
