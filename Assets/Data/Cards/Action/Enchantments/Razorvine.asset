@@ -47,7 +47,7 @@ MonoBehaviour:
       costText: 
       value: 0
       colors: 
-  speedType: 0
+  speedType: 1
   typeList: 0000000002000000
   cost:
     costText: 2N
@@ -56,8 +56,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 3644647512751472640
       type: {class: Attach, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -91,7 +89,7 @@ MonoBehaviour:
         trigger: {fileID: 11400000, guid: 3938d40abee615146824a17ca2247d17, type: 2}
         activeZoneList: 05000000
         condition:
-          rid: -2
+          rid: 8129478529087176704
     - rid: 8129478324054130700
       type: {class: DealDamage, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -107,3 +105,13 @@ MonoBehaviour:
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 1
+    - rid: 8129478529087176704
+      type: {class: OwnershipCondition, ns: Effect.Condition, asm: Assembly-CSharp}
+      data:
+        entities:
+          rid: 8129478529087176705
+        relation: 1
+    - rid: 8129478529087176705
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 5

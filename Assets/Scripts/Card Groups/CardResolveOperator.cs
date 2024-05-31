@@ -162,6 +162,8 @@ public class CardResolveOperator : Activatable
         yield return UCoroutine.YieldAwait(()=>!precalculating);
         precalculating = true;
 
+        Coroutine triggers = null; //Triggers generados que hay que esperar al final del proceso
+
         if(card.data is MyCardSetup simpleCard 
             && (simpleCard.effects?.context?.precalculated != true))
         {   
@@ -197,9 +199,8 @@ public class CardResolveOperator : Activatable
                 //Trigger events
                 if(simpleCard is ActionCard){
                     var data = new Card[]{card};
-                    yield return GameController.singleton.triggerManager
-                        .onUseAction.invoke(data)
-                        .Start(card);
+                    triggers = card.StartCoroutine(GameController.singleton.triggerManager
+                        .onUseAction.invokeWith(data));
                 }
                 //Reset priority
                 resetPriority(card, simpleCard);
@@ -208,6 +209,7 @@ public class CardResolveOperator : Activatable
         Debug.Log("Precalculated",card);
     end:
         precalculating = false;
+        yield return triggers;
     }
 
     private void resetPriority(Card card, MyCardSetup simpleCard)

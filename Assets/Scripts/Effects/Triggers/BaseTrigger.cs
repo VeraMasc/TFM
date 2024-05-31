@@ -59,20 +59,22 @@ namespace Effect{
         public virtual IEnumerator invoke(){
             var resolver = CardResolveOperator.singleton;
             generateLog();
+            Debug.Log(subscribers.Keys.ToArray());
             foreach(var key in subscribers.Keys.ToArray()){
-                
+
                 yield return resolver.StartCoroutine(subscribers[key].Invoke(eventData));
-                Debug.Log($"Finished invoking trigger {key}",key);
+                
             }
         }
 
         /// <summary>
         /// Invoca el evento con un parámetro
         /// </summary>
-        public virtual IEnumerator invoke(T eventData){
+        public virtual IEnumerator invokeWith(T eventData){
             this.eventData = eventData;
             events.Invoke();
-            yield return invoke();
+            var resolver = CardResolveOperator.singleton;
+            yield return resolver.StartCoroutine(invoke());
         }
 
         /// <summary>

@@ -69,7 +69,9 @@ public class BaseCardEffects{
             if(ability is TriggeredAbility triggered)
             {
                 //Initialize trigger if needed
-                triggered.listener ??= (val) => UCoroutine.Yield(triggered.executeAbility(context,val));
+                triggered.listener ??= (val) => {
+                    return UCoroutine.Yield(triggered.executeAbility(new Context(context),val));
+                };
             }
             
             ability.onChangeZone(zone);

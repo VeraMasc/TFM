@@ -175,6 +175,7 @@ namespace Effect{
                 case ContextualEntityTargets.attachedTo:
                     if (context.self is Card card){
                         var group = card.Group?.GetComponent<GroupZone>();
+                        Debug.Log($"Attached to {group?.owner}");
                         if(group?.owner){
                             singleTarget = group.owner;
                         }

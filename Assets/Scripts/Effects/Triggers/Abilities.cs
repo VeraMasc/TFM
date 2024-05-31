@@ -121,19 +121,16 @@ namespace Effect{
         /// <param name="value">Valor inicial que insertar</param>
         /// <returns></returns>
         public virtual IEnumerator executeAbility(Context context, object value){
-            if(condition?.check(value,context)==false)
-                yield break;//Salir si no se cumple la condición
-            
             context.previousValues.Add(value);
-            modifier?.onAbilityTrigger(this,context);
-            yield return UCoroutine.Yield( executeAbility(context));
+            yield return UCoroutine.Yield(executeAbility(context));
         }
 
         public override IEnumerator executeAbility(Context context){
-            if(condition?.check(null,context)==false)
+            var inputVal = context.previousValues?.FirstOrDefault();
+            Debug.Log(context.previousValues.Count);
+            if(condition?.check(inputVal,context)==false)
                 yield break;//Salir si no se cumple la condición
-
-            modifier?.onAbilityTrigger(this,context);
+            Debug.Log("Condition passed");
             yield return UCoroutine.Yield(base.executeAbility(context));
         }
 

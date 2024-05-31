@@ -26,9 +26,11 @@ namespace Effect.Condition{
         public override bool check(object inputs, Context context){
 
             if(inputs is IEnumerable<object> collection){
-                var values = entities.getTargets(context).OfType<Entity>();
+                var values = entities.getTargets(context).OfType<Entity>().ToList();
+                Debug.Log(String.Join(" ",values));
                 return collection.OfType<Card>()
                 .All( c => {
+                    Debug.Log(c.ownership);
                     if(relation == EntityRelation.controls){
                         return values.Contains(c.ownership.controller);
                     }
@@ -42,6 +44,8 @@ namespace Effect.Condition{
                     }
                     return false;
                 });
+            }else{
+                Debug.LogError($"input is invalid: {inputs?.GetType()?.Name??"null"}");
             }
             
 

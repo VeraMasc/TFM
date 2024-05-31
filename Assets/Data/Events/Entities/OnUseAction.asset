@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: OnUseAction
   m_EditorClassIdentifier: 
   count: 0
-  produceLogs: 0
+  produceLogs: 1
+  events:
+    m_PersistentCalls:
+      m_Calls: []
