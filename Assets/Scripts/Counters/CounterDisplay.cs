@@ -21,10 +21,13 @@ public class CounterDisplay : MonoBehaviour
         if(typeColors.ContainsKey(type)){
             return typeColors[type];
         }
-        return Color.white;
+        return Color.grey;
     }
 
     public static Dictionary<string, Color> typeColors = new(){
-        ["Duration"] =  Colors.FromHex("D2691E"),
+        ["Duration"] =  Colors.FromHex("DAA520"),
+        ["Use"] =  Colors.FromHex("228B22"),
+        ["Bleed"] =  Colors.FromHex("8B0000"),
+        ["Poison"] =  Colors.FromHex("ADFF2F"),
     };
 }

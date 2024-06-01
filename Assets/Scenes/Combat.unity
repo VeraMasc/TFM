@@ -835,6 +835,10 @@ PrefabInstance:
       propertyPath: effectStack
       value: 
       objectReference: {fileID: 524209577}
+    - target: {fileID: 7654498379721795595, guid: d99d0ffb9780d3547b444d80e52ecc77, type: 3}
+      propertyPath: disableTimingRestrictions
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

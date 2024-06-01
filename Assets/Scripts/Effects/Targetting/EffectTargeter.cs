@@ -108,7 +108,7 @@ public abstract class EffectTargeter
 namespace Effect{
     
     [Serializable]
-    public class ContextualObjectTargeter:EffectTargeter
+    public class ContextualObjectTargeter:EffectTargeter, IValue
     {
         public ContextualObjTargets contextual;
 
@@ -119,6 +119,13 @@ namespace Effect{
         public ContextualObjectTargeter(ContextualObjTargets cont){
             contextual = cont;
         }
+
+        public object getValueObj(Context context)
+        {
+            resolveTarget(context);
+            return _targets;
+        }
+
         public override void resolveTarget(Effect.Context context){
             //TODO: FInish all contextual targetes
             switch(contextual){
@@ -148,9 +155,16 @@ namespace Effect{
     /// Targets entities by context
     /// </summary>
     [Serializable]
-    public class ContextualEntityTargeter:EffectTargeter
+    public class ContextualEntityTargeter:EffectTargeter,IValue
     {
         public ContextualEntityTargets contextual;
+
+        public object getValueObj(Context context)
+        {
+            resolveTarget(context);
+            return _targets;
+        }
+
         public override void resolveTarget(Effect.Context context){
             switch(contextual){
                 case ContextualEntityTargets.controller:

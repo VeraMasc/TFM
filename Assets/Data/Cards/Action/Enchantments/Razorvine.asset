@@ -49,7 +49,7 @@ MonoBehaviour:
       costText: 
       value: 0
       colors: 
-  speedType: 1
+  speedType: 0
   typeList: 0000000002000000
   cost:
     costText: 2N
@@ -150,6 +150,8 @@ MonoBehaviour:
         source: {fileID: 0}
         effects:
         - rid: 8960579994125336669
+        - rid: 8960579997607133184
+        - rid: 8960579997607133216
         trigger: {fileID: 11400000, guid: cd8cd2122a1630b40b3d0860a42bb476, type: 2}
         activeZoneList: 05000000
         condition:
@@ -190,3 +192,35 @@ MonoBehaviour:
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: -1
+    - rid: 8960579997607133184
+      type: {class: ExecuteIf, ns: Effect, asm: Assembly-CSharp}
+      data:
+        input:
+          rid: 8960579997607133185
+        conditions:
+        - rid: 8960579997607133186
+        effects: []
+    - rid: 8960579997607133185
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960579997607133186
+      type: {class: CounterCondition, ns: Effect.Condition, asm: Assembly-CSharp}
+      data:
+        counterType: Duration
+        innerCondition:
+          rid: 8960579997607133187
+    - rid: 8960579997607133187
+      type: {class: AmountCondition, ns: Effect.Condition, asm: Assembly-CSharp}
+      data:
+        min: 0
+        max: 0
+    - rid: 8960579997607133216
+      type: {class: Destroy, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960579997607133218
+    - rid: 8960579997607133218
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0

@@ -67,7 +67,7 @@ public class ActionCard : MyCardSetup, IActionable
     /// </summary>
     /// <returns></returns>
     public bool checkCastTiming(Entity user){
-        if(speedType == SpeedTypes.Reaction)
+        if(speedType == SpeedTypes.Reaction || GameMode.current.disableTimingRestrictions)
             return true;
 
         return GameMode.current.isSpeedValid(user, speedType);
@@ -90,10 +90,11 @@ public class ActionCard : MyCardSetup, IActionable
     /// <param name="user"></param>
     /// <returns></returns>
     public bool checkActivationTiming(Entity user, GroupName? zone){
-        return effects.getAllAbilities()
-            .OfType<ActivatedAbility>()
-            .Where(ab => zone == null || ab.isActiveIn((GroupName)zone))
-            .Any( ab => ab.checkActivationTiming(user));
+        return GameMode.current.disableTimingRestrictions || 
+            effects.getAllAbilities()
+                .OfType<ActivatedAbility>()
+                .Where(ab => zone == null || ab.isActiveIn((GroupName)zone))
+                .Any( ab => ab.checkActivationTiming(user));
     }
     
 

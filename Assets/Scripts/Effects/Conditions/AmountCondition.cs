@@ -22,6 +22,9 @@ namespace Effect.Condition{
                 var amount = collection.Count();
                 return amount <=max && amount >= min;
             }
+            else if(inputs is int integer){
+                return integer <=max && integer >= min;
+            }
 
             Debug.LogError($"Type {inputs?.GetType()} not accepted in condition{this.GetType().Name}");
             return false;

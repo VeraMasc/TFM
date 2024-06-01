@@ -26,6 +26,11 @@ public abstract class GameMode : MonoBehaviour
     public List<EntityTeam> priorityOrder;
 
     /// <summary>
+    /// Permite usar acciones sin estar restringido por el timing
+    /// </summary>
+    public bool disableTimingRestrictions;
+
+    /// <summary>
     /// Índice de la prioridad actual
     /// </summary>
     [SerializeField]
