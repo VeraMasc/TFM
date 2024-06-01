@@ -212,6 +212,10 @@ namespace CustomInspector
                 int ind = keys.GetIndexOf(key);
                 // if (ind == -1)
                 //     throw new KeyNotFoundException($"key '{key}' not found");
+                if (ind == -1){
+                    keys.Add(key);
+                    ind = keys.Count;
+                }
                 values[ind] = value;
             }
         }
