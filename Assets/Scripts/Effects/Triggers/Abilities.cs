@@ -171,6 +171,16 @@ namespace Effect{
     }
 
     /// <summary>
+    /// Triggered ability que no usa el texto de la carta
+    /// </summary>
+    [Serializable]
+    public class ImplicitTriggeredAbility : TriggeredAbility
+    {
+        [TextArea(2,5)]
+        public string text;
+    }
+
+    /// <summary>
     /// Son las habilidades que se activan de forma manual y suelen tener un coste
     /// </summary>
     [Serializable]

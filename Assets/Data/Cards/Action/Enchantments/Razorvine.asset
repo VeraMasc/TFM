@@ -33,6 +33,7 @@ MonoBehaviour:
       - rid: 8129478529840840715
     abilities:
     - rid: 8129478324054130699
+    - rid: 8960579994125336668
     staticEffects:
       list: []
     context:
@@ -142,3 +143,50 @@ MonoBehaviour:
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 3
+    - rid: 8960579994125336668
+      type: {class: ImplicitTriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: 
+        source: {fileID: 0}
+        effects:
+        - rid: 8960579994125336669
+        trigger: {fileID: 11400000, guid: cd8cd2122a1630b40b3d0860a42bb476, type: 2}
+        activeZoneList: 05000000
+        condition:
+          rid: 8960579994125336670
+        text: Reduce duration by 1 at the beginning of the controller's turn
+    - rid: 8960579994125336669
+      type: {class: SetCounters, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960579994125336671
+        mode:
+          rid: 8960579994125336672
+    - rid: 8960579994125336670
+      type: {class: TurnCondition, ns: Effect.Condition, asm: Assembly-CSharp}
+      data:
+        turnOwner:
+          rid: 8960579994125336673
+    - rid: 8960579994125336671
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960579994125336672
+      type: {class: SetCounters/Add, ns: Effect, asm: Assembly-CSharp}
+      data:
+        counterType:
+          rid: 8960579994125336674
+        amount:
+          rid: 8960579994125336675
+    - rid: 8960579994125336673
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960579994125336674
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: Duration
+    - rid: 8960579994125336675
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: -1

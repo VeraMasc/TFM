@@ -406,6 +406,8 @@ public class CardResolveOperator : Activatable
         var trigger = (TriggerCard)card.data;
 
         //Change text
+        var newText ="";
+
         if(ability.id != string.Empty){
             trigger.cardTextBox?.ForceMeshUpdate(forceTextReparsing:true); //IMPORTANTE
 
@@ -414,9 +416,17 @@ public class CardResolveOperator : Activatable
                 .FirstOrDefault();
 
             if(chosenLink.textComponent != null){
-                trigger.changeText(chosenLink.getRawLinkText());
+                newText += chosenLink.getRawLinkText();
             }
-            
+        }
+        if(ability is ImplicitTriggeredAbility implAb && implAb.text != string.Empty){
+            var cardDef = (card.data as MyCardSetup).definition;
+            var parsed = MyCardDefinition.parseCardText(implAb.text, cardDef);
+            newText += parsed;
+        }
+
+        if(newText != String.Empty){
+            trigger.changeText(newText);
         }
         
 
