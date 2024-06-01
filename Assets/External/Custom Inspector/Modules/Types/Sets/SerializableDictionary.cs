@@ -210,8 +210,8 @@ namespace CustomInspector
             set
             {
                 int ind = keys.GetIndexOf(key);
-                if (ind == -1)
-                    throw new KeyNotFoundException($"key '{key}' not found");
+                // if (ind == -1)
+                //     throw new KeyNotFoundException($"key '{key}' not found");
                 values[ind] = value;
             }
         }
