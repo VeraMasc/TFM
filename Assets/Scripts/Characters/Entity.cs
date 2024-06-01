@@ -132,6 +132,8 @@ public partial class Entity : MonoBehaviour, ITargetable
     /// </summary>
     public HealthDisplay healthDisplay;
 
+    public Transform  counterList;
+
 
     /// <summary>
     /// Anctionables especiales (vienen de cartas que normalmente no se pueden usar por su zona)

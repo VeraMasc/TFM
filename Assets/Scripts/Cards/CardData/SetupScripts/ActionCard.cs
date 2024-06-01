@@ -19,13 +19,14 @@ public class ActionCard : MyCardSetup, IActionable
 
     [HorizontalLine(3, message ="Speed")]
     public SpeedTypes speedType;
-
+    [NaughtyAttributes.Foldout("Components")]
     public TextMeshPro costText;
     public ManaCost cost;
 
     /// <summary>
     /// Objeto que muestra la velocidad de la carta
     /// </summary>
+    [NaughtyAttributes.Foldout("Components")]
     public GameObject speedLabel;
 
     /// <summary>

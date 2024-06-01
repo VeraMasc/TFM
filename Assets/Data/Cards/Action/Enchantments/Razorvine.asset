@@ -30,6 +30,7 @@ MonoBehaviour:
       list:
       - rid: 8129478007116791808
       - rid: 3644647512751472640
+      - rid: 8129478529840840715
     abilities:
     - rid: 8129478324054130699
     staticEffects:
@@ -115,3 +116,29 @@ MonoBehaviour:
       type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         contextual: 5
+    - rid: 8129478529840840715
+      type: {class: SetCounters, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8129478529840840716
+        mode:
+          rid: 8129478529840840717
+    - rid: 8129478529840840716
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8129478529840840717
+      type: {class: SetCounters/Add, ns: Effect, asm: Assembly-CSharp}
+      data:
+        counterType:
+          rid: 8129478529840840718
+        amount:
+          rid: 8129478529840840719
+    - rid: 8129478529840840718
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: Duration
+    - rid: 8129478529840840719
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 3

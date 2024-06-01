@@ -38,7 +38,7 @@ public class CardCreationManager : ScriptableObject
     [AssetsOnly]
     public CardGroup attachGroup;
 
-
+    public CounterDisplay counterDisplay;
     /// <summary>
     /// Crea una instancia de una carta a partir de su definición sin necesidad de un prefab
     /// </summary>

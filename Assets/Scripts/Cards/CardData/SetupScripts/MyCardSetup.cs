@@ -39,36 +39,55 @@ public abstract class MyCardSetup : CardSetup
     /// </summary>
     public string cardType;
 
+
     /// <summary>
     /// Renderer de la cara frontal de la carta
     /// </summary>
+    [NaughtyAttributes.Foldout("Components")]
     public SpriteRenderer Image;
 
     /// <summary>
     /// Renderer del frame de la carta
     /// </summary>
+    [NaughtyAttributes.Foldout("Components")]
     public SpriteRenderer FrameImage;
 
     /// <summary>
     /// Renderer de la cara trasera de la carta
     /// </summary>
+    [NaughtyAttributes.Foldout("Components")]
     public SpriteRenderer BackImage;
 
 
     /// <summary>
     /// Textbox with the card name
     /// </summary>
+    [NaughtyAttributes.Foldout("Components")]
     public TextMeshPro cardNameBox;
 
     /// <summary>
     /// Textbox with the card type
     /// </summary>
+    [NaughtyAttributes.Foldout("Components")]
     public TextMeshPro cardTypeLine;
 
     /// <summary>
     /// Base textbox for the card
     /// </summary>
+    [NaughtyAttributes.Foldout("Components")]
     public TextMeshPro cardTextBox;
+
+    /// <summary>
+    /// Raiz dónde se colocan los counters
+    /// </summary>
+    [NaughtyAttributes.Foldout("Components")]
+    public Transform  counterList;
+
+    [NaughtyAttributes.Foldout("Components")]
+    [SerializeField]
+    private CounterHolder _counterHolder;
+
+    public CounterHolder counterHolder => _counterHolder ??= GetComponent<CounterHolder>();
 
     public BaseCardEffects effects;
 

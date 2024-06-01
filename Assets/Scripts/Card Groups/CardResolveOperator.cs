@@ -299,7 +299,6 @@ public class CardResolveOperator : Activatable
                 startResolve =false;
                 yield break;
             }
-            Debug.Log(context.self);
             yield return StartCoroutine(resolveBaseEffect(activeCard, simpleCard));
         }
         

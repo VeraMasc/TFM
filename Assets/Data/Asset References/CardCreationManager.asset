@@ -21,3 +21,4 @@ MonoBehaviour:
   reactionTypeline: {fileID: 4937320428789057306, guid: 3bf7b0dbbaf8bfe4d811881261ae9eb2, type: 3}
   triggerTypeline: {fileID: 5952100357341962280, guid: 3470e8072fb4d5347a3876e86a96e7ef, type: 3}
   attachGroup: {fileID: 8674698285375438854, guid: 4cb661a95582a5f4083a9a7f05bdbf99, type: 3}
+  counterDisplay: {fileID: 292831423704546106, guid: e9ff76a631e41ba42aa0294aa7a45929, type: 3}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using CustomInspector;
 using UnityEngine;
 
@@ -9,7 +10,45 @@ using UnityEngine;
 /// </summary>
 public class CounterHolder : MonoBehaviour
 {
+
+    public Transform counterList;
     public SerializableDictionary<string,int> counters = new();
+
+    public List<CounterDisplay> displays = new();
+
+    /// <summary>
+    /// Indica si se ha cambiado desde la última vez que se actualizó
+    /// </summary>
+    public bool hasChanged;
+
+
+
+    void Start()
+    {
+        var setup = GetComponent<MyCardSetup>();
+        
+        counterList = setup?.counterList ??  GetComponent<Entity>()?.counterList;
+        
+        displayCounters();
+    }
+
+    public void Update()
+    {
+        if (hasChanged)
+            displayCounters();
+    }
+
+    /// <summary>
+    /// Vacía por completo el holder
+    /// </summary>
+    public void clear(){
+        counters.Clear();
+        foreach(var disp in displays){
+            if(disp!=null)
+                Destroy(disp);
+        }
+        displays.Clear();
+    }
 
     /// <summary>
     /// Obtiene el holder de los contadores del objeto (si existe)
@@ -26,6 +65,7 @@ public class CounterHolder : MonoBehaviour
     public static SerializableDictionary<string,int> getCounterDict(ITargetable targetable){
         var holder = getHolder(targetable);
         holder ??= (targetable as Component)?.gameObject?.AddComponent<CounterHolder>();
+        holder.hasChanged = true;
         return holder.counters;
     }
 
@@ -34,6 +74,7 @@ public class CounterHolder : MonoBehaviour
     /// </summary>
     public static void setCounter(ITargetable targetable, string key, int value){
         var dict = getCounterDict(targetable);
+        Debug.Log(dict);
         dict[key] = value;
 
     }
@@ -57,4 +98,38 @@ public class CounterHolder : MonoBehaviour
         }
         return 0;
     }
+
+    /// <summary>
+    /// Actualiza la representación de los contadores de la carta
+    /// </summary>
+    [NaughtyAttributes.Button]
+    public void displayCounters(){
+        hasChanged=false;
+
+        if(!counterList)
+            return;
+
+        //Clear excess
+        while(counters.Count < displays.Count){
+            var removed = displays.Last();
+            Destroy(removed.gameObject);
+            displays.RemoveAt(displays.Count-1);
+        }
+        var i=0;
+        var creator = GameController.singleton.creationManager;
+        foreach(var (key,num) in counters){
+            if(i>= displays.Count){ //Add displays as needed
+                var instance = Instantiate(creator.counterDisplay, counterList);
+                displays.Add(instance);
+            }
+
+            //Set displays
+            var display = displays[i];
+            display.setCounter(key,num);
+            i++;
+        }
+
+    }
+
+
 }
