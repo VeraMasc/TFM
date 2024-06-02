@@ -31,6 +31,9 @@ public class EntityAI : MonoBehaviour
     /// </summary>
     public virtual IEnumerator doTurn(){
         Debug.Log("Doing Turn");
+        var actionables = entity.getAllActionables();
+        var chosen = findBestAction(actionables);
+        Debug.Log(chosen);
         yield break;
     }
 
@@ -41,6 +44,17 @@ public class EntityAI : MonoBehaviour
     protected void startTurn(){
         StartCoroutine(doTurn());
     }
+
+     /// <summary>
+    /// Botón de test que muestra todos los accionables
+    /// </summary>
+    [NaughtyAttributes.Button(enabledMode: NaughtyAttributes.EButtonEnableMode.Playmode)]
+    protected void showActionables(){
+        var actionables = entity.getAllActionables();
+        var text = string.Join("\n", actionables);
+        Debug.Log($"{entity} Actionables:({actionables.Count})\n\n{text}\n\n", entity);
+    }
+
 
     /// <summary>
     /// Ejecuta la reacción de la IA

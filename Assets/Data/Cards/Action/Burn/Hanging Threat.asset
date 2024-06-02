@@ -63,7 +63,7 @@ MonoBehaviour:
       value: 0
       colors: 
   speedType: 0
-  typeList: 
+  typeList: 0100000002000000
   cost:
     costText: MF
     value: 2
@@ -161,4 +161,4 @@ MonoBehaviour:
     - rid: 8960579997607133484
       type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
-        index: 1
+        index: 2

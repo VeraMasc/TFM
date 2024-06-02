@@ -138,7 +138,7 @@ public partial class Entity : MonoBehaviour, ITargetable
     /// <summary>
     /// Anctionables especiales (vienen de cartas que normalmente no se pueden usar por su zona)
     /// </summary>
-    public List<IActionable> specialActionables;
+    public List<IActionable> specialActionables =new();
 
     /// <summary>
     /// Obtiene todas las posibles acciones que puede tomar el jugador
@@ -146,12 +146,29 @@ public partial class Entity : MonoBehaviour, ITargetable
     /// <returns></returns>
     public List<IActionable> getAllActionables(){
         var cardsInHand = hand.MountedCards?.Select(card => card.data)
-                .OfType<IActionable>();
+                .OfType<IActionable>() ?? new List<IActionable>();
+
+        //Proxies in hand
+        if(hand.Strategy is HandLayout handLayout){
+            var handactivables = cardsInHand.OfType<ActionCard>().Concat(
+                handLayout.proxies.Select(p => p.actualCard.data));
+            
+            cardsInHand =cardsInHand.Concat(
+                handactivables
+                .OfType<MyCardSetup>()
+                .SelectMany( a => a.effects.getAllAbilities())
+                .OfType<ActivatedAbility>()
+                .Where(ab => ab.isCurrentlyActive && ab.canActivate(this))
+                .Cast<IActionable>()
+            );
+            
+        }
+        
 
         var skillAbilities = skills.MountedCards?.Select(card => card.data)
                 .OfType<SkillCard>()
                 .SelectMany(skill => skill?.effects?.getAllAbilities())
-                .OfType<IActionable>();
+                .OfType<IActionable>() ?? new List<IActionable>();
 
         var permanentAbilities = myPermanents
                 .SelectMany(permanent => permanent?.effects?.getAllAbilities())

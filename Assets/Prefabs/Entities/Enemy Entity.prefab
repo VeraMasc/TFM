@@ -132,6 +132,14 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: infiniteMana
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: ignoreRequirements
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7597847920604192002, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_LocalScale.x
       value: -1.1548

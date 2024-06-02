@@ -91,6 +91,9 @@ public abstract class MyCardSetup : CardSetup
 
     public BaseCardEffects effects;
 
+    [SerializeReference, SubclassSelector]
+    public CardHeuristic heuristic = new SimpleHeuristic();
+
     public T getEffectsAs<T>()where T:BaseCardEffects{
         return effects as T;
     }
@@ -251,4 +254,6 @@ public abstract class MyCardSetup : CardSetup
         
         
     }
+
+    
 }

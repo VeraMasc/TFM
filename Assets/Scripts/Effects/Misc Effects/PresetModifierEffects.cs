@@ -194,7 +194,6 @@ namespace Effect{
             {
                 if( card.data is ActionCard action){
 
-                    Debug.Log($"Apply to {card}");
                     var num = (int)duration.getValueObj(context) ;
 
                     var ETB = new HiddenTriggeredAbility(){

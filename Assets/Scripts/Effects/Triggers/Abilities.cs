@@ -34,9 +34,9 @@ namespace Effect{
         public List<EffectScript> effects;
 
 
-         public List<EffectScript> getEffects() => effects;
+        public List<EffectScript> getEffects() => effects;
 
-
+        public bool isCurrentlyActive;
         /// <summary>
         /// Genera un trigger con los efectos de la habilidad
         /// </summary>
@@ -87,6 +87,11 @@ namespace Effect{
                 return true;
 
             return zoneList.Contains(zone);
+        }
+
+        public override string ToString()
+        {
+            return $"{this.GetType().Name}:{id} ({source.gameObject.name})";
         }
     }
 
@@ -144,7 +149,7 @@ namespace Effect{
         /// </summary>
         public override void onChangeZone(GroupName zone){
             
-            if(isActiveIn(zone)){
+            if(isCurrentlyActive =isActiveIn(zone)){
                 trigger?.subscribe(source, listener);
             }
             else{
@@ -207,8 +212,8 @@ namespace Effect{
         public virtual bool checkActivationTiming(Entity user){
             if(speed == SpeedTypes.Reaction)
                 return true;
-
-            return GameMode.current.isSpeedValid(user, speed);
+            // Debug.Log($"{this} {speed}");
+            return GameMode.current.disableTimingRestrictions || GameMode.current.isSpeedValid(user, speed);
         }
 
 
@@ -219,6 +224,7 @@ namespace Effect{
         /// <returns></returns>
         public virtual bool checkControl(Entity user){
             var control = source?.ownership;
+            // Debug.Log($"{user} {control.controller.team == user.team}");
             return control.controller.team == user.team;
         }
 
@@ -227,7 +233,7 @@ namespace Effect{
         /// </summary>
         public virtual bool canActivate (Entity user){
             //TODO: add mana requirements
-            return checkActivationTiming(user) && checkControl(user);
+            return checkActivationTiming(user) && checkControl(user) && user.mana.canPay(cost);
         }
         public virtual IEnumerator activateAbility(Entity activator){
             //TODO: abilities with owner different than controller
@@ -248,6 +254,10 @@ namespace Effect{
                 active.cost.parseCost();
             }
             
+        }
+        public override void onChangeZone(GroupName zone){
+            
+            isCurrentlyActive =isActiveIn(zone);
         }
     }
 }

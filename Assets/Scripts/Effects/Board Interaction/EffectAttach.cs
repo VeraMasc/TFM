@@ -21,7 +21,7 @@ namespace Effect{
             var targets = targeter.getTargets(context);
             //Check if valid
             if(!isValidResult(targets, context)){
-                Debug.LogError($"Invalid attachment target of type {targeter.GetType()}", (UnityEngine.Object)context.self);
+                Debug.LogError($"Invalid attachment target of type {targets.GetType()}", (UnityEngine.Object)context.self);
                 yield break;
             }
             
