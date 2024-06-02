@@ -14,26 +14,29 @@ namespace Effect{
     /// Efecto que Crea un trigger separado
     /// </summary>
     [Serializable]
-    public class CreateTrigger : EffectScript
+    public class CreateTrigger : EffectScript, ITriggerDescriptor
     {
+
+        public string id;
         /// <summary>
         /// Efectos del trigger a crear
         /// </summary>
         [SerializeReference,SubclassSelector]
         public List<EffectScript> trigger;
 
+        public string triggerId => id;
 
         public override IEnumerator execute(CardResolveOperator stack, Context context)
         {
             if(context.self is Card card){
-                var routine =CardResolveOperator.singleton.triggerEffect(card,EffectChain.cloneFrom(trigger),false);
+                var routine =CardResolveOperator.singleton.triggerAbilityEffect(card,this,false, context.controller);
                 yield return UCoroutine.Yield(routine);
             } 
             
             yield break;
         }
 
-
+        public List<EffectScript> getEffects() => trigger;
     }
 
     /// <summary>
@@ -117,4 +120,13 @@ namespace Effect{
         }
     }
     
+    /// <summary>
+    /// Engloba todas las cosas que pueden describir un tipo de trigger
+    /// </summary>
+    public interface ITriggerDescriptor
+    {
+        public string triggerId {get;}
+
+        public List<EffectScript> getEffects();
+    }
 }

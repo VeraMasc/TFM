@@ -398,28 +398,28 @@ public class CardResolveOperator : Activatable
         yield return StartCoroutine(castCard(card));
     }
 
-    public IEnumerator triggerAbilityEffect(Card source, Ability ability, bool isActive, Entity user= null)
+    public IEnumerator triggerAbilityEffect(Card source, ITriggerDescriptor descriptor, bool isActive, Entity user= null)
     {
         yield return waitTillPrecalculated;
-        var chain = EffectChain.cloneFrom(ability?.effects);
+        var chain = EffectChain.cloneFrom(descriptor?.getEffects());
         var card = createTriggerCard(source,chain, transform, isActive);
         var trigger = (TriggerCard)card.data;
 
         //Change text
         var newText ="";
 
-        if(ability.id != string.Empty){
+        if(descriptor.triggerId != string.Empty){
             trigger.cardTextBox?.ForceMeshUpdate(forceTextReparsing:true); //IMPORTANTE
 
             var chosenLink = trigger.cardTextBox.textInfo.linkInfo
-                .Where( link => link.GetLinkID() == ability?.id)
+                .Where( link => link.GetLinkID() == descriptor?.triggerId)
                 .FirstOrDefault();
 
             if(chosenLink.textComponent != null){
                 newText += chosenLink.getRawLinkText();
             }
         }
-        if(ability is ImplicitTriggeredAbility implAb && implAb.text != string.Empty){
+        if(descriptor is ImplicitTriggeredAbility implAb && implAb.text != string.Empty){
             var cardDef = (card.data as MyCardSetup).definition;
             var parsed = MyCardDefinition.parseCardText(implAb.text, cardDef);
             newText += parsed;

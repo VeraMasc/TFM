@@ -13,10 +13,12 @@ namespace Effect{
     /// Las habilidades son efectos que tiene una carta a parte del principal
     /// </summary>
     [Serializable]
-    public abstract class Ability
+    public abstract class Ability: ITriggerDescriptor
     {
 
         public string id;
+
+        public string triggerId => id;
         /// <summary>
         /// Carta que contiene la habilidad
         /// </summary>
@@ -30,6 +32,9 @@ namespace Effect{
         /// </summary>
         [SerializeReference, SubclassSelector]
         public List<EffectScript> effects;
+
+
+         public List<EffectScript> getEffects() => effects;
 
 
         /// <summary>
