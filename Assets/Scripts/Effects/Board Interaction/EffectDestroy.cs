@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using CardHouse;
+using Common.Coroutines;
 using UnityEngine;
 
 namespace Effect{
@@ -10,29 +11,23 @@ namespace Effect{
     [Serializable]
     public class Destroy : Targeted
     {
-    
 
-        public override IEnumerator execute(CardResolveOperator stack, Effect.Context context)
+
+        public override IEnumerator executeForeach(ITargetable target, CardResolveOperator stack, Context context)
         {
-            var targets = targeter.getTargets(context);
-           
-            foreach(var target in targets){
-                
-                
+            if(target is Card card && card.data is not TriggerCard)
+            {
+                var manager = GameController.singleton.triggerManager;
+                yield return card.StartCoroutine(manager.onDestroy.invokeOn(card));
+                var ownership = card.ownership;
+                if(ownership){
+                    yield return card.StartCoroutine(CardTransferOperator.sendCard(card,ownership.owner.discarded));
+                }else{
+                    UCoroutine.Yield(stack.waitTillOpen)
+                    .Then(()=>card.DestroyCard())
+                    .Start(card);
+                }
 
-                if(target is Card card){ //If card use attach group
-                    
-                    card.DestroyCard();
-                }
-                else if (target is CardGroup group){ //If group use the group
-                    group.destroyGroup(GroupName.Discard);
-                }
-                //TODO: add Destruction animation
-                yield return new WaitForSeconds(0.2f);
-                var source = ExplorationController.singleton.content;
-               
-                
-                
             }
         }
     }

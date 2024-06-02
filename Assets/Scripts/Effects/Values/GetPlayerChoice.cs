@@ -33,10 +33,9 @@ namespace Effect{
                 yield break;//No hay prefab para generar la interfaz
             }
             yield return UCoroutine.Yield(GameUI.singleton.getInput(prefab, (value)=>{
-                Debug.Log(value);
+                result = (int)value;
             }));
 
-            yield return null;
             context.previousValues.Add(result);
             yield break;
         }

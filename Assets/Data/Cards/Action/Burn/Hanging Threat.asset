@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: Hanging Threat
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Hang by a Thread
+  rawText: 
+  parsedText: 
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  effects:
+    baseEffect:
+      list:
+      - rid: 8960579997607133480
+      - rid: 8960579997607133460
+      - rid: 8960579997607133478
+      - rid: 8960579997607133461
+      - rid: 8960579997607133470
+      - rid: 8960579997607133483
+    abilities: []
+    staticEffects:
+      list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+    entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 0
+  typeList: 
+  cost:
+    costText: MF
+    value: 2
+    colors: MF
+  references:
+    version: 2
+    RefIds:
+    - rid: 8960579997607133460
+      type: {class: GetNumericChoice, ns: Effect, asm: Assembly-CSharp}
+      data:
+        defaultValue: 1
+    - rid: 8960579997607133461
+      type: {class: SetCounters, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960579997607133465
+        mode:
+          rid: 8960579997607133466
+    - rid: 8960579997607133465
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960579997607133466
+      type: {class: SetCounters/Set, ns: Effect, asm: Assembly-CSharp}
+      data:
+        counterType:
+          rid: 8960579997607133467
+        amount:
+          rid: 8960579997607133469
+    - rid: 8960579997607133467
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: Duration
+    - rid: 8960579997607133469
+      type: {class: ReuseValue, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        index: 0
+        destructive: 0
+    - rid: 8960579997607133470
+      type: {class: SetCounters, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960579997607133474
+        mode:
+          rid: 8960579997607133475
+    - rid: 8960579997607133474
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960579997607133475
+      type: {class: SetCounters/Set, ns: Effect, asm: Assembly-CSharp}
+      data:
+        counterType:
+          rid: 8960579997607133476
+        amount:
+          rid: 8960579997607133477
+    - rid: 8960579997607133476
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: Omen
+    - rid: 8960579997607133477
+      type: {class: ReuseValue, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        index: 0
+        destructive: 0
+    - rid: 8960579997607133478
+      type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
+      data:
+        message:
+          rid: 8960579997607133479
+    - rid: 8960579997607133479
+      type: {class: ReuseValue, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        index: 0
+        destructive: 0
+    - rid: 8960579997607133480
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8960579997607133481
+    - rid: 8960579997607133481
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960579997607133482
+    - rid: 8960579997607133482
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 4
+    - rid: 8960579997607133483
+      type: {class: Attach, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960579997607133484
+    - rid: 8960579997607133484
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 1

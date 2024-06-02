@@ -29,5 +29,6 @@ public class CounterDisplay : MonoBehaviour
         ["Use"] =  Colors.FromHex("228B22"),
         ["Bleed"] =  Colors.FromHex("8B0000"),
         ["Poison"] =  Colors.FromHex("ADFF2F"),
+        ["Omen"] =  Colors.FromHex("663399"),
     };
 }

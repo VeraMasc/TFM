@@ -8,6 +8,7 @@ using UnityEngine;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Effect.Preset;
+using Effect.Condition;
 
 namespace Effect{
     /// <summary>
@@ -182,6 +183,79 @@ namespace Effect{
             public override void applyTo(Card card,Context context){
 
             }
+        }
+
+        [Serializable]
+        public class DurationCountdown:ModifierPreset{
+            [SerializeReference,SubclassSelector]
+            public IValue duration = new Numeric(3);
+
+            public override void applyAsAbility(Card card, Context context)
+            {
+                if( card.data is ActionCard action){
+
+                    Debug.Log($"Apply to {card}");
+                    var num = (int)duration.getValueObj(context) ;
+
+                    var ETB = new HiddenTriggeredAbility(){
+                        effects = new(){
+                            new SetCounters(){
+                                mode=new SetCounters.Set(){
+                                    amount = new Numeric(num),
+                                    counterType = new TextString("Duration"),
+                                },
+                                targeter = new ContextualObjectTargeter(ContextualObjTargets.self),
+                            }
+                        },
+                        source = card,
+                        activeZoneList= new (){ GroupName.None},
+                        trigger = GameController.singleton.triggerManager.onEnter,
+                    };
+
+                    var countdown= new ImplicitTriggeredAbility(){
+                        condition= new TurnCondition(){
+                            turnOwner = new ContextualEntityTargeter(){
+                                contextual = ContextualEntityTargets.controller
+                            },
+                        },
+                        activeZoneList= new(){ GroupName.Board},
+                        id="Duration",
+                        text ="At the beginning of each of your turns, remove a Duration counter. Then destroy it if it has no Duration Counters",
+                        trigger = GameController.singleton.triggerManager.onBeginTurn,
+                        //TODO: FInish
+                        effects = new(){
+                            new SetCounters(){
+                                mode= new SetCounters.Add(){
+                                    amount = new Numeric(-1),
+                                    counterType=  new TextString("Duration")
+                                },
+                                targeter = new ContextualObjectTargeter(ContextualObjTargets.self),
+                            },
+                            new ExecuteIf(){
+                                conditions= new(){new CounterCondition(){
+                                        counterType = "Duration",
+                                        innerCondition = new AmountCondition(){
+                                            min=0,
+                                            max=0,
+                                        }
+                                    }
+                                },
+                                input = new ContextualObjectTargeter(ContextualObjTargets.self),
+                                effects = new(){
+                                    new Destroy(){
+                                        targeter = new ContextualObjectTargeter(ContextualObjTargets.self)
+                                    }
+                                }
+                            }
+                        },
+                        source = card
+
+                    };
+                    action.effects.abilities.Add(ETB);
+                    action.effects.abilities.Add(countdown);
+                }
+            }
+            
         }
     }
     

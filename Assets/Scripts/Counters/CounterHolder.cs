@@ -75,7 +75,8 @@ public class CounterHolder : MonoBehaviour
     public static void setCounter(ITargetable targetable, string key, int value){
         var dict = getCounterDict(targetable);
         Debug.Log(dict);
-        dict[key] = value;
+        if(!dict.TryAdd(key,value))
+            dict[key] = value;
 
     }
     /// <summary>
@@ -85,6 +86,10 @@ public class CounterHolder : MonoBehaviour
         var dict = getCounterDict(targetable);
         dict.TryAdd(key,0); //Lo inicializa a 0 si no existe
         dict[key] += increase;
+
+        if(dict[key]<=0){
+            dict.Remove(key);
+        }
     }
 
     /// <summary>
