@@ -145,11 +145,11 @@ namespace Effect{
         public override void onChangeZone(GroupName zone){
             
             if(isActiveIn(zone)){
-                trigger.subscribe(source, listener);
+                trigger?.subscribe(source, listener);
             }
             else{
                 //TODO: no desuscribir la carta entera
-                trigger.unsubscribe(source);
+                trigger?.unsubscribe(source);
             }
         }
     }

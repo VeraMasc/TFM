@@ -14,7 +14,7 @@ public class MyCardDefinition : CardDefinition
     [TextArea(3, 10),FormerlySerializedAs("cardText"),SerializeField]
     protected string rawText;
 
-    [ReadOnly,RichText,Multiline(3)]
+    [RichText,Multiline(6)]
     [LabelSettings(LabelStyle.NoLabel)]
     public string parsedText;
 

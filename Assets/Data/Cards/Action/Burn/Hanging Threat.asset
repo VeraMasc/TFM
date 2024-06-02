@@ -13,9 +13,27 @@ MonoBehaviour:
   m_Name: Hanging Threat
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
-  cardName: Hang by a Thread
-  rawText: 
-  parsedText: 
+  cardName: Hanging Threat
+  rawText: 'Enchant entity
+
+
+    Duration X. It gets that many Omen counters.
+
+
+
+    When
+    it ends, damage enchanted entity by the amount of Omen on this. Return it to
+    your hand.'
+  parsedText: 'Enchant entity
+
+
+    Duration X. It gets that many Omen counters.
+
+
+
+    When
+    it ends, damage enchanted entity by the amount of Omen on this. Return it to
+    your hand.'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []

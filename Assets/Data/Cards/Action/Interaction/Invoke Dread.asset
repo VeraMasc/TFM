@@ -17,11 +17,12 @@ MonoBehaviour:
   rawText: 'Each entity discards 2 cards
 
 
-    {rethink: Rethink 1D}'
+    {rethink: Rethink {1}{D}}'
   parsedText: 'Each entity discards 2 cards
 
 
-    <link="rethink">Rethink 1D</link>'
+    <link="rethink">Rethink <sprite
+    name="1"><sprite name="D"></link>'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []

@@ -216,11 +216,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.85
+  m_fontSize: 0.75
   m_fontSizeBase: 2
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 0.85
+  m_fontSizeMin: 0.75
   m_fontSizeMax: 1.2
   m_fontStyle: 0
   m_HorizontalAlignment: 8
@@ -228,9 +228,9 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: -3
   m_wordSpacing: 0
-  m_lineSpacing: -35
+  m_lineSpacing: -2
   m_lineSpacingMax: 0
-  m_paragraphSpacing: -10
+  m_paragraphSpacing: -20
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.579
@@ -1596,6 +1596,7 @@ MonoBehaviour:
   cardTypeLine: {fileID: 3347545304853578325}
   cardTextBox: {fileID: 5725338630376539603}
   counterList: {fileID: 6302430697179379965}
+  _counterHolder: {fileID: 0}
   effects:
     baseEffect:
       list: []
@@ -2002,7 +2003,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3488335640945470726, guid: 8926996c8c053564cae26ad143905af8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9975758
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488335640945470726, guid: 8926996c8c053564cae26ad143905af8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.069587365
       objectReference: {fileID: 0}
     - target: {fileID: 3488335640945470726, guid: 8926996c8c053564cae26ad143905af8, type: 3}
       propertyPath: m_LocalRotation.y

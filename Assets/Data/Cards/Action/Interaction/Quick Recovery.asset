@@ -14,17 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Quick Recovery
-  rawText: 'Choose up to two:
+  rawText: 'Choose up to 2:
+
 
     {1: :: Target entity regains 2 life}
+
 
     {2:
     :: Destroy target hex}
 
-    {3: :: Put target spent action on the bottom of its
-    owner''s library}'
-  parsedText: "Choose up to two:\n<link=\"1\">\u2022 Target entity regains 2 life</link>\n<link=\"2\">\u2022
-    Destroy target hex</link>\n<link=\"3\">\u2022 Put target spent action on the
+
+    {3: :: Put target spent action on the bottom of
+    its owner''s library}'
+  parsedText: "Choose up to 2:\n\n<link=\"1\">\u2022 Target entity regains 2 life</link>\n\n<link=\"2\">\u2022
+    Destroy target hex</link>\n\n<link=\"3\">\u2022 Put target spent action on the
     bottom of its owner's library</link>"
   Art: {fileID: 0}
   Frame: {fileID: 0}
