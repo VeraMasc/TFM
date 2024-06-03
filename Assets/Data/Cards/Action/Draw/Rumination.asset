@@ -23,7 +23,7 @@ MonoBehaviour:
 
     <link="overdo">Overdo <sprite
     name="W"><sprite name="W"></link>'
-  Art: {fileID: -6071446052346733761, guid: f056e72a51e59f346bff348f843940d9, type: 3}
+  Art: {fileID: -412129943582558559, guid: f056e72a51e59f346bff348f843940d9, type: 3}
   Frame: {fileID: 0}
   help: []
   effects:

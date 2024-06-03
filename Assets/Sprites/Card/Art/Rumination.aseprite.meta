@@ -126,8 +126,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 52
-      y: 4
+      x: 4
+      y: 215
       width: 40
       height: 29
     spriteID: e8116a72cbf0e924fb192123e36a5149
@@ -138,7 +138,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 52, y: 4}
+    uvTransform: {x: 4, y: 215}
   - name: Rumination_Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0.48979592}
@@ -167,7 +167,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 61
+      y: 139
       width: 40
       height: 30
     spriteID: fedf2bc2ea41d88419c9ba0ff0ea7054
@@ -178,7 +178,87 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
+    uvTransform: {x: 4, y: 139}
+  - name: Rumination_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.16666664}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 177
+      width: 40
+      height: 30
+    spriteID: b812bdbb6bec12044a3d6eb324ad11bd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 177}
+  - name: Rumination_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.1935484}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 61
+      width: 40
+      height: 31
+    spriteID: c724f504e8f161e469bc7d8a73672f64
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
     uvTransform: {x: 4, y: 61}
+  - name: Rumination_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: 0.1935484}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 100
+      width: 40
+      height: 31
+    spriteID: 9655ec857adebda409847634bc4592a9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 100}
+  - name: Rumination_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: 0.13793103}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 52
+      y: 4
+      width: 40
+      height: 29
+    spriteID: 19c9bff78fcf92c4a8a0a3e5810e3888
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 52, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -212,6 +292,38 @@ ScriptedImporter:
         width: 40
         height: 30
       spriteId: fedf2bc2ea41d88419c9ba0ff0ea7054
+    - name: Rumination_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 4
+        y: 28
+        width: 40
+        height: 30
+      spriteId: b812bdbb6bec12044a3d6eb324ad11bd
+    - name: Rumination_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 4
+        y: 27
+        width: 40
+        height: 31
+      spriteId: c724f504e8f161e469bc7d8a73672f64
+    - name: Rumination_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 4
+        y: 27
+        width: 40
+        height: 31
+      spriteId: 9655ec857adebda409847634bc4592a9
+    - name: Rumination_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 4
+        y: 29
+        width: 40
+        height: 29
+      spriteId: 19c9bff78fcf92c4a8a0a3e5810e3888
     linkedCells: []
     parentIndex: -1
   platformSettings:
