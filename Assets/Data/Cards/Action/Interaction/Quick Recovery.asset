@@ -21,14 +21,14 @@ MonoBehaviour:
 
 
     {2:
-    :: Destroy target hex}
+    :: Remove 2 duration from target hex}
 
 
-    {3: :: Put target spent action on the bottom of
-    its owner''s library}'
+    {3: :: Put target spent action on
+    the bottom of its owner''s library}'
   parsedText: "Choose up to 2:\n\n<link=\"1\">\u2022 Target entity regains 2 life</link>\n\n<link=\"2\">\u2022
-    Destroy target hex</link>\n\n<link=\"3\">\u2022 Put target spent action on the
-    bottom of its owner's library</link>"
+    Remove 2 duration from target hex</link>\n\n<link=\"3\">\u2022 Put target spent
+    action on the bottom of its owner's library</link>"
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -61,14 +61,146 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 8129478393277448192
       type: {class: ModalEffect, ns: Effect, asm: Assembly-CSharp}
       data:
         maxChoices: 2
         modes:
         - id: 1
-          effects: []
+          effects:
+          - rid: 8960580024290508862
+          - rid: 8960580024290508865
         - id: 2
-          effects: []
+          effects:
+          - rid: 8960580024290508829
+          - rid: 8960580024290508833
+          - rid: 8960580024290508840
         - id: 3
-          effects: []
+          effects:
+          - rid: 8960580024290508834
+          - rid: 8960580024290508837
+          - rid: 8960580024290508838
+    - rid: 8960580024290508829
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8960580024290508830
+    - rid: 8960580024290508830
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580024290508831
+    - rid: 8960580024290508831
+      type: {class: CardType, ns: Effect.Filter, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580024290508832
+        noTriggers: 0
+        speedtypes: 
+        subtypes: 02000000
+    - rid: 8960580024290508832
+      type: {class: ZoneCardTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        zones: 05000000
+        exclude:
+          rid: -2
+        condition:
+          rid: -2
+    - rid: 8960580024290508833
+      type: {class: ValidateTargets, ns: Effect, asm: Assembly-CSharp}
+      data:
+        requireAll: 0
+        targetIndexes: 00000000
+    - rid: 8960580024290508834
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8960580024290508835
+    - rid: 8960580024290508835
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580024290508836
+    - rid: 8960580024290508836
+      type: {class: ZoneCardTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        zones: 01000000
+        exclude:
+          rid: -2
+        condition:
+          rid: -2
+    - rid: 8960580024290508837
+      type: {class: ValidateTargets, ns: Effect, asm: Assembly-CSharp}
+      data:
+        requireAll: 0
+        targetIndexes: 00000000
+    - rid: 8960580024290508838
+      type: {class: SendTo, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580024290508839
+        zone: 3
+        mode: 1
+        duration: 0.1
+    - rid: 8960580024290508839
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8960580024290508840
+      type: {class: SetCounters, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580024290508844
+        mode:
+          rid: 8960580024290508841
+    - rid: 8960580024290508841
+      type: {class: SetCounters/Add, ns: Effect, asm: Assembly-CSharp}
+      data:
+        counterType:
+          rid: 8960580024290508842
+        amount:
+          rid: 8960580024290508843
+    - rid: 8960580024290508842
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: Duration
+    - rid: 8960580024290508843
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: -2
+    - rid: 8960580024290508844
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8960580024290508862
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8960580024290508863
+    - rid: 8960580024290508863
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580024290508864
+    - rid: 8960580024290508864
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 4
+    - rid: 8960580024290508865
+      type: {class: Heal, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580024290508867
+        amount:
+          rid: 8960580024290508866
+        overheal: 0
+    - rid: 8960580024290508866
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 2
+    - rid: 8960580024290508867
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0

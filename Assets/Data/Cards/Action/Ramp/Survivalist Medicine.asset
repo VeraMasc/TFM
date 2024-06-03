@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
-  m_Name: Forbidden Studies
+  m_Name: Survivalist Medicine
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
-  cardName: Forbidden Studies
-  rawText: 'Choose {D:{D}} or {W:{W}}.
+  cardName: Survivalist Medicine
+  rawText: 'Choose {V:{V}} or {N:{N}}.
 
 '
-  parsedText: 'Choose <link="D"><sprite name="D"></link> or <link="W"><sprite name="W"></link>.
+  parsedText: 'Choose <link="V"><sprite name="V"></link> or <link="N"><sprite name="N"></link>.
 
 '
-  Art: {fileID: 7472541990973530567, guid: d5a24b9c5735cc94ea65d716b9e12550, type: 3}
+  Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   effects:
@@ -49,9 +49,9 @@ MonoBehaviour:
   speedType: 0
   typeList: 03000000
   cost:
-    costText: DW
+    costText: VN
     value: 2
-    colors: DW
+    colors: VN
   references:
     version: 2
     RefIds:
@@ -126,10 +126,10 @@ MonoBehaviour:
         options:
         - _: 0
           values:
-          - color: 2
+          - color: 3
         - _: 0
           values:
-          - color: 5
+          - color: 6
     - rid: 8129478490245562397
       type: {class: ReuseValue, ns: Effect.Value, asm: Assembly-CSharp}
       data:

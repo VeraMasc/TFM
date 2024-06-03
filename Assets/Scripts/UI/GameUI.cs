@@ -109,7 +109,7 @@ public class GameUI : MonoBehaviour
         }
         old?.ApplyStrategy(); //Devolver las cartas a su estrategia anterior
     }
-
+    public static void unFocus() => setFocus(null); 
     /// <summary>
     /// Actualiza la posición de las cartas con focus
     /// </summary>

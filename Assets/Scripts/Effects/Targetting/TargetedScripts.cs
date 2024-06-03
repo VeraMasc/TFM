@@ -63,7 +63,7 @@ namespace Effect
         public static void focusActiveCards(ITargetable[] targets){
             if(targets.All(t => t is Card)){
                 var group = ((Card)targets.FirstOrDefault())?.Group;
-                if(targets.Cast<Card>().All(t => t.Group == group)){
+                if(group is CompactCardGroup && targets.Cast<Card>().All(t => t.Group == group)){
                     GameUI.setFocus(group);
                 }
             }

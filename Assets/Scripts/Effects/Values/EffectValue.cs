@@ -20,7 +20,7 @@ namespace Effect{
         /// <summary>
         /// Valor final del parámetro
         /// </summary>
-        [SerializeField]
+        [SerializeField,CustomInspector.LabelSettings(CustomInspector.LabelStyle.NoSpacing)]
         protected T value;
 
         /// <summary>

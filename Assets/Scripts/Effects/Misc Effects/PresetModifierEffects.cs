@@ -193,23 +193,25 @@ namespace Effect{
             public override void applyAsAbility(Card card, Context context)
             {
                 if( card.data is ActionCard action){
+                    if(duration != null){
+                        var num = (int)duration.getValueObj(context) ;
 
-                    var num = (int)duration.getValueObj(context) ;
-
-                    var ETB = new HiddenTriggeredAbility(){
-                        effects = new(){
-                            new SetCounters(){
-                                mode=new SetCounters.Set(){
-                                    amount = new Numeric(num),
-                                    counterType = new TextString("Duration"),
-                                },
-                                targeter = new ContextualObjectTargeter(ContextualObjTargets.self),
-                            }
-                        },
-                        source = card,
-                        activeZoneList= new (){ GroupName.None},
-                        trigger = GameController.singleton.triggerManager.onEnter,
-                    };
+                        var ETB = new HiddenTriggeredAbility(){
+                            effects = new(){
+                                new SetCounters(){
+                                    mode=new SetCounters.Set(){
+                                        amount = new Numeric(num),
+                                        counterType = new TextString("Duration"),
+                                    },
+                                    targeter = new ContextualObjectTargeter(ContextualObjTargets.self),
+                                }
+                            },
+                            source = card,
+                            activeZoneList= new (){ GroupName.None},
+                            trigger = GameController.singleton.triggerManager.onEnter,
+                        };
+                        action.effects.abilities.Add(ETB);
+                    }
 
                     var countdown= new ImplicitTriggeredAbility(){
                         condition= new TurnCondition(){
@@ -221,7 +223,7 @@ namespace Effect{
                         id="Duration",
                         text ="At the beginning of each of your turns, remove a Duration counter. Then destroy it if it has no Duration Counters",
                         trigger = GameController.singleton.triggerManager.onBeginTurn,
-                        //TODO: FInish
+
                         effects = new(){
                             new SetCounters(){
                                 mode= new SetCounters.Add(){
@@ -241,16 +243,19 @@ namespace Effect{
                                 },
                                 input = new ContextualObjectTargeter(ContextualObjTargets.self),
                                 effects = new(){
+                                    new ActivateTriggerByID(){
+                                        ID = new TextString("DurationEnd"),
+                                        targeter = new ContextualObjectTargeter(ContextualObjTargets.self)
+                                    },
                                     new Destroy(){
                                         targeter = new ContextualObjectTargeter(ContextualObjTargets.self)
-                                    }
+                                    },
                                 }
                             }
                         },
                         source = card
 
                     };
-                    action.effects.abilities.Add(ETB);
                     action.effects.abilities.Add(countdown);
                 }
             }

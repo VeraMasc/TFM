@@ -3,6 +3,7 @@ using System.Collections;
 using CardHouse;
 using Common.Coroutines;
 using CustomInspector;
+using Effect.Value;
 using UnityEngine;
 
 namespace Effect{
@@ -18,7 +19,7 @@ namespace Effect{
         /// Cantidad de vida a curar
         /// </summary>
         [SerializeReference, SubclassSelector]
-        public Value.Numeric amount;
+        public Value.Numeric amount = new Numeric(1);
 
         public bool overheal=true;
  

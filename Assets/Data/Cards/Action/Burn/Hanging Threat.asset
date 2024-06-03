@@ -17,7 +17,7 @@ MonoBehaviour:
   rawText: 'Enchant entity
 
 
-    Duration X. It gets that many Omen counters.
+    Duration X. It gets double that many Omen counters.
 
 
 
@@ -27,14 +27,14 @@ MonoBehaviour:
   parsedText: 'Enchant entity
 
 
-    Duration X. It gets that many Omen counters.
+    Duration X. It gets double that many Omen counters.
 
 
 
     When
     it ends, damage enchanted entity by the amount of Omen on this. Return it to
     your hand.'
-  Art: {fileID: 0}
+  Art: {fileID: 7109176497579132614, guid: a32700e6ecb65b04a96a034594eeedfb, type: 3}
   Frame: {fileID: 0}
   help: []
   effects:
@@ -46,7 +46,9 @@ MonoBehaviour:
       - rid: 8960579997607133461
       - rid: 8960579997607133470
       - rid: 8960579997607133483
-    abilities: []
+    abilities:
+    - rid: 8960580024290508856
+    - rid: 8960580024290508859
     staticEffects:
       list: []
     context:
@@ -71,6 +73,8 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 8960579997607133460
       type: {class: GetNumericChoice, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -162,3 +166,38 @@ MonoBehaviour:
       type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         index: 2
+    - rid: 8960580024290508856
+      type: {class: PresetAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: 
+        source: {fileID: 0}
+        effects: []
+        isCurrentlyActive: 0
+        presets:
+        - rid: 8960580024290508857
+    - rid: 8960580024290508857
+      type: {class: DurationCountdown, ns: Effect.Preset, asm: Assembly-CSharp}
+      data:
+        duration:
+          rid: -2
+    - rid: 8960580024290508859
+      type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: DurationEnd
+        source: {fileID: 0}
+        effects:
+        - rid: 8960580024290508860
+        isCurrentlyActive: 0
+        trigger: {fileID: 0}
+        activeZoneList: 05000000
+        condition:
+          rid: -2
+    - rid: 8960580024290508860
+      type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
+      data:
+        message:
+          rid: 8960580024290508861
+    - rid: 8960580024290508861
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: DURATION ENDED

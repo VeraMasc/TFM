@@ -2094,6 +2094,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 6722912095672469403, guid: ee6fd8adff30e864f8d6b04c6a5566a6, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7773225080267428684, guid: ee6fd8adff30e864f8d6b04c6a5566a6, type: 3}
       propertyPath: m_SortingLayer
       value: 1

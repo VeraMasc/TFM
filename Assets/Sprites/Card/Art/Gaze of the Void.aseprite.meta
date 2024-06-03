@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f056e72a51e59f346bff348f843940d9
+guid: d619a842dba197743b260f2e853af948
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 0
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638530169490304829
+  platformSettingsDirtyTick: 638530123695769158
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,7 +119,27 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Rumination_Frame_0
+  - name: Gaze of the Void_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.13793103}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 40
+      height: 29
+    spriteID: 69db097972563b14c9e9f01a35520b15
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Gaze of the Void_Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0.13793103}
     alignment: 9
@@ -130,7 +150,7 @@ ScriptedImporter:
       y: 4
       width: 40
       height: 29
-    spriteID: e8116a72cbf0e924fb192123e36a5149
+    spriteID: 9554accdc1078fd4e883084af631f1b4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,18 +159,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 52, y: 4}
-  - name: Rumination_Frame_1
+  - name: Gaze of the Void_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: 0.48979592}
+    pivot: {x: 0.5, y: 0.13793103}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 41
       width: 40
-      height: 49
-    spriteID: 347ff5b72f49a914e94d2a531c41e02a
+      height: 29
+    spriteID: e6c131eef68d0754a9e460574ad9495c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -158,19 +178,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
-  - name: Rumination_Frame_2
+    uvTransform: {x: 4, y: 41}
+  - name: Gaze of the Void_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: 0.16666664}
+    pivot: {x: 0.5, y: 0.13793103}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 61
+      x: 52
+      y: 41
       width: 40
-      height: 30
-    spriteID: fedf2bc2ea41d88419c9ba0ff0ea7054
+      height: 29
+    spriteID: 6046d593fefd9564e95b86809af1caef
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -178,40 +198,76 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 61}
+    uvTransform: {x: 52, y: 41}
+  - name: Gaze of the Void_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.13793103}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 78
+      width: 40
+      height: 29
+    spriteID: c74f35eac3b3aff4593fe15bbb00bffd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 78}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1662404930
-    name: Rumination
+    guid: -1544588611
+    name: Gaze of the Void
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Rumination_Frame_0
+    - name: Gaze of the Void_Frame_0
       frameIndex: 0
       cellRect:
         x: 4
         y: 29
         width: 40
         height: 29
-      spriteId: e8116a72cbf0e924fb192123e36a5149
-    - name: Rumination_Frame_1
+      spriteId: 69db097972563b14c9e9f01a35520b15
+    - name: Gaze of the Void_Frame_1
       frameIndex: 1
       cellRect:
         x: 4
-        y: 9
+        y: 29
         width: 40
-        height: 49
-      spriteId: 347ff5b72f49a914e94d2a531c41e02a
-    - name: Rumination_Frame_2
+        height: 29
+      spriteId: 9554accdc1078fd4e883084af631f1b4
+    - name: Gaze of the Void_Frame_2
       frameIndex: 2
       cellRect:
         x: 4
-        y: 28
+        y: 29
         width: 40
-        height: 30
-      spriteId: fedf2bc2ea41d88419c9ba0ff0ea7054
+        height: 29
+      spriteId: e6c131eef68d0754a9e460574ad9495c
+    - name: Gaze of the Void_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 4
+        y: 29
+        width: 40
+        height: 29
+      spriteId: 6046d593fefd9564e95b86809af1caef
+    - name: Gaze of the Void_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 4
+        y: 29
+        width: 40
+        height: 29
+      spriteId: c74f35eac3b3aff4593fe15bbb00bffd
     linkedCells: []
     parentIndex: -1
   platformSettings:

@@ -23,15 +23,9 @@ MonoBehaviour:
 
     <link="overdo">Overdo <sprite
     name="W"><sprite name="W"></link>'
-  Art: {fileID: 0}
+  Art: {fileID: -6071446052346733761, guid: f056e72a51e59f346bff348f843940d9, type: 3}
   Frame: {fileID: 0}
   help: []
-  speedType: 1
-  typeList: 05000000
-  cost:
-    costText: W
-    value: 1
-    colors: W
   effects:
     baseEffect:
       list:
@@ -55,9 +49,17 @@ MonoBehaviour:
       costText: 
       value: 0
       colors: 
+  speedType: 1
+  typeList: 05000000
+  cost:
+    costText: W
+    value: 1
+    colors: W
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 8129478013255417868
       type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -116,6 +118,7 @@ MonoBehaviour:
         source: {fileID: 0}
         effects:
         - rid: 8129478445358383105
+        isCurrentlyActive: 0
         costValue:
           costText: WW
         cost:
@@ -130,6 +133,8 @@ MonoBehaviour:
       data:
         targeter:
           rid: 8129478445358383107
+        param:
+          rid: -2
         modifiers:
         - rid: 8129478445358383108
     - rid: 8129478445358383107

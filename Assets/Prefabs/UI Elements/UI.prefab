@@ -539,6 +539,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1514548336294040950, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514548336294040950, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1327094187181044573}
+    - target: {fileID: 1514548336294040950, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514548336294040950, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: unFocus
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514548336294040950, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514548336294040950, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2000311336236126966, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
       propertyPath: m_Name
       value: Spread SliderScrollbar
@@ -571,6 +595,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6702413740228832471, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702413740228832471, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7839694992764471572, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
       propertyPath: m_Direction
       value: 1
@@ -589,7 +621,7 @@ PrefabInstance:
       objectReference: {fileID: 1327094187181044573}
     - target: {fileID: 7839694992764471572, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7839694992764471572, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
