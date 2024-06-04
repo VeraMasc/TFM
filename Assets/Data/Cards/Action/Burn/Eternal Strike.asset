@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: Eternal Strike
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Eternal Strike
+  rawText: Deal 1 damage to target entity. Return ~ to your hand.
+  parsedText: Deal 1 damage to target entity. Return Eternal Strike to your hand.
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  effects:
+    baseEffect:
+      list:
+      - rid: 8960580047823437853
+      - rid: 8960580047823437856
+      - rid: 8960580047823437859
+    abilities: []
+    staticEffects:
+      list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+    entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 0
+  typeList: 
+  cost:
+    costText: N
+    value: 1
+    colors: N
+  references:
+    version: 2
+    RefIds:
+    - rid: 8960580047823437853
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8960580047823437854
+    - rid: 8960580047823437854
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580047823437855
+    - rid: 8960580047823437855
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 4
+    - rid: 8960580047823437856
+      type: {class: DealDamage, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580047823437857
+        amount:
+          rid: 8960580047823437858
+    - rid: 8960580047823437857
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8960580047823437858
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 1
+    - rid: 8960580047823437859
+      type: {class: SendTo, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580047823437860
+        zone: 4
+        mode: 0
+        duration: 0.1
+    - rid: 8960580047823437860
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0

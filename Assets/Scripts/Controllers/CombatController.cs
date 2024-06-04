@@ -163,8 +163,8 @@ public class CombatController : GameMode
 	/// La entidad actual usa su redraw gratuito
 	/// </summary>
 	public void freeRedraw(){
-		var entity = currentTurn;
-		if(entity==null)
+		var entity = selectedPlayer;
+		if(entity==null || currentTurn != entity && !disableTimingRestrictions)
 			return;
 
 		StartCoroutine(Effect.ReDraw.basicRedraw(1,entity));

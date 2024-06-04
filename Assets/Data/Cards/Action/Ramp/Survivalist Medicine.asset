@@ -14,10 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Survivalist Medicine
-  rawText: 'Choose {V:{V}} or {N:{N}}.
+  rawText: 'Enchant Self
+
+
+
+    Choose {V:{V}} or {N:{N}}.
+
+
+    You get that much
+    extra mana each turn.
 
 '
-  parsedText: 'Choose <link="V"><sprite name="V"></link> or <link="N"><sprite name="N"></link>.
+  parsedText: 'Enchant Self
+
+
+
+    Choose <link="V"><sprite name="V"></link> or <link="N"><sprite
+    name="N"></link>.
+
+
+    You get that much extra mana each turn.
 
 '
   Art: {fileID: 0}
@@ -31,6 +47,7 @@ MonoBehaviour:
       - rid: 8129478482906054670
     abilities:
     - rid: 8129478482906054667
+    - rid: 8960580047823437832
     staticEffects:
       list: []
     context:
@@ -162,3 +179,31 @@ MonoBehaviour:
         activeZoneList: 05000000
         condition:
           rid: -2
+    - rid: 8960580047823437832
+      type: {class: HiddenTriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: OnResolve
+        source: {fileID: 0}
+        effects:
+        - rid: 8960580047823437833
+        isCurrentlyActive: 0
+        trigger: {fileID: 11400000, guid: cac14767393c4824fabee3093dd3288e, type: 2}
+        activeZoneList: 06000000
+        condition:
+          rid: -2
+    - rid: 8960580047823437833
+      type: {class: ActivateTriggerByID, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580047823437834
+        ID:
+          rid: 8960580047823437835
+        activeOnly: 0
+    - rid: 8960580047823437834
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960580047823437835
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: GenerateMana

@@ -15,7 +15,7 @@ public class MyCardDefinition : CardDefinition
     protected string rawText;
 
     [RichText,Multiline(6)]
-    [LabelSettings(LabelStyle.NoLabel)]
+    [LabelSettings("Parsed Text",LabelStyle.NoSpacing)]
     public string parsedText;
 
     [CustomInspector.Preview]
@@ -75,7 +75,8 @@ public class MyCardDefinition : CardDefinition
 
         // Replace symbols
         parsed = Regex.Replace(parsed,@":: ", "• ");
-
+        parsed = Regex.Replace(parsed,@"\[\[", "<alpha=#AA>[<link=\"Graft\">");
+        parsed = Regex.Replace(parsed,@"\]\]", "</link>]<alpha=#FF>");
         return parsed;
     }
 

@@ -250,10 +250,9 @@ public abstract class MyCardSetup : CardSetup
         return textLinks
             .Where(link => ids.Contains(link.GetLinkID()));
 
-        
-        
-        
     }
+
+    
 
     
 }

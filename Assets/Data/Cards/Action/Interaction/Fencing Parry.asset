@@ -13,23 +13,22 @@ MonoBehaviour:
   m_Name: Fencing Parry
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
-  cardName: Remand
-  rawText: Return target pending action to its owner's hand
-  parsedText: Return target pending action to its owner's hand
+  cardName: Fencing Parry
+  rawText: Counter target pending action. If it's a melee action, deal 3 damage to
+    the action's controller
+  parsedText: Counter target pending action. If it's a melee action, deal 3 damage
+    to the action's controller
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
-  speedType: 1
-  typeList: 00000000
-  cost:
-    costText: FF
-    value: 2
-    colors: F
   effects:
     baseEffect:
       list:
       - rid: 8129478330713112576
-      - rid: 8129478461996138497
+      - rid: 8960580047823437841
+      - rid: 8960580047823437844
+      - rid: 8960580047823437842
+      - rid: 8960580047823437851
     abilities: []
     staticEffects:
       list: []
@@ -46,6 +45,12 @@ MonoBehaviour:
       costText: 
       value: 0
       colors: 
+  speedType: 1
+  typeList: 01000000
+  cost:
+    costText: 1MF
+    value: 3
+    colors: MF
   references:
     version: 2
     RefIds:
@@ -79,25 +84,66 @@ MonoBehaviour:
       data:
         zones: 06000000
         exclude:
-          rid: 8129478347398053893
+          rid: 8960580047823437840
         condition:
           rid: -2
-    - rid: 8129478347398053893
-      type: {class: ContextualObjectTargeter, ns: , asm: Assembly-CSharp}
-      data:
-        contextual: 0
     - rid: 8129478461996138496
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 1
-    - rid: 8129478461996138497
-      type: {class: SendTo, ns: Effect, asm: Assembly-CSharp}
+    - rid: 8960580047823437840
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 6
+    - rid: 8960580047823437841
+      type: {class: ValidateTargets, ns: Effect, asm: Assembly-CSharp}
+      data:
+        requireAll: 0
+        targetIndexes: 00000000
+    - rid: 8960580047823437842
+      type: {class: ExecuteIf, ns: Effect, asm: Assembly-CSharp}
+      data:
+        input:
+          rid: 8960580047823437843
+        conditions: []
+        effects:
+        - rid: 8960580047823437847
+    - rid: 8960580047823437843
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8960580047823437844
+      type: {class: TargetAsValue, ns: Effect, asm: Assembly-CSharp}
       data:
         targeter:
-          rid: 8129478461996138499
-        zone: 4
-        mode: 0
-    - rid: 8129478461996138499
+          rid: 8960580047823437845
+    - rid: 8960580047823437845
+      type: {class: CardType, ns: Effect.Filter, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580047823437846
+        noTriggers: 0
+        speedtypes: 
+        subtypes: 01000000
+    - rid: 8960580047823437846
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8960580047823437847
+      type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
+      data:
+        message:
+          rid: 8960580047823437848
+    - rid: 8960580047823437848
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: Parry Successful
+    - rid: 8960580047823437851
+      type: {class: Destroy, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580047823437852
+    - rid: 8960580047823437852
       type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         index: 0

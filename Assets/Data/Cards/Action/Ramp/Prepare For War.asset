@@ -14,12 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Prepare For War
-  rawText: 'Choose {M:{M}} or {F:{F}}.
+  rawText: 'Enchant Self
 
-'
-  parsedText: 'Choose <link="M"><sprite name="M"></link> or <link="F"><sprite name="F"></link>.
 
-'
+
+    Choose {M:{M}} or {F:{F}}.
+
+
+    You get that much
+    extra mana each turn.'
+  parsedText: 'Enchant Self
+
+
+
+    Choose <link="M"><sprite name="M"></link> or <link="F"><sprite
+    name="F"></link>.
+
+
+    You get that much extra mana each turn.'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -31,6 +43,7 @@ MonoBehaviour:
       - rid: 8129478482906054670
     abilities:
     - rid: 8129478482906054667
+    - rid: 8960580047823437824
     staticEffects:
       list: []
     context:
@@ -60,11 +73,12 @@ MonoBehaviour:
     - rid: 8129478482906054667
       type: {class: HiddenTriggeredAbility, ns: Effect, asm: Assembly-CSharp}
       data:
-        id: 
+        id: GenerateMana
         source: {fileID: 0}
         effects:
         - rid: 8129478490245562398
         - rid: 8129478482906054668
+        isCurrentlyActive: 0
         trigger: {fileID: 11400000, guid: cc3f20ded2a76da4e95c8be5474472d9, type: 2}
         activeZoneList: 05000000
         condition:
@@ -156,7 +170,36 @@ MonoBehaviour:
         id: removeSelf
         source: {fileID: 0}
         effects: []
+        isCurrentlyActive: 0
         trigger: {fileID: 11400000, guid: 40da7b8342106f7449f0b690b67d436f, type: 2}
         activeZoneList: 05000000
         condition:
           rid: -2
+    - rid: 8960580047823437824
+      type: {class: HiddenTriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: OnResolve
+        source: {fileID: 0}
+        effects:
+        - rid: 8960580047823437825
+        isCurrentlyActive: 0
+        trigger: {fileID: 11400000, guid: cac14767393c4824fabee3093dd3288e, type: 2}
+        activeZoneList: 06000000
+        condition:
+          rid: -2
+    - rid: 8960580047823437825
+      type: {class: ActivateTriggerByID, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580047823437827
+        ID:
+          rid: 8960580047823437826
+        activeOnly: 0
+    - rid: 8960580047823437826
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: GenerateMana
+    - rid: 8960580047823437827
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0

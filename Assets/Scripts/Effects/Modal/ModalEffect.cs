@@ -31,7 +31,7 @@ namespace Effect
         /// </summary>
         [NonSerialized]
         public List<int> chosen=new();
-        public IEnumerator precalculate(CardResolveOperator stack, Context context)
+        public virtual IEnumerator precalculate(CardResolveOperator stack, Context context)
         {
             var modeSettings = modes.Select(m => new ModalOptionSettings(){tag=m.id}).ToArray();
             yield return UCoroutine.Yield(GameUI.singleton.getInput(GameUI.singleton.prefabs.cardSelectInput, 
@@ -109,6 +109,44 @@ namespace Effect
                         caster ??= ownership?.controller ?? card.Group?.GetComponent<GroupZone>()?.owner;
                         yield return UCoroutine.Yield(activated.activateAbility(caster));
                     }
+                }
+            }
+            
+        }
+    }
+
+    public class AdditiveModal:ModalEffect
+    {
+        public override IEnumerator precalculate(CardResolveOperator stack, Context context)
+        {
+            var modeSettings = modes.Select(
+                m => new ModalOptionSettings(){
+                    tag=m.id,
+                }
+            ).ToArray();
+            yield return UCoroutine.Yield(GameUI.singleton.getInput(GameUI.singleton.prefabs.cardSelectInput, 
+                obj => {chosen = (List<int>)obj;},
+                new InputParameters{ values= (object[])modeSettings, context=context,
+                    extraConfig = new CardSelectInput.ExtraInputOptions(){maxChoices=maxChoices}
+                }));
+
+            //Precalculate chosen modes
+            if(chosen?.Any()??false){
+                int index=0;
+                foreach(var mode in modes){
+                    if(chosen.Contains(index)){
+                        yield return UCoroutine.Yield(Precalculate.precalculateEffects(mode.effects,context));
+
+                    }
+                    index++;
+                }
+
+                //Change text temporarily
+                if(context.self is Card card && card.data is MyCardSetup setup){
+                    var links = setup.getTextLinks(chosen.Select(index=> modes[index].id));
+
+                    setup.tempText = String.Join("\n", links.Select(l => l.graftLinkText()));
+                    setup.applyText();
                 }
             }
             

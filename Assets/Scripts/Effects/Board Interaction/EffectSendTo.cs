@@ -51,6 +51,10 @@ namespace Effect{
                     yield break;
                 }
 
+                if(card == stack.activeCard){ //Si es la carta activa, sobreescribir la resolution pile
+                    context.resolutionPile = group;
+                    yield break;
+                }
                 var index = group.getModeIndex(mode);
                 group.Mount(card,index);
                 yield return new WaitForSeconds(duration);

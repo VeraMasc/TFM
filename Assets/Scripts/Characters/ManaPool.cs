@@ -45,7 +45,7 @@ public class ManaPool : MonoBehaviour
     /// <param name="cost"></param>
     /// <returns></returns>
     public bool canPay(ManaCost cost){
-        Debug.Log("Mana cost checked");
+        // Debug.Log("Mana cost checked");
 
         if(ignoreRequirements)
             return true;
