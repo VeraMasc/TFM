@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using Common.Coroutines;
 using CustomInspector;
 using UnityEngine;
+
 
 namespace CardHouse
 {
@@ -60,23 +62,29 @@ namespace CardHouse
                 width *= selectedWidthFactor;
 
             var numProxies = proxies.Count;
-            var widthReduction = numProxies>0? handProxySeparation:0;
-            var spacing = (width-widthReduction) / (cards.Count + numProxies + 1);
+            
+            var spacing = (width) / (cards.Count + numProxies + 1);
+            
             var xScaleSign = Math.Sign(transform.lossyScale.x);
             var xAxis = transform.right*xScaleSign;
             
             var rootPos = selected? GameUI.singleton.handDetails.position :transform.position;
 
+            float separation = 0;
             if(numProxies>0){
-                    rootPos+= (-xAxis) * handProxySeparation/2;
+                // rootPos+= (xAxis) * handProxySeparation/2;
+                separation = handProxySeparation;
+                spacing -= handProxySeparation/(cards.Count+1);
             }
+            var direction = invertOrder? transform.right:-transform.right;
+            
             for (var i = 0; i < cards.Count; i++)
             {
                 
-                var direction = invertOrder? transform.right:-transform.right;
+                
                 var newPos = rootPos
                              + Vector3.back * (MountedCardAltitude + (cards.Count-i) * MarginalCardOffset)
-                             + direction * width * -0.5f
+                             + direction * (width-separation*2) * -0.5f
                              + direction * (i + numProxies + 1) * spacing;
 
                 if(selected)
@@ -96,24 +104,35 @@ namespace CardHouse
 
             }
 
-            var newRootpos = rootPos + Vector3.back * cards.Count * MarginalCardOffset;
-            handleProxies(newRootpos,width, spacing);
+            
+            var offset = 0;//(width * -0.5f) + (cards.Count + numProxies + 1) * spacing;
+            rootPos += Vector3.back * (cards.Count) * MarginalCardOffset;
+            handleProxies(rootPos,width, spacing, offset);
         }
 
-        public void handleProxies(Vector3 rootPos,float width,float spacing){
-            var i=0;
+        public void handleProxies(Vector3 rootPos,float width, float spacing, float offset){
+            
             var xScaleSign = Math.Sign(transform.lossyScale.x);
             var xAxis = transform.right*xScaleSign;
-
-            rootPos += xAxis * handProxySeparation;
             
+            
+            
+            rootPos += xAxis * handProxySeparation;
+            if(selected)
+                    rootPos += selectedHeight * Vector3.back;
+
+            Debug.Log(offset);
+            var i=0;
             foreach(var proxy in proxies.Where(p => p?.isActiveProxy == true)){
 
                 var direction = invertOrder? transform.right:-transform.right;
                 var newPos = rootPos
-                             + Vector3.back * (MountedCardAltitude + (proxies.Count-i) * MarginalCardOffset)
+                             + Vector3.back * ((proxies.Count-i) * MarginalCardOffset)
                              + direction * width * -0.5f
-                             + direction * (i + 1) * spacing;
+                             + direction * (i + 1) * spacing
+                             - direction * offset;
+                
+
                 proxy.Homing.StartSeeking(newPos, null);
                 proxy.Turning.StartSeeking(0, null);
                 var scale = selected? selectedScale:(UseMyScale ? groupScale : 1);

@@ -62,7 +62,7 @@ public class CardSelectOption : MonoBehaviour
                 .FirstOrDefault();
             if(chosenLink.textComponent != null){
                 var text = "";
-                if(mode.tag == "Graft"){
+                if(mode.tag.StartsWith("+")){
                     text= chosenLink.graftLinkText();
                 }
                 else{
@@ -204,10 +204,11 @@ public static class ExtendTMPLinks{
         return match.Value;
     }
 
-    public static string graftLinkText(this TMP_LinkInfo link){
+    public static string graftLinkText(this TMP_LinkInfo link, string text = ""){
         var id = link.GetLinkID();
-        var text = link.textComponent.text;
-        var replaced = getGraftPattern(id).Replace(text,@"<color=""black"">[$1]</color>");
+        if(text == string.Empty)
+            text = link.textComponent.text;
+        var replaced = getGraftPattern(id).Replace(text,@"<color=#005500>[$1]</color>");
 
         return replaced;
     }

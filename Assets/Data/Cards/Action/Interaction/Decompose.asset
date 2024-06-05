@@ -17,27 +17,28 @@ MonoBehaviour:
   rawText: 'Destroy one [[or more]] target aura or enchantment
 
 
-    {Graft: Graft
+    {+Graft: Graft
     {1}{N}{N}{N}}'
-  parsedText: 'Destroy one <alpha=#CC>[<link="Graft">or more</link>]<alpha=#FF> target
-    aura or enchantment
+  parsedText: 'Destroy one <alpha=#AA>[<link="+Graft">or more</link>]<alpha=#FF>
+    target aura or enchantment
 
 
-    <link="Graft">Graft <sprite name="1"><sprite name="N"><sprite
-    name="N"><sprite name="N"></link>'
+    <link="+Graft">Graft <sprite name="1"><sprite
+    name="N"><sprite name="N"><sprite name="N"></link>'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   effects:
     baseEffect:
-      list:
-      - rid: 8960580047823437863
-    abilities: []
+      list: []
+    abilities:
+    - rid: 8960580085195735040
     staticEffects:
       list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      choiceTreePath: 
       resolutionPile: {fileID: 0}
       precalculated: 0
       mode: 0
@@ -57,22 +58,19 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 8960580047823437863
-      type: {class: ModalEffect, ns: Effect, asm: Assembly-CSharp}
+    - rid: 8960580085195735040
+      type: {class: ZoneCastAbility, ns: Effect, asm: Assembly-CSharp}
       data:
-        maxChoices: 1
-        modes:
-        - id: 
-          effects:
-          - rid: 8960580047823437865
-        - id: Graft
-          effects:
-          - rid: 8960580047823437864
-    - rid: 8960580047823437864
-      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
-      data:
+        id: +Graft
+        source: {fileID: 0}
         effects: []
-    - rid: 8960580047823437865
-      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
-      data:
-        effects: []
+        isCurrentlyActive: 0
+        costValue:
+          costText: 1NNN
+        cost:
+          costText: 1NNN
+          value: 4
+          colors: N
+        speed: 0
+        activeZoneList: 04000000
+        proxy: {fileID: 0}

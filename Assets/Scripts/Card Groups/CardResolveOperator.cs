@@ -196,16 +196,20 @@ public class CardResolveOperator : Activatable
             }
             else
             { 
+                var manager =TriggerManager.instance;
                 //Trigger events
                 if(simpleCard is ActionCard){
                     var data = new Card[]{card};
-                    triggers = card.StartCoroutine(GameController.singleton.triggerManager
-                        .onUseAction.invokeWith(data));
+                    triggers = card.StartCoroutine(
+                        manager.onUseAction.invokeWith(data)
+                        .Then(manager.onCast.invokeOn(card))
+                    );
                 }
                 //Reset priority
                 resetPriority(card, simpleCard);
             }
         }
+        
         Debug.Log("Precalculated",card);
     end:
         precalculating = false;
@@ -272,6 +276,8 @@ public class CardResolveOperator : Activatable
         }
         Debug.LogError($"Can't use non action card {card}",card);
     }
+
+
     /// <summary>
     /// Resuelve la siguiente carta de la secuencia
     /// </summary>
@@ -318,6 +324,11 @@ public class CardResolveOperator : Activatable
     protected IEnumerator resolveBaseEffect(Card card,MyCardSetup content){
         foreach(var effect in content.getEffectsAs<BaseCardEffects>().baseEffect.list){
             yield return StartCoroutine(effect.execute(this,context));
+            if(context.mode == ExecutionMode.cancel)
+                break;
+        }
+        if(context.mode != ExecutionMode.cancel){
+            yield return StartCoroutine(TriggerManager.instance?.onSpent.invokeOn(card));
         }
         yield return StartCoroutine(sendToResolutionPile(card));
     }

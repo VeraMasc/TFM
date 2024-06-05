@@ -10,6 +10,7 @@ using CustomInspector;
 [CreateAssetMenu(menuName = "Trigger/TriggerManager")]
 public class TriggerManager : ScriptableObject
 {
+    public static TriggerManager instance => GameController.singleton?.triggerManager;
    
     /// <summary>
     /// Trigger que se produce cuando una carta es revelada
@@ -98,21 +99,26 @@ public class TriggerManager : ScriptableObject
 
     /// <summary>
     /// Trigger que se produce al inicio de cada turno del jugador propietario
-    /// //TODO: Crear trigger "personal" (que agrupa los objetos por jugador)
     /// </summary>
-    [HorizontalLine(3,message = "Timing")]
+    [HorizontalLine(3,message = "Phases")]
 
-    [Tab("Phases")]
+    [Tab("Timing")]
     public GlobalTrigger beforeBeginTurn;
-    [Tab("Phases")]
+    [Tab("Timing")]
     public GlobalTrigger onBeginTurn;
 
-    [Tab("Phases")]
+    [Tab("Timing")]
     public GlobalTrigger onMainPhase;
-    [Tab("Phases")]
+    [Tab("Timing")]
     public GlobalTrigger onEndTurn;
-    [Tab("Phases")]
+    [Tab("Timing")]
     public GlobalTrigger afterEndTurn;
 
-    //TODO: Crear trigger "regional" (que agrupa los objetos por zona)
+    [HorizontalLine(3,message = "Other")]
+    [Tab("Timing")]
+    public GlobalTrigger onStartCombat;
+    [Tab("Timing")]
+    public GlobalTrigger onRoundEnd;
+    
+
 }

@@ -41,7 +41,7 @@ public class EffectChain
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
     public EffectChain clone(){
-        var cloneList = list.Select( effect => effect.clone());
+        var cloneList = list.Select( effect => effect?.clone());
         return new EffectChain(cloneList);
         
     }

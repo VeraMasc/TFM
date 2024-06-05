@@ -43,7 +43,7 @@ namespace Effect{
 
         public override void onChangeZone(GroupName zone)
         {
-            if(isActiveIn(zone)){
+            if(isActiveIn(zone) && zone != GroupName.Hand){
                 var entity = (source.data as ActionCard).effects.context?.controller;
                 proxy ??= CardProxy.createProxy(source,entity);
                 proxy.setAsActive();

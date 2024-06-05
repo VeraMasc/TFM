@@ -46,6 +46,11 @@ namespace Effect{
         public List<object> previousValues = new List<object>();
 
         /// <summary>
+        /// Estructura de las decisiones tomadas hasta ahora
+        /// </summary>
+        public List<int> choiceTreePath = new List<int>{0};
+
+        /// <summary>
         /// Indica a dónde irá la carta tras resolverse
         /// </summary>
         public CardGroup resolutionPile;

@@ -19,28 +19,34 @@ MonoBehaviour:
   Art: {fileID: 7661334728954290958, guid: c098e1a924a8fc14c890d4c2462c1374, type: 3}
   Frame: {fileID: 0}
   help: []
-  speedType: 1
-  typeList: 01000000
-  cost:
-    costText: DW
-    value: 2
-    colors: DW
   effects:
     baseEffect:
       list: []
     abilities:
     - rid: 8129478057838772224
+    - rid: 8960580084980252673
     staticEffects:
       list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      choiceTreePath: 
       resolutionPile: {fileID: 0}
       precalculated: 0
       mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
     entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 1
+  typeList: 01000000
+  cost:
+    costText: DW
+    value: 2
+    colors: DW
   references:
     version: 2
     RefIds:
@@ -49,13 +55,14 @@ MonoBehaviour:
     - rid: 8129478057838772224
       type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
       data:
-        id: 
+        id: discard
         source: {fileID: 0}
         effects:
         - rid: 8129478057838772225
         - rid: 8129478057838772228
+        isCurrentlyActive: 0
         trigger: {fileID: 11400000, guid: 6c8110e8ffaf22341a790fb320905cc2, type: 2}
-        activeZoneList: 0400000006000000
+        activeZoneList: 04000000
         condition:
           rid: -2
     - rid: 8129478057838772225
@@ -87,3 +94,31 @@ MonoBehaviour:
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 2
+    - rid: 8960580084980252673
+      type: {class: HiddenTriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: spent
+        source: {fileID: 0}
+        effects:
+        - rid: 8960580084980252674
+        isCurrentlyActive: 0
+        trigger: {fileID: 11400000, guid: bd9836565e4884d43a049dc97e8e3bbd, type: 2}
+        activeZoneList: 06000000
+        condition:
+          rid: -2
+    - rid: 8960580084980252674
+      type: {class: ActivateTriggerByID, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580084980252676
+        ID:
+          rid: 8960580084980252675
+        activeOnly: 0
+    - rid: 8960580084980252675
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: discard
+    - rid: 8960580084980252676
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0

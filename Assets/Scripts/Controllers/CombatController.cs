@@ -16,6 +16,8 @@ public class CombatController : GameMode
     /// </summary>
     public List<Entity> turnOrder;
 
+	public int roundCount;
+
 	public Entity currentTurn => turnOrder?.LastOrDefault();
 
 	/// <summary>
@@ -154,6 +156,7 @@ public class CombatController : GameMode
 	public void nextTurn(){
 		turnOrder.RemoveAt(turnOrder.Count -1);
 		if(!turnOrder.Any()){
+			roundCount++;
 			generateTurnOrder();
 		}
 		getPriorityOrder();
