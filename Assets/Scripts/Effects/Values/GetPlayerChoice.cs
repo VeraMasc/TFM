@@ -36,6 +36,7 @@ namespace Effect{
                 result = (int)value;
             }));
 
+            context.choiceTreeIncrease();
             context.previousValues.Add(result);
             yield break;
         }

@@ -36,6 +36,9 @@ namespace Effect{
                     context.previousTargets[pos]= value;
                     context.previousChosenTargets.Add(value);
                 }, true,config));
+
+                context.choiceTreeIncrease();
+                
                 
             }
             

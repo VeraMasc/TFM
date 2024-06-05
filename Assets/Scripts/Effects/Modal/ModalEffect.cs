@@ -45,24 +45,40 @@ namespace Effect
                 int index=0;
                 foreach(var mode in modes){
                     if(chosen.Contains(index)){
+                        context.choiceTreeDeepen(index);
                         yield return UCoroutine.Yield(Precalculate.precalculateEffects(mode.effects,context));
-
+                        context.choiceTreePop();
                     }
+                    
                     index++;
                 }
-
+    
                 //Change text temporarily
+                modalChangeText(chosen.Select(i => modes[i].id).ToList(), context);
+            }
+            context.choiceTreeIncrease();
+            
+        }
+
+        public static void modalChangeText(List<string> chosenModeIds ,Context context){
+            //Change text temporarily
                 if(context.self is Card card && card.data is MyCardSetup setup){
-                    var links = setup.getTextLinks(chosen.Select(index=> modes[index].id));
+                    var links = setup.getTextLinks(chosenModeIds);
 
                     setup.tempText = setup.cardText;
+                    var extraText = "";
                     foreach(var link in links){
-                        setup.tempText = link.graftLinkText(setup.tempText);
+                        if(link.GetLinkID().StartsWith("+")){
+                            setup.tempText = link.graftLinkText(setup.tempText);
+                        }
+                        else{
+                            extraText += link.getRawLinkText();
+                        }
+                        
                     }
+                    setup.tempText += extraText;
                     setup.applyText();
                 }
-            }
-            
         }
 
         public override IEnumerator execute(CardResolveOperator stack, Context context)
@@ -71,7 +87,10 @@ namespace Effect
             foreach(var mode in modes){
                 if(chosen.Contains(index)){
                     foreach(var effect in mode.effects){
+                        
+                        Debug.Log(string.Join(", ",context.choiceTreePath));
                         yield return UCoroutine.Yield(effect.execute(stack,context));
+                        
                     }
                 }
                 index++;
@@ -85,13 +104,14 @@ namespace Effect
             var modeSettings = modes.ToArray();
             List<int> ret = null;
             if(card?.data is MyCardSetup setup){
+                var newContext = new Context(setup?.effects?.context);
                 //Generar diálogo modal
                 yield return UCoroutine.Yield(GameUI.singleton.getInput(GameUI.singleton.prefabs.cardSelectInput, 
                 obj => {
                     ret = (List<int>)obj;
                 },
                 new InputParameters{ values= (object[])modeSettings, 
-                    context= new Context(setup?.effects?.context)
+                    context= newContext
                 }));
                 
                 //Quitar outline al acabar
@@ -102,6 +122,9 @@ namespace Effect
                     var index = ret.First();
                     Debug.Log($"Cast modal index: {index}");
                     var settings = modeSettings[index];
+
+                    //Change card appearance
+                    modalChangeText(ret.Select(i => modeSettings[i].tag).ToList(), newContext);
                     
 
                     if(settings.tag == string.Empty && settings.ability == null){//Default cast

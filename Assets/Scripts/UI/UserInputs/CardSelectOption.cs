@@ -63,7 +63,9 @@ public class CardSelectOption : MonoBehaviour
             if(chosenLink.textComponent != null){
                 var text = "";
                 if(mode.tag.StartsWith("+")){
+                    
                     text= chosenLink.graftLinkText();
+                    Debug.Log($"Graft display:\n{text}");
                 }
                 else{
                     text = chosenLink.getRawLinkText();
@@ -192,10 +194,12 @@ public static class ExtendTMPLinks{
     /// <param name="link"></param>
     /// <returns></returns>
     private static Regex getlinkPattern(string id){
-        return new Regex(@$"<\s*link\s*=\s*""{id}""\s*>.*?<\/\s*link\s*>",RegexOptions.Singleline);
+        var escapedId = Regex.Escape(id);
+        return new Regex(@$"<\s*link\s*=\s*""{escapedId}""\s*>.*?<\/\s*link\s*>",RegexOptions.Singleline);
     }
     private static Regex getGraftPattern(string id){
-        return new Regex(@$"<alpha=#.{{1,2}}>\[\s*<link=""{id}"">(.*?)</link>]<alpha=#.{{1,2}}>",RegexOptions.Singleline);
+        var escapedId = Regex.Escape(id);
+        return new Regex(@$"<alpha=#.{{1,2}}>\[\s*<link=""{escapedId}"">(.*?)</link>]<alpha=#.{{1,2}}>",RegexOptions.Singleline);
     } 
     public static string getRawLinkText(this TMP_LinkInfo link){
         var id = link.GetLinkID();

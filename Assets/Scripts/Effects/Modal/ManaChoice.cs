@@ -53,6 +53,7 @@ namespace Effect
 
                 //Guardar opciones SI escogidas
                 context.previousValues.Add(results);
+                context.choiceTreeIncrease();
         }
     }
 

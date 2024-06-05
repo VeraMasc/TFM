@@ -68,6 +68,8 @@ namespace Effect{
                 //Guardar opciones SI escogidas
                 context.previousTargets.Add(results);
                 context.previousChosenTargets.Add(results);
+                context.choiceTreeIncrease();
+                
             }
             
             

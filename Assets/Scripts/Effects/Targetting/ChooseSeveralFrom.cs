@@ -44,6 +44,7 @@ namespace Effect{
                 
             }
             
+            context.choiceTreeIncrease();
             
             yield break;
         }

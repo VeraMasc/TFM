@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using CardHouse;
 using UnityEngine;
 
@@ -49,6 +50,23 @@ namespace Effect{
         /// Estructura de las decisiones tomadas hasta ahora
         /// </summary>
         public List<int> choiceTreePath = new List<int>{0};
+
+        public int choiceTreeIncrease(int amount=1){
+            choiceTreePath[choiceTreePath.Count-1] += amount;
+            Debug.Log(string.Join(", ",choiceTreePath));
+            return choiceTreePath.Last();
+        }
+
+        public void choiceTreeDeepen(int parentIndex){
+            choiceTreePath[choiceTreePath.Count-1] = parentIndex;
+            choiceTreePath.Add(0);
+        }
+
+        public int choiceTreePop(){
+            var val = choiceTreePath[choiceTreePath.Count-1];
+            choiceTreePath.RemoveAt(choiceTreePath.Count-1);
+            return val;
+        }
 
         /// <summary>
         /// Indica a dónde irá la carta tras resolverse

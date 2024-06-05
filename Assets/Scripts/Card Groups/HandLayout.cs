@@ -121,7 +121,6 @@ namespace CardHouse
             if(selected)
                     rootPos += selectedHeight * Vector3.back;
 
-            Debug.Log(offset);
             var i=0;
             foreach(var proxy in proxies.Where(p => p?.isActiveProxy == true)){
 
