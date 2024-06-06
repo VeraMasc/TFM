@@ -10,29 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
-  m_Name: Decompose
+  m_Name: Psychic Discharge
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
-  cardName: Decompose
-  rawText: 'Destroy one [[or more]] target aura or enchantment
+  cardName: Psychic Discharge
+  rawText: 'When you draw one or more cards, ~ gets a charge counter.
 
 
-    {+Graft: Graft
-    {1}{N}{N}{N}}'
-  parsedText: 'Destroy one <alpha=#AA>[<link="+Graft">or more</link>]<alpha=#FF>
-    target aura or enchantment
+    5 charge:
+    Deal 4 damage to target entity'
+  parsedText: 'When you draw one or more cards, Psychic Discharge gets a charge counter.
 
 
-    <link="+Graft">Graft <sprite name="1"><sprite
-    name="N"><sprite name="N"><sprite name="N"></link>'
+    5
+    charge: Deal 4 damage to target entity'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   effects:
     baseEffect:
-      list: []
+      list:
+      - rid: 8960580109122142208
     abilities:
-    - rid: 8960580085195735040
+    - rid: 8960580109122142209
     staticEffects:
       list: []
     context:
@@ -50,27 +50,26 @@ MonoBehaviour:
       value: 0
       colors: 
   speedType: 0
-  typeList: 0000000001000000
+  typeList: 0500000006000000
   cost:
-    costText: 1N
-    value: 2
-    colors: N
+    costText: 
+    value: 0
+    colors: 
   references:
     version: 2
     RefIds:
-    - rid: 8960580085195735040
-      type: {class: ZoneCastAbility, ns: Effect, asm: Assembly-CSharp}
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8960580109122142208
+      type: {class: EnterBoard, ns: Effect, asm: Assembly-CSharp}
+    - rid: 8960580109122142209
+      type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
       data:
-        id: +Graft
+        id: 
         source: {fileID: 0}
         effects: []
         isCurrentlyActive: 0
-        costValue:
-          costText: 1NNN
-        cost:
-          costText: 1NNN
-          value: 4
-          colors: N
-        speed: 0
-        activeZoneList: 04000000
-        proxy: {fileID: 0}
+        trigger: {fileID: 0}
+        activeZoneList: 05000000
+        condition:
+          rid: -2

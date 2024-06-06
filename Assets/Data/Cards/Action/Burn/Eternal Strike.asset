@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Eternal Strike
-  rawText: Deal 1 damage to target entity. Return ~ to your hand.
-  parsedText: Deal 1 damage to target entity. Return Eternal Strike to your hand.
+  rawText: 'Deal 1 damage to target entity. Return ~ to your hand.
+
+
+    {Plant:
+    Plant {N}{N}--- Deal 3 damage to target entity}'
+  parsedText: "Deal 1 damage to target entity. Return Eternal Strike to your hand.\n\n<link=\"Plant\">Plant
+    <sprite name=\"N\"><sprite name=\"N\">\u2014 Deal 3 damage to target entity</link>"
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -25,12 +30,14 @@ MonoBehaviour:
       - rid: 8960580047823437853
       - rid: 8960580047823437856
       - rid: 8960580047823437859
-    abilities: []
+    abilities:
+    - rid: 8960580109122142210
     staticEffects:
       list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      choiceTreePath: 
       resolutionPile: {fileID: 0}
       precalculated: 0
       mode: 0
@@ -42,7 +49,7 @@ MonoBehaviour:
       value: 0
       colors: 
   speedType: 0
-  typeList: 
+  typeList: 0700000000000000
   cost:
     costText: N
     value: 1
@@ -91,3 +98,62 @@ MonoBehaviour:
       type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         contextual: 0
+    - rid: 8960580109122142210
+      type: {class: ActivatedZoneAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: Plant
+        source: {fileID: 0}
+        effects:
+        - rid: 8960580109122142211
+        - rid: 8960580109122142217
+        isCurrentlyActive: 0
+        costValue:
+          costText: NN
+        cost:
+          costText: NN
+          value: 2
+          colors: N
+        speed: 1
+        activeZoneList: 04000000
+    - rid: 8960580109122142211
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8960580109122142212
+        - rid: 8960580109122142215
+    - rid: 8960580109122142212
+      type: {class: SendTo, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580109122142213
+        zone: 3
+        mode: 1
+        duration: 0.1
+    - rid: 8960580109122142213
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960580109122142215
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580109122142216
+    - rid: 8960580109122142216
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 4
+    - rid: 8960580109122142217
+      type: {class: DealDamage, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580109122142218
+        amount:
+          rid: 8960580109122142219
+    - rid: 8960580109122142218
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8960580109122142219
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 3

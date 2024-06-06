@@ -77,6 +77,7 @@ public class MyCardDefinition : CardDefinition
         parsed = Regex.Replace(parsed,@":: ", "• ");
         parsed = Regex.Replace(parsed,@"\[\[", "<alpha=#AA>[<link=\"+Graft\">");
         parsed = Regex.Replace(parsed,@"\]\]", "</link>]<alpha=#FF>");
+        parsed = Regex.Replace(parsed,@"---", "—");
         return parsed;
     }
 

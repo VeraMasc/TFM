@@ -28,17 +28,22 @@ public class DecklistDefinition : ScriptableObject, IDeckDefinition
     }
 
     /// <summary>
-    /// Devuelve el tamaño total del mazo
+    /// Tamaño total del mazo
     /// </summary>
     /// <returns></returns>
-    public int deckSize(){
-        return CardsetCollection.Select(c => c.amount).Sum();
-    }
+    [CustomInspector.ReadOnly]
+    public int deckSize;
 
     
-    [ShowMethod(nameof(deckSize))]
+    
     [Unfold]
     public List<CardCopies> CardsetCollection;
+
+    public List<LearnedSkills> skills;
+
+    private void OnValidate() {
+        deckSize = CardsetCollection?.Select(c => c.amount).Sum() ??0;
+    }
 }
 
 
@@ -49,4 +54,12 @@ public struct CardCopies{
     public MyCardDefinition card;
     [HorizontalGroup(size = 1)]
     public int amount;
+}
+
+[Serializable]
+public struct LearnedSkills{
+    [HorizontalGroup(true,size = 2)]
+    public SkillCardDefinition card;
+    [HorizontalGroup(size = 1)]
+    public int level;
 }

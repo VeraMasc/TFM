@@ -54,7 +54,7 @@ MonoBehaviour:
       value: 0
       colors: 
   speedType: 1
-  typeList: 
+  typeList: 00000000
   cost:
     costText: 1N
     value: 2

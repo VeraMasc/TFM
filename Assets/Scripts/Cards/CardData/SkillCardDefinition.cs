@@ -10,7 +10,6 @@ using UnityEngine;
 public class SkillCardDefinition : MyCardDefinition
 {
 
-    public int level;
 
     
 

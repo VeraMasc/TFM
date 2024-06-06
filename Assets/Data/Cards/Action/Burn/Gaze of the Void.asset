@@ -36,6 +36,7 @@ MonoBehaviour:
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      choiceTreePath: 
       resolutionPile: {fileID: 0}
       precalculated: 0
       mode: 0
@@ -47,7 +48,7 @@ MonoBehaviour:
       value: 0
       colors: 
   speedType: 1
-  typeList: 0700000000000000
+  typeList: 070000000500000000000000
   cost:
     costText: 1D
     value: 2
