@@ -22,7 +22,8 @@ MonoBehaviour:
   effects:
     baseEffect:
       list: []
-    abilities: []
+    abilities:
+    - rid: 8960580113523540021
     staticEffects:
       list: []
     context:
@@ -42,4 +43,61 @@ MonoBehaviour:
   typeList: 
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 8960580113523540021
+      type: {class: HiddenTriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: 
+        source: {fileID: 0}
+        effects:
+        - rid: 8960580113523540022
+        - rid: 8960580113523540023
+        isCurrentlyActive: 0
+        trigger: {fileID: 11400000, guid: cc3f20ded2a76da4e95c8be5474472d9, type: 2}
+        activeZoneList: 08000000
+        condition:
+          rid: 8960580113523540024
+    - rid: 8960580113523540022
+      type: {class: AddMana, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580113523540025
+        pips:
+          rid: 8960580113523540026
+    - rid: 8960580113523540023
+      type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
+      data:
+        message:
+          rid: 8960580113523540027
+    - rid: 8960580113523540024
+      type: {class: TurnCondition, ns: Effect.Condition, asm: Assembly-CSharp}
+      data:
+        turnOwner:
+          rid: 8960580113523540028
+    - rid: 8960580113523540025
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960580113523540026
+      type: {class: Repeat, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        times:
+          rid: 8960580113523540029
+        input:
+          rid: 8960580113523540030
+    - rid: 8960580113523540027
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: Add Mana
+    - rid: 8960580113523540028
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960580113523540029
+      type: {class: SkillLevel, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 1
+    - rid: 8960580113523540030
+      type: {class: ManaValue, ns: Effect, asm: Assembly-CSharp}
+      data:
+        mana: A

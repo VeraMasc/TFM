@@ -1192,7 +1192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: infiniteMana
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: mana.Array.size
@@ -1204,7 +1204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: ignoreRequirements
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: mana.Array.data[0].color
@@ -1970,7 +1970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: infiniteMana
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: mana.Array.size
@@ -1982,7 +1982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: ignoreRequirements
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: mana.Array.data[0].color

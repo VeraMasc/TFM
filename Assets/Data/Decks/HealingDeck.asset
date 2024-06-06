@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: HealingDeck
   m_EditorClassIdentifier: 
   cardBackArt: {fileID: 2025458771616860364, guid: 165278c9f2aab5540982b9adcb5ebc2a, type: 3}
+  deckSize: 28
   CardsetCollection:
   - card: {fileID: 11400000, guid: 4bfd20172b2f13b4f83aa00ccfc9c68a, type: 2}
     amount: 4
@@ -28,3 +29,8 @@ MonoBehaviour:
     amount: 4
   - card: {fileID: 11400000, guid: 8ec7a7db1e5ecb349a75e3dc752cd666, type: 2}
     amount: 4
+  skills:
+  - card: {fileID: 11400000, guid: c5f26e84d2b95124aa7a5eabdadfa386, type: 2}
+    level: 1
+  - card: {fileID: 11400000, guid: dac7c552c1023ca44b26aba9d62ff25f, type: 2}
+    level: 2

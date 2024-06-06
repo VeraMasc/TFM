@@ -31,29 +31,6 @@ namespace Effect.Value{
     }
 
 
-    /// <summary>
-    /// Pide al jugador un valor
-    /// </summary>
-    [Serializable]
-    public class CardCollectionChoice : CardCollection
-    {
-        public override bool isDynamic => false;
 
-        [AsRange(-20,30)]
-        public Vector2 range;
-
-
-
-
-        public virtual IEnumerator awaitUserInput(Effect.Context context){
-            //TODO: ask user for input
-            yield return null;
-        }
-
-        public IEnumerator getPlayerChoice()
-        {
-            throw new NotImplementedException();
-        }
-    }
 }
 

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using CardHouse;
 using Common.Coroutines;
 using CustomInspector;
 using UnityEngine;
@@ -56,6 +57,21 @@ namespace Effect.Value{
         }
 
      
+    }
+    /// <summary>
+    /// Nivel del Skill actual
+    /// </summary>
+    [Serializable]
+    public class SkillLevel : Numeric
+    {
+        public override int getValue(Context context){
+            if(context.self is Card card && card.data is SkillCard skill){
+                return this.value = skill.level;
+            }else{
+                Debug.LogError($"Can't get level of non skill card of type {context?.self?.GetType()}", (UnityEngine.Object)context?.self);
+            }
+            return 0;
+        }
     }
 }
 

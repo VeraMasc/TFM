@@ -81,13 +81,9 @@ MonoBehaviour:
       type: {class: Repeat, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         times:
-          rid: 8960580109122142249
+          rid: 8960580113523540000
         input:
           rid: 8960580109122142250
-    - rid: 8960580109122142249
-      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
-      data:
-        value: 1
     - rid: 8960580109122142250
       type: {class: ManaValue, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -101,3 +97,7 @@ MonoBehaviour:
       type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: Add Mana
+    - rid: 8960580113523540000
+      type: {class: SkillLevel, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 1
