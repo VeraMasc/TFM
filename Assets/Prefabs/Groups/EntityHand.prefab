@@ -282,6 +282,7 @@ MonoBehaviour:
   ForcedFacing: 0
   ForcedInteractability: 1
   compactDisplay: 0
+  displayEveryN: 4
   DragMountingMode: 0
   UseMyScale: 0
   groupScale: 1
@@ -293,6 +294,8 @@ MonoBehaviour:
   selectedScale: 1.8
   selectedHeight: 1.5
   selectedWidthFactor: 3.5
+  handProxySeparation: 0.1
+  proxies: []
 --- !u!4 &3147709442397729030 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2842246233212263736, guid: 15b2fa0757a34e74ebc87108fb6b9402, type: 3}

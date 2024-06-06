@@ -58,8 +58,9 @@ namespace CardHouse
         protected override void ApplySpacing(List<Card> cards, SeekerSetList seekerSets = null)
         {
             var width = transform.lossyScale.x * (1f - ArcMargin);
-            if(selected)
-                width *= selectedWidthFactor;
+            
+            var widthFactor = selected?selectedWidthFactor:1;
+            width *= widthFactor;
 
             var numProxies = proxies.Count;
             
@@ -67,14 +68,15 @@ namespace CardHouse
             
             var xScaleSign = Math.Sign(transform.lossyScale.x);
             var xAxis = transform.right*xScaleSign;
-            
+            var scale = selected? selectedScale:(UseMyScale ? groupScale : 1);
+
             var rootPos = selected? GameUI.singleton.handDetails.position :transform.position;
 
             float separation = 0;
             if(numProxies>0){
                 // rootPos+= (xAxis) * handProxySeparation/2;
-                separation = handProxySeparation;
-                spacing -= handProxySeparation/(cards.Count+1);
+                separation = handProxySeparation*width;
+                spacing -= handProxySeparation/(cards.Count+1)*width;
             }
             var direction = invertOrder? transform.right:-transform.right;
             
@@ -98,7 +100,7 @@ namespace CardHouse
                 var newAngle = Mathf.Atan2(newPos.y - realCenterOffset.y, newPos.x - realCenterOffset.x) * Mathf.Rad2Deg - 90;
                 cards[i].Turning.StartSeeking(newAngle, seekerSet?.Turning);
 
-                var scale = selected? selectedScale:(UseMyScale ? groupScale : 1);
+                
 
                 cards[i].Scaling.StartSeeking(scale, seekerSet?.Scaling);
 

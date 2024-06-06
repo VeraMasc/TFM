@@ -165,7 +165,8 @@ public partial class Entity
     /// <param name="amount">Cantidad de cartas a "moler"</param>
     /// <param name="returnAction">Devuelve la lista de cartas "molidas"</param>
     /// <returns></returns>
-    public IEnumerator mill(int amount,  Action<Card[]> returnAction = null){
+    [NaughtyAttributes.Button()]
+    public IEnumerator mill(int amount=1,  Action<Card[]> returnAction = null){
         var cards =deck.Get(GroupTargetType.Last, amount);
         yield return StartCoroutine(CardTransferOperator.sendCards(cards,discarded,0.75f/amount,burstSend:true));
         coReturn(returnAction, cards.ToArray());
