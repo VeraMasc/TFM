@@ -86,5 +86,19 @@ namespace Effect{
         public override IEnumerable<GroupName> activeZones{
             get=> activeZoneList;
         }
+
+        public override IEnumerator activateAbility(Entity activator){
+            //TODO: abilities with owner different than controller
+           
+            var context = new Context(source, activator, source.ownership?.owner);
+
+            if(cost?.canBePaid(context) == false)
+                yield break;
+            
+            if(source.data is MyCardSetup setup){
+                setup.effects.paidCost = cost;
+            }
+            yield return UCoroutine.Yield(executeAbility(context));
+        }
     }
 }

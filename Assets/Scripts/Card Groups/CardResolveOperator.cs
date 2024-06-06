@@ -266,6 +266,7 @@ public class CardResolveOperator : Activatable
                 yield break;
             }
             else if( setup is  ActionCard action){
+                action.effects.paidCost =action.cost;
                 //Mirar si se puede lanzar de forma normal
                 if(action.checkIfCastable(action.effects.context.controller)){
                     StartCoroutine(castCard(card));
