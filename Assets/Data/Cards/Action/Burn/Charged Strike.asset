@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: Charged Strike
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Charged Strike
+  rawText: 'Deal 5 damage to target entity
+
+
+    {Prophesy: Prophesy {M}{F}}'
+  parsedText: 'Deal 5 damage to target entity
+
+
+    <link="Prophesy">Prophesy <sprite
+    name="M"><sprite name="F"></link>'
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  effects:
+    baseEffect:
+      list:
+      - rid: 8960580108188385365
+      - rid: 8960580108188385368
+    abilities:
+    - rid: 8960580105401008129
+    staticEffects:
+      list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      choiceTreePath: 
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+    entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 0
+  typeList: 01000000
+  cost:
+    costText: 1MMM
+    value: 4
+    colors: M
+  references:
+    version: 2
+    RefIds:
+    - rid: 8960580105401008129
+      type: {class: PresetAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: 
+        source: {fileID: 0}
+        effects: []
+        isCurrentlyActive: 0
+        presets:
+        - rid: 8960580106641997826
+    - rid: 8960580106641997826
+      type: {class: Prophesy, ns: Effect.Preset, asm: Assembly-CSharp}
+      data:
+        cost:
+          rid: 8960580106641997827
+    - rid: 8960580106641997827
+      type: {class: ManaValue, ns: Effect, asm: Assembly-CSharp}
+      data:
+        mana: MF
+    - rid: 8960580108188385365
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8960580108188385366
+    - rid: 8960580108188385366
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580108188385367
+    - rid: 8960580108188385367
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 4
+    - rid: 8960580108188385368
+      type: {class: DealDamage, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580108188385369
+        amount:
+          rid: 8960580108188385370
+    - rid: 8960580108188385369
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8960580108188385370
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 5

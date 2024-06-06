@@ -20,8 +20,9 @@ public class AbilityModifier : BaseModifier
 
 
     public virtual void onAbilityTrigger(Ability ability, Context context){
-        Debug.Log("onAbilityTrigger");
-        if(ability.id == "removeSelf"){
+        // Debug.Log($"onAbilityTrigger {ability?.id}");
+        if(ability?.id.StartsWith("removeSelf") == true){
+            Debug.Log("Remove Modifier");
             removeSelf();
         }
     }
@@ -51,23 +52,24 @@ public class TemporaryAbilityModifier : AbilityModifier
 
     public TemporaryAbilityModifier(){
         if(abilities?.Any() != true){
-            var selfDestruct = new HiddenTriggeredAbility(){
-            id="removeSelf",
-            effects = new(),
-            
-            };
-        
-
-            
-            
-            abilities = new(){
-                selfDestruct
-            };
+            addSelfDestruct();
         }
         
         
     }
 
+    public TemporaryAbilityModifier addSelfDestruct(){
+        var selfDestruct = new HiddenTriggeredAbility(){
+            id="removeSelf",
+            effects = new(),
+            activeZoneList = new List<GroupName>(){GroupName.None},
+            modifier = this,
+        };
+
+        abilities ??= new List<Ability>();
+        abilities.Add(selfDestruct);
+        return this;
+    }
     
 }
 

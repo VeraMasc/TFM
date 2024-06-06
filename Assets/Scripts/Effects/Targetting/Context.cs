@@ -57,14 +57,15 @@ namespace Effect{
             return choiceTreePath.Last();
         }
 
-        public void choiceTreeDeepen(int parentIndex){
-            choiceTreePath[choiceTreePath.Count-1] = parentIndex;
+        public void choiceTreeDeepen(){
             choiceTreePath.Add(0);
+            Debug.Log(string.Join(", ",choiceTreePath));
         }
 
         public int choiceTreePop(){
             var val = choiceTreePath[choiceTreePath.Count-1];
             choiceTreePath.RemoveAt(choiceTreePath.Count-1);
+            choiceTreePath[choiceTreePath.Count-1]++;
             return val;
         }
 

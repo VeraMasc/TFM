@@ -43,9 +43,9 @@ namespace Effect{
         public virtual IEnumerator executeAbility(Context context){
             var self = context.self;
             if(self is Card card){
-                modifier?.onAbilityTrigger(this,context);
                 var routine =CardResolveOperator.singleton.triggerAbilityEffect(card, this, useActiveTriggers, context?.controller);
                 yield return routine.Start(card);
+                modifier?.onAbilityTrigger(this,context);
             }
             else{
                 Debug.LogError("Can't generate trigger from non-card");
@@ -137,10 +137,10 @@ namespace Effect{
 
         public override IEnumerator executeAbility(Context context){
             var inputVal = context.previousValues?.FirstOrDefault();
-            Debug.Log(context.previousValues.Count);
+            // Debug.Log(context.previousValues.Count);
             if(condition?.check(inputVal,context)==false)
                 yield break;//Salir si no se cumple la condición
-            Debug.Log("Condition passed");
+            // Debug.Log("Condition passed");
             yield return UCoroutine.Yield(base.executeAbility(context));
         }
 
@@ -171,12 +171,16 @@ namespace Effect{
         /// Ejecuta los efectos de la habilidad sin crear trigger
         /// </summary>
         public override IEnumerator executeAbility(Context context){
-            var chain = EffectChain.cloneFrom(effects);
+            var inputVal = context.previousValues?.FirstOrDefault();
+            if(condition?.check(inputVal,context)==false)
+                yield break;//Salir si no se cumple la condición
             
-            modifier?.onAbilityTrigger(this,context);
+
+            var chain = EffectChain.cloneFrom(effects);
             foreach(var effect in chain.list){
                 yield return UCoroutine.Yield(effect.execute(CardResolveOperator.singleton,context));
             }
+            modifier?.onAbilityTrigger(this,context);
         }
     }
 

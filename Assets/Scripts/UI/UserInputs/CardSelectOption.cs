@@ -202,6 +202,8 @@ public static class ExtendTMPLinks{
         return new Regex(@$"<alpha=#.{{1,2}}>\[\s*<link=""{escapedId}"">(.*?)</link>]<alpha=#.{{1,2}}>",RegexOptions.Singleline);
     } 
     public static string getRawLinkText(this TMP_LinkInfo link){
+        if(link.textComponent == null)
+            return "";
         var id = link.GetLinkID();
         var match = getlinkPattern(id).Match(link.textComponent.text);
 
@@ -209,9 +211,12 @@ public static class ExtendTMPLinks{
     }
 
     public static string graftLinkText(this TMP_LinkInfo link, string text = ""){
+        
         var id = link.GetLinkID();
         if(text == string.Empty)
             text = link.textComponent.text;
+        if(link.textComponent == null)
+            return text;
         var replaced = getGraftPattern(id).Replace(text,@"<color=#005500>[$1]</color>");
 
         return replaced;

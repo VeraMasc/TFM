@@ -30,7 +30,6 @@ MonoBehaviour:
     baseEffect:
       list:
       - rid: 8129478013255417868
-      - rid: 8129478014803116032
       - rid: 8129478015182176256
     abilities:
     - rid: 8129478436797546507
@@ -39,6 +38,7 @@ MonoBehaviour:
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      choiceTreePath: 
       resolutionPile: {fileID: 0}
       precalculated: 0
       mode: 0
@@ -65,6 +65,7 @@ MonoBehaviour:
       data:
         effects:
         - rid: 8129478013255417871
+        - rid: 8960580105401008132
     - rid: 8129478013255417871
       type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -81,21 +82,6 @@ MonoBehaviour:
       type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         contextual: 0
-    - rid: 8129478014803116032
-      type: {class: Discard, ns: Effect, asm: Assembly-CSharp}
-      data:
-        targeter:
-          rid: 8129478014803116033
-        cards:
-          rid: 8129478014803116034
-    - rid: 8129478014803116033
-      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
-      data:
-        contextual: 0
-    - rid: 8129478014803116034
-      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
-      data:
-        index: 1
     - rid: 8129478015182176256
       type: {class: Draw, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -147,3 +133,18 @@ MonoBehaviour:
         modified: {fileID: 0}
         singleUse: 1
         sendTo: 2
+    - rid: 8960580105401008132
+      type: {class: Discard, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580105401008133
+        cards:
+          rid: 8960580105401008134
+    - rid: 8960580105401008133
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960580105401008134
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 1

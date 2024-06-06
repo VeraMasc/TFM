@@ -65,6 +65,7 @@ namespace Effect
                 var group = ((Card)targets.FirstOrDefault())?.Group;
                 if(group is CompactCardGroup && targets.Cast<Card>().All(t => t.Group == group)){
                     GameUI.setFocus(group);
+                    group.ApplyStrategy();
                 }
             }
         }

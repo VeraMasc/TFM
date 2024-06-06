@@ -16,6 +16,8 @@ namespace Effect.Condition{
 
         public override bool check(object inputs, Context context){
             var targets = turnOwner.getTargets(context);
+
+            Debug.Log(String.Join(", ", targets.Cast<Component>()));
             if(CombatController.singleton && targets!=null){
                 return targets.Contains(CombatController.singleton.currentTurn);
             }

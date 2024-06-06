@@ -46,15 +46,37 @@ namespace Effect{
             /// </summary>
             /// <param name="card"></param>
             public virtual void applyTo(Card card, Context context){
+                if( card.data is ActionCard action){
 
+                    var ability =  getAbility(action, context);
+
+                    //Crea el modificador
+                    var modifier = new AbilityModifier(){
+                        abilities = new(){
+                           ability
+                        }
+                    };
+                    
+                    
+                    CardModifiers.addModifier(card,modifier);
+                }
             }
 
             /// <summary>
             /// Aplica el preset en forma de habilidad SI PUEDE!!!
             /// </summary>
             public virtual void applyAsAbility(Card card, Context context){
-
+                if( card.data is ActionCard action){
+                    var ability =  getAbility(action, context);
+                    if(ability != null)
+                        action.effects.abilities.Add(ability);
+                }
             }
+
+            public virtual Ability getAbility(MyCardSetup setup,Context context){
+                return null;
+            }
+
         }
 
 
@@ -66,7 +88,7 @@ namespace Effect{
             [SerializeReference,SubclassSelector]
             public IValue cost = new ManaValue();
 
-            protected Ability getAbility(ActionCard action,Context context){
+            public override Ability getAbility(MyCardSetup setup,Context context){
 
                 BaseModifier exileMod =new ForceZoneModifier(){    
                         sendTo = GroupName.Exile,
@@ -74,10 +96,12 @@ namespace Effect{
 
                     };
                 var mana = (List<Mana>)cost?.getValueObj(context);
+                var speed = setup is ActionCard action? action.speedType: SpeedTypes.Action;
+
                 return new ZoneCastAbility(){
                                 id = "overdo",
                                 cost = new ManaCost(mana),
-                                speed = action.speedType,
+                                speed = speed,
                                 activeZoneList = new List<GroupName>(){GroupName.Discard},
                                 //Fuerza al exilio tras usarlo
                                 effects = new List<EffectScript>{
@@ -109,16 +133,6 @@ namespace Effect{
                 }
             }
 
-            public override void applyAsAbility(Card card, Context context)
-            {
-                if( card.data is ActionCard action){
-
-                    // Debug.Log($"Apply to {card}");
-
-                    var zoneCast =  getAbility(action, context);
-                    action.effects.abilities.Add(zoneCast);
-                }
-            }
         }
 
         
@@ -130,7 +144,7 @@ namespace Effect{
             [SerializeReference,SubclassSelector]
             public IValue cost = new ManaValue();
 
-            protected Ability getAbility(ActionCard action,Context context){
+            public override  Ability getAbility(MyCardSetup setup,Context context){
 
                 var mana = (List<Mana>)cost?.getValueObj(context);
                 return new ActivatedZoneAbility(){
@@ -146,43 +160,71 @@ namespace Effect{
                                 }
                             };
             }
-            public override void applyTo(Card card, Context context){
-                if( card.data is ActionCard action){
+            
 
-                    var ability =  getAbility(action, context);
-
-                    //Crea el modificador de cast
-                    var castmodifier = new AbilityModifier(){
-                        abilities = new(){
-                           ability
-                        }
-                    };
-                    
-                    
-                    CardModifiers.addModifier(card,castmodifier);
-                }
-            }
-
-            public override void applyAsAbility(Card card, Context context)
-            {
-                if( card.data is ActionCard action){
-
-                    Debug.Log($"Apply to {card}");
-
-                    var zoneCast =  getAbility(action, context);
-                    action.effects.abilities.Add(zoneCast);
-                }
-            }
         }
 
         [Serializable]
-        public class Prophecise:ModifierPreset{
+        public class Prophesy:ModifierPreset{
             [SerializeReference,SubclassSelector]
             public IValue cost = new ManaValue();
 
-            public override void applyTo(Card card,Context context){
 
+            public override Ability getAbility(MyCardSetup setup,Context context){
+                var speed = setup is ActionCard action? action.speedType: SpeedTypes.Action;
+                var enabler = new HiddenTriggeredAbility(){
+                    id = "removeSelf",
+                    activeZoneList= new List<GroupName>(){GroupName.Lost},
+                    condition = new Effect.Condition.TurnCondition(){
+                        turnOwner = new ContextualEntityTargeter(ContextualEntityTargets.controller),
+                    },
+                    trigger = TriggerManager.instance.beforeBeginTurn,
+                    effects = new List<EffectScript>{
+                        new Effect.AddModifier(){
+                            targeter = new ContextualObjectTargeter(ContextualObjTargets.self),
+                            modifiers = new List<BaseModifier>{
+                                new AbilityModifier(){
+                                    abilities = new List<Ability>(){
+                                        new ZoneCastAbility(){
+                                            activeZoneList = new List<GroupName>(){GroupName.Lost},
+                                            cost = new ManaCost("1"),
+                                            speed = speed,
+
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                    }
+                };
+                var mana = (List<Mana>)cost?.getValueObj(context);
+                var ability = new ActivatedZoneAbility(){
+                    cost = new ManaCost(mana),
+                    id= "Prophesy",
+                    activeZoneList = new List<GroupName>{GroupName.Hand},
+                    effects= new List<EffectScript>(){
+                        new SendTo(){
+                            targeter = new ContextualObjectTargeter(ContextualObjTargets.self),
+                            zone = GroupName.Lost,
+                        },
+                        new Effect.AddModifier(){
+                            targeter = new ContextualObjectTargeter(ContextualObjTargets.self),
+                            modifiers = new List<BaseModifier>{
+                                new TemporaryAbilityModifier(){
+                                    abilities = new List<Ability>(){
+                                        enabler,
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+                return ability;
+                
             }
+
+
+        
         }
 
         [Serializable]

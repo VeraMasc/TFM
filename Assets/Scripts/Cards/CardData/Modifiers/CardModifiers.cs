@@ -38,7 +38,7 @@ public class CardModifiers : MonoBehaviour
         holder?.modifiers?.Remove(modifier);
 
         //Eliminar holder si queda vacío
-        if(holder.modifiers.Count ==0){
+        if(holder?.modifiers?.Count ==0){
             Destroy(holder);
         }
     }

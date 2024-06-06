@@ -106,7 +106,42 @@ public abstract class EffectTargeter
 
 
 namespace Effect{
-    
+
+    /// <summary>
+    /// Permite hacer target directamente a una entidad concreta
+    ///! NO FUNCIONA EN SCRIPTABLE OBJECTS, SOLO EN INSTANCIAS
+    /// </summary>
+    [Serializable]
+    public class ExplicitTargeter : EffectTargeter, IValue
+    {
+        public List<GameObject> values = new();
+        public ExplicitTargeter(){
+
+        }
+
+        public ExplicitTargeter(IEnumerable<ITargetable> collection){
+            values = collection
+                .Select(t => t.GetComponent<GameObject>())
+                .ToList();
+        }
+        public ExplicitTargeter(ITargetable targetable){
+            values = new(){
+                targetable.GetComponent<GameObject>()
+            };
+        }
+        public object getValueObj(Context context)
+        {
+            resolveTarget(context);
+            return _targets;
+        }
+
+        public override void resolveTarget(Effect.Context context){
+            _targets = values.Select(g => g.GetComponent<ITargetable>())
+            .Where(t => t!= null)
+            .ToArray();
+        }
+    }
+
     [Serializable]
     public class ContextualObjectTargeter:EffectTargeter, IValue
     {
@@ -158,6 +193,12 @@ namespace Effect{
     public class ContextualEntityTargeter:EffectTargeter,IValue
     {
         public ContextualEntityTargets contextual;
+
+        public ContextualEntityTargeter(){}
+
+        public ContextualEntityTargeter(ContextualEntityTargets ctx){
+            contextual = ctx;
+        }
 
         public object getValueObj(Context context)
         {

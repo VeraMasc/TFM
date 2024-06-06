@@ -45,7 +45,7 @@ namespace Effect
                 int index=0;
                 foreach(var mode in modes){
                     if(chosen.Contains(index)){
-                        context.choiceTreeDeepen(index);
+                        context.choiceTreeDeepen();
                         yield return UCoroutine.Yield(Precalculate.precalculateEffects(mode.effects,context));
                         context.choiceTreePop();
                     }
@@ -88,7 +88,7 @@ namespace Effect
                 if(chosen.Contains(index)){
                     foreach(var effect in mode.effects){
                         
-                        Debug.Log(string.Join(", ",context.choiceTreePath));
+                       
                         yield return UCoroutine.Yield(effect.execute(stack,context));
                         
                     }

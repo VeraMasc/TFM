@@ -50,7 +50,7 @@ public class MyCardDefinition : CardDefinition
         parsedText = parseCardText(rawText,this);
 
         //Validate abilities
-        effects.abilities.ForEach(a => a.validateValues());
+        effects.abilities.ForEach(a => a?.validateValues());
         
     }
 

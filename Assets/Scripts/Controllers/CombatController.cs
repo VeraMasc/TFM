@@ -199,6 +199,8 @@ public class CombatController : GameMode
 	/// <returns></returns>
 	public IEnumerator startPhase(){
 		yield return StartCoroutine(triggerManager.onBeginTurn.invoke());
+		//End coroutine
+		phaseCoroutine = null;
 	}
 
 	/// <summary>
@@ -206,6 +208,8 @@ public class CombatController : GameMode
 	/// </summary>
 	public IEnumerator endPhase(){
 		yield return StartCoroutine(triggerManager.onEndTurn.invoke());
+		//End coroutine
+		phaseCoroutine = null;
 	}
 
 
@@ -216,7 +220,10 @@ public class CombatController : GameMode
 	public IEnumerator cleanupPhase(){
 		yield return StartCoroutine(currentTurn.enforceHandSize());
 		yield return CardResolveOperator.singleton.waitTillEmpty;
+		//End coroutine
+		phaseCoroutine = null;
 		nextPhase();
+		
 	}
 
 	public override void getPriorityOrder(){

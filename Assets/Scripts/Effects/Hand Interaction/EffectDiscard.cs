@@ -10,7 +10,7 @@ using System.Collections.Generic;
 namespace Effect
 {
     [Serializable]
-    public class Discard : Targeted, ICost
+    public class Discard : Targeted, ICost, IValueEffect
     {
         /// <summary>
         /// Cartas a descartar

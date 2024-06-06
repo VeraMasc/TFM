@@ -51,6 +51,11 @@ namespace Effect{
             parseCost();
         }
 
+        public ManaCost(string text){
+            costText = text;
+            parseCost();
+        }
+
         [NonSerialized]
         public List<Mana> pips = new();
 
