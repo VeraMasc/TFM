@@ -13,21 +13,23 @@ MonoBehaviour:
   m_Name: Brilliant Mind
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
-  cardName: 
-  rawText: 
-  parsedText: 
+  cardName: Brilliant Mind
+  rawText: You get {Lv} {W} each turn.
+  parsedText: You get {Lv} <sprite name="W"> each turn.
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   effects:
     baseEffect:
       list: []
-    abilities: []
+    abilities:
+    - rid: 8960580109122142234
     staticEffects:
       list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      choiceTreePath: 
       resolutionPile: {fileID: 0}
       precalculated: 0
       mode: 0
@@ -38,8 +40,64 @@ MonoBehaviour:
       costText: 
       value: 0
       colors: 
-  level: 0
   typeList: 
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 8960580109122142234
+      type: {class: HiddenTriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: 
+        source: {fileID: 0}
+        effects:
+        - rid: 8960580109122142244
+        - rid: 8960580109122142251
+        isCurrentlyActive: 0
+        trigger: {fileID: 11400000, guid: cc3f20ded2a76da4e95c8be5474472d9, type: 2}
+        activeZoneList: 08000000
+        condition:
+          rid: 8960580109122142235
+    - rid: 8960580109122142235
+      type: {class: TurnCondition, ns: Effect.Condition, asm: Assembly-CSharp}
+      data:
+        turnOwner:
+          rid: 8960580109122142236
+    - rid: 8960580109122142236
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960580109122142244
+      type: {class: AddMana, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580109122142246
+        pips:
+          rid: 8960580109122142247
+    - rid: 8960580109122142246
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960580109122142247
+      type: {class: Repeat, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        times:
+          rid: 8960580109122142249
+        input:
+          rid: 8960580109122142250
+    - rid: 8960580109122142249
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 1
+    - rid: 8960580109122142250
+      type: {class: ManaValue, ns: Effect, asm: Assembly-CSharp}
+      data:
+        mana: W
+    - rid: 8960580109122142251
+      type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
+      data:
+        message:
+          rid: 8960580109122142252
+    - rid: 8960580109122142252
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: Add Mana

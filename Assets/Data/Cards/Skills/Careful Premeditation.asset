@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Careful Premeditation
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
-  cardName: 
-  rawText: 
-  parsedText: 
+  cardName: Careful Premeditation
+  rawText: You get {Lv} {F} each turn.
+  parsedText: You get {Lv} <sprite name="F"> each turn.
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -28,6 +28,7 @@ MonoBehaviour:
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      choiceTreePath: 
       resolutionPile: {fileID: 0}
       precalculated: 0
       mode: 0
@@ -38,7 +39,6 @@ MonoBehaviour:
       costText: 
       value: 0
       colors: 
-  level: 0
   typeList: 
   references:
     version: 2

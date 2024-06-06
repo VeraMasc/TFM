@@ -56,12 +56,7 @@ namespace Effect{
         {
             //TODO: Delayed Trigger
             throw new NotImplementedException();
-            // if(context.self is Card card){
-            //     var routine =CardResolveOperator.singleton.triggerEffect(card,EffectChain.cloneFrom(trigger));
-            //     yield return UCoroutine.Yield(routine);
-            // } 
             
-            yield break;
         }
 
 

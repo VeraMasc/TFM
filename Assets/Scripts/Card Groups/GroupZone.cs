@@ -44,6 +44,8 @@ public class GroupZone : MonoBehaviour
                 break;
             case GroupName.Stack:
                 break;
+            case GroupName.Skills:
+                break;
             case GroupName.None:
                 break;
             default: 

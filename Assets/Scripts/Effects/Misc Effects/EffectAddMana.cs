@@ -25,7 +25,7 @@ namespace Effect{
             if(target is Entity entity ){
                 var val = pips.getValueObj(context);
                 Debug.Log(val);
-                if( val is ICollection<Mana> collection)
+                if( val is IEnumerable<Mana> collection)
                 {
                     
                     entity.mana.pips.AddRange(collection);

@@ -228,6 +228,29 @@ public partial class Entity : MonoBehaviour, ITargetable
         //TODO: Cambiar lo que hace según si es modo combate o exploración
 
         StartCoroutine(DeckSetup.setupDeck(data.decklist, deck, this));
+
+
+        //TODO: Poner la creación de cartas de skills en un método aparte
+        var creator = GameController.singleton.creationManager;
+        var list = new List<Card>();
+        foreach(var skill in data.decklist.skills){
+            if(skill.card == null)
+                continue;
+            var card = creator.create(skill.card, skills.transform.position);
+            var ownership = card.ownership;
+            ownership.controller=ownership.owner=this;
+            card.GetComponent<SkillCard>()?.applyLevel(skill.level);
+            list.Add(card);
+            
+        }
+        UCoroutine.YieldAwait(new WaitForEndOfFrame())
+            .Then(()=>{
+                foreach(var card in list){
+                    skills.Mount(card);
+                }
+                
+            }).Start(this);
+        
     }
 }
 

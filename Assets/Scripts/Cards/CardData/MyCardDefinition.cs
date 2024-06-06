@@ -70,7 +70,7 @@ public class MyCardDefinition : CardDefinition
         parsed = parseCost(parsed);
         
         //Replace links
-        parsed = Regex.Replace(parsed,@"\{(?:(\S+?):\s*)?(.*?)\}", "<link=\"$1\">$2</link>");
+        parsed = Regex.Replace(parsed,@"\{(?:(\S*?):\s*)(.*?)\}", "<link=\"$1\">$2</link>");
         
 
         // Replace symbols

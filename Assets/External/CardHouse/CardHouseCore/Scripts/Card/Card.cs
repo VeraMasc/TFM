@@ -262,11 +262,11 @@ namespace CardHouse
                 
                 
                 //Si ha cambiado de zona...
-                if(zone.zone != setup.effects.sourceZone){
-                    if(zone.zone != GroupName.Board)
+                if(zone?.zone != setup?.effects?.sourceZone){
+                    if(zone?.zone != GroupName.Board)
                         CounterHolder.getHolder(this)?.clear(); ///Clear counters
                     
-                    if(zone.zone == GroupName.Stack){
+                    if(zone?.zone == GroupName.Stack){
                         afterAnimation = afterAnimation
                             .Then(CardResolveOperator.singleton.precalculateCard(this));
                     }

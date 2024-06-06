@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 
@@ -10,13 +11,16 @@ using UnityEngine;
 public class SkillCardDefinition : MyCardDefinition
 {
 
-
-    
-
     [SerializeField]
-    public List<ActionSubtypes> typeList;
+    public List<SkillTypes> typeList;
 
+   
 
+    public static string parseCardLevel(string raw, int level){
+        var parsed = raw;
+        parsed = Regex.Replace(parsed,@"{[Ll][Vv]}",level.ToString());
+        return parsed;
+    }
     
 }
 

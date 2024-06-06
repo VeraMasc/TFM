@@ -17,6 +17,9 @@ public class CardCreationManager : ScriptableObject
     public ActionCard actionPrefab;
 
     [AssetsOnly]
+    public SkillCard skillPrefab;
+
+    [AssetsOnly]
     public RoomCard roomPrefab;
 
     [AssetsOnly]
@@ -117,6 +120,9 @@ public class CardCreationManager : ScriptableObject
 
             case ActionCardDefinition:
                 return actionPrefab;
+
+            case SkillCardDefinition:
+                return skillPrefab;
 
             case ContentCardDefinition:
                 return contentPrefab;

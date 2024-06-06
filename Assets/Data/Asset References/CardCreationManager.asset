@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CardCreationManager
   m_EditorClassIdentifier: 
   actionPrefab: {fileID: 5556669140430897052, guid: 693bcb068c4f97a4e85d3f3c745cb0fe, type: 3}
+  skillPrefab: {fileID: 2420760854813156480, guid: 6350293266c4bde4fb4c8e11f68b3f3c, type: 3}
   roomPrefab: {fileID: 7566081132846205207, guid: 68ee0ccc2801f714984a492fae9ed02e, type: 3}
   contentPrefab: {fileID: 8698658893030579379, guid: 3432839a18d69ea4f81cbe943920a55c, type: 3}
   proxyPrefab: {fileID: 894912001266375727, guid: 57ad54921f564db4d93d06b513537d6f, type: 3}
