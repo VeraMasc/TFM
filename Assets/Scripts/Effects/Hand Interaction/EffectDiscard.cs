@@ -60,7 +60,11 @@ namespace Effect
 
             if(entity.AI == null){
                 entity.trySelectPlayer();
-                yield return UCoroutine.Yield(ChooseSeveralFrom.amountChoice(cards,amount, (value)=> {chosen=value;},false));
+                yield return UCoroutine.Yield(ChooseSeveralFrom.amountChoice(cards,amount, (value)=> {chosen=value;},
+                new InputParameters{
+                    canCancel = false,
+                    text = $"Discard {amount}",
+                }));
             }
             else{
                 chosen = entity.AI.rejectTargets(cards, new ChoiceInfo(){

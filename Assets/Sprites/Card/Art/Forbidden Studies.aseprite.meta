@@ -159,6 +159,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 41}
+  - name: Forbidden Studies_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.13793103}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 78
+      width: 40
+      height: 29
+    spriteID: f390f2926aa83cc4c9e8ee79887d7f32
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 78}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -184,6 +204,14 @@ ScriptedImporter:
         width: 40
         height: 29
       spriteId: 11637e04e57661949b4b6482ce1f648e
+    - name: Forbidden Studies_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 4
+        y: 29
+        width: 40
+        height: 29
+      spriteId: f390f2926aa83cc4c9e8ee79887d7f32
     linkedCells: []
     parentIndex: -1
   platformSettings:

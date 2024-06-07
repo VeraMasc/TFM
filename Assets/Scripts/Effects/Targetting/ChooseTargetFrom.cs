@@ -24,7 +24,8 @@ namespace Effect{
                 focusActiveCards(targets);
                 
                 var config = new InputParameters(){
-                    context=context
+                    context=context,
+                    text = "Choose one"
                 };
                 GameUI.singleton.possibleTargets= targets.ToArray();
                 //Get player inputs

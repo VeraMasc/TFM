@@ -29,5 +29,13 @@ namespace Effect.Condition{
             Debug.LogError($"Type {inputs?.GetType()} not accepted in condition{this.GetType().Name}");
             return false;
         }
+        
+
+        public override string desctiption(Context context){
+            if(min == 0)
+                return $"up to {max}";
+
+            return $"between {min} and {max}";
+        }
     }
 }

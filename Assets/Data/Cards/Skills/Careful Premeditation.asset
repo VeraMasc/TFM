@@ -40,7 +40,7 @@ MonoBehaviour:
       costText: 
       value: 0
       colors: 
-  typeList: 
+  typeList: 00000000
   references:
     version: 2
     RefIds:

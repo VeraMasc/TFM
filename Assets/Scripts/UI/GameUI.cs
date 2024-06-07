@@ -187,18 +187,22 @@ public class GameUI : MonoBehaviour
         possibleTargets = targetables;
         chosenTargets = new();
 
-        //Highlight options
-        foreach(var target in possibleTargets){
-            if(target?.outlineRenderer){
-                target.outlineRenderer.gameObject.SetActive(true);
-            }
-        }
+        
         
         //Crea la interfaz de confirmación
         var instance = Instantiate(prefabs.confirmationInput, userInputRoot);
         activeUserInput = instance;
+        if(config!=null)
+            instance.setInputConfig(config);
         do{
             activeUserInput.isFinished = false;
+
+            //Highlight options
+            foreach(var target in possibleTargets){
+                if(target?.outlineRenderer){
+                    target.outlineRenderer.gameObject.SetActive(true);
+                }
+            }
 
             if(autoAccept){
                 //Espera al primer valor válido

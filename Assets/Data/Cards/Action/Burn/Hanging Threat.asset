@@ -44,6 +44,7 @@ MonoBehaviour:
       - rid: 8960579997607133460
       - rid: 8960579997607133478
       - rid: 8960579997607133461
+      - rid: 8960580130032844800
       - rid: 8960579997607133470
       - rid: 8960579997607133483
     abilities:
@@ -54,6 +55,7 @@ MonoBehaviour:
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      choiceTreePath: 
       resolutionPile: {fileID: 0}
       precalculated: 0
       mode: 0
@@ -201,3 +203,21 @@ MonoBehaviour:
       type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: DURATION ENDED
+    - rid: 8960580130032844800
+      type: {class: NumericOperation, ns: Effect, asm: Assembly-CSharp}
+      data:
+        A:
+          rid: 8960580130032844801
+        B:
+          rid: 8960580130032844802
+        operation: 2
+    - rid: 8960580130032844801
+      type: {class: ReuseNumeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 0
+        index: 0
+        destructive: 0
+    - rid: 8960580130032844802
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 2

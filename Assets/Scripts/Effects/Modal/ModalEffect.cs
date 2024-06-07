@@ -37,7 +37,8 @@ namespace Effect
             yield return UCoroutine.Yield(GameUI.singleton.getInput(GameUI.singleton.prefabs.cardSelectInput, 
                 obj => {chosen = (List<int>)obj;},
                 new InputParameters{ values= (object[])modeSettings, context=context,
-                    extraConfig = new CardSelectInput.ExtraInputOptions(){maxChoices=maxChoices}
+                    extraConfig = new CardSelectInput.ExtraInputOptions(){maxChoices=maxChoices},
+                    text = $"Choose {maxChoices} modes",
                 }));
 
             //Precalculate chosen modes
@@ -111,7 +112,8 @@ namespace Effect
                     ret = (List<int>)obj;
                 },
                 new InputParameters{ values= (object[])modeSettings, 
-                    context= newContext
+                    context= newContext,
+                    text = $"Select how to use",
                 }));
                 
                 //Quitar outline al acabar
@@ -153,7 +155,8 @@ namespace Effect
             yield return UCoroutine.Yield(GameUI.singleton.getInput(GameUI.singleton.prefabs.cardSelectInput, 
                 obj => {chosen = (List<int>)obj;},
                 new InputParameters{ values= (object[])modeSettings, context=context,
-                    extraConfig = new CardSelectInput.ExtraInputOptions(){maxChoices=maxChoices}
+                    extraConfig = new CardSelectInput.ExtraInputOptions(){maxChoices=maxChoices},
+                    text = $"Select ability to activate",
                 }));
 
             //Precalculate chosen modes

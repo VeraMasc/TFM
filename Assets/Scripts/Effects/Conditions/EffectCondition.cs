@@ -14,5 +14,10 @@ namespace Effect{
         public virtual bool check(object inputs, Context context){
             throw new NotImplementedException();
         }
+
+        /// <summary>
+        /// Describe que es lo que hace la condición
+        /// </summary>
+        public virtual string desctiption(Context context) =>"";
     }
 }

@@ -17,14 +17,14 @@ MonoBehaviour:
   rawText: 'When you draw one or more cards, ~ gets a charge counter.
 
 
-    5 charge:
-    Deal 4 damage to target entity'
+    {ability:
+    {W}, 5 charge: Deal 4 damage to target entity}'
   parsedText: 'When you draw one or more cards, Psychic Discharge gets a charge counter.
 
 
-    5
-    charge: Deal 4 damage to target entity'
-  Art: {fileID: 0}
+    <link="ability"><sprite
+    name="W">, 5 charge: Deal 4 damage to target entity</link>'
+  Art: {fileID: 5170309795035857459, guid: 91966cd60d28df14bb3a3a8c92d955ab, type: 3}
   Frame: {fileID: 0}
   help: []
   effects:
@@ -52,9 +52,9 @@ MonoBehaviour:
   speedType: 0
   typeList: 0500000006000000
   cost:
-    costText: 
-    value: 0
-    colors: 
+    costText: W
+    value: 1
+    colors: W
   references:
     version: 2
     RefIds:

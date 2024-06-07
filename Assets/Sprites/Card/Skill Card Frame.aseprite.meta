@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c098e1a924a8fc14c890d4c2462c1374
+guid: 8c5eadcf5ad82964db7fc9d5e58fa07b
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -32,7 +32,7 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 0
+    spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
     spritePixelsToUnits: 48
@@ -73,7 +73,7 @@ ScriptedImporter:
   previousAsepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
-    layerImportMode: 1
+    layerImportMode: 0
     defaultPivotSpace: 0
     defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -85,7 +85,7 @@ ScriptedImporter:
   asepriteImporterSettings:
     fileImportMode: 1
     importHiddenLayers: 0
-    layerImportMode: 1
+    layerImportMode: 0
     defaultPivotSpace: 0
     defaultPivotAlignment: 0
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 0
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638533595179316850
+  platformSettingsDirtyTick: 638533615477139443
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Crazed Clawing_Frame_0
+  - name: Layer 1
     originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
+    pivot: {x: 0.5, y: 0.47222224}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 40
-      height: 29
-    spriteID: cec68930acd5a654bb7bd1546bd8dfe9
+      width: 48
+      height: 72
+    spriteID: 3d481909593d7644b809f59675e287e1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,18 +139,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Crazed Clawing_Frame_1
+  - name: SubtypeBox
     originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
+    pivot: {x: 0.33333334, y: 0.8333332}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 41
-      width: 40
-      height: 29
-    spriteID: eb63b8ee9186cd54fa96c1c271021e6a
+      y: 104
+      width: 33
+      height: 6
+    spriteID: 3a27d55c83242b8449775ea28e2dab8b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -158,19 +158,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 41}
-  - name: Crazed Clawing_Frame_2
+    uvTransform: {x: 4, y: 104}
+  - name: TypeBox_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
+    pivot: {x: 1.4117647, y: 0.66666657}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 78
-      width: 40
-      height: 29
-    spriteID: 6ffe697490cd68a45b0ef65c687f2827
+      y: 84
+      width: 17
+      height: 12
+    spriteID: 099bfb4f4a370f443a57cbad6fb1d9df
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -178,19 +178,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 78}
-  - name: Crazed Clawing_Frame_3
+    uvTransform: {x: 4, y: 84}
+  - name: TypeBox_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
+    pivot: {x: 1.5, y: 0.8333332}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 115
-      width: 40
-      height: 29
-    spriteID: f790f746f7003334db540017e600f2d6
+      x: 29
+      y: 84
+      width: 16
+      height: 6
+    spriteID: 505be4ecef24bb14e96efce742ce6255
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -198,59 +198,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 115}
-  - name: Crazed Clawing_Frame_4
+    uvTransform: {x: 29, y: 84}
+  - name: Rarity Symbol
     originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
+    pivot: {x: 0.5, y: 0.4242424}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 152
-      width: 40
-      height: 29
-    spriteID: 740f6f58a2ea89d47982bbe17972bfd9
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 152}
-  - name: Crazed Clawing_Frame_5
-    originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 189
-      width: 40
-      height: 29
-    spriteID: 281d47fda28b48c42b54509c7b6c9e60
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 189}
-  - name: Crazed Clawing_Frame_6
-    originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 52
+      x: 60
       y: 4
-      width: 40
-      height: 29
-    spriteID: 1bfb3c56b07051c43b3dd444d97d077a
+      width: 6
+      height: 66
+    spriteID: 4413a723e7693f5448e6edd2ed12081a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -258,157 +218,90 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 52, y: 4}
-  - name: Crazed Clawing_Frame_7
-    originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 52
-      y: 41
-      width: 40
-      height: 29
-    spriteID: a912b07f7bae117499e0239a7b8621a8
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 52, y: 41}
-  - name: Crazed Clawing_Frame_8
-    originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 52
-      y: 78
-      width: 40
-      height: 29
-    spriteID: c71840e275a853446a553d654a6dbe3c
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 52, y: 78}
-  - name: Crazed Clawing_Frame_9
-    originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 52
-      y: 115
-      width: 40
-      height: 29
-    spriteID: 98bde6a367a2c6246bced342e5c17517
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 52, y: 115}
+    uvTransform: {x: 60, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 182844624
-    name: Crazed Clawing
-    layerFlags: 0
+    guid: 1317222744
+    name: Layer 1
+    layerFlags: 19
     layerType: 0
     blendMode: 0
     cells:
-    - name: Crazed Clawing_Frame_0
+    - name: Layer 1
       frameIndex: 0
       cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: cec68930acd5a654bb7bd1546bd8dfe9
-    - name: Crazed Clawing_Frame_1
+        x: 0
+        y: 4
+        width: 48
+        height: 72
+      spriteId: 3d481909593d7644b809f59675e287e1
+    linkedCells:
+    - frameIndex: 1
+      linkedToFrame: 0
+    parentIndex: -1
+  - layerIndex: 1
+    guid: 400220552
+    name: SubtypeBox
+    layerFlags: 19
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: SubtypeBox
+      frameIndex: 0
+      cellRect:
+        x: 13
+        y: 33
+        width: 33
+        height: 6
+      spriteId: 3a27d55c83242b8449775ea28e2dab8b
+    linkedCells:
+    - frameIndex: 1
+      linkedToFrame: 0
+    parentIndex: -1
+  - layerIndex: 2
+    guid: -1564008937
+    name: TypeBox
+    layerFlags: 3
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: TypeBox_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 30
+        width: 17
+        height: 12
+      spriteId: 099bfb4f4a370f443a57cbad6fb1d9df
+    - name: TypeBox_Frame_1
       frameIndex: 1
       cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: eb63b8ee9186cd54fa96c1c271021e6a
-    - name: Crazed Clawing_Frame_2
-      frameIndex: 2
-      cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: 6ffe697490cd68a45b0ef65c687f2827
-    - name: Crazed Clawing_Frame_3
-      frameIndex: 3
-      cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: f790f746f7003334db540017e600f2d6
-    - name: Crazed Clawing_Frame_4
-      frameIndex: 4
-      cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: 740f6f58a2ea89d47982bbe17972bfd9
-    - name: Crazed Clawing_Frame_5
-      frameIndex: 5
-      cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: 281d47fda28b48c42b54509c7b6c9e60
-    - name: Crazed Clawing_Frame_6
-      frameIndex: 6
-      cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: 1bfb3c56b07051c43b3dd444d97d077a
-    - name: Crazed Clawing_Frame_7
-      frameIndex: 7
-      cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: a912b07f7bae117499e0239a7b8621a8
-    - name: Crazed Clawing_Frame_8
-      frameIndex: 8
-      cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: c71840e275a853446a553d654a6dbe3c
-    - name: Crazed Clawing_Frame_9
-      frameIndex: 9
-      cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: 98bde6a367a2c6246bced342e5c17517
+        x: 0
+        y: 33
+        width: 16
+        height: 6
+      spriteId: 505be4ecef24bb14e96efce742ce6255
     linkedCells: []
+    parentIndex: -1
+  - layerIndex: 3
+    guid: 1569318544
+    name: Rarity Symbol
+    layerFlags: 19
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Rarity Symbol
+      frameIndex: 0
+      cellRect:
+        x: 21
+        y: 10
+        width: 6
+        height: 66
+      spriteId: 4413a723e7693f5448e6edd2ed12081a
+    linkedCells:
+    - frameIndex: 1
+      linkedToFrame: 0
     parentIndex: -1
   platformSettings:
   - name: DefaultTexturePlatform
@@ -461,4 +354,4 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 48, y: 66}
+  canvasSize: {x: 48, y: 76}

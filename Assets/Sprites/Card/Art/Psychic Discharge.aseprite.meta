@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c098e1a924a8fc14c890d4c2462c1374
+guid: 91966cd60d28df14bb3a3a8c92d955ab
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -32,7 +32,7 @@ ScriptedImporter:
     sRGBTexture: 1
     spriteMode: 2
     spriteExtrude: 1
-    spriteMeshType: 0
+    spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
     spritePixelsToUnits: 48
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 0
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638533595179316850
+  platformSettingsDirtyTick: 638533595046375027
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,7 +119,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Crazed Clawing_Frame_0
+  - name: Psychic Discharge_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0.13793103}
     alignment: 9
@@ -130,7 +130,7 @@ ScriptedImporter:
       y: 4
       width: 40
       height: 29
-    spriteID: cec68930acd5a654bb7bd1546bd8dfe9
+    spriteID: 1f9dcaa402ac37d45bdd04b3ce82d1b7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,107 +139,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Crazed Clawing_Frame_1
-    originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 41
-      width: 40
-      height: 29
-    spriteID: eb63b8ee9186cd54fa96c1c271021e6a
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 41}
-  - name: Crazed Clawing_Frame_2
-    originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 78
-      width: 40
-      height: 29
-    spriteID: 6ffe697490cd68a45b0ef65c687f2827
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 78}
-  - name: Crazed Clawing_Frame_3
-    originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 115
-      width: 40
-      height: 29
-    spriteID: f790f746f7003334db540017e600f2d6
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 115}
-  - name: Crazed Clawing_Frame_4
-    originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 152
-      width: 40
-      height: 29
-    spriteID: 740f6f58a2ea89d47982bbe17972bfd9
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 152}
-  - name: Crazed Clawing_Frame_5
-    originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 189
-      width: 40
-      height: 29
-    spriteID: 281d47fda28b48c42b54509c7b6c9e60
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 189}
-  - name: Crazed Clawing_Frame_6
+  - name: Psychic Discharge_Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0.13793103}
     alignment: 9
@@ -250,7 +150,7 @@ ScriptedImporter:
       y: 4
       width: 40
       height: 29
-    spriteID: 1bfb3c56b07051c43b3dd444d97d077a
+    spriteID: 1b4f8fa5f712b67478ca5387209d884d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -259,7 +159,27 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 52, y: 4}
-  - name: Crazed Clawing_Frame_7
+  - name: Psychic Discharge_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.13793103}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 41
+      width: 40
+      height: 29
+    spriteID: f6d860e16bbdab1498bdeca520097d4e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 41}
+  - name: Psychic Discharge_Frame_3
     originalName: 
     pivot: {x: 0.5, y: 0.13793103}
     alignment: 9
@@ -270,7 +190,7 @@ ScriptedImporter:
       y: 41
       width: 40
       height: 29
-    spriteID: a912b07f7bae117499e0239a7b8621a8
+    spriteID: a75a61f2187227a42b06d9af8fafd138
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -279,135 +199,47 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 52, y: 41}
-  - name: Crazed Clawing_Frame_8
-    originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 52
-      y: 78
-      width: 40
-      height: 29
-    spriteID: c71840e275a853446a553d654a6dbe3c
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 52, y: 78}
-  - name: Crazed Clawing_Frame_9
-    originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 52
-      y: 115
-      width: 40
-      height: 29
-    spriteID: 98bde6a367a2c6246bced342e5c17517
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 52, y: 115}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 182844624
-    name: Crazed Clawing
+    guid: 2027348083
+    name: Psychic Discharge
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Crazed Clawing_Frame_0
+    - name: Psychic Discharge_Frame_0
       frameIndex: 0
       cellRect:
         x: 4
         y: 29
         width: 40
         height: 29
-      spriteId: cec68930acd5a654bb7bd1546bd8dfe9
-    - name: Crazed Clawing_Frame_1
+      spriteId: 1f9dcaa402ac37d45bdd04b3ce82d1b7
+    - name: Psychic Discharge_Frame_1
       frameIndex: 1
       cellRect:
         x: 4
         y: 29
         width: 40
         height: 29
-      spriteId: eb63b8ee9186cd54fa96c1c271021e6a
-    - name: Crazed Clawing_Frame_2
+      spriteId: 1b4f8fa5f712b67478ca5387209d884d
+    - name: Psychic Discharge_Frame_2
       frameIndex: 2
       cellRect:
         x: 4
         y: 29
         width: 40
         height: 29
-      spriteId: 6ffe697490cd68a45b0ef65c687f2827
-    - name: Crazed Clawing_Frame_3
+      spriteId: f6d860e16bbdab1498bdeca520097d4e
+    - name: Psychic Discharge_Frame_3
       frameIndex: 3
       cellRect:
         x: 4
         y: 29
         width: 40
         height: 29
-      spriteId: f790f746f7003334db540017e600f2d6
-    - name: Crazed Clawing_Frame_4
-      frameIndex: 4
-      cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: 740f6f58a2ea89d47982bbe17972bfd9
-    - name: Crazed Clawing_Frame_5
-      frameIndex: 5
-      cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: 281d47fda28b48c42b54509c7b6c9e60
-    - name: Crazed Clawing_Frame_6
-      frameIndex: 6
-      cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: 1bfb3c56b07051c43b3dd444d97d077a
-    - name: Crazed Clawing_Frame_7
-      frameIndex: 7
-      cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: a912b07f7bae117499e0239a7b8621a8
-    - name: Crazed Clawing_Frame_8
-      frameIndex: 8
-      cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: c71840e275a853446a553d654a6dbe3c
-    - name: Crazed Clawing_Frame_9
-      frameIndex: 9
-      cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: 98bde6a367a2c6246bced342e5c17517
+      spriteId: a75a61f2187227a42b06d9af8fafd138
     linkedCells: []
     parentIndex: -1
   platformSettings:

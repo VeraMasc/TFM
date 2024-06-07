@@ -27,8 +27,12 @@ namespace Effect{
             var pos = context.previousTargets.Count-1;
             if(pos>=0){
                 focusActiveCards(targets);
+                var condText = condition?.desctiption(context);
                 var config = new InputParameters(){
-                    context=context
+                    context=context,
+                    text = "Choose " + (!string.IsNullOrEmpty(condText)?
+                        condText:
+                        "several")
                 };
                 //Get player input
                 GameUI.singleton.possibleTargets= targets.ToArray();
@@ -49,20 +53,18 @@ namespace Effect{
             yield break;
         }
 
-        public static IEnumerator validatedChoice(IEnumerable<ITargetable> targets, Func<List<ITargetable>,bool> validator, Action<ITargetable[]> returnAction= null,bool canCancel=true)
+        public static IEnumerator validatedChoice(IEnumerable<ITargetable> targets, Func<List<ITargetable>,bool> validator, Action<ITargetable[]> returnAction= null, InputParameters parameters =null)
         {
             
             yield return UCoroutine.Yield(GameUI.singleton.getTargets(targets, 
                 ()=> validator(GameUI.singleton.chosenTargets),
-                returnAction, config:new InputParameters(){
-                    canCancel=canCancel
-                }));
+                returnAction, config:parameters));
         }
 
-        public static IEnumerator amountChoice(IEnumerable<ITargetable> targets, int amount, Action<ITargetable[]> returnAction= null, bool canCancel=true)
+        public static IEnumerator amountChoice(IEnumerable<ITargetable> targets, int amount, Action<ITargetable[]> returnAction= null, InputParameters parameters =null)
         {
             Func<List<ITargetable>,bool> validator = (List<ITargetable> chosen)=> chosen.Count == amount;
-            yield return UCoroutine.Yield(validatedChoice(targets,validator,returnAction,canCancel));
+            yield return UCoroutine.Yield(validatedChoice(targets,validator,returnAction,parameters));
         }
     }
 }

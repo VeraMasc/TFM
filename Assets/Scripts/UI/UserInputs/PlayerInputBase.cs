@@ -1,6 +1,7 @@
 using System.Collections;
 using Common.Coroutines;
 using Effect;
+using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -8,6 +9,7 @@ using UnityEngine;
 /// </summary>
 public abstract class PlayerInputBase : MonoBehaviour
 {
+    public TextMeshProUGUI choiceDescription; 
     /// <summary>
     /// Indica si el proceso de introducir inputs ha terminado
     /// </summary>
@@ -41,7 +43,9 @@ public abstract class PlayerInputBase : MonoBehaviour
     }
 
     public virtual void setInputConfig(InputParameters parameters){
-
+        if(choiceDescription){
+            choiceDescription.text = parameters.text;
+        }
     }
 
 }

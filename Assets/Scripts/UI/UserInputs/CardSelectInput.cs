@@ -72,6 +72,7 @@ public class CardSelectInput : PlayerInputBase
     }
 
     public override void setInputConfig(InputParameters parameters){
+        base.setInputConfig(parameters);
         //Generate cards
         if(parameters?.values is ModalOptionSettings[] modals){
             addModalOptions((Card)parameters.context.self, modals);

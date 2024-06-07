@@ -52,7 +52,8 @@ namespace Effect{
                 new InputParameters{ values= targets.OfType<Card>().ToArray(), 
                     extraConfig = new CardSelectInput.ExtraInputOptions(){
                         maxChoices = amount.getValue(context),
-                    }
+                    },
+                    text = $"Choose {amount.getValue(context)} cards",
                 }));
 
                 //Remove original value

@@ -21,6 +21,7 @@ public class SkillCard : MyCardSetup
         refreshValues();
     }
 
+    public TextMeshPro levelTextbox;
 
     /// <summary>
     /// Aplica la configuración de la carta
@@ -48,6 +49,7 @@ public class SkillCard : MyCardSetup
     [Button]
     public void refreshValues(){
         cardTextBox.text = cardText;
+        levelTextbox.text = $"Lv. {level}";
     }
 
     

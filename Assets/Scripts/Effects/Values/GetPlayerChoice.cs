@@ -32,9 +32,12 @@ namespace Effect{
                 Debug.LogError("Missing player input prefab");
                 yield break;//No hay prefab para generar la interfaz
             }
+            var parameters = new InputParameters(){
+                text ="Choose a number",
+            };
             yield return UCoroutine.Yield(GameUI.singleton.getInput(prefab, (value)=>{
                 result = (int)value;
-            }));
+            },parameters));
 
             context.choiceTreeIncrease();
             context.previousValues.Add(result);
