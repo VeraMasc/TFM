@@ -58,15 +58,31 @@ namespace Effect
     [Serializable]
     public class DeckTop:EffectTargeter
     {
+        
+        /// <summary>
+        /// Opcional, solo si no se quiere usar la entidad actual
+        /// </summary>
+        [SerializeReference, SubclassSelector]
+        public EffectTargeter fromOtherEntity;
+
         [SerializeReference, SubclassSelector]
         public Numeric amount;
         public override void resolveTarget(Effect.Context context){
             int amountVal = (int)(amount.getValueObj(context));
+            var entities = fromOtherEntity?.getTargets(context)
+                ?.OfType<Entity>()?.ToList() ?? new();
 
-            if(context.controller== null || amountVal<=0)
-                return;
+            if(fromOtherEntity == null)
+                entities = new(){context.controller};
             
-            var cards =context.controller.deck.Get(GroupTargetType.Last, amountVal);
+            if(entities.Count == 0 || amountVal<=0)
+                return;
+            List<Card> cards = new();
+            foreach(var entity in entities){
+                cards.AddRange(entity.deck.Get(GroupTargetType.Last, amountVal));
+                
+            }
+            Debug.Log(cards.Count);
             _targets = cards.ToArray();
         }
     }

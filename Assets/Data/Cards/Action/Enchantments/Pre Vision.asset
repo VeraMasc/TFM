@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: Pre Vision
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Pre Vision
+  rawText: You can look at the top card of enchanted entity's deck at any time
+  parsedText: You can look at the top card of enchanted entity's deck at any time
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  effects:
+    baseEffect:
+      list:
+      - rid: 8960580130032845118
+      - rid: 8960580130032845121
+    abilities:
+    - rid: 8960580130032845123
+    staticEffects:
+      list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      choiceTreePath: 
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+    entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 0
+  typeList: 
+  cost:
+    costText: 
+    value: 0
+    colors: 
+  heuristic:
+    rid: 8960580130032845048
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8960580130032845048
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0
+    - rid: 8960580130032845118
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8960580130032845119
+    - rid: 8960580130032845119
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580130032845120
+    - rid: 8960580130032845120
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 4
+    - rid: 8960580130032845121
+      type: {class: Attach, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580130032845122
+    - rid: 8960580130032845122
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8960580130032845123
+      type: {class: HiddenTriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: 
+        source: {fileID: 0}
+        effects:
+        - rid: 8960580130032845124
+        isCurrentlyActive: 0
+        trigger: {fileID: 11400000, guid: 2b000f31e845995449f5be9fbd48799e, type: 2}
+        activeZoneList: 05000000
+        condition:
+          rid: -2
+    - rid: 8960580130032845124
+      type: {class: RevealCard, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580130032845125
+        hideInstead: 0
+    - rid: 8960580130032845125
+      type: {class: DeckTop, ns: Effect, asm: Assembly-CSharp}
+      data:
+        fromOtherEntity:
+          rid: 8960580130032845129
+        amount:
+          rid: 8960580130032845126
+    - rid: 8960580130032845126
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 1
+    - rid: 8960580130032845129
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 5

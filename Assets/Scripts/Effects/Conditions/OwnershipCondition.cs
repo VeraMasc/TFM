@@ -52,4 +52,30 @@ namespace Effect.Condition{
             return false;
         }
     }
+
+     [Serializable]
+    public class ZoneCondition:BaseCondition
+    {
+
+       
+
+
+        public GroupName zone;
+        /// <summary>
+        /// Comprueba si se cumple la condición
+        /// </summary>
+        public override bool check(object inputs, Context context){
+
+            if(inputs is IEnumerable<object> collection){
+
+                return collection.OfType<Card>()
+                .All( c => c.Group.GetComponent<GroupZone>()?.zone == zone);
+            }else{
+                Debug.LogError($"input is invalid: {inputs?.GetType()?.Name??"null"}");
+            }
+            
+
+            return false;
+        }
+    }
 }

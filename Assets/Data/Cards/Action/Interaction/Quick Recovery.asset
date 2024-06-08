@@ -59,6 +59,8 @@ MonoBehaviour:
     costText: 1N
     value: 2
     colors: N
+  heuristic:
+    rid: 8960580130032845017
   references:
     version: 2
     RefIds:
@@ -205,3 +207,12 @@ MonoBehaviour:
       type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         index: 0
+    - rid: 8960580130032845017
+      type: {class: ComplexHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        choices:
+        - choicePath: 
+          choicePathArray: 00000000
+          heuristic:
+            rid: -2

@@ -118,7 +118,12 @@ public class TriggerManager : ScriptableObject
     [Tab("Timing")]
     public GlobalTrigger onStartCombat;
     [Tab("Timing")]
+    public GlobalTrigger onRoundStart;
+    [Tab("Timing")]
     public GlobalTrigger onRoundEnd;
+
+    [Tab("Timing")]
+    public GlobalTrigger onStateCheck;
     
 
 }

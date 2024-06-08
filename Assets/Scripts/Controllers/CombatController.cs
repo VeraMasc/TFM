@@ -80,10 +80,12 @@ public class CombatController : GameMode
 				entities.Select(entity => UCoroutine.Yield(entity.draw(4)))
 			.ToArray()).Start(this);
 		
+		
 		yield return new WaitForSeconds(0.5f);
 		generateTurnOrder();
+		yield return triggerManager.onStartCombat.invoke().Start(this);
 		executePhase();
-        yield break;
+		
     }
 
 	public override bool isEntityTurn(Entity entity){

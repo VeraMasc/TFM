@@ -32,6 +32,11 @@ namespace Effect{
         public Entity controller;
 
         /// <summary>
+        /// Si no proviene de el uso normal de una carta, de que habilidad o trigger viene
+        /// </summary>
+        public Ability abilitySource;
+
+        /// <summary>
         /// Targets previos del proceso de resolución
         /// </summary>
         public List<ITargetable[]> previousTargets = new List<ITargetable[]>();

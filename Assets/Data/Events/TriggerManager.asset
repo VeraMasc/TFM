@@ -32,3 +32,7 @@ MonoBehaviour:
   onMainPhase: {fileID: 11400000, guid: 2ad6f2efb1a1e9e49b48827a6db7a206, type: 2}
   onEndTurn: {fileID: 11400000, guid: 0c270b7eb608d444e813e45e4159c3b9, type: 2}
   afterEndTurn: {fileID: 11400000, guid: 841c90c177899814097b9721a6021516, type: 2}
+  onStartCombat: {fileID: 11400000, guid: 6a4f48733c1ff3c4582ce433c0c2bdec, type: 2}
+  onRoundStart: {fileID: 11400000, guid: ffc31b7048c1197499badf3ca8e66ee2, type: 2}
+  onRoundEnd: {fileID: 11400000, guid: ced870e437c85914f99ebcbcf4803746, type: 2}
+  onStateCheck: {fileID: 11400000, guid: 2b000f31e845995449f5be9fbd48799e, type: 2}

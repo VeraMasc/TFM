@@ -29,10 +29,16 @@ public class ActionCardDefinition : MyCardDefinition
     [Unfold]
     public ManaCost cost;
 
+    [SerializeReference, SubclassSelector]
+    public CardHeuristic heuristic = new SimpleHeuristic();
 
     protected override void Awake() {
         base.Awake();
         // effects = (ContentCardEffects)effects.cloneAll();
+    }
+    public override void OnValidate() {
+        base.OnValidate();
+        heuristic?.validate();
     }
 
     public override string getCardTypes()

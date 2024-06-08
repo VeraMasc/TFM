@@ -17,13 +17,13 @@ MonoBehaviour:
   rawText: 'Lunatic only
 
 
-    Target one of your spent cards. It gains Overdo equal
-    to its cost until end of turn.'
+    Target one of your non permanent spent cards. It gains
+    Overdo equal to its cost until end of turn.'
   parsedText: 'Lunatic only
 
 
-    Target one of your spent cards. It gains Overdo
-    equal to its cost until end of turn.'
+    Target one of your non permanent spent cards. It
+    gains Overdo equal to its cost until end of turn.'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -38,6 +38,7 @@ MonoBehaviour:
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      choiceTreePath: 
       resolutionPile: {fileID: 0}
       precalculated: 0
       mode: 0
@@ -54,9 +55,13 @@ MonoBehaviour:
     costText: 
     value: 0
     colors: 
+  heuristic:
+    rid: 8960580130032845080
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 8129478490245562559
       type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -66,18 +71,7 @@ MonoBehaviour:
       type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
       data:
         targeter:
-          rid: 8129478490245562572
-    - rid: 8129478490245562572
-      type: {class: EntityCardTargeter, ns: Effect, asm: Assembly-CSharp}
-      data:
-        source:
-          rid: 8129478490245562573
-        relation: 0
-        zones: 01000000
-    - rid: 8129478490245562573
-      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
-      data:
-        contextual: 0
+          rid: 8960580130032845082
     - rid: 8129478511095447561
       type: {class: AddPresetModifier, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -97,5 +91,26 @@ MonoBehaviour:
     - rid: 8129478511095447564
       type: {class: ManaValue, ns: Effect, asm: Assembly-CSharp}
       data:
-        value:
-        - color: 1
+        mana: 
+    - rid: 8960580130032845080
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0
+    - rid: 8960580130032845082
+      type: {class: CardType, ns: Effect.Filter, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580130032845114
+        reverseFilter: 1
+        noTriggers: 0
+        speedtypes: 
+        subtypes: 04000000020000000300000006000000
+    - rid: 8960580130032845114
+      type: {class: ZoneCardTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        zones: 01000000
+        exclude:
+          rid: -2
+        condition:
+          rid: -2

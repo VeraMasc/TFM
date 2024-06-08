@@ -45,8 +45,7 @@ public class MyCardDefinition : CardDefinition
         }
     }
 
-    public 
-    void OnValidate() {
+    public virtual void OnValidate() {
         parsedText = parseCardText(rawText,this);
 
         //Validate abilities

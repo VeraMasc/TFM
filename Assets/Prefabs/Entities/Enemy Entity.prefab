@@ -124,6 +124,10 @@ PrefabInstance:
       propertyPath: team
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4702649497764106639, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: data.decklist
+      value: 
+      objectReference: {fileID: 11400000, guid: 69752d496ae0cf84ea23e6095ac84a4e, type: 2}
     - target: {fileID: 5704680042789877253, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_IsActive
       value: 0

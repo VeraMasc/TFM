@@ -1,0 +1,183 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: Ambush
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Ambush
+  rawText: '{FreeCast: If you start combat with this card in your hand, cast it without
+    paying its cost}'
+  parsedText: <link="FreeCast">If you start combat with this card in your hand, cast
+    it without paying its cost</link>
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  effects:
+    baseEffect:
+      list:
+      - rid: 8960580153533005826
+      - rid: 8960580153533005829
+      - rid: 8960580153533005832
+    abilities:
+    - rid: 8960580152278384699
+    - rid: 8960580152278384688
+    staticEffects:
+      list: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      choiceTreePath: 
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+    entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 0
+  typeList: 
+  cost:
+    costText: DD
+    value: 2
+    colors: D
+  heuristic:
+    rid: 8960580152278384669
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 8960580152278384669
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0
+    - rid: 8960580152278384688
+      type: {class: ZoneCastAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: FreeCast
+        source: {fileID: 0}
+        effects: []
+        isCurrentlyActive: 0
+        costValue:
+          costText: 
+        cost:
+          costText: 
+          value: 0
+          colors: 
+        speed: 1
+        activeZoneList: 
+        proxy: {fileID: 0}
+    - rid: 8960580152278384699
+      type: {class: HiddenTriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: Start
+        source: {fileID: 0}
+        effects:
+        - rid: 8960580152278384700
+        - rid: 8960580152278384701
+        isCurrentlyActive: 0
+        trigger: {fileID: 11400000, guid: 6a4f48733c1ff3c4582ce433c0c2bdec, type: 2}
+        activeZoneList: 04000000
+        condition:
+          rid: -2
+    - rid: 8960580152278384700
+      type: {class: CheckConditions, ns: Effect, asm: Assembly-CSharp}
+      data:
+        input:
+          rid: 8960580152278384702
+        conditions:
+        - rid: 8960580152278384703
+    - rid: 8960580152278384701
+      type: {class: ExecuteIf, ns: Effect, asm: Assembly-CSharp}
+      data:
+        input:
+          rid: 8960580152278384704
+        conditions: []
+        effects:
+        - rid: 8960580152278384705
+    - rid: 8960580152278384702
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960580152278384703
+      type: {class: ZoneCondition, ns: Effect.Condition, asm: Assembly-CSharp}
+      data:
+        zone: 4
+    - rid: 8960580152278384704
+      type: {class: ReuseValue, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        index: 0
+        destructive: 0
+    - rid: 8960580152278384705
+      type: {class: ActivateTriggerByID, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580152278384706
+        ID:
+          rid: 8960580152278384707
+        activeOnly: 0
+    - rid: 8960580152278384706
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960580152278384707
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: FreeCast
+    - rid: 8960580153533005826
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8960580153533005827
+    - rid: 8960580153533005827
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580153533005828
+    - rid: 8960580153533005828
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 3
+    - rid: 8960580153533005829
+      type: {class: DealDamage, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580153533005830
+        amount:
+          rid: 8960580153533005831
+    - rid: 8960580153533005830
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8960580153533005831
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 3
+    - rid: 8960580153533005832
+      type: {class: DiscardRandom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580153533005833
+        amount:
+          rid: 8960580153533005834
+    - rid: 8960580153533005833
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8960580153533005834
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 1

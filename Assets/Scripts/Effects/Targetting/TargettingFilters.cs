@@ -18,12 +18,14 @@ namespace Effect
         [SerializeReference,SubclassSelector]
         public EffectTargeter targeter;
 
+        //Invierte el output del filtro
+        public bool reverseFilter;
 
         public override void resolveTarget(Effect.Context context){
             var rawTargets = targeter.getTargets(context);
             List<ITargetable> ret = new();
             foreach(var target  in rawTargets){
-                if(filterOperation(target))
+                if(filterOperation(target) ^ reverseFilter)
                     ret.Add(target);
             }
             _targets = ret.ToArray();
@@ -55,6 +57,7 @@ namespace Effect
             public List<SpeedTypes> speedtypes;
             public List<ActionSubtypes> subtypes;
 
+
             public override bool filterOperation(ITargetable targetable){
                 if(!(targetable is Card card)){
                     return false;
@@ -65,7 +68,21 @@ namespace Effect
                     ret &= (card.data is TriggerCard)? noTriggers<0: noTriggers>0;
                 }
                 
-                //TODO: acabar opciones de filtado
+                if(card.data is ActionCard action){
+                    //Comprueba subtipos
+                    var typematch = false;
+                    foreach(var subtype in subtypes){
+                       typematch |= action.cardType.Contains(subtype.ToString());
+                    }
+                    ret &=typematch;
+
+                    //Comprueba velocidades
+                    var speedMatch = false;
+                    foreach(var speed in speedtypes){
+                        speedMatch |= action.speedType == speed;
+                    }
+                    ret &=speedMatch;
+                }
 
                 return ret;
             }

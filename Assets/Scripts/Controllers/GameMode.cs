@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using CardHouse;
+using Common.Coroutines;
 using UnityEngine;
 
 /// <summary>
@@ -122,6 +123,7 @@ public abstract class GameMode : MonoBehaviour
                 nextPhase();
             }
         }
+        GameMode.current.checkState();
         if(this is CombatController combat){
             combat.aiDirector.onPriorityChange();
         }
@@ -142,6 +144,7 @@ public abstract class GameMode : MonoBehaviour
 	/// </summary>
 	public virtual void checkState(){
 		healthCheck();
+        triggerManager.onStateCheck.invoke().Start(this);
 	}
 
     public virtual void healthCheck(){

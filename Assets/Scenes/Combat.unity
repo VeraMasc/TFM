@@ -191,10 +191,6 @@ PrefabInstance:
       propertyPath: board
       value: 
       objectReference: {fileID: 2014230476}
-    - target: {fileID: 7818306146402712190, guid: c5988169093ad9d47889bda50c474f45, type: 3}
-      propertyPath: data.decklist
-      value: 
-      objectReference: {fileID: 11400000, guid: a73d912506c4cc14d86c33fae66ce03a, type: 2}
     - target: {fileID: 8858774047356355142, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.236
@@ -1200,7 +1196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: pips.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: ignoreRequirements
@@ -1349,7 +1345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: pips.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: ignoreRequirements
@@ -1659,6 +1655,14 @@ PrefabInstance:
     - target: {fileID: 2670358441236307117, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5686258998471146150, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      propertyPath: infiniteMana
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5686258998471146150, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      propertyPath: ignoreRequirements
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6756576925860681547, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1978,7 +1982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: pips.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: ignoreRequirements
