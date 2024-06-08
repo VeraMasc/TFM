@@ -28,15 +28,29 @@ namespace Effect{
                     text = "Choose one"
                 };
                 GameUI.singleton.possibleTargets= targets.ToArray();
-                //Get player inputs
-                yield return UCoroutine.Yield(GameUI.singleton.getTargets(targets, 
-                ()=>{
-                    return GameUI.singleton.chosenTargets?.Count == 1;
-                }, 
-                (value)=>{
+                if(!context?.controller?.AI){
+                    //Get player inputs
+                    yield return UCoroutine.Yield(GameUI.singleton.getTargets(targets, 
+                    ()=>{
+                        return GameUI.singleton.chosenTargets?.Count == 1;
+                    }, 
+                    (value)=>{
+                        context.previousTargets[pos]= value;
+                        context.previousChosenTargets.Add(value);
+                    }, true,config));
+                }
+                else{
+                    //Get AI input
+                    var value = context.controller.AI.chooseTargets(targets,new ChoiceInfo(){
+                        context = context,
+                        amount=1,
+                        cancellable=false,
+                    });
                     context.previousTargets[pos]= value;
                     context.previousChosenTargets.Add(value);
-                }, true,config));
+                    GameUI.singleton.viewFocusedTargeting(null);
+                }
+                
 
                 context.choiceTreeIncrease();
                 

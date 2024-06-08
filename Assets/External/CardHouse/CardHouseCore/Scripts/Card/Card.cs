@@ -193,7 +193,8 @@ namespace CardHouse
 
             var zone = Group?.GetComponent<GroupZone>()?.zone;
             if(zone == GroupName.Stack){
-                isFocused = false;
+                // isFocused = false;
+                GameUI.singleton.viewFocusedTargeting(isFocused?this:null);
             }
 
             var isHand = zone == GroupName.Hand || (activeProxy && !Group.isFocused);
