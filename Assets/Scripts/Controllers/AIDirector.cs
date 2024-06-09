@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Common.Coroutines;
 using CustomInspector;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ public class AIDirector : MonoBehaviour
 
     public void onPriorityChange(){
         if(GameMode.current.currentPriority == EntityTeam.enemy){
-            Debug.Log("AI Has Priority!!!");
+            // Debug.Log("AI Has Priority!!!");
             if(disabled){
                 GameMode.current.passPriority(EntityTeam.enemy);
             }
@@ -33,16 +34,19 @@ public class AIDirector : MonoBehaviour
     public void AITakeAction(){
         var combat = CombatController.singleton;
         if(!CardResolveOperator.singleton.isEmpty){
-             Debug.Log("AI's Response");
+            Debug.Log("AI's Response");
+            GameMode.current.passPriority(EntityTeam.enemy);
         }else if(combat.currentTurn.AI && combat.currentPhase == CombatPhases.main){ //Si es turno de la IA
             Debug.Log("AI's Main");
+            combat.currentTurn.AI.doTurn().Start(combat.currentTurn.AI);
         }
         else {
             Debug.Log("AI's Timing Response");
+            GameMode.current.passPriority(EntityTeam.enemy);
         }
         
     }
-    
+
     [NaughtyAttributes.Button]
     public void forcePass(){
         GameMode.current.passPriority(EntityTeam.enemy);

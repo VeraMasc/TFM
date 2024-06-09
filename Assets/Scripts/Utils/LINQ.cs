@@ -29,7 +29,10 @@ public static class LINQExtensions
     /// </summary>
     public static T Random<T>(this IEnumerable<T> data)
     {
-        int index = UnityEngine.Random.Range(0, data.Count());
+        var count=data.Count();
+        if(count==0)
+            return default(T);
+        int index = UnityEngine.Random.Range(0, count);
         return data.ElementAt(index);
     }
 }

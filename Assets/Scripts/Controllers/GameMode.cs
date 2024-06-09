@@ -117,7 +117,12 @@ public abstract class GameMode : MonoBehaviour
                 if(!stack.precalculating){//No resolver si esá precalculando
                     stack.startResolve = true;
                 }
-                getPriorityOrder();
+                priorityIndex = priorityOrder.Count;
+                stack.waitTillOpen.Then(
+                        ()=> getPriorityOrder()
+                    ).Start(this);
+                
+                
             }
             else{
                 nextPhase();
@@ -159,7 +164,7 @@ public abstract class GameMode : MonoBehaviour
 	}
 
     /// <summary>
-    /// Obtiene la prioridad base en un turno
+    /// Genera la prioridad base en un turno
     /// </summary>
     public virtual void getPriorityOrder(){
         priorityIndex = 0;
@@ -168,7 +173,7 @@ public abstract class GameMode : MonoBehaviour
     }
 
     /// <summary>
-    /// Obtiene la prioridad de respuesta a una acción
+    /// Genera la prioridad de respuesta a una acción
     /// </summary>
     /// <param name="inResponseTo">jugador que ha realizado la acción</param>
     public virtual void getResponsePriority(EntityTeam inResponseTo){

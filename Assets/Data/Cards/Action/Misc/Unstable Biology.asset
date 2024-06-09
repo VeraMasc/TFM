@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: Unstable Biology
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Unstable Anatomy
+  rawText: 'Choose one at random:
+
+    {life: :: Gain 3 life.}
+
+    {disenchant:
+    :: Destroy a random enchantment that''s attached to you}
+
+    {draw: :: Draw
+    2 Cards}'
+  parsedText: "Choose one at random:\n<link=\"life\">\u2022 Gain 3 life.</link>\n<link=\"disenchant\">\u2022
+    Destroy a random enchantment that's attached to you</link>\n<link=\"draw\">\u2022
+    Draw 2 Cards</link>"
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  effects:
+    baseEffect:
+      list:
+      - rid: 8960580153533005986
+    abilities: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      choiceTreePath: 
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+    entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 0
+  typeList: 
+  cost:
+    costText: A
+    value: 1
+    colors: A
+  heuristic:
+    rid: 8960580153533005984
+  references:
+    version: 2
+    RefIds:
+    - rid: 8960580153533005984
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0
+    - rid: 8960580153533005986
+      type: {class: RandomModal, ns: Effect, asm: Assembly-CSharp}
+      data:
+        maxChoices: 1
+        modes:
+        - id: life
+          effects: []
+        - id: disenchant
+          effects: []
+        - id: draw
+          effects: []

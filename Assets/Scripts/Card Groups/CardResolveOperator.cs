@@ -122,7 +122,7 @@ public class CardResolveOperator : Activatable
     /// Espera hasta que el stack esté libre
     /// </summary>
     public IEnumerator waitTillOpen{
-        get => UCoroutine.YieldAwait(()=> !resolving && !precalculating);
+        get => UCoroutine.YieldAwait(()=> !(startResolve || resolving || precalculating));
     }
 
     public IEnumerator waitTillPrecalculated{

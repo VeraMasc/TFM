@@ -180,11 +180,15 @@ public partial class Entity : MonoBehaviour, ITargetable
             .Union(specialActionables).ToList();
     }
 
-    public void executeAction(IActionable actionable){
-        if(actionable is ActionCard card){
+    public IEnumerator executeAction(IActionable actionable){
+        if(actionable is ActionCard action){
+            var card = action.GetComponent<Card>();
+            yield return CardResolveOperator.singleton.castCard(card,caster:this)
+                .Start(this);
 
         }else if(actionable is ActivatedAbility ability){
-            //TODO: Execute activated ability
+            yield return ability.activateAbility(this)
+                .Start(this);
         }
         else
         {

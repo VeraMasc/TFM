@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Common.Coroutines;
 using CustomInspector;
 using Effect;
 using UnityEngine;
@@ -22,8 +23,9 @@ public class EntityAI : MonoBehaviour
     /// </summary>
     public virtual IActionable findBestAction(IEnumerable<IActionable> options){
 
+        //TODO: Filtrar por coste y heurística
         //Selección aleatoria
-        return options.ElementAt(Random.Range(0, options.Count()));
+        return options.Random();
     }
 
     /// <summary>
@@ -34,7 +36,10 @@ public class EntityAI : MonoBehaviour
         var actionables = entity.getAllActionables();
         var chosen = findBestAction(actionables);
         Debug.Log(chosen);
-        yield break;
+        if(chosen!=null){
+            yield return entity.executeAction(chosen).Start(this);
+        }
+        // GameMode.current.passPriority(EntityTeam.enemy);
     }
 
     /// <summary>

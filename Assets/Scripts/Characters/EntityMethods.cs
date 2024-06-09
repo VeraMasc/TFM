@@ -168,7 +168,7 @@ public partial class Entity
     [NaughtyAttributes.Button()]
     public IEnumerator mill(int amount=1,  Action<Card[]> returnAction = null){
         var cards =deck.Get(GroupTargetType.Last, amount);
-        yield return StartCoroutine(CardTransferOperator.sendCards(cards,discarded,0.75f/amount,burstSend:true));
+        yield return StartCoroutine(CardTransferOperator.sendCards(cards,discarded,0.75f/amount,flipSpeed:4f,burstSend:true));
         coReturn(returnAction, cards.ToArray());
     }
     
