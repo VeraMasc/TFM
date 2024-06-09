@@ -83,12 +83,13 @@ public class ManaPool : MonoBehaviour
         }
         var amount = cost.value - colored.Length;
 
+
         if(amount>0){
             pips.RemoveRange(0,amount); //Remove colored
 
         }//No hay más que pagar
         
-        
+    refresh:
         // Debug.Log($"Mana at end {string.Join(",",pips)}");
         updateDisplay();
     }
