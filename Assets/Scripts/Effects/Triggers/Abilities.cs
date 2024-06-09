@@ -236,7 +236,6 @@ namespace Effect{
         /// Devuelve si se cumplen todas las condiciones para poder activarla
         /// </summary>
         public virtual bool canActivate (Entity user){
-            //TODO: add mana requirements
             return checkActivationTiming(user) && checkControl(user) && user.mana.canPay(cost);
         }
         public virtual IEnumerator activateAbility(Entity activator){

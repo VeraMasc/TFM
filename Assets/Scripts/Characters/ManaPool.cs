@@ -72,7 +72,7 @@ public class ManaPool : MonoBehaviour
     public void pay(ManaCost cost){
         if(infiniteMana)
             goto refresh;
-        
+        // Debug.Log($"Mana at start {string.Join(",",pips)}");
         //pay colored
         var colored = cost.coloredCost;
         foreach(var pip in colored){
@@ -81,21 +81,15 @@ public class ManaPool : MonoBehaviour
             if(index!=-1)
                 pips.RemoveAt(index); //Remove spent
         }
-
-        //Pay generic
         var amount = cost.value - colored.Length;
-        if(amount<=0)
-            goto refresh; //No hay más que pagar
-        var colorless = pips.Where(p => p.color == Mana.Colors.C)
-            .Take(amount).ToArray();
-        pips = pips.Except(colorless).ToList(); //Remove spent colorless
-        amount-=colorless.Length;
 
-        if(amount<=0)
-            goto refresh; //No hay más que pagar
-        pips.RemoveRange(0,amount); //Remove colored
+        if(amount>0){
+            pips.RemoveRange(0,amount); //Remove colored
 
-    refresh:
+        }//No hay más que pagar
+        
+        
+        // Debug.Log($"Mana at end {string.Join(",",pips)}");
         updateDisplay();
     }
 

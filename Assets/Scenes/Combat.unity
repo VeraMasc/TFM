@@ -183,6 +183,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5686258998471146150, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      propertyPath: infiniteMana
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5686258998471146150, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      propertyPath: ignoreRequirements
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6756576925860681547, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
@@ -939,6 +947,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5686258998471146150, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      propertyPath: infiniteMana
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5686258998471146150, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      propertyPath: ignoreRequirements
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6756576925860681547, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
@@ -1658,11 +1674,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5686258998471146150, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       propertyPath: infiniteMana
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5686258998471146150, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       propertyPath: ignoreRequirements
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6756576925860681547, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -1979,10 +1995,6 @@ PrefabInstance:
     - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: mana.Array.size
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
-      propertyPath: pips.Array.size
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7145726789133635927, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: ignoreRequirements

@@ -145,23 +145,26 @@ public partial class Entity : MonoBehaviour, ITargetable
     /// </summary>
     /// <returns></returns>
     public List<IActionable> getAllActionables(){
+        //Cartas en la mano
         var cardsInHand = hand.MountedCards?.Select(card => card.data)
-                .OfType<IActionable>() ?? new List<IActionable>();
+            .OfType<ActionCard>();
 
-        //Proxies in hand
+        var castables = cardsInHand.Where( action => action.checkIfCastable(this))
+            .Cast<IActionable>();
+
+        //Activables y proxies en la mano
         if(hand.Strategy is HandLayout handLayout){
             var handactivables = cardsInHand.OfType<ActionCard>().Concat(
                 handLayout.proxies.Select(p => p.actualCard.data));
             
-            cardsInHand =cardsInHand.Concat(
+            castables =castables.Concat(
                 handactivables
                 .OfType<MyCardSetup>()
                 .SelectMany( a => a.effects.getAllAbilities())
                 .OfType<ActivatedAbility>()
                 .Where(ab => ab.isCurrentlyActive && ab.canActivate(this))
                 .Cast<IActionable>()
-            );
-            
+            );   
         }
         
 
@@ -175,7 +178,7 @@ public partial class Entity : MonoBehaviour, ITargetable
                 .OfType<IActionable>();
 
 
-        return cardsInHand.Concat(skillAbilities)
+        return castables.Concat(skillAbilities)
             .Concat(permanentAbilities)
             .Union(specialActionables).ToList();
     }

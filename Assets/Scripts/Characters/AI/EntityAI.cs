@@ -39,7 +39,10 @@ public class EntityAI : MonoBehaviour
         if(chosen!=null){
             yield return entity.executeAction(chosen).Start(this);
         }
-        // GameMode.current.passPriority(EntityTeam.enemy);
+        else{//Pasar si no tiene nada que pueda hacer
+            GameMode.current.passPriority(EntityTeam.enemy);
+        }
+
     }
 
     /// <summary>

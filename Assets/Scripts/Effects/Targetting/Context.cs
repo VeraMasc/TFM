@@ -58,13 +58,13 @@ namespace Effect{
 
         public int choiceTreeIncrease(int amount=1){
             choiceTreePath[choiceTreePath.Count-1] += amount;
-            Debug.Log(string.Join(", ",choiceTreePath));
+            // Debug.Log(string.Join(", ",choiceTreePath));
             return choiceTreePath.Last();
         }
 
         public void choiceTreeDeepen(){
             choiceTreePath.Add(0);
-            Debug.Log(string.Join(", ",choiceTreePath));
+            // Debug.Log(string.Join(", ",choiceTreePath));
         }
 
         public int choiceTreePop(){
