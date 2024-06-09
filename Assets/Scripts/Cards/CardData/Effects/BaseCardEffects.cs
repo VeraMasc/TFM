@@ -25,10 +25,7 @@ public class BaseCardEffects{
     [SerializeReference, SubclassSelector]
     public List<Ability> abilities = new();
 
-    /// <summary>
-    /// Efectos estáticos 
-    /// </summary>
-    public EffectChain staticEffects;
+  
 
     public Effect.Context context;
 

@@ -106,10 +106,11 @@ public abstract class GameMode : MonoBehaviour
         if(GameUI.singleton?.activeUserInput) //No pasar si el usuario ha de introducir valores
             return;
 
-        if(team == currentPriority){ //pasar solo si tiene prioridad
-            priorityIndex++;
+        if(team != currentPriority){ //pasar solo si tiene prioridad
+            return;
         }
-        
+
+        priorityIndex++;
         if(priorityIndex >= priorityOrder.Count){ //Si ambos pasan
 
             if(!stack.isEmpty){ //Primero resolver cosas del stack
@@ -119,14 +120,16 @@ public abstract class GameMode : MonoBehaviour
                 getPriorityOrder();
             }
             else{
-                getPriorityOrder();
                 nextPhase();
+                getPriorityOrder();
+                
             }
-        }
-        GameMode.current.checkState();
-        if(this is CombatController combat){
+
+        }else if(this is CombatController combat){
+            //Marcar que la prioridad ha pasado al siguiente aunque no se haya pasado de fase
             combat.aiDirector.onPriorityChange();
         }
+        GameMode.current.checkState();
         
     }
     

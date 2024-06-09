@@ -16,6 +16,8 @@ public class CombatController : GameMode
     /// </summary>
     public List<Entity> turnOrder;
 
+	private List<Entity> nextTurnOrder;
+
 	public int roundCount;
 
 	public Entity currentTurn => turnOrder?.LastOrDefault();
@@ -83,6 +85,7 @@ public class CombatController : GameMode
 		
 		yield return new WaitForSeconds(0.5f);
 		generateTurnOrder();
+		nextTurn();
 		yield return triggerManager.onStartCombat.invoke().Start(this);
 		executePhase();
 		
@@ -108,15 +111,14 @@ public class CombatController : GameMode
     public void generateTurnOrder(){
         var entities = GameController.singleton?.entities ?? new List<Entity>();
         entities = entities?.ToList();
-        turnOrder = new List<Entity>();
+        nextTurnOrder = new List<Entity>();
 
         while (entities.Count > 0)
         {
             var chosenIndex = UnityEngine.Random.Range(0, entities.Count);
-            turnOrder.Add(entities[chosenIndex]);
+            nextTurnOrder.Add(entities[chosenIndex]);
             entities.RemoveAt(chosenIndex);
         }
-		getPriorityOrder();
     }
 	public override void nextPhase(){
         currentPhase = (CombatPhases)(((int)currentPhase+1) % CombatPhases.GetNames(typeof(CombatPhases)).Length);
@@ -155,11 +157,22 @@ public class CombatController : GameMode
 		}
 		
 	}
+
+	/// <summary>
+	/// Pasa al siguiente turno
+	/// </summary>
 	public void nextTurn(){
-		turnOrder.RemoveAt(turnOrder.Count -1);
-		if(!turnOrder.Any()){
-			roundCount++;
+		var remaining = turnOrder.Count;
+		if(remaining >1){
+			turnOrder.RemoveAt( remaining-1);
+		}
+		
+		if(remaining==2){
 			generateTurnOrder();
+		}else if(remaining<=1){
+			turnOrder = nextTurnOrder;
+			nextTurnOrder =null;
+			roundCount++;
 		}
 		getPriorityOrder();
 	}

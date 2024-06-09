@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DiscardDeck
   m_EditorClassIdentifier: 
   cardBackArt: {fileID: 2025458771616860364, guid: 165278c9f2aab5540982b9adcb5ebc2a, type: 3}
-  deckSize: 40
+  deckSize: 30
   CardsetCollection:
   - card: {fileID: 11400000, guid: 79ab3e01ceebb0e4dafc4f8f923e3cdd, type: 2}
     amount: 4
@@ -37,8 +37,6 @@ MonoBehaviour:
     amount: 4
   - card: {fileID: 11400000, guid: 8424bdda5e4baa54ebd2f10a349ee4c5, type: 2}
     amount: 2
-  - card: {fileID: 11400000, guid: cdfeef9416b529f45828e4cd296b7623, type: 2}
-    amount: 10
   skills:
   - card: {fileID: 11400000, guid: 53bf20c54c6038045b1ae715bf76bf93, type: 2}
     level: 2

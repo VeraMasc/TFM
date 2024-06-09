@@ -146,5 +146,10 @@ public enum ExecutionMode{
     /// <summary>
     /// Indica que la ejecución se ha de cancelar
     /// </summary>
-    cancel
+    cancel,
+
+    /// <summary>
+    /// Indica que vuelve hacia atrás en la ejecución de las decisiones sin cancelar por completo
+    /// </summary>
+    backtrack,
 }
