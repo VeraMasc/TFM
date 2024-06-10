@@ -9,7 +9,7 @@ using UnityEngine;
 /// Define heurísticas para cartas con varias partes
 /// </summary>
 [Serializable]
-public class ComplexHeuristic:CardHeuristic {
+public class ComplexHeuristic:CardHeuristic,ITargetingHeuristic,ITimingHeuristic{
     
     public List<ChoiceHeuristic> choices;
 

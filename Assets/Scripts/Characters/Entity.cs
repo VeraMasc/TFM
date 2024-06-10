@@ -134,6 +134,8 @@ public partial class Entity : MonoBehaviour, ITargetable
 
     public Transform  counterList;
 
+    public SpriteImageOperator  turnIndicator;
+
 
     /// <summary>
     /// Anctionables especiales (vienen de cartas que normalmente no se pueden usar por su zona)
@@ -258,6 +260,27 @@ public partial class Entity : MonoBehaviour, ITargetable
                 
             }).Start(this);
         
+    }
+
+    public void refreshTurnIndicator(){
+        if(GameMode.current is CombatController combat){
+            if(combat.currentTurn == this){
+                turnIndicator.Activate("Current");
+            } else if(combat.followingTurn == this){
+                
+                if(combat.turnOrder.Contains(this)){
+                    turnIndicator.Activate("Following");
+                }else{
+                    turnIndicator.Activate("FollowingRound");
+                }
+            }
+            else if(combat.turnOrder.Contains(this)){
+                turnIndicator.Activate("Pending");
+            }
+            else{
+                turnIndicator.Activate("Done");
+            }
+        }
     }
 }
 

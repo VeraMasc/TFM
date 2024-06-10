@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using CardHouse;
 using Common.Coroutines;
 using CustomInspector;
 using Effect;
@@ -23,7 +24,7 @@ public class EntityAI : MonoBehaviour
     /// </summary>
     public virtual IActionable findBestAction(IEnumerable<IActionable> options){
 
-        //TODO: Filtrar por coste y heurística
+        //TODO: Filtrar por heurística
         //Selección aleatoria
         return options.Random();
     }
@@ -78,6 +79,12 @@ public class EntityAI : MonoBehaviour
     public virtual ITargetable[] chooseTargets(IEnumerable<ITargetable> options, ChoiceInfo info){
         
         if(info.amount != -1){
+            var heuristics = info.context?.heuristics
+                .OfType<ITargetingHeuristic>();
+            //Filtrar según heurística
+            foreach(var heuristic in heuristics){
+                options = heuristic.removeBadTargets(options,info.context);
+            }
             var ret = options.TakeRandom(info.amount);
             return ret.ToArray();
         }
@@ -92,6 +99,12 @@ public class EntityAI : MonoBehaviour
         
         
         if(info.amount != -1){
+            var heuristics = info.context?.heuristics
+                .OfType<ITargetingHeuristic>();
+            //Filtrar según heurística
+            foreach(var heuristic in heuristics){
+                options = heuristic.keepBadTargets(options,info.context);
+            }
             var ret = options.TakeRandom(info.amount);
             return ret.ToArray();
         }

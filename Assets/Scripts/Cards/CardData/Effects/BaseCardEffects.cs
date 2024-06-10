@@ -107,6 +107,16 @@ public class BaseCardEffects{
             context = new Effect.Context(self,effector);
         }
         context.mode = ExecutionMode.normal;
+        //Heuristics
+        if(self.data is ActionCard action ){
+            var definition = action.definition as ActionCardDefinition;
+            if(definition.heuristic != null)
+                context.heuristics.Add(definition.heuristic);
+            //TODO: Modifier Heuristics
+            //TODO: Ability Heuristics???
+        }
+        
+        
         
     }
     

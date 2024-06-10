@@ -56,6 +56,8 @@ namespace Effect{
         /// </summary>
         public List<int> choiceTreePath = new List<int>{0};
 
+        public List<CardHeuristic> heuristics = new ();
+
         public int choiceTreeIncrease(int amount=1){
             choiceTreePath[choiceTreePath.Count-1] += amount;
             // Debug.Log(string.Join(", ",choiceTreePath));

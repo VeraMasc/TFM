@@ -23,6 +23,20 @@ public class CombatController : GameMode
 	public Entity currentTurn => turnOrder?.LastOrDefault();
 
 	/// <summary>
+	/// Devuelve cual es la entidad que tiene su turno después de el actual
+	/// </summary>
+	public Entity followingTurn  {
+		get {
+			if(turnOrder.Count >1){
+				return turnOrder[^2];
+			}
+			else{
+				return nextTurnOrder?.LastOrDefault();
+			}
+		}
+	}
+
+	/// <summary>
 	/// Fase actual del combate
 	/// </summary>
 	public CombatPhases currentPhase;
@@ -247,8 +261,14 @@ public class CombatController : GameMode
 			new List<EntityTeam>(){EntityTeam.player,EntityTeam.enemy}:
 			new List<EntityTeam>(){EntityTeam.enemy,EntityTeam.player};
 		priorityIndex = 0;
-		aiDirector.onPriorityChange();
+		onPriorityChange();
     }
+
+	protected void onPriorityChange(){
+		aiDirector.onPriorityChange();
+		GameController.singleton.entities
+			.ForEach( e => e?.refreshTurnIndicator());
+	}
 
 	
 	public override void getResponsePriority(EntityTeam inResponseTo){
@@ -256,7 +276,7 @@ public class CombatController : GameMode
 			new List<EntityTeam>(){EntityTeam.player,EntityTeam.enemy}:
 			new List<EntityTeam>(){EntityTeam.enemy,EntityTeam.player};
 		priorityIndex = 0;
-		aiDirector.onPriorityChange();
+		onPriorityChange();
     }
 }
 
