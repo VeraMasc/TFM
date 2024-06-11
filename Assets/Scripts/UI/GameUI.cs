@@ -331,6 +331,35 @@ public class GameUI : MonoBehaviour
             Debug.Log("rightClick");
             rightClickRaycast();
         }
+        if(Input.mouseScrollDelta.y != 0){
+            characterSelectScroll(Input.mouseScrollDelta.y);
+        }
+    }
+
+    public void characterSelectScroll(float yScroll){
+        Debug.Log(yScroll);
+        var selected = GameMode.current.selectedPlayer;
+        Entity next = null;
+        if(yScroll>0){
+            var characters = GameController.singleton.entities
+                .Where(e => e.team == EntityTeam.player)
+                .OrderBy(e => e.transform.position.y);
+            next = characters
+                .Where(e => e.transform.position.y > selected.transform.position.y)
+                .FirstOrDefault();
+            next ??= characters.First();
+        }
+        else{
+            var characters = GameController.singleton.entities
+                .Where(e => e.team == EntityTeam.player)
+                .OrderByDescending(e => e.transform.position.y);
+            next = characters
+                .Where(e => e.transform.position.y < selected.transform.position.y)
+                .FirstOrDefault();
+            next ??= characters.First();
+        }
+
+        next?.trySelectPlayer();
     }
 
     /// <summary>
