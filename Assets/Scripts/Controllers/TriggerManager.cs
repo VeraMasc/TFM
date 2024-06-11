@@ -31,16 +31,22 @@ public class TriggerManager : ScriptableObject
 
     [HorizontalLine(3,message = "Life")]
     [Tab("Entities")]
-    public LocalTrigger onDeath;
+    public GlobalTrigger onDeath;
     [Tab("Entities")]
-    public LocalTrigger onDamage;
+    public GlobalTrigger onDamaged;
     [Tab("Entities")]
-    public LocalTrigger onHeal;
+    public GlobalTrigger onHeal;
+    [Tab("Entities")]
+    public GlobalTrigger onRevive;
     /// <summary>
     /// Se activa cuando una entidad usa una carta
     /// </summary>
+    [HorizontalLine(3,message = "Others")]
     [Tab("Entities")]
     public GlobalTrigger onUseAction;
+
+    [Tab("Entities")]
+    public GlobalTrigger onDraw;
 
     /// <summary>
     /// Trigger producido al entrar la carta en el campo

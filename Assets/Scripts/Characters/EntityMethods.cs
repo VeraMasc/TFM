@@ -88,7 +88,27 @@ public partial class Entity
             CardTransferOperator.sendCards(cards,hand, duration/amount, burstSend:true)
         );
         if(amount>cards.Count && deck.MountedCards.Count==0)
-            kill().Start(this);
+            yield return kill().Start(this);
+        yield return TriggerManager.instance.onDraw.invokeWith(this);
+        coReturn(returnAction, cards.ToArray());
+        yield break;
+    }
+
+    /// <summary>
+    /// Roba cartas pero no cuenta como robar
+    /// </summary>
+    /// <param name="amount"></param>
+    /// <param name="duration"></param>
+    /// <param name="returnAction"></param>
+    /// <returns></returns>
+    public IEnumerator pseudoDraw(int amount=1, float duration = 0.75f, Action<Card[]> returnAction = null){
+        if(amount <=0)
+            yield break;
+        var cards =deck.Get(GroupTargetType.Last, amount);
+        yield return StartCoroutine( 
+            CardTransferOperator.sendCards(cards,hand, duration/amount, burstSend:true)
+        );
+        
         coReturn(returnAction, cards.ToArray());
         yield break;
     }
@@ -107,7 +127,7 @@ public partial class Entity
         if(chosen.Count() >0){
             yield return StartCoroutine(CardTransferOperator.sendCards(chosen,deck,duration/chosen.Count(),sendTo:GroupTargetType.First, burstSend:true));
 
-            yield return StartCoroutine(draw(chosen.Count(),duration));
+            yield return StartCoroutine(pseudoDraw(chosen.Count(),duration));
         }
 
         coReturn(returnAction, chosen);

@@ -337,7 +337,6 @@ public class GameUI : MonoBehaviour
     }
 
     public void characterSelectScroll(float yScroll){
-        Debug.Log(yScroll);
         var selected = GameMode.current.selectedPlayer;
         Entity next = null;
         if(yScroll>0){

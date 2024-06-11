@@ -15,10 +15,12 @@ MonoBehaviour:
   onReveal: {fileID: 11400000, guid: 184c061b61688f94ea217e54f26f9c4e, type: 2}
   onVisit: {fileID: 11400000, guid: c0bbc39ff10a710488c92c0e35e32274, type: 2}
   onAfterVisit: {fileID: 11400000, guid: 8e35d8a0fafa65d40a4354c04efadcc7, type: 2}
-  onDeath: {fileID: 11400000, guid: f94cdc355d6f3fa459a60883041c496c, type: 2}
-  onDamage: {fileID: 11400000, guid: 43b8d95b53c100e4786262461673c16d, type: 2}
-  onHeal: {fileID: 0}
+  onDeath: {fileID: 11400000, guid: 218eb7783f092cb4abbffa920fe75e63, type: 2}
+  onDamaged: {fileID: 11400000, guid: def7e22448ca74643b12fa44eb41f881, type: 2}
+  onHeal: {fileID: 11400000, guid: 06a388e270d8da947a8b0e1b0688039d, type: 2}
+  onRevive: {fileID: 11400000, guid: c76034e145ecdb7408bf47c5b1adabfe, type: 2}
   onUseAction: {fileID: 11400000, guid: 3938d40abee615146824a17ca2247d17, type: 2}
+  onDraw: {fileID: 11400000, guid: adae4922a7beb5d4993e7d95c5b94e92, type: 2}
   onEnter: {fileID: 11400000, guid: cac14767393c4824fabee3093dd3288e, type: 2}
   onDestroy: {fileID: 11400000, guid: 244447d381f59d54788de5ed0713115c, type: 2}
   onLeave: {fileID: 11400000, guid: 40da7b8342106f7449f0b690b67d436f, type: 2}

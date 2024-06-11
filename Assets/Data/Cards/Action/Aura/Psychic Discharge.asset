@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Psychic Discharge
-  rawText: 'When you draw one or more cards, ~ gets a charge counter.
+  rawText: '{onDraw: When you draw one or more cards, ~ gets a charge counter.}
 
 
-    {ability:
-    {W}, 5 charge: Deal 4 damage to target entity}'
-  parsedText: 'When you draw one or more cards, Psychic Discharge gets a charge counter.
+    {Discharge:
+    {W}, 5 charge: Deal 4 damage to target entity. Activate as an action}'
+  parsedText: '<link="onDraw">When you draw one or more cards, Psychic Discharge
+    gets a charge counter.</link>
 
 
-    <link="ability"><sprite
-    name="W">, 5 charge: Deal 4 damage to target entity</link>'
+    <link="Discharge"><sprite name="W">, 5 charge:
+    Deal 4 damage to target entity. Activate as an action</link>'
   Art: {fileID: 5170309795035857459, guid: 91966cd60d28df14bb3a3a8c92d955ab, type: 3}
   Frame: {fileID: 0}
   help: []
@@ -33,8 +34,7 @@ MonoBehaviour:
       - rid: 8960580109122142208
     abilities:
     - rid: 8960580109122142209
-    staticEffects:
-      list: []
+    - rid: 8960580218152288289
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
@@ -55,21 +55,108 @@ MonoBehaviour:
     costText: W
     value: 1
     colors: W
+  heuristic:
+    rid: 8960580218152288268
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 8960580109122142208
       type: {class: EnterBoard, ns: Effect, asm: Assembly-CSharp}
     - rid: 8960580109122142209
       type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
       data:
-        id: 
+        id: onDraw
         source: {fileID: 0}
-        effects: []
+        effects:
+        - rid: 8960580218152288302
         isCurrentlyActive: 0
-        trigger: {fileID: 0}
+        trigger: {fileID: 11400000, guid: adae4922a7beb5d4993e7d95c5b94e92, type: 2}
         activeZoneList: 05000000
         condition:
-          rid: -2
+          rid: 8960580218152288287
+    - rid: 8960580218152288268
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0
+    - rid: 8960580218152288287
+      type: {class: Matches, ns: Effect.Condition, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580218152288288
+    - rid: 8960580218152288288
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960580218152288289
+      type: {class: ActivatedAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: Discharge
+        source: {fileID: 0}
+        effects:
+        - rid: 8960580218152288290
+        isCurrentlyActive: 0
+        costValue:
+          costText: 0
+        cost:
+          costText: 0
+          value: 0
+          colors: 
+        speed: 0
+    - rid: 8960580218152288290
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8960580218152288291
+    - rid: 8960580218152288291
+      type: {class: SetCounters, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580218152288295
+        mode:
+          rid: 8960580218152288299
+    - rid: 8960580218152288295
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960580218152288299
+      type: {class: SetCounters/Add, ns: Effect, asm: Assembly-CSharp}
+      data:
+        counterType:
+          rid: 8960580218152288300
+        amount:
+          rid: 8960580218152288301
+    - rid: 8960580218152288300
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: Charge
+    - rid: 8960580218152288301
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: -5
+    - rid: 8960580218152288302
+      type: {class: SetCounters, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580218152288306
+        mode:
+          rid: 8960580218152288303
+    - rid: 8960580218152288303
+      type: {class: SetCounters/Add, ns: Effect, asm: Assembly-CSharp}
+      data:
+        counterType:
+          rid: 8960580218152288304
+        amount:
+          rid: 8960580218152288305
+    - rid: 8960580218152288304
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: Charge
+    - rid: 8960580218152288305
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 1
+    - rid: 8960580218152288306
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0

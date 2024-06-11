@@ -30,11 +30,10 @@ MonoBehaviour:
       - rid: 8960580047823437842
       - rid: 8960580047823437851
     abilities: []
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      choiceTreePath: 
       resolutionPile: {fileID: 0}
       precalculated: 0
       mode: 0
@@ -51,6 +50,8 @@ MonoBehaviour:
     costText: 1MF
     value: 3
     colors: MF
+  heuristic:
+    rid: 8960580218152288274
   references:
     version: 2
     RefIds:
@@ -76,6 +77,7 @@ MonoBehaviour:
       data:
         targeter:
           rid: 8129478347398053891
+        reverseFilter: 0
         noTriggers: 1
         speedtypes: 
         subtypes: 
@@ -105,7 +107,8 @@ MonoBehaviour:
       data:
         input:
           rid: 8960580047823437843
-        conditions: []
+        conditions:
+        - rid: 8960580218152288307
         effects:
         - rid: 8960580047823437847
     - rid: 8960580047823437843
@@ -122,6 +125,7 @@ MonoBehaviour:
       data:
         targeter:
           rid: 8960580047823437846
+        reverseFilter: 0
         noTriggers: 0
         speedtypes: 
         subtypes: 01000000
@@ -147,3 +151,13 @@ MonoBehaviour:
       type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         index: 0
+    - rid: 8960580218152288274
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0
+    - rid: 8960580218152288307
+      type: {class: AmountCondition, ns: Effect.Condition, asm: Assembly-CSharp}
+      data:
+        min: 1
+        max: 99999

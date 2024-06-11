@@ -59,10 +59,10 @@ namespace Effect
                 return chosen.Count == amount;
             }, 
             (value)=>{cards= value.OfType<Card>().ToArray();
-            },true));
+            },true, new InputParameters(){canCancel =true}));
 
-            yield return UCoroutine.Yield(entity.reDraw(cards));
-            yield break;
+            if(cards.Count()>0)
+                yield return UCoroutine.Yield(entity.reDraw(cards));
         }
 
     }

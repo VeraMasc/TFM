@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 616e1a5a43d66ae49914098fded45199, type: 3}
-  m_Name: OnDeath
+  m_Name: OnHeal
   m_EditorClassIdentifier: 
   count: 0
   produceLogs: 1

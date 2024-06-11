@@ -82,14 +82,15 @@ public class CounterHolder : MonoBehaviour
     /// <summary>
     /// Asigna un valor concreto a un tipo de counter
     /// </summary>
-    public static void addCounter(ITargetable targetable, string key, int increase=1){
+    public static int addCounter(ITargetable targetable, string key, int increase=1){
         var dict = getCounterDict(targetable);
         dict.TryAdd(key,0); //Lo inicializa a 0 si no existe
         dict[key] += increase;
-
+        var ret = dict[key];
         if(dict[key]<=0){
             dict.Remove(key);
         }
+        return ret;
     }
 
     /// <summary>

@@ -43,8 +43,20 @@ namespace Effect{
             public override void implement(ITargetable target,Context context){
                 var type = counterType.getValueObj(context) as string;
                 var num = amount.getValueObj(context) as int?;
-
+                Debug.Log($"{context.precalculated}  {num}");
+                if(!context.precalculated && num<0){
+                    var current = CounterHolder.getCounter(target,type);
+                   
+                    if((current+num)<0){
+                         Debug.Log($"{current-num}");
+                        context.mode = ExecutionMode.cancel;
+                        return;
+                    }
+                    
+                }
                 CounterHolder.addCounter(target, type, num??0);
+                
+                
             }
         }
 

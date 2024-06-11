@@ -70,14 +70,15 @@ namespace Effect
                 
                 if(card.data is ActionCard action){
                     //Comprueba subtipos
-                    var typematch = false;
+                    
+                    var typematch = !subtypes.Any(); //True si no hay subtipos
                     foreach(var subtype in subtypes){
                        typematch |= action.cardType.Contains(subtype.ToString());
                     }
                     ret &=typematch;
 
                     //Comprueba velocidades
-                    var speedMatch = false;
+                    var speedMatch = !speedtypes.Any();//True si no hay subtipos
                     foreach(var speed in speedtypes){
                         speedMatch |= action.speedType == speed;
                     }

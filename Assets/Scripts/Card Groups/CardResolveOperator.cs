@@ -176,7 +176,14 @@ public class CardResolveOperator : Activatable
             
             //Return if cancelled
             if(simpleCard.effects?.context?.mode==ExecutionMode.cancel){
-                simpleCard.effects.sourceGroup.Mount(card);
+                if(simpleCard.effects.sourceGroup)
+                    simpleCard.effects.sourceGroup.Mount(card);
+                else{
+                    stack.UnMount(card);
+                    Destroy(simpleCard.gameObject);
+                    yield return new WaitForSeconds(0.2f);
+                }
+                    
                 goto end;
             }
             simpleCard.effects.context.precalculated = true;
