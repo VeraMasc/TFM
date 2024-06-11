@@ -14,8 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Crazed Clawing
-  rawText: Whenever this card is used or discarded, deal 2 damage to target entity
-  parsedText: Whenever this card is used or discarded, deal 2 damage to target entity
+  rawText: '<i>Lunatic only</i>
+
+
+
+    Whenever this card is used or discarded, deal
+    2 damage to target entity'
+  parsedText: '<i>Lunatic only</i>
+
+
+
+    Whenever this card is used or discarded,
+    deal 2 damage to target entity'
   Art: {fileID: 7661334728954290958, guid: c098e1a924a8fc14c890d4c2462c1374, type: 3}
   Frame: {fileID: 0}
   help: []
@@ -25,8 +35,6 @@ MonoBehaviour:
     abilities:
     - rid: 8129478057838772224
     - rid: 8960580084980252673
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
@@ -47,6 +55,8 @@ MonoBehaviour:
     costText: DW
     value: 2
     colors: DW
+  heuristic:
+    rid: 8960580227871277076
   references:
     version: 2
     RefIds:
@@ -122,3 +132,8 @@ MonoBehaviour:
       type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         contextual: 0
+    - rid: 8960580227871277076
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0

@@ -152,9 +152,9 @@ public class CombatController : GameMode
 			Debug.LogWarning("A phase coroutine is already active! Wait for it to finish before starting another");
 		}
 
-		
+		GameMode.current.checkState();
 		Debug.Log($"Executing phase{currentPhase}");
-		
+	
 		if(currentPhase == CombatPhases.setup){
 			phaseCoroutine =StartCoroutine(setupPhase());
 		}

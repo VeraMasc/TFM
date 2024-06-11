@@ -42,6 +42,9 @@ namespace CardHouse
 
         int CollidersEntered = 0;
 
+        protected GroupZone _zone;
+        public GroupZone zone => _zone ??= GetComponent<GroupZone>();
+
         /// <summary>
         /// indica si el grupo se encuentra en modo focus
         /// </summary>

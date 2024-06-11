@@ -85,6 +85,29 @@ public class ActionCard : MyCardSetup, IActionable
     }
 
     /// <summary>
+    /// Comprueba si la acción cumple todos los requisitos para ser usada o Activada
+    /// </summary>
+    /// <returns></returns>
+    public bool checkIfUsable(Entity user, GroupName zone){
+
+        return checkIfCastable(user) || checkIfActivable(user,zone);
+        
+    }
+
+    /// <summary>
+    /// Comprueba si alguna habilidad que pueda ser activada
+    /// </summary>
+    /// <param name="user"></param>
+    /// <returns></returns>
+    public bool checkIfActivable(Entity user, GroupName? zone){
+        return GameMode.current.disableTimingRestrictions || 
+            effects.getAllAbilities()
+                .OfType<ActivatedAbility>()
+                .Where(ab => zone == null || ab.isActiveIn((GroupName)zone))
+                .Any( ab => ab.checkActivationTiming(user) && user.mana.canPay(ab.cost));
+    }
+    
+    /// <summary>
     /// Comprueba si alguna habilidad de la carta tiene timing válido
     /// </summary>
     /// <param name="user"></param>
@@ -96,7 +119,6 @@ public class ActionCard : MyCardSetup, IActionable
                 .Where(ab => zone == null || ab.isActiveIn((GroupName)zone))
                 .Any( ab => ab.checkActivationTiming(user));
     }
-    
 
     
 }

@@ -23,12 +23,12 @@ public class CastDropGate : Gate<DropParams>
         isDragLocked =isDragLocked || (CardResolveOperator.singleton?.precalculating ?? false);
 
 
-        if(MyCard.data is ActionCard action && action.speedType!= SpeedTypes.Reaction){
+        if(MyCard.data is ActionCard action){
             var context = action.effects.context;
             var sourceZone = gateParams.Source?.GetComponent<GroupZone>()?.zone;
             //Comprobar si se puede castear
             var usable =  sourceZone == GroupName.Hand && action.checkIfCastable(context.controller);
-            usable= usable || action.checkActivationTiming(context.controller, sourceZone);
+            usable= usable || action.checkIfActivable(context.controller, sourceZone);
             isDragLocked = isDragLocked || !usable;
         }
         

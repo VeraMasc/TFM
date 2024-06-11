@@ -16,7 +16,7 @@ MonoBehaviour:
   cardName: Brilliant Mind
   rawText: You get {Lv} {W} each turn.
   parsedText: You get {Lv} <sprite name="W"> each turn.
-  Art: {fileID: 0}
+  Art: {fileID: 269806389928493699, guid: 70492cfd296f4284db57ff88bfc786ed, type: 3}
   Frame: {fileID: 0}
   help: []
   effects:
@@ -24,8 +24,6 @@ MonoBehaviour:
       list: []
     abilities:
     - rid: 8960580109122142234
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}

@@ -385,4 +385,27 @@ public class GameUI : MonoBehaviour
         }
         
     }
+
+    /// <summary>
+    /// Marca qué cartas se pueden activar/usar
+    /// </summary>
+    public void usabilityHiglight(bool active){
+        var characters = GameController.singleton.entities
+            .Where(e => e.team == EntityTeam.player);
+
+        foreach(var character in characters){
+            var cards = character.hand.MountedCards;
+
+            foreach (var card in cards)
+            {
+                var zone = card?.Group?.zone?.zone ?? GroupName.None;
+                if(active && card.data is ActionCard action && action.checkIfUsable(character,zone))
+                {
+                    card.outlineRenderer?.gameObject?.SetActive(true);
+                }else{
+                    card.outlineRenderer?.gameObject?.SetActive(false);
+                }
+            }
+        }
+    }
 }

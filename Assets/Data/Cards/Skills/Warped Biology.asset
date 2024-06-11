@@ -16,7 +16,7 @@ MonoBehaviour:
   cardName: Warped Biology
   rawText: You get {Lv} {A} each turn.
   parsedText: You get {Lv} <sprite name="A"> each turn.
-  Art: {fileID: 0}
+  Art: {fileID: 298723538539920085, guid: 70492cfd296f4284db57ff88bfc786ed, type: 3}
   Frame: {fileID: 0}
   help: []
   effects:
@@ -24,8 +24,6 @@ MonoBehaviour:
       list: []
     abilities:
     - rid: 8960580113523540021
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}

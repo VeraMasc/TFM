@@ -152,6 +152,7 @@ public abstract class GameMode : MonoBehaviour
 	/// </summary>
 	public virtual void checkState(){
 		healthCheck();
+        GameUI.singleton.usabilityHiglight(true);
         triggerManager.onStateCheck.invoke().Start(this);
 	}
 

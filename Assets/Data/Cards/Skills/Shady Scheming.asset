@@ -16,7 +16,7 @@ MonoBehaviour:
   cardName: Shady Scheming
   rawText: You get {Lv} {D} each turn.
   parsedText: You get {Lv} <sprite name="D"> each turn.
-  Art: {fileID: 0}
+  Art: {fileID: -2141327939065262755, guid: 70492cfd296f4284db57ff88bfc786ed, type: 3}
   Frame: {fileID: 0}
   help: []
   effects:
@@ -24,8 +24,6 @@ MonoBehaviour:
       list: []
     abilities:
     - rid: 8960580113523540001
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
