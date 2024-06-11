@@ -16,6 +16,7 @@ public class CombatController : GameMode
     /// </summary>
     public List<Entity> turnOrder;
 
+	[SerializeField,ReadOnly]
 	private List<Entity> nextTurnOrder;
 
 	public int roundCount;

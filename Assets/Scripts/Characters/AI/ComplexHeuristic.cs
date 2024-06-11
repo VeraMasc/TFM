@@ -13,6 +13,11 @@ public class ComplexHeuristic:CardHeuristic,ITargetingHeuristic,ITimingHeuristic
     
     public List<ChoiceHeuristic> choices;
 
+    public bool isGoodTime()
+    {
+        return true;
+    }
+
     public override void validate(){
         foreach(var choice in choices){
             if (string.IsNullOrEmpty(choice?.choicePath))

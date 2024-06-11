@@ -48,11 +48,10 @@ MonoBehaviour:
     abilities:
     - rid: 8129478482906054667
     - rid: 8960580047823437832
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      choiceTreePath: 
       resolutionPile: {fileID: 0}
       precalculated: 0
       mode: 0
@@ -69,6 +68,8 @@ MonoBehaviour:
     costText: VN
     value: 2
     colors: VN
+  heuristic:
+    rid: 8960580218152288262
   references:
     version: 2
     RefIds:
@@ -77,7 +78,7 @@ MonoBehaviour:
     - rid: 8129478482906054667
       type: {class: HiddenTriggeredAbility, ns: Effect, asm: Assembly-CSharp}
       data:
-        id: 
+        id: GenerateMana
         source: {fileID: 0}
         effects:
         - rid: 8129478490245562398
@@ -207,3 +208,8 @@ MonoBehaviour:
       type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: GenerateMana
+    - rid: 8960580218152288262
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0

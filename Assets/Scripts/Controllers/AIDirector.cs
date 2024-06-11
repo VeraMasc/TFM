@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Common.Coroutines;
 using CustomInspector;
+using DTT.Utils.Extensions;
 using UnityEngine;
 
 /// <summary>
@@ -33,16 +35,26 @@ public class AIDirector : MonoBehaviour
     [NaughtyAttributes.Button]
     public void AITakeAction(){
         var combat = CombatController.singleton;
+        var AIs = getAIs().ToList();
         if(!CardResolveOperator.singleton.isEmpty){
-            Debug.Log("AI's Response");
-            GameMode.current.passPriority(EntityTeam.enemy);
+            Debug.Log("AI's Reaction");
+
+            AIs.Shuffle();
+            UCoroutine.YieldInSequence(AIs.Select(ai => ai.doReaction()).ToArray())
+                .Then(()=> GameMode.current.passPriority(EntityTeam.enemy))
+                .Start(this);
+           
+
         }else if(combat.currentTurn.AI && combat.currentPhase == CombatPhases.main){ //Si es turno de la IA
             Debug.Log("AI's Main");
             combat.currentTurn.AI.doTurn().Start(combat.currentTurn.AI);
         }
         else {
-            Debug.Log("AI's Timing Response");
-            GameMode.current.passPriority(EntityTeam.enemy);
+            Debug.Log("AI's Timing Reaction");
+            AIs.Shuffle();
+            UCoroutine.YieldInSequence(AIs.Select(ai => ai.doTimingReaction()).ToArray())
+                .Then(()=> GameMode.current.passPriority(EntityTeam.enemy))
+                .Start(this);
         }
         
     }
@@ -50,5 +62,15 @@ public class AIDirector : MonoBehaviour
     [NaughtyAttributes.Button]
     public void forcePass(){
         GameMode.current.passPriority(EntityTeam.enemy);
+    }
+
+    /// <summary>
+    /// Recupera todas las IAs de la escena
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerable<EntityAI> getAIs(){
+        return GameController.singleton.entities
+            .Where( e => e.AI !=null)
+            .Select(e => e.AI);
     }
 }

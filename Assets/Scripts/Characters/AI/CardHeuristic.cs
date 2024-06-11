@@ -41,15 +41,26 @@ public  class SimpleHeuristic:CardHeuristic,ITargetingHeuristic{
 /// Para cartas de ramp
 /// </summary>
 [Serializable]
-public  class Ramp:CardHeuristic,ITimingHeuristic{
-    
+public class Ramp : CardHeuristic, ITimingHeuristic
+{
+    public bool isGoodTime()
+    {
+        return true;
+    }
 }
 
 /// <summary>
 /// Heuristicas que cambian el momento en el que usar una carta
 /// </summary>
 public interface ITimingHeuristic{
+    public bool isGoodTime();
+}
 
+/// <summary>
+/// Heurística que define en respuesta a qué se debe usar una carta
+/// </summary>
+public interface IResponseHeuristic:ITimingHeuristic{
+    
 }
 
 /// <summary>

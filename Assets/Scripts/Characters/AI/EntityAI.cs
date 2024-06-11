@@ -35,7 +35,10 @@ public class EntityAI : MonoBehaviour
     public virtual IEnumerator doTurn(){
         Debug.Log("Doing Turn");
         var actionables = entity.getAllActionables();
-        var chosen = findBestAction(actionables);
+        var filtered = actionables.Where( a => a.getSpeed()==SpeedTypes.Action 
+                && (!(a?.getHeuristic() is ITimingHeuristic timing) || timing.isGoodTime()));
+
+        var chosen = findBestAction(filtered);
         Debug.Log(chosen);
         if(chosen!=null){
             yield return entity.executeAction(chosen).Start(this);
@@ -69,7 +72,43 @@ public class EntityAI : MonoBehaviour
     /// Ejecuta la reacción de la IA
     /// </summary>
     public virtual IEnumerator doReaction(){
-        yield break;
+        Debug.Log("Doing Reaction");
+        var actionables = entity.getAllActionables();
+        var filtered = actionables
+            .Where( a => (a?.getHeuristic() is IResponseHeuristic response) 
+                && response.isGoodTime());//Es buen momento?
+
+        var chosen = findBestAction(filtered);
+        Debug.Log(chosen);
+        if(chosen!=null){
+            yield return entity.executeAction(chosen).Start(this);
+        }
+       
+    }
+
+    /// <summary>
+    /// Ejecuta la reacción de timing la IA
+    /// </summary>
+    public virtual IEnumerator doTimingReaction(){
+        //Probabilidad de no reaccionar
+        var combat = CombatController.singleton;
+        if(Random.value >0.1 && !(combat?.followingTurn == entity && combat.currentPhase == CombatPhases.end))
+        {
+            yield break;
+        }
+
+        Debug.Log("Doing Timing Reaction");
+        var actionables = entity.getAllActionables();
+        var filtered = actionables
+            .Where( a => !(a?.getHeuristic() is ITimingHeuristic timing) //Es buen momento?
+                || timing.isGoodTime());
+
+        var chosen = findBestAction(filtered);
+        Debug.Log(chosen);
+        if(chosen!=null){
+            yield return entity.executeAction(chosen).Start(this);
+        }
+        
     }
 
     /// <summary>
@@ -117,5 +156,24 @@ public class EntityAI : MonoBehaviour
 /// Interfaz de todas las cosas que una IA puede escoger hacer
 /// </summary>
 public interface IActionable{
+    public SpeedTypes getSpeed(){
+        if(this is ActionCard action)
+            return action.speedType;
+        if (this is ActivatedAbility activated)
+            return activated.speed;
+        
+        return SpeedTypes.Action;
+    }
 
+    public CardHeuristic getHeuristic(){
+        if(this is ActionCard action){
+            return (action.definition as ActionCardDefinition).heuristic;
+        }
+        if (this is ActivatedAbility activated){
+            var card = activated.source;
+            return ((card.data as ActionCard).definition as ActionCardDefinition).heuristic;
+        }
+        
+        return null;
+    }
 }

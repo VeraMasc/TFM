@@ -78,6 +78,8 @@ public abstract class BaseModifier
     [CustomInspector.ReadOnly]
     public Card modified;
 
+
+
     public virtual void initialize(object initParams){
         
     }
