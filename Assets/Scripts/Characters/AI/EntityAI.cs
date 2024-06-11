@@ -72,14 +72,14 @@ public class EntityAI : MonoBehaviour
     /// Ejecuta la reacción de la IA
     /// </summary>
     public virtual IEnumerator doReaction(){
-        Debug.Log("Doing Reaction");
+        // Debug.Log("Doing Reaction");
         var actionables = entity.getAllActionables();
         var filtered = actionables
             .Where( a => (a?.getHeuristic() is IResponseHeuristic response) 
                 && response.isGoodTime());//Es buen momento?
 
         var chosen = findBestAction(filtered);
-        Debug.Log(chosen);
+        // Debug.Log(chosen);
         if(chosen!=null){
             yield return entity.executeAction(chosen).Start(this);
         }
@@ -97,7 +97,7 @@ public class EntityAI : MonoBehaviour
             yield break;
         }
 
-        Debug.Log("Doing Timing Reaction");
+        // Debug.Log("Doing Timing Reaction");
         var actionables = entity.getAllActionables();
         var filtered = actionables
             .Where( a => !(a?.getHeuristic() is ITimingHeuristic timing) //Es buen momento?
@@ -116,15 +116,15 @@ public class EntityAI : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     public virtual ITargetable[] chooseTargets(IEnumerable<ITargetable> options, ChoiceInfo info){
-        
-        if(info.amount != -1){
+        var maxTargets = info is RangedChoiceInfo ranged? ranged.max : info.amount;
+        if(maxTargets != -1){
             var heuristics = info.context?.heuristics
                 .OfType<ITargetingHeuristic>();
             //Filtrar según heurística
             foreach(var heuristic in heuristics){
                 options = heuristic.removeBadTargets(options,info.context);
             }
-            var ret = options.TakeRandom(info.amount);
+            var ret = options.TakeRandom(maxTargets);
             return ret.ToArray();
         }
         return options.ToArray();

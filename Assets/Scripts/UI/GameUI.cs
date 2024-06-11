@@ -68,9 +68,9 @@ public class GameUI : MonoBehaviour
     /// <summary>
     /// Lista de targets válidos
     /// </summary>
-    public IEnumerable<ITargetable> possibleTargets;
+    public IEnumerable<ITargetable> possibleTargets = null;
 
-    public List<ITargetable> chosenTargets;
+    public List<ITargetable> chosenTargets = new();
 
     /// <summary>
     /// Targets que tienen un marker puesto

@@ -11,7 +11,7 @@ public static class LINQExtensions
 
         for(var i =0; i<amount && list.Any(); i++){
             int index = UnityEngine.Random.Range(0,list.Count());
-            Debug.Log(index);
+            // Debug.Log(index);
             ret.Add(list.ElementAt(index));
 
             if(!allowRepetitions){//Quitar elementos ya usados

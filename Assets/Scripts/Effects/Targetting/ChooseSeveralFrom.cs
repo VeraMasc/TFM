@@ -6,6 +6,7 @@ using System.Collections;
 using System.Linq;
 using Common.Coroutines;
 using System.Collections.Generic;
+using Effect.Condition;
 
 namespace Effect{
     /// <summary>
@@ -34,17 +35,37 @@ namespace Effect{
                         condText:
                         "several")
                 };
-                //Get player input
-                GameUI.singleton.possibleTargets= targets.ToArray();
-                yield return UCoroutine.Yield(GameUI.singleton.getTargets(targets, 
-                ()=>{
-                    var chosen = GameUI.singleton.chosenTargets;
-                    return condition?.check(chosen, context) ?? true;
-                }, 
-                (value)=>{
-                    context.previousTargets[pos]= value;
-                    context.previousChosenTargets.Add(value);
-                },config:config));
+                if(!context?.controller?.AI){
+                    //Get player input
+                    GameUI.singleton.possibleTargets= targets.ToArray();
+                    yield return UCoroutine.Yield(GameUI.singleton.getTargets(targets, 
+                    ()=>{
+                        var chosen = GameUI.singleton.chosenTargets;
+                        return condition?.check(chosen, context) ?? true;
+                    }, 
+                    (value)=>{
+                        context.previousTargets[pos]= value;
+                        context.previousChosenTargets.Add(value);
+                    },config:config));
+                }else{
+                    //Get AI input
+                    
+                    if(condition is AmountCondition amountCnd){
+                        
+                        var value = context.controller.AI.chooseTargets(targets,new RangedChoiceInfo(){
+                            context = context,
+                            max=amountCnd.max,
+                            min=amountCnd.min,
+                            cancellable=false,
+                            
+                        });
+                        context.previousTargets[pos]= value;
+                        context.previousChosenTargets.Add(value);
+                        GameUI.singleton.viewFocusedTargeting(null);
+                    }else{
+                        Debug.LogError("Non amount condition AI is Not implemented");
+                    }
+                }
                 
             }
             

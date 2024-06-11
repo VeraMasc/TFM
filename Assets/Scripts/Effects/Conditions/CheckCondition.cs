@@ -32,7 +32,7 @@ namespace Effect
             if(conditions.Any()){
                 result = conditions.All( cond => cond.check(value, context));
             }else{
-                Debug.Log(value.GetType());
+                // Debug.Log(value.GetType());
                 result = (bool)value; //Usar el valor de input si no hay condiciones
             }
             

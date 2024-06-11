@@ -1787,10 +1787,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3102338124646513242, guid: 8e1a80ee125b22e4ca77986d824d02bb, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 4317357937513018150, guid: d36f6140043b36047b6545883f4724f7, type: 3}
     - target: {fileID: 3102338124646513243, guid: 8e1a80ee125b22e4ca77986d824d02bb, type: 3}
       propertyPath: m_Name
       value: Combat Tabletop

@@ -451,6 +451,7 @@ GameObject:
   - component: {fileID: 284412084572985438}
   - component: {fileID: 2964464643929564731}
   - component: {fileID: 3946436009437719536}
+  - component: {fileID: 1182547075365292663}
   m_Layer: 0
   m_Name: Entity Sprite
   m_TagString: Untagged
@@ -561,7 +562,8 @@ MonoBehaviour:
       m_Calls: []
   keyBindings: 
   ClickGates:
-    Gates: []
+    Gates:
+    - {fileID: 1182547075365292663}
 --- !u!58 &2964464643929564731
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -610,6 +612,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetIndex: -1
+--- !u!114 &1182547075365292663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6204939629779522032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add6c97c009b6454c95213dcfec0e5f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsActive: 1
+  detector: {fileID: 3946436009437719536}
 --- !u!1 &7407269150010109686
 GameObject:
   m_ObjectHideFlags: 0

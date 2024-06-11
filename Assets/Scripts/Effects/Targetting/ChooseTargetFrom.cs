@@ -27,8 +27,9 @@ namespace Effect{
                     context=context,
                     text = "Choose one"
                 };
-                GameUI.singleton.possibleTargets= targets.ToArray();
+                
                 if(!context?.controller?.AI){
+                    GameUI.singleton.possibleTargets= targets.ToArray();
                     //Get player inputs
                     yield return UCoroutine.Yield(GameUI.singleton.getTargets(targets, 
                     ()=>{

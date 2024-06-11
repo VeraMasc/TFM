@@ -14,6 +14,11 @@
 - [ ] 4.1
   - [ ] Tipos de assets que necesitamos
   - [ ] Scripts importantes
+- [ ] Memòria del treball
+- [ ] Executable del joc
+- [ ] Vídeo de tràiler del joc
+- [ ] Vídeo de defensa del treball
+- [ ] Document de cessió de drets
 
 
 ## Basics
