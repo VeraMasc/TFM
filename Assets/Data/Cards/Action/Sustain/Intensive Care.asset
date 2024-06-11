@@ -14,23 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Intensive Care
-  rawText: 'You or target ally regains 5 life.
+  rawText: 'You or target ally regains 10 life.
 
 
-    Rethink {1}'
-  parsedText: 'You or target ally regains 5 life.
+    {rethink: Rethink {1}}'
+  parsedText: 'You or target ally regains 10 life.
 
 
-    Rethink <sprite name="1">'
+    <link="rethink">Rethink
+    <sprite name="1"></link>'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   effects:
     baseEffect:
-      list: []
-    abilities: []
-    staticEffects:
-      list: []
+      list:
+      - rid: 8960580196851515437
+      - rid: 8960580196851515440
+    abilities:
+    - rid: 8960580196851515442
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
@@ -51,6 +53,61 @@ MonoBehaviour:
     costText: 1VV
     value: 3
     colors: V
+  heuristic:
+    rid: 8960580196851515409
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 8960580196851515409
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 1
+    - rid: 8960580196851515437
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8960580196851515438
+    - rid: 8960580196851515438
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580196851515439
+    - rid: 8960580196851515439
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 2
+    - rid: 8960580196851515440
+      type: {class: Heal, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580196851515445
+        amount:
+          rid: 8960580196851515441
+        overheal: 0
+    - rid: 8960580196851515441
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 10
+    - rid: 8960580196851515442
+      type: {class: PresetAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: 
+        source: {fileID: 0}
+        effects: []
+        isCurrentlyActive: 0
+        presets:
+        - rid: 8960580196851515443
+    - rid: 8960580196851515443
+      type: {class: Rethink, ns: Effect.Preset, asm: Assembly-CSharp}
+      data:
+        cost:
+          rid: 8960580196851515444
+    - rid: 8960580196851515444
+      type: {class: ManaValue, ns: Effect, asm: Assembly-CSharp}
+      data:
+        mana: 1
+    - rid: 8960580196851515445
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0

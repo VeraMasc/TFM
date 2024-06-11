@@ -15,7 +15,7 @@ MonoBehaviour:
   cardBackArt: {fileID: 0}
   deckSize: 28
   CardsetCollection:
-  - card: {fileID: 11400000, guid: 0a1551408bdb0e6459b9201ebc22f7f4, type: 2}
+  - card: {fileID: 11400000, guid: 20d0940051abf3742bd1e0322f4a34cd, type: 2}
     amount: 4
   - card: {fileID: 11400000, guid: 2c1eb0fabb66b3145b0491ab84b7cc51, type: 2}
     amount: 4

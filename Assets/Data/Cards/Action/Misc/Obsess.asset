@@ -17,16 +17,16 @@ MonoBehaviour:
   rawText: '<i>Lunatic only</i>
 
 
-    Shuffle four cards named Fool''s Errand into
-    your deck
+    Shuffle 4 cards named Fool''s Errand into your
+    deck
 
 
     {overdo: Overdo {D}{W}}'
   parsedText: '<i>Lunatic only</i>
 
 
-    Shuffle four cards named Fool''s Errand
-    into your deck
+    Shuffle 4 cards named Fool''s Errand into
+    your deck
 
 
     <link="overdo">Overdo <sprite name="D"><sprite name="W"></link>'
@@ -41,8 +41,6 @@ MonoBehaviour:
       - rid: 8129478512620077058
     abilities:
     - rid: 8129478512620077062
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
@@ -63,6 +61,8 @@ MonoBehaviour:
     costText: D
     value: 1
     colors: D
+  heuristic:
+    rid: 8960580196851515404
   references:
     version: 2
     RefIds:
@@ -124,3 +124,8 @@ MonoBehaviour:
       type: {class: ManaValue, ns: Effect, asm: Assembly-CSharp}
       data:
         mana: DW
+    - rid: 8960580196851515404
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0

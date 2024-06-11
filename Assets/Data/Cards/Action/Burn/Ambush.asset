@@ -14,10 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Ambush
-  rawText: '{FreeCast: If you start combat with this card in your hand, cast it without
-    paying its cost}'
-  parsedText: <link="FreeCast">If you start combat with this card in your hand, cast
-    it without paying its cost</link>
+  rawText: 'Deal 4 damage to target enemy.
+
+
+    {FreeCast: If you start combat with
+    this card in your hand, cast it without paying its cost}'
+  parsedText: 'Deal 4 damage to target enemy.
+
+
+    <link="FreeCast">If you start
+    combat with this card in your hand, cast it without paying its cost</link>'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -26,12 +32,9 @@ MonoBehaviour:
       list:
       - rid: 8960580153533005826
       - rid: 8960580153533005829
-      - rid: 8960580153533005832
     abilities:
     - rid: 8960580152278384699
     - rid: 8960580152278384688
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
@@ -165,19 +168,4 @@ MonoBehaviour:
     - rid: 8960580153533005831
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
-        value: 3
-    - rid: 8960580153533005832
-      type: {class: DiscardRandom, ns: Effect, asm: Assembly-CSharp}
-      data:
-        targeter:
-          rid: 8960580153533005833
-        amount:
-          rid: 8960580153533005834
-    - rid: 8960580153533005833
-      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
-      data:
-        index: 0
-    - rid: 8960580153533005834
-      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
-      data:
-        value: 1
+        value: 4

@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: Rabid Frenzy
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Rabid Frenzy
+  rawText: Conjure 2 cards named Clawed Slash into your hand.
+  parsedText: Conjure 2 cards named Clawed Slash into your hand.
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  effects:
+    baseEffect:
+      list:
+      - rid: 8960580196851515431
+      - rid: 8960580196851515435
+    abilities: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      choiceTreePath: 
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+    entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 0
+  typeList: 00000000
+  cost:
+    costText: A
+    value: 1
+    colors: A
+  heuristic:
+    rid: 8960580196851515422
+  references:
+    version: 2
+    RefIds:
+    - rid: 8960580196851515422
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0
+    - rid: 8960580196851515431
+      type: {class: CreateCards, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580196851515432
+        cards:
+        - {fileID: 11400000, guid: cb8424cdd6679114b992f8ae2ce9b1f4, type: 2}
+        - {fileID: 11400000, guid: cb8424cdd6679114b992f8ae2ce9b1f4, type: 2}
+        mode: 3
+    - rid: 8960580196851515432
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960580196851515435
+      type: {class: SendTo, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580196851515436
+        zone: 4
+        mode: 0
+        duration: 0.1
+    - rid: 8960580196851515436
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
