@@ -24,7 +24,7 @@ MonoBehaviour:
 
     <link="FreeCast">If you start
     combat with this card in your hand, cast it without paying its cost</link>'
-  Art: {fileID: 0}
+  Art: {fileID: 1013075052573550240, guid: 0f2906362ef7c6c429cd65f4ca7b776f, type: 3}
   Frame: {fileID: 0}
   help: []
   effects:

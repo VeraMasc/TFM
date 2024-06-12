@@ -392,9 +392,12 @@ public class GameUI : MonoBehaviour
     public void usabilityHiglight(bool active){
         var characters = GameController.singleton.entities
             .Where(e => e.team == EntityTeam.player);
-
         foreach(var character in characters){
             var cards = character.hand.MountedCards;
+            var proxyCards = (character.hand.Strategy as HandLayout).proxies
+                .Where(p => p?.actualCard != null)
+                .Select(p => p.actualCard);
+            cards = cards.Concat(proxyCards).ToList();
 
             foreach (var card in cards)
             {

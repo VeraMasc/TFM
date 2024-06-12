@@ -20,7 +20,7 @@ MonoBehaviour:
   parsedText: '<i>Beast only</i>
 
     Deal 4 damage to target entity'
-  Art: {fileID: 0}
+  Art: {fileID: -3981081470667676629, guid: 7246913b874e5674a9aed285bef2656a, type: 3}
   Frame: {fileID: 0}
   help: []
   effects:

@@ -112,12 +112,13 @@ public abstract class GameMode : MonoBehaviour
 
         priorityIndex++;
         if(priorityIndex >= priorityOrder.Count){ //Si ambos pasan
+            priorityIndex = priorityOrder.Count-1;
 
             if(!stack.isEmpty){ //Primero resolver cosas del stack
                 if(!stack.precalculating){//No resolver si esá precalculando
                     stack.startResolve = true;
                 }
-                priorityIndex = priorityOrder.Count;
+                
                 stack.waitTillOpen.Then(
                         ()=> getPriorityOrder()
                     ).Start(this);
