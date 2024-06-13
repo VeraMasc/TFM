@@ -41,4 +41,30 @@ namespace Effect{
             }
         }
     }
+
+     /// <summary>
+    /// Efecto que cura a un objetivo
+    /// </summary>
+    [Serializable]
+    public class Revive : Targeted 
+    {
+        
+
+
+ 
+        public override IEnumerator execute(CardResolveOperator stack, Effect.Context context)
+        {
+            var targets = targeter.getTargets(context);
+            
+            foreach(var target in targets){
+                if(target is Entity entity){
+                    yield return entity.tryRevive().Start(entity);
+                    
+                }
+                else {
+                    Debug.Log($"Can't deal damage to non-entity of type {target?.GetType()}", (UnityEngine.Object)target);
+                }
+            }
+        }
+    }
 }

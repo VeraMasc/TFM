@@ -15,14 +15,14 @@ MonoBehaviour:
   BackArt: {fileID: 0}
   cardName: Survivor's Blessing
   rawText: 'Target ally gains 3 life and revives. They shuffle 4 of their spent cards
-    into their deck.
+    at random into their deck.
 
 
-    {Plant: Plant {N}--- Target ally gains 1 life and you
-    draw a card}'
+    {Plant: Plant {N}--- Target ally gains 1 life
+    and you draw a card}'
   parsedText: "Target ally gains 3 life and revives. They shuffle 4 of their spent
-    cards into their deck.\n\n<link=\"Plant\">Plant <sprite name=\"N\">\u2014 Target
-    ally gains 1 life and you draw a card</link>"
+    cards at random into their deck.\n\n<link=\"Plant\">Plant <sprite name=\"N\">\u2014
+    Target ally gains 1 life and you draw a card</link>"
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -31,6 +31,9 @@ MonoBehaviour:
       list:
       - rid: 8960580264393965597
       - rid: 8960580264393965600
+      - rid: 8960580267597103129
+      - rid: 8960580267597103131
+      - rid: 8960580267597103139
     abilities: []
     context:
       owner: {fileID: 0}
@@ -49,14 +52,16 @@ MonoBehaviour:
   speedType: 0
   typeList: 0000000007000000
   cost:
-    costText: 
-    value: 0
-    colors: 
+    costText: VN
+    value: 2
+    colors: VN
   heuristic:
     rid: 8960580264393965595
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
     - rid: 8960580264393965595
       type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
       data:
@@ -92,3 +97,63 @@ MonoBehaviour:
       type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         index: 0
+    - rid: 8960580267597103129
+      type: {class: Revive, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580267597103130
+    - rid: 8960580267597103130
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8960580267597103131
+      type: {class: SendTo, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580267597103133
+        zone: 3
+        mode: 1
+        duration: 0.1
+    - rid: 8960580267597103133
+      type: {class: RandomSelection, ns: Effect.Filter, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580267597103134
+        reverseFilter: 0
+        amount:
+          rid: 8960580267597103138
+    - rid: 8960580267597103134
+      type: {class: ZoneCardTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        zones: 01000000
+        exclude:
+          rid: -2
+        condition:
+          rid: 8960580267597103135
+    - rid: 8960580267597103135
+      type: {class: OwnershipCondition, ns: Effect.Condition, asm: Assembly-CSharp}
+      data:
+        entities:
+          rid: 8960580267597103137
+        relation: 0
+    - rid: 8960580267597103137
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8960580267597103138
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 4
+    - rid: 8960580267597103139
+      type: {class: EntityEffect, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580267597103140
+        effectOption:
+          rid: 8960580267597103141
+    - rid: 8960580267597103140
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 2
+    - rid: 8960580267597103141
+      type: {class: Shuffle, ns: Effect.Option, asm: Assembly-CSharp}

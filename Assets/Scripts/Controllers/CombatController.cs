@@ -107,10 +107,13 @@ public class CombatController : GameMode
     }
 
 	public override bool isEntityTurn(Entity entity){
-        return entity == currentTurn;
+        return entity == currentTurn && entity.alive;
     }
 
 	public override bool isSpeedValid(Entity entity, SpeedTypes speed){
+		if(!entity.alive)
+			return false;
+
         if(speed == SpeedTypes.Reaction){
 			return true;
 		}

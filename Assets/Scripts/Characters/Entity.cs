@@ -262,6 +262,9 @@ public partial class Entity : MonoBehaviour, ITargetable
         
     }
 
+    /// <summary>
+    /// Actualiza el icono que muestra los personajes que quedan por ejecutar su turno
+    /// </summary>
     public void refreshTurnIndicator(){
         if(GameMode.current is CombatController combat){
             if(!alive){

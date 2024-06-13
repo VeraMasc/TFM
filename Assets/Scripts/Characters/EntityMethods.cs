@@ -31,12 +31,42 @@ public partial class Entity
             
             health += amount;
             
-            //TODO: invoke healing trigger
+            yield return TriggerManager.instance.onHeal.invokeWith(this).Start(this);
             //TODO: add healing animation
             healthDisplay.onHealthChanged();
         }
         coReturn(returnAction, amount);
         yield break;
+    }
+
+    /// <summary>
+    /// Intenta revivir a la entidad (falla si su vida es menor a 0)
+    /// </summary>
+    /// <param name="returnAction"></param>
+    /// <returns></returns>
+    public IEnumerator tryRevive(Action<bool> returnAction = null){
+        
+        if(health>0){
+            forceRevive();
+
+        }
+        
+        
+        coReturn(returnAction, alive);
+        yield break;
+    }
+
+    /// <summary>
+    /// Fuerza al personaje a revivir, pueda mantenerse vivo o no
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator forceRevive(){
+        
+        alive = true;
+        healthDisplay.onHealthChanged();
+        refreshTurnIndicator();
+        yield return TriggerManager.instance.onRevive.invokeWith(this).Start(this);  
+
     }
 
 
@@ -52,7 +82,7 @@ public partial class Entity
             health -= amount;
             healthDisplay.onHealthChanged();
 
-            //TODO: invoke damage trigger
+            yield return TriggerManager.instance.onDamaged.invokeWith(this).Start(this);
             //TODO: add damage animation
         }
         coReturn(returnAction, amount);
@@ -70,6 +100,9 @@ public partial class Entity
         yield return CardTransferOperator.sendCards(cards,lost,0.75f/cards.Count(),burstSend:true)
             .Start(this);
         
+        if(this != CombatController.singleton?.currentTurn){ //Eliminar su turno de la lista de turnos
+            CombatController.singleton.turnOrder.Remove(this);
+        }
         
         //TODO: invoke death trigger
         yield break;

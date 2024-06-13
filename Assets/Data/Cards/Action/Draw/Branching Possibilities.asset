@@ -45,9 +45,9 @@ MonoBehaviour:
   speedType: 1
   typeList: 
   cost:
-    costText: 
-    value: 0
-    colors: 
+    costText: 1F
+    value: 2
+    colors: F
   heuristic:
     rid: 8960580264393965590
   references:
