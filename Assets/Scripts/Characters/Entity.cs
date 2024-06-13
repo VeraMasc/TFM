@@ -264,6 +264,10 @@ public partial class Entity : MonoBehaviour, ITargetable
 
     public void refreshTurnIndicator(){
         if(GameMode.current is CombatController combat){
+            if(!alive){
+                turnIndicator.Activate("Death");
+                return;
+            }
             if(combat.currentTurn == this){
                 turnIndicator.Activate("Current");
             } else if(combat.followingTurn == this){

@@ -924,6 +924,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Entity
       objectReference: {fileID: 0}
+    - target: {fileID: 1559228073874931700, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2670358441236307117, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -976,9 +980,25 @@ PrefabInstance:
       propertyPath: ignoreRequirements
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6600802613718046648, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6756576925860681547, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 7126953622020038132, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471958720209694313, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7762583269408647887, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7818306146402712190, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       propertyPath: board
@@ -992,13 +1012,25 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5965292400689307779, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 8900258645716774070, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7990370945350310226, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 7575644243589810373, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7762583269408647887, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 5293187182719881932, guid: c5988169093ad9d47889bda50c474f45, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2085526683580860623, guid: c5988169093ad9d47889bda50c474f45, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 5677727607157916244, guid: c5988169093ad9d47889bda50c474f45, type: 3}
@@ -3745,6 +3777,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2425238760892214702, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3403992940546907739, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_Name
       value: Entity
@@ -3765,6 +3801,22 @@ PrefabInstance:
       propertyPath: data.decklist
       value: 
       objectReference: {fileID: 11400000, guid: 7f447dec732d0e646b33c14e03c9b345, type: 2}
+    - target: {fileID: 5078128065843691838, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5364530524952659352, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380397102446106988, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5704680042789877253, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6283558071726778807, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3817,6 +3869,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 4963255430409577268, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 5078128065843691838, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 7257044455400372541, guid: 6cd0f53da56624442928897d4275e829, type: 3}

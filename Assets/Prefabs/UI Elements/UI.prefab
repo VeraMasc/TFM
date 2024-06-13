@@ -308,6 +308,7 @@ MonoBehaviour:
   prefabs: {fileID: 11400000, guid: 4662adb27b5fecc4bac9ba180f4d7046, type: 2}
   userInputRoot: {fileID: 2674941729001697120}
   activeUserInput: {fileID: 0}
+  cursorTex: {fileID: -8328923581568760697, guid: 4f8bb29b5b4f0034693d25a9f340d7bc, type: 3}
 --- !u!1 &7651485151419160270
 GameObject:
   m_ObjectHideFlags: 0

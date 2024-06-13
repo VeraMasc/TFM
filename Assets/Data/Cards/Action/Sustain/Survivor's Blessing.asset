@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4641c80f9c3377548a9db302b86eaf61, type: 3}
+  m_Name: Survivor's Blessing
+  m_EditorClassIdentifier: 
+  BackArt: {fileID: 0}
+  cardName: Survivor's Blessing
+  rawText: 'Target ally gains 3 life and revives. They shuffle 4 of their spent cards
+    into their deck.
+
+
+    {Plant: Plant {N}--- Target ally gains 1 life and you
+    draw a card}'
+  parsedText: "Target ally gains 3 life and revives. They shuffle 4 of their spent
+    cards into their deck.\n\n<link=\"Plant\">Plant <sprite name=\"N\">\u2014 Target
+    ally gains 1 life and you draw a card</link>"
+  Art: {fileID: 0}
+  Frame: {fileID: 0}
+  help: []
+  effects:
+    baseEffect:
+      list:
+      - rid: 8960580264393965597
+      - rid: 8960580264393965600
+    abilities: []
+    context:
+      owner: {fileID: 0}
+      controller: {fileID: 0}
+      choiceTreePath: 
+      resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+    entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 0
+  typeList: 0000000007000000
+  cost:
+    costText: 
+    value: 0
+    colors: 
+  heuristic:
+    rid: 8960580264393965595
+  references:
+    version: 2
+    RefIds:
+    - rid: 8960580264393965595
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0
+    - rid: 8960580264393965597
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8960580264393965598
+    - rid: 8960580264393965598
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580264393965599
+    - rid: 8960580264393965599
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 2
+    - rid: 8960580264393965600
+      type: {class: Heal, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580264393965602
+        amount:
+          rid: 8960580264393965601
+        overheal: 1
+    - rid: 8960580264393965601
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 3
+    - rid: 8960580264393965602
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0

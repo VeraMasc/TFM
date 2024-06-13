@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ControlDeck
   m_EditorClassIdentifier: 
   cardBackArt: {fileID: 2025458771616860364, guid: 165278c9f2aab5540982b9adcb5ebc2a, type: 3}
-  deckSize: 38
+  deckSize: 30
   CardsetCollection:
   - card: {fileID: 11400000, guid: 362c9af70a8b9e441bc3f9f08d99f36d, type: 2}
     amount: 4
@@ -29,8 +29,8 @@ MonoBehaviour:
     amount: 4
   - card: {fileID: 11400000, guid: 0753ab9c1a63146429f67ba72f805847, type: 2}
     amount: 4
-  - card: {fileID: 11400000, guid: 0a1551408bdb0e6459b9201ebc22f7f4, type: 2}
-    amount: 10
+  - card: {fileID: 11400000, guid: 56494435b8dc3c54884e9da7bbd84fd1, type: 2}
+    amount: 2
   skills:
   - card: {fileID: 11400000, guid: 34e4fddfbf2e16c468ed5c4cd61d8688, type: 2}
     level: 2

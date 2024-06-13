@@ -77,6 +77,8 @@ public class GameUI : MonoBehaviour
     /// </summary>
     public List<ITargetable> markedTargets = new();
 
+    public Texture2D cursorTex;
+
     /// <summary>
     /// Indica si la interfaz está ocupada esperando algún input
     /// </summary>
@@ -323,6 +325,7 @@ public class GameUI : MonoBehaviour
     void Awake()
     {
         _singleton =this;
+        // Cursor.SetCursor(cursorTex, Vector2.zero, CursorMode.ForceSoftware);
     }
 
     void Update()
@@ -344,7 +347,7 @@ public class GameUI : MonoBehaviour
                 .Where(e => e.team == EntityTeam.player)
                 .OrderBy(e => e.transform.position.y);
             next = characters
-                .Where(e => e.transform.position.y > selected.transform.position.y)
+                .Where(e => e.transform.position.y > (selected?.transform?.position.y ?? float.NegativeInfinity))
                 .FirstOrDefault();
             next ??= characters.First();
         }
@@ -353,7 +356,7 @@ public class GameUI : MonoBehaviour
                 .Where(e => e.team == EntityTeam.player)
                 .OrderByDescending(e => e.transform.position.y);
             next = characters
-                .Where(e => e.transform.position.y < selected.transform.position.y)
+                .Where(e => e.transform.position.y < (selected?.transform?.position.y ?? float.PositiveInfinity))
                 .FirstOrDefault();
             next ??= characters.First();
         }

@@ -81,12 +81,16 @@ PrefabInstance:
       value: 1.95
       objectReference: {fileID: 0}
     - target: {fileID: 1742020579897152327, guid: 6cd0f53da56624442928897d4275e829, type: 3}
-      propertyPath: m_LocalScale.x
-      value: -1
+      propertyPath: m_LocalPosition.x
+      value: -0.58
       objectReference: {fileID: 0}
     - target: {fileID: 2122701952276734170, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_LocalScale.x
-      value: -1
+      value: -1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2122701952276734170, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.58
       objectReference: {fileID: 0}
     - target: {fileID: 2342141793754735531, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_LocalRotation.w
@@ -106,7 +110,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2596219236412680854, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_LocalScale.x
-      value: -1
+      value: -1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596219236412680854, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1428571
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596219236412680854, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596219236412680854, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596219236412680854, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2757223936260089390, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: ForcedFacing
@@ -167,6 +187,14 @@ PrefabInstance:
     - target: {fileID: 7597847920604192002, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_LocalScale.x
       value: -1.1548
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655592763901739738, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655592763901739738, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.58
       objectReference: {fileID: 0}
     - target: {fileID: 8072473786709376186, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_LocalRotation.w
