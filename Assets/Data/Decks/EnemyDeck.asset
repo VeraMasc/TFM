@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyDeck
   m_EditorClassIdentifier: 
   cardBackArt: {fileID: 0}
-  deckSize: 28
+  deckSize: 24
   CardsetCollection:
   - card: {fileID: 11400000, guid: 20d0940051abf3742bd1e0322f4a34cd, type: 2}
     amount: 4
@@ -21,8 +21,12 @@ MonoBehaviour:
     amount: 4
   - card: {fileID: 11400000, guid: cdfeef9416b529f45828e4cd296b7623, type: 2}
     amount: 4
+  - card: {fileID: 11400000, guid: cb8424cdd6679114b992f8ae2ce9b1f4, type: 2}
+    amount: 4
   - card: {fileID: 11400000, guid: 0a1551408bdb0e6459b9201ebc22f7f4, type: 2}
-    amount: 16
+    amount: 4
+  - card: {fileID: 11400000, guid: 8303524cefdb6bc4d976ca225afd3b9a, type: 2}
+    amount: 4
   skills:
   - card: {fileID: 11400000, guid: 917512c112110154998fe49225a7a126, type: 2}
     level: 1

@@ -16,6 +16,7 @@ MonoBehaviour:
   yesNoInput: {fileID: 0}
   confirmationInput: {fileID: 7800073430654121655, guid: fa52ea727669f564798ae7782c464612, type: 3}
   cardSelectInput: {fileID: 1365100766871719470, guid: 21647cda64ff6d74688d32a043b87c02, type: 3}
+  GameOverInput: {fileID: -4556287371446443403, guid: d049370a7ab027e4295f2f11c210357f, type: 3}
   scrollbar: {fileID: 2000311336236126966, guid: 7ce074826240d524b9521cf3e6d3d344, type: 3}
   clickBlocker: {fileID: 7288928211352237901, guid: 1108ec528f5ab9b4885defae5bda91db, type: 3}
   cardSelectOption: {fileID: -9061748488852993774, guid: e3e21a6213a15ac42a85ac7088ec4b2a, type: 3}

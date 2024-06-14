@@ -20,6 +20,8 @@ public class UIPrefabs : ScriptableObject
 
     public CardSelectInput cardSelectInput;
 
+    public EventCallInput GameOverInput;
+
     [HorizontalLine(3,message = "Components")]
     /// <summary>
     /// Prefab de la barra de scroll

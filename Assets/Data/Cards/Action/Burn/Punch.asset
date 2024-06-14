@@ -14,30 +14,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Punch
-  cardText: Deal 1 damage to target entity
+  rawText: Deal 2 damage to target entity
+  parsedText: Deal 2 damage to target entity
   Art: {fileID: 2743558016449953626, guid: 8ffc0cd9b54a8a7418f3c0235cd12f39, type: 3}
   Frame: {fileID: 0}
   help: []
-  typeList: 01000000
-  cost:
-    costText: 1
-    value: 1
-    colors: 
   effects:
     baseEffect:
       list:
       - rid: 8129478013255417856
       - rid: 3644647386710540302
     abilities: []
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      choiceTreePath: 
       resolutionPile: {fileID: 0}
       precalculated: 0
+      mode: 0
     sourceZone: 0
     sourceGroup: {fileID: 0}
+    entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 0
+  typeList: 01000000
+  cost:
+    costText: 1
+    value: 1
+    colors: 
+  heuristic:
+    rid: 8960580267597103145
   references:
     version: 2
     RefIds:
@@ -55,7 +64,7 @@ MonoBehaviour:
     - rid: 3644647386710540304
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
-        value: 1
+        value: 2
     - rid: 8129478013255417856
       type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -70,3 +79,8 @@ MonoBehaviour:
       type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         contextual: 4
+    - rid: 8960580267597103145
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 5
+        useOnTeammates: 0

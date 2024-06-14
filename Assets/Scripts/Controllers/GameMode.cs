@@ -155,16 +155,38 @@ public abstract class GameMode : MonoBehaviour
 	/// Comprueba el estado actual de las cosas y realiza las acciones de estado correspondientes
 	/// </summary>
 	public virtual void checkState(){
-		healthCheck();
         GameUI.singleton.usabilityHiglight(true);
-        triggerManager.onStateCheck.invoke().Start(this);
+        healthCheck()
+            .Then( ()=> triggerManager.onStateCheck.invoke())
+            .Start(this);
 	}
 
-    public virtual void healthCheck(){
-		foreach(var entity in GameController.singleton.entities){
-            if(entity.health<=0){
-                StartCoroutine(entity.kill());
+    /// <summary>
+    /// Se encarga de que los personajes no puedan estar vivos a 0 de vida
+    /// y de gestionar el final del combate
+    /// </summary>
+    /// <returns></returns>
+    public virtual IEnumerator healthCheck(){
+        var entities =GameController.singleton.entities;
+		foreach(var entity in entities){
+            if(entity.health<=0 && entity.alive){
+                yield return StartCoroutine(entity.kill());
             }
+        }
+        
+        //If all allies are dead
+        if(entities.Where(e => e.team == EntityTeam.player).All( e => !e.alive)){
+            var prefab = GameUI.singleton?.prefabs?.GameOverInput;
+            yield return GameUI.singleton.getInput(prefab,null, new InputParameters(){
+                text= "You Lost \nTry again?"
+            }).Start(this);
+        }
+
+        if(entities.Where(e => e.team == EntityTeam.enemy).All( e => !e.alive)){
+            var prefab = GameUI.singleton?.prefabs?.GameOverInput;
+            yield return GameUI.singleton.getInput(prefab,null, new InputParameters(){
+                text= "You Won! \nTry again?",
+            }).Start(this);
         }
 	}
 

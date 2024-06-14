@@ -237,7 +237,7 @@ namespace Effect{
                 if( card.data is ActionCard action){
                     if(duration != null){
                         var num = (int)duration.getValueObj(context) ;
-
+                        Debug.Log(num);
                         var ETB = new HiddenTriggeredAbility(){
                             effects = new(){
                                 new SetCounters(){

@@ -38,7 +38,7 @@ namespace Effect{
             public IValue counterType = new Value.TextString();
 
             [SerializeReference,SubclassSelector]
-            public IValue amount = new Value.Numeric(1);
+            public IValue amount ;
 
             public override void implement(ITargetable target,Context context){
                 var type = counterType.getValueObj(context) as string;

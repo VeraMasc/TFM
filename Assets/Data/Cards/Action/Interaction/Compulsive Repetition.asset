@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Compulsive Repetition
-  rawText: 'Lunatic only
+  rawText: '<i>Lunatic only</i>
 
 
-    Target one of your non permanent spent cards. It gains
-    Overdo equal to its cost until end of turn.'
-  parsedText: 'Lunatic only
+    Target one of your non permanent spent cards.
+    It gains Overdo equal to its cost until end of turn.'
+  parsedText: '<i>Lunatic only</i>
 
 
-    Target one of your non permanent spent cards. It
-    gains Overdo equal to its cost until end of turn.'
+    Target one of your non permanent spent cards.
+    It gains Overdo equal to its cost until end of turn.'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -33,8 +33,6 @@ MonoBehaviour:
       - rid: 8129478490245562559
       - rid: 8129478511095447561
     abilities: []
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
@@ -52,9 +50,9 @@ MonoBehaviour:
   speedType: 1
   typeList: 05000000
   cost:
-    costText: 
-    value: 0
-    colors: 
+    costText: 1D
+    value: 2
+    colors: D
   heuristic:
     rid: 8960580130032845080
   references:

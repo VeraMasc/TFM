@@ -14,24 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Invoke Dread
-  rawText: 'Each entity discards 2 cards
+  rawText: 'Each opponent discards a card at random
 
 
-    {rethink: Rethink {1}{D}}'
-  parsedText: 'Each entity discards 2 cards
+'
+  parsedText: 'Each opponent discards a card at random
 
 
-    <link="rethink">Rethink <sprite
-    name="1"><sprite name="D"></link>'
+'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
   effects:
     baseEffect:
-      list: []
+      list:
+      - rid: 8960580267597103142
     abilities: []
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
@@ -52,6 +50,28 @@ MonoBehaviour:
     costText: 1DD
     value: 3
     colors: D
+  heuristic:
+    rid: 8960580267597103115
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 8960580267597103115
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0
+    - rid: 8960580267597103142
+      type: {class: DiscardRandom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580267597103143
+        amount:
+          rid: 8960580267597103144
+    - rid: 8960580267597103143
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 3
+    - rid: 8960580267597103144
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 1

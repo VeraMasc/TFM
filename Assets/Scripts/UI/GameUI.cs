@@ -165,7 +165,8 @@ public class GameUI : MonoBehaviour
         }while(activeUserInput.isFinished != true && activeUserInput?.isCancelled != true); //Probar hasta que haya un valor válido
         
         //Devolver valor
-        returnAction(instance.inputValue);
+        if(returnAction != null)
+            returnAction(instance.inputValue);
         if(activeUserInput.isCancelled){
             //Cancelar
             if(config?.context != null){

@@ -19,7 +19,7 @@ namespace Effect{
         /// Cantidad de vida a curar
         /// </summary>
         [SerializeReference, SubclassSelector]
-        public Value.Numeric amount = new Numeric(1);
+        public Value.Numeric amount;
 
         public bool overheal=true;
  

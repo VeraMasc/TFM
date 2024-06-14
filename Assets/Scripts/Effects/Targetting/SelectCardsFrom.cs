@@ -20,7 +20,7 @@ namespace Effect{
         /// Cantidad a escoger
         /// </summary>
         [SerializeReference, SubclassSelector]
-        public Numeric amount = new Numeric(1);
+        public Numeric amount;
 
         /// <summary>
         /// Condición requerida para aceptar el input

@@ -16,12 +16,14 @@ MonoBehaviour:
   cardName: Razorvine
   rawText: 'Enchant target entity
 
-    <link="hex">Whenever enchanted entity uses
-    an action, they take 2 damage</link>'
+
+    {hex: Whenever enchanted entity uses an action,
+    they take 1 damage}'
   parsedText: 'Enchant target entity
 
-    <link="hex">Whenever enchanted entity uses
-    an action, they take 2 damage</link>'
+
+    <link="hex">Whenever enchanted entity
+    uses an action, they take 1 damage</link>'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -33,11 +35,10 @@ MonoBehaviour:
     abilities:
     - rid: 8129478324054130699
     - rid: 8960579997607133249
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      choiceTreePath: 
       resolutionPile: {fileID: 0}
       precalculated: 0
       mode: 0
@@ -54,6 +55,8 @@ MonoBehaviour:
     costText: 2N
     value: 3
     colors: N
+  heuristic:
+    rid: 8960580267597103119
   references:
     version: 2
     RefIds:
@@ -87,6 +90,7 @@ MonoBehaviour:
         source: {fileID: 0}
         effects:
         - rid: 8129478324054130700
+        isCurrentlyActive: 0
         trigger: {fileID: 11400000, guid: 3938d40abee615146824a17ca2247d17, type: 2}
         activeZoneList: 05000000
         condition:
@@ -122,14 +126,20 @@ MonoBehaviour:
         id: 
         source: {fileID: 0}
         effects: []
+        isCurrentlyActive: 0
         presets:
-        - rid: 8960579997607133250
-    - rid: 8960579997607133250
+        - rid: 8960580267597103299
+    - rid: 8960580267597103119
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0
+    - rid: 8960580267597103299
       type: {class: DurationCountdown, ns: Effect.Preset, asm: Assembly-CSharp}
       data:
         duration:
-          rid: 8960579997607133252
-    - rid: 8960579997607133252
+          rid: 8960580267597103300
+    - rid: 8960580267597103300
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
-        value: 3
+        value: 2

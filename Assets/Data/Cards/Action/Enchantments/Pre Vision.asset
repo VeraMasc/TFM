@@ -26,8 +26,6 @@ MonoBehaviour:
       - rid: 8960580130032845121
     abilities:
     - rid: 8960580130032845123
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
@@ -43,11 +41,11 @@ MonoBehaviour:
       value: 0
       colors: 
   speedType: 0
-  typeList: 
+  typeList: 0000000004000000
   cost:
-    costText: 
-    value: 0
-    colors: 
+    costText: F
+    value: 1
+    colors: F
   heuristic:
     rid: 8960580130032845048
   references:

@@ -17,23 +17,23 @@ MonoBehaviour:
   rawText: 'Enchant entity
 
 
-    Duration X. It gets double that many Omen counters.
+    Duration X. It gets triple that many Omen counters.
 
 
 
-    When
-    it ends, damage enchanted entity by the amount of Omen on this. Return it to
-    your hand.'
+    {DurationEnd:
+    When it ends, damage enchanted entity by the amount of Omen on this. Return it
+    to your hand.}'
   parsedText: 'Enchant entity
 
 
-    Duration X. It gets double that many Omen counters.
+    Duration X. It gets triple that many Omen counters.
 
 
 
-    When
+    <link="DurationEnd">When
     it ends, damage enchanted entity by the amount of Omen on this. Return it to
-    your hand.'
+    your hand.</link>'
   Art: {fileID: 7109176497579132614, guid: a32700e6ecb65b04a96a034594eeedfb, type: 3}
   Frame: {fileID: 0}
   help: []
@@ -50,8 +50,6 @@ MonoBehaviour:
     abilities:
     - rid: 8960580024290508856
     - rid: 8960580024290508859
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
@@ -72,6 +70,8 @@ MonoBehaviour:
     costText: MF
     value: 2
     colors: MF
+  heuristic:
+    rid: 8960580267597103127
   references:
     version: 2
     RefIds:
@@ -220,4 +220,9 @@ MonoBehaviour:
     - rid: 8960580130032844802
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
-        value: 2
+        value: 3
+    - rid: 8960580267597103127
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0
