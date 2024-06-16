@@ -50,7 +50,7 @@ namespace CardHouse
         public Transform targeterTransform  {get=> _targeterTransform;}
 
         [SerializeField]
-        private SpriteRenderer _outlineRenderer;
+        private SpriteRenderer _outlineRenderer=null;
 
         public SpriteRenderer outlineRenderer {get=> _outlineRenderer;}
 
@@ -253,7 +253,8 @@ namespace CardHouse
                 }
             }
             //Eliminar outline al mover la carta
-            outlineRenderer?.gameObject?.SetActive(false);
+            if(outlineRenderer)
+                outlineRenderer?.gameObject?.SetActive(false);
             
             if(this.data is MyCardSetup setup){
                 var zone = group?.GetComponent<GroupZone>();
@@ -263,7 +264,7 @@ namespace CardHouse
                 
                 
                 //Si ha cambiado de zona...
-                if(zone?.zone != setup?.effects?.sourceZone){
+                if(zone?.zone != setup?.effects?.sourceZone && zone){
                     if(zone?.zone != GroupName.Board)
                         CounterHolder.getHolder(this)?.clear(); ///Clear counters
                     
@@ -279,12 +280,13 @@ namespace CardHouse
                     }
                     //Llamar triggers
                     afterAnimation = afterAnimation
-                    .Then(zone.callLeaveTrigger(this))
-                    .Then(zone.callEnterTrigger(this)) //Call before refreshing subscriptions
+                    .Then(GroupZone.callLeaveTrigger(this))
+                    .If(()=> zone != null)
+                    .Then(()=>zone?.callEnterTrigger(this)) //Call before refreshing subscriptions
                     .Then(()=>{
                         setup.GetComponent<CardModifiers>()?.refreshModifiers();
                         //Update ability subscriptions
-                        setup.effects.refreshAbilitySuscriptions(zone.zone);
+                        setup?.effects?.refreshAbilitySuscriptions(zone.zone);
                     });
                 }
                 afterAnimation.Start(this);

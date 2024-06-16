@@ -22,6 +22,8 @@ public class UIPrefabs : ScriptableObject
 
     public EventCallInput GameOverInput;
 
+    public EventCallInput PauseInput;
+
     [HorizontalLine(3,message = "Components")]
     /// <summary>
     /// Prefab de la barra de scroll

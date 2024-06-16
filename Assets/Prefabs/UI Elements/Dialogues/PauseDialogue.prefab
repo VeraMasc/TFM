@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 240, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5286011642760542428
 CanvasRenderer:
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Over
+  m_text: Are you sure you want to quit?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8b7de99ab7bb6c74889456dd186d81f7, type: 2}
   m_sharedMaterial: {fileID: -7310956627360873601, guid: 8b7de99ab7bb6c74889456dd186d81f7, type: 2}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 23.05
   m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 143749515412574623}
   - component: {fileID: -4556287371446443403}
   m_Layer: 0
-  m_Name: EventCall Choice
+  m_Name: PauseDialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e2afda63011c44f8693f2e62b99943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choiceDescription: {fileID: 110637140621146469}
+  choiceDescription: {fileID: 0}
   isFinished: 0
   isCancelled: 0
   confirmEvent:

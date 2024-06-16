@@ -18,7 +18,7 @@ MonoBehaviour:
     much damage to any other entity
   parsedText: Forget up to 4 of your cards that are spent or in your hand, deal that
     much damage to any other entity
-  Art: {fileID: 0}
+  Art: {fileID: 3818991268234475299, guid: 72dc1821ae479b347a38bfab5984e874, type: 3}
   Frame: {fileID: 0}
   help: []
   effects:
@@ -27,8 +27,6 @@ MonoBehaviour:
       - rid: 8129478523905638416
       - rid: 8129478523905638422
     abilities: []
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
@@ -49,6 +47,8 @@ MonoBehaviour:
     costText: 1D
     value: 2
     colors: D
+  heuristic:
+    rid: 8960580267597103122
   references:
     version: 2
     RefIds:
@@ -124,3 +124,8 @@ MonoBehaviour:
       data:
         min: 0
         max: 4
+    - rid: 8960580267597103122
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0

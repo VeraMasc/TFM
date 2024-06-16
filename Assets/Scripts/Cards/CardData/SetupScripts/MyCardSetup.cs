@@ -122,9 +122,11 @@ public abstract class MyCardSetup : CardSetup
             }
             cardText = baseCard.parsedText;
             applyText();
-            cardName = baseCard.cardName;
-            cardNameBox.text = cardName;
-
+            if (cardNameBox != null)
+            {
+                cardName = baseCard.cardName;
+                cardNameBox.text = cardName;
+            }
             cardType = baseCard.getCardTypes();
             if(cardTypeLine){
                 cardTypeLine.text = cardType;

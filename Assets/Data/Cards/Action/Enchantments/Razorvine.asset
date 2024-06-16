@@ -24,7 +24,7 @@ MonoBehaviour:
 
     <link="hex">Whenever enchanted entity
     uses an action, they take 1 damage</link>'
-  Art: {fileID: 0}
+  Art: {fileID: 3873967306890938844, guid: 83a3e03df63ee0c4c899c3fa720ccb42, type: 3}
   Frame: {fileID: 0}
   help: []
   effects:

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 72dc1821ae479b347a38bfab5984e874
+guid: 0400620438eb7c3409ecd7d91118246b
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 0
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638540013485253967
+  platformSettingsDirtyTick: 638541369676542384
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,7 +119,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Oblivion Bolt
+  - name: Eternal Strike_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0.13793103}
     alignment: 9
@@ -130,7 +130,7 @@ ScriptedImporter:
       y: 4
       width: 40
       height: 29
-    spriteID: f7b009f7b0835454d8191625194e9d32
+    spriteID: ccdb80c85a720e746987b21c72013971
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,23 +139,51 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Eternal Strike_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.13793103}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 41
+      width: 40
+      height: 29
+    spriteID: bcb6d8b37b4feba489b1f28381877675
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 41}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1607995963
-    name: Oblivion Bolt
+    guid: 2136841411
+    name: Eternal Strike
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Oblivion Bolt
+    - name: Eternal Strike_Frame_0
       frameIndex: 0
       cellRect:
         x: 4
         y: 29
         width: 40
         height: 29
-      spriteId: f7b009f7b0835454d8191625194e9d32
+      spriteId: ccdb80c85a720e746987b21c72013971
+    - name: Eternal Strike_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 4
+        y: 29
+        width: 40
+        height: 29
+      spriteId: bcb6d8b37b4feba489b1f28381877675
     linkedCells: []
     parentIndex: -1
   platformSettings:

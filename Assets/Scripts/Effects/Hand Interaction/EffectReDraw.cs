@@ -61,8 +61,11 @@ namespace Effect
             (value)=>{cards= value.OfType<Card>().ToArray();
             },true, new InputParameters(){canCancel =true}));
 
-            if(cards.Count()>0)
+            if(cards.Count()>0){
                 yield return UCoroutine.Yield(entity.reDraw(cards));
+                CombatController.singleton.redrawAvailable = false;
+            }
+                
         }
 
     }

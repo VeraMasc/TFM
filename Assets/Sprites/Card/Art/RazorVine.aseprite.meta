@@ -139,6 +139,46 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: RazorVine_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.13793103}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 41
+      width: 40
+      height: 29
+    spriteID: 238a51685974b0c46910b147a55d2a10
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 41}
+  - name: RazorVine_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.13793103}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 78
+      width: 40
+      height: 29
+    spriteID: d29d30804e7155c4dad60d09025ecbd4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 78}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -148,7 +188,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: RazorVine
+    - name: RazorVine_Frame_0
       frameIndex: 0
       cellRect:
         x: 4
@@ -156,6 +196,22 @@ ScriptedImporter:
         width: 40
         height: 29
       spriteId: 8147630ce8ea0b3429ffdbbe3d6de17f
+    - name: RazorVine_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 4
+        y: 29
+        width: 40
+        height: 29
+      spriteId: 238a51685974b0c46910b147a55d2a10
+    - name: RazorVine_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 4
+        y: 29
+        width: 40
+        height: 29
+      spriteId: d29d30804e7155c4dad60d09025ecbd4
     linkedCells: []
     parentIndex: -1
   platformSettings:

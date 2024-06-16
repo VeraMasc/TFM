@@ -21,7 +21,7 @@ MonoBehaviour:
     Plant {N}{N}--- Deal 3 damage to target entity}'
   parsedText: "Deal 1 damage to target entity. Return Eternal Strike to your hand.\n\n<link=\"Plant\">Plant
     <sprite name=\"N\"><sprite name=\"N\">\u2014 Deal 3 damage to target entity</link>"
-  Art: {fileID: 0}
+  Art: {fileID: -275988149041151676, guid: 0400620438eb7c3409ecd7d91118246b, type: 3}
   Frame: {fileID: 0}
   help: []
   effects:
@@ -32,8 +32,6 @@ MonoBehaviour:
       - rid: 8960580047823437859
     abilities:
     - rid: 8960580109122142210
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
@@ -54,6 +52,8 @@ MonoBehaviour:
     costText: N
     value: 1
     colors: N
+  heuristic:
+    rid: 8960580333796327424
   references:
     version: 2
     RefIds:
@@ -157,3 +157,8 @@ MonoBehaviour:
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 3
+    - rid: 8960580333796327424
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0

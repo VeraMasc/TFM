@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6751361334622919169, guid: 1572000aa9790a64eac952c61abd81ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 67da5f3349ad9c142bb20a4f64b6b184, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2.78125}
+  m_Size: {x: 0.9, y: 1.35}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -673,7 +673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6462243021699527150
 Transform:
   m_ObjectHideFlags: 0
@@ -863,6 +863,8 @@ MonoBehaviour:
   CanBeUpsideDown: 0
   UpsideDownChance: 0.5
   RootToRotateWhenUpsideDown: {fileID: 0}
+  _targeterTransform: {fileID: 0}
+  _outlineRenderer: {fileID: 0}
   FaceHoming: {fileID: 7792711141432044011}
   FaceTurning: {fileID: 8922238288351519658}
   FaceScaling: {fileID: 902705501117539568}
@@ -876,6 +878,7 @@ MonoBehaviour:
   OnPlay:
     m_PersistentCalls:
       m_Calls: []
+  proxies: []
   attachedGroup: {fileID: 0}
 --- !u!114 &1250395176001841023
 MonoBehaviour:
@@ -1041,6 +1044,7 @@ MonoBehaviour:
   definition: {fileID: 0}
   cardName: 
   cardText: 
+  tempText: 
   cardType: 
   Image: {fileID: 6462243021699527057}
   FrameImage: {fileID: 7753195529961628641}
@@ -1048,16 +1052,26 @@ MonoBehaviour:
   cardNameBox: {fileID: 1199537327672158708}
   cardTypeLine: {fileID: 6360664006426138178}
   cardTextBox: {fileID: 5725338630376539603}
+  counterList: {fileID: 0}
+  _counterHolder: {fileID: 0}
   effects:
     baseEffect:
       list: []
     abilities: []
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      choiceTreePath: 
       resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+    entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
   references:
     version: 2
     RefIds: []
@@ -1146,7 +1160,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4956341389801571576
 RectTransform:
   m_ObjectHideFlags: 0

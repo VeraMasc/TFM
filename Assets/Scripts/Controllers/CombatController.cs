@@ -21,6 +21,10 @@ public class CombatController : GameMode
 
 	public int roundCount;
 
+	public bool unlimitedRedraw;
+
+	public bool redrawAvailable;
+
 	public Entity currentTurn => turnOrder?.LastOrDefault();
 
 	/// <summary>
@@ -200,7 +204,7 @@ public class CombatController : GameMode
 	/// </summary>
 	public void freeRedraw(){
 		var entity = selectedPlayer;
-		if(entity==null || currentTurn != entity && !disableTimingRestrictions)
+		if(!redrawAvailable ||entity==null || currentTurn != entity && !disableTimingRestrictions)
 			return;
 
 		StartCoroutine(Effect.ReDraw.basicRedraw(1,entity));
@@ -221,6 +225,10 @@ public class CombatController : GameMode
 		yield return StartCoroutine(triggerManager.beforeBeginTurn.invoke());
 		yield return StartCoroutine(currentTurn.draw(1));
 		yield return CardResolveOperator.singleton.waitTillEmpty;
+
+		if(currentTurn.team == EntityTeam.player){
+			CombatController.singleton.redrawAvailable = true;
+		}
 		//End coroutine
 		phaseCoroutine = null;
 		nextPhase();

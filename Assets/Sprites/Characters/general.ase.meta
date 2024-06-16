@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 72dc1821ae479b347a38bfab5984e874
+guid: 8229c99aee07bdd4aac80877a240e20f
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 48
+    spritePixelsToUnits: 32
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 0
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638540013485253967
+  platformSettingsDirtyTick: 638540351439974230
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,38 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Oblivion Bolt
+  - name: general
     originalName: 
-    pivot: {x: 0.5, y: 0.13793103}
+    pivot: {x: 0.46875, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 47
+      y: 76
+      width: 32
+      height: 64
+    spriteID: ef354f9c032eb2a4db665ebd9201f174
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 47, y: 76}
+  - name: general_Frame_1
+    originalName: 
+    pivot: {x: 0.45714283, y: 0.5}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 40
-      height: 29
-    spriteID: f7b009f7b0835454d8191625194e9d32
+      width: 35
+      height: 64
+    spriteID: 74c30ce8564e43847a7e8d1d4099fbea
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,23 +159,143 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: general_Frame_2
+    originalName: 
+    pivot: {x: 0.45714283, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 76
+      width: 35
+      height: 64
+    spriteID: 69e94714593b34a4782a90a2dcad2ea3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 76}
+  - name: general_Frame_3
+    originalName: 
+    pivot: {x: 0.4705882, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 148
+      width: 34
+      height: 64
+    spriteID: d44f1811c184a8143ac2850d82a8a9c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 148}
+  - name: general_Frame_4
+    originalName: 
+    pivot: {x: 0.4705882, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 47
+      y: 4
+      width: 34
+      height: 64
+    spriteID: ab7c852c275b73c45837faeb14edfe37
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 47, y: 4}
+  - name: general_Frame_5
+    originalName: 
+    pivot: {x: 0.46875, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 47
+      y: 148
+      width: 32
+      height: 64
+    spriteID: 41093b74777de664ab51936374a4c91f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 47, y: 148}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1607995963
-    name: Oblivion Bolt
+    guid: -576834258
+    name: general
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Oblivion Bolt
+    - name: general_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 9
+        y: 1
+        width: 32
+        height: 64
+      spriteId: ef354f9c032eb2a4db665ebd9201f174
+    - name: general_Frame_0
       frameIndex: 0
       cellRect:
-        x: 4
-        y: 29
-        width: 40
-        height: 29
-      spriteId: f7b009f7b0835454d8191625194e9d32
+        x: 8
+        y: 1
+        width: 35
+        height: 64
+      spriteId: 74c30ce8564e43847a7e8d1d4099fbea
+    - name: general_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 8
+        y: 1
+        width: 35
+        height: 64
+      spriteId: 69e94714593b34a4782a90a2dcad2ea3
+    - name: general_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 8
+        y: 1
+        width: 34
+        height: 64
+      spriteId: d44f1811c184a8143ac2850d82a8a9c3
+    - name: general_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 8
+        y: 1
+        width: 34
+        height: 64
+      spriteId: ab7c852c275b73c45837faeb14edfe37
+    - name: general_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 9
+        y: 1
+        width: 32
+        height: 64
+      spriteId: 41093b74777de664ab51936374a4c91f
     linkedCells: []
     parentIndex: -1
   platformSettings:

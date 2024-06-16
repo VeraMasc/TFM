@@ -18,7 +18,7 @@ MonoBehaviour:
     the rest to the bottom
   parsedText: Look at the top 3 cards of your deck, put one into your hand and send
     the rest to the bottom
-  Art: {fileID: 0}
+  Art: {fileID: -4004522156645114884, guid: 1fd019a8fc609a64fa2fb15a542b5cbd, type: 3}
   Frame: {fileID: 0}
   help: []
   effects:

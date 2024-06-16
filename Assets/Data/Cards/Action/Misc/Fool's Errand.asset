@@ -16,15 +16,13 @@ MonoBehaviour:
   cardName: Fool's Errand
   rawText: ~ does nothing at all
   parsedText: Fool's Errand does nothing at all
-  Art: {fileID: 0}
+  Art: {fileID: 5070119118799016554, guid: 427eedf449baf1c46ac5f87116596097, type: 3}
   Frame: {fileID: 0}
   help: []
   effects:
     baseEffect:
       list: []
     abilities: []
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
@@ -45,6 +43,13 @@ MonoBehaviour:
     costText: 1
     value: 1
     colors: 
+  heuristic:
+    rid: 8960580267597103125
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 8960580267597103125
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0

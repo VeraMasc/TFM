@@ -139,6 +139,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Obsess_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.13793103}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 41
+      width: 40
+      height: 29
+    spriteID: e6b6adf1a926d754ea39aad7f4d0fde3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 41}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -148,7 +168,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Obsess
+    - name: Obsess_Frame_0
       frameIndex: 0
       cellRect:
         x: 4
@@ -156,6 +176,14 @@ ScriptedImporter:
         width: 40
         height: 29
       spriteId: 90242644837fc7746a242c90667a86b9
+    - name: Obsess_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 4
+        y: 29
+        width: 40
+        height: 29
+      spriteId: e6b6adf1a926d754ea39aad7f4d0fde3
     linkedCells: []
     parentIndex: -1
   platformSettings:

@@ -16,16 +16,15 @@ MonoBehaviour:
   cardName: Unstable Anatomy
   rawText: 'Choose one at random:
 
-    {life: :: Gain 3 life.}
+    {life: :: Gain 4 life.}
 
-    {disenchant:
-    :: Destroy a random enchantment that''s attached to you}
+    {ramp: :: Add
+    {A}{A}}
 
-    {draw: :: Draw
-    2 Cards}'
-  parsedText: "Choose one at random:\n<link=\"life\">\u2022 Gain 3 life.</link>\n<link=\"disenchant\">\u2022
-    Destroy a random enchantment that's attached to you</link>\n<link=\"draw\">\u2022
-    Draw 2 Cards</link>"
+    {draw: :: Draw 2 Cards}'
+  parsedText: "Choose one at random:\n<link=\"life\">\u2022 Gain 4 life.</link>\n<link=\"ramp\">\u2022
+    Add <sprite name=\"A\"><sprite name=\"A\"></link>\n<link=\"draw\">\u2022 Draw
+    2 Cards</link>"
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -70,8 +69,57 @@ MonoBehaviour:
         maxChoices: 1
         modes:
         - id: life
-          effects: []
-        - id: disenchant
-          effects: []
+          effects:
+          - rid: 8960580267597103345
+        - id: ramp
+          effects:
+          - rid: 8960580267597103349
         - id: draw
-          effects: []
+          effects:
+          - rid: 8960580267597103342
+    - rid: 8960580267597103342
+      type: {class: Draw, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580267597103343
+        amount:
+          rid: 8960580267597103344
+    - rid: 8960580267597103343
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960580267597103344
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 2
+    - rid: 8960580267597103345
+      type: {class: Heal, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580267597103346
+        amount:
+          rid: 8960580267597103347
+        overheal: 1
+    - rid: 8960580267597103346
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960580267597103347
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 4
+    - rid: 8960580267597103349
+      type: {class: AddMana, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580267597103351
+        pips:
+          rid: 8960580267597103350
+    - rid: 8960580267597103350
+      type: {class: ManaValue, ns: Effect, asm: Assembly-CSharp}
+      data:
+        mana: AA
+    - rid: 8960580267597103351
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
