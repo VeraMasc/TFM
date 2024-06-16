@@ -201,6 +201,7 @@ namespace Effect{
                 var ability = new ActivatedZoneAbility(){
                     cost = new ManaCost(mana),
                     id= "Prophesy",
+                    speed = SpeedTypes.Action,
                     activeZoneList = new List<GroupName>{GroupName.Hand},
                     effects= new List<EffectScript>(){
                         new SendTo(){

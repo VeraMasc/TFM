@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Fencing Parry
-  rawText: Counter target pending action. If it's a melee action, deal 3 damage to
-    the action's controller
-  parsedText: Counter target pending action. If it's a melee action, deal 3 damage
-    to the action's controller
+  rawText: Counter target pending action. Whenever you counter a melee action this
+    way, deal 3 damage to any target.
+  parsedText: Counter target pending action. Whenever you counter a melee action
+    this way, deal 3 damage to any target.
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -27,9 +27,10 @@ MonoBehaviour:
       - rid: 8129478330713112576
       - rid: 8960580047823437841
       - rid: 8960580047823437844
-      - rid: 8960580047823437842
       - rid: 8960580047823437851
-    abilities: []
+      - rid: 8960580047823437842
+    abilities:
+    - rid: 8960580338368118968
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
@@ -111,6 +112,7 @@ MonoBehaviour:
         - rid: 8960580218152288307
         effects:
         - rid: 8960580047823437847
+        - rid: 8960580338368118965
     - rid: 8960580047823437843
       type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -161,3 +163,61 @@ MonoBehaviour:
       data:
         min: 1
         max: 99999
+    - rid: 8960580338368118965
+      type: {class: ActivateTriggerByID, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580338368118967
+        ID:
+          rid: 8960580338368118966
+        activeOnly: 0
+    - rid: 8960580338368118966
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: Redirect
+    - rid: 8960580338368118967
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960580338368118968
+      type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
+      data:
+        id: Redirect
+        source: {fileID: 0}
+        effects:
+        - rid: 8960580338368118969
+        - rid: 8960580338368118972
+        isCurrentlyActive: 0
+        trigger: {fileID: 0}
+        activeZoneList: 
+        condition:
+          rid: -2
+    - rid: 8960580338368118969
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8960580338368118970
+    - rid: 8960580338368118970
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580338368118971
+    - rid: 8960580338368118971
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 4
+    - rid: 8960580338368118972
+      type: {class: DealDamage, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580338368118973
+        amount:
+          rid: 8960580338368118974
+    - rid: 8960580338368118973
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8960580338368118974
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 3

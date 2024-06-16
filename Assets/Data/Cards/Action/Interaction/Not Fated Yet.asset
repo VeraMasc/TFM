@@ -90,13 +90,9 @@ MonoBehaviour:
       data:
         zones: 06000000
         exclude:
-          rid: 8129478347398053893
+          rid: 8960580338368118979
         condition:
           rid: -2
-    - rid: 8129478347398053893
-      type: {class: ContextualObjectTargeter, ns: , asm: Assembly-CSharp}
-      data:
-        contextual: 0
     - rid: 8129478461996138496
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
@@ -133,3 +129,7 @@ MonoBehaviour:
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 1
+    - rid: 8960580338368118979
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0

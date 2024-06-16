@@ -236,6 +236,12 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8215107141923177729, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: m_text
+      value: ' <color=#0ac20a>15</color><color=#800000ff>/
+
+        <size=1>15</size></color>'
+      objectReference: {fileID: 0}
     - target: {fileID: 8947776040665431936, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_LocalScale.x
       value: -1.1548

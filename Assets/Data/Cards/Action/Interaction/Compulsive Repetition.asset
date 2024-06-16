@@ -18,12 +18,12 @@ MonoBehaviour:
 
 
     Target one of your non permanent spent cards.
-    It gains Overdo equal to its cost until end of turn.'
+    It gains Overdo equal to its cost.'
   parsedText: '<i>Lunatic only</i>
 
 
     Target one of your non permanent spent cards.
-    It gains Overdo equal to its cost until end of turn.'
+    It gains Overdo equal to its cost.'
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
@@ -58,8 +58,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 8129478490245562559
       type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -99,16 +97,19 @@ MonoBehaviour:
       type: {class: CardType, ns: Effect.Filter, asm: Assembly-CSharp}
       data:
         targeter:
-          rid: 8960580130032845114
+          rid: 8960580340935032942
         reverseFilter: 1
         noTriggers: 0
         speedtypes: 
         subtypes: 04000000020000000300000006000000
-    - rid: 8960580130032845114
-      type: {class: ZoneCardTargeter, ns: Effect, asm: Assembly-CSharp}
+    - rid: 8960580340935032942
+      type: {class: EntityCardTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
+        source:
+          rid: 8960580340935032943
+        relation: 0
         zones: 01000000
-        exclude:
-          rid: -2
-        condition:
-          rid: -2
+    - rid: 8960580340935032943
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 2
