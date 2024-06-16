@@ -33,8 +33,11 @@ namespace Effect
                 if(cards.getValueObj(context) is IEnumerable<ITargetable> collection){
                     yield return UCoroutine.Yield(entity.discardCards(collection.OfType<Card>().ToArray()));
                 }
+                else if(cards.getValueObj(context) is int amount){
+                    yield return discardChoice(entity,amount);
+                }
                 else{
-                    Debug.Log(cards.getValueObj(context) );
+                    Debug.LogError(cards.getValueObj(context) );
                 }
                 
                 

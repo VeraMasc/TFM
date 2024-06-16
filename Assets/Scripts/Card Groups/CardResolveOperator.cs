@@ -95,7 +95,10 @@ public class CardResolveOperator : Activatable
 
     void Awake()
     {
-        _singleton ??=this;
+        if (_singleton == null)
+        {
+            _singleton =this;
+        }
         if(_singleton != this)
             Destroy(this);
     }

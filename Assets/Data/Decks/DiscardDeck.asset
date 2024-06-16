@@ -22,8 +22,6 @@ MonoBehaviour:
   - card: {fileID: 11400000, guid: fc249f2d7699d0f49885d349a8b6c2aa, type: 2}
     amount: 2
   - card: {fileID: 11400000, guid: 3b23d4d073fbce5409de944fa8b40f60, type: 2}
-    amount: 2
-  - card: {fileID: 11400000, guid: beff376dc7d109140a07f85b7a69c2ed, type: 2}
     amount: 4
   - card: {fileID: 11400000, guid: 2a759b09ecdc9a1488ec10191b0c74fe, type: 2}
     amount: 4
@@ -36,7 +34,7 @@ MonoBehaviour:
   - card: {fileID: 11400000, guid: 2c5b0b1dbaf7f894d81653ff4052188d, type: 2}
     amount: 4
   - card: {fileID: 11400000, guid: 8424bdda5e4baa54ebd2f10a349ee4c5, type: 2}
-    amount: 2
+    amount: 4
   skills:
   - card: {fileID: 11400000, guid: 53bf20c54c6038045b1ae715bf76bf93, type: 2}
     level: 2

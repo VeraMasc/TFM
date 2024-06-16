@@ -28,7 +28,7 @@ MonoBehaviour:
   effects:
     baseEffect:
       list:
-      - rid: 8960580267597103142
+      - rid: 8960580338368118817
     abilities: []
     context:
       owner: {fileID: 0}
@@ -60,18 +60,18 @@ MonoBehaviour:
       data:
         quality: 10
         useOnTeammates: 0
-    - rid: 8960580267597103142
-      type: {class: DiscardRandom, ns: Effect, asm: Assembly-CSharp}
+    - rid: 8960580338368118817
+      type: {class: Discard, ns: Effect, asm: Assembly-CSharp}
       data:
         targeter:
-          rid: 8960580267597103143
-        amount:
-          rid: 8960580267597103144
-    - rid: 8960580267597103143
+          rid: 8960580338368118818
+        cards:
+          rid: 8960580338368118819
+    - rid: 8960580338368118818
       type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         contextual: 3
-    - rid: 8960580267597103144
+    - rid: 8960580338368118819
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 1

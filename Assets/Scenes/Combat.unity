@@ -1827,6 +1827,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Combat Tabletop
       objectReference: {fileID: 0}
+    - target: {fileID: 3102338124646513243, guid: 8e1a80ee125b22e4ca77986d824d02bb, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3207089344915344171, guid: 8e1a80ee125b22e4ca77986d824d02bb, type: 3}
       propertyPath: m_Size.x
       value: 6

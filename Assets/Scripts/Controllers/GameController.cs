@@ -38,7 +38,11 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        if( this != (_singleton ??=this )){
+        if (_singleton == null)
+        {
+            _singleton =this;
+        }
+        if( this != _singleton ){
             Destroy(this);
         }
     }

@@ -338,6 +338,11 @@ public class GameUI : MonoBehaviour
         if(Input.mouseScrollDelta.y != 0){
             characterSelectScroll(Input.mouseScrollDelta.y);
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape) && activeUserInput == null){
+            getInput(prefabs.PauseInput, null, new InputParameters())
+            .Start(this);
+        }
     }
 
     public void characterSelectScroll(float yScroll){

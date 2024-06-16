@@ -188,21 +188,13 @@ MonoBehaviour:
         id: DurationEnd
         source: {fileID: 0}
         effects:
-        - rid: 8960580024290508860
+        - rid: 8960580338368118890
+        - rid: 8960580338368118888
         isCurrentlyActive: 0
         trigger: {fileID: 0}
         activeZoneList: 05000000
         condition:
           rid: -2
-    - rid: 8960580024290508860
-      type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
-      data:
-        message:
-          rid: 8960580024290508861
-    - rid: 8960580024290508861
-      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
-      data:
-        value: DURATION ENDED
     - rid: 8960580130032844800
       type: {class: NumericOperation, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -226,3 +218,50 @@ MonoBehaviour:
       data:
         quality: 10
         useOnTeammates: 0
+    - rid: 8960580338368118888
+      type: {class: DealDamage, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580338368118889
+        amount:
+          rid: 8960580338368118894
+    - rid: 8960580338368118889
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 1
+    - rid: 8960580338368118890
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8960580338368118943
+        - rid: 8960580338368118944
+    - rid: 8960580338368118894
+      type: {class: ReuseNumeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 0
+        index: 0
+        destructive: 0
+    - rid: 8960580338368118943
+      type: {class: TargetAsValue, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580338368118945
+    - rid: 8960580338368118944
+      type: {class: GetCounters, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580338368118946
+        counterType:
+          rid: 8960580338368118947
+    - rid: 8960580338368118945
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 5
+    - rid: 8960580338368118946
+      type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 0
+    - rid: 8960580338368118947
+      type: {class: TextString, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: Omen

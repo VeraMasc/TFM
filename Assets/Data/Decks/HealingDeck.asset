@@ -33,6 +33,6 @@ MonoBehaviour:
     amount: 2
   skills:
   - card: {fileID: 11400000, guid: c5f26e84d2b95124aa7a5eabdadfa386, type: 2}
-    level: 1
-  - card: {fileID: 11400000, guid: dac7c552c1023ca44b26aba9d62ff25f, type: 2}
     level: 2
+  - card: {fileID: 11400000, guid: dac7c552c1023ca44b26aba9d62ff25f, type: 2}
+    level: 1

@@ -82,6 +82,19 @@ namespace Effect{
         } 
     }
     
-    
+    [Serializable]
+    public class GetCounters : Targeted, IValueEffect
+    {
+        [SerializeReference,SubclassSelector]
+        public IValue counterType ;
+
+        public override IEnumerator executeForeach(ITargetable target, CardResolveOperator stack, Context context)
+        {
+            var key = (string) counterType.getValueObj(context);
+            var value = CounterHolder.getCounter(target,key);
+            context.previousValues.Add(value);
+            yield break;
+        }
+    }
     
 }

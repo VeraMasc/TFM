@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87030f8c3fd5da24782faa33739a12ed, type: 3}
   m_Name: OnEnter
   m_EditorClassIdentifier: 
-  count: 0
-  produceLogs: 0
+  count: 5
+  produceLogs: 1
   events:
     m_PersistentCalls:
       m_Calls: []

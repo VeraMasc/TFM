@@ -119,7 +119,7 @@ public class EntityAI : MonoBehaviour
         var maxTargets = info is RangedChoiceInfo ranged? ranged.max : info.amount;
         if(maxTargets != -1){
             var heuristics = info.context?.heuristics
-                .OfType<ITargetingHeuristic>();
+                .OfType<ITargetingHeuristic>() ?? new List<ITargetingHeuristic>();
             //Filtrar según heurística
             foreach(var heuristic in heuristics){
                 options = heuristic.removeBadTargets(options,info.context);
@@ -139,7 +139,7 @@ public class EntityAI : MonoBehaviour
         
         if(info.amount != -1){
             var heuristics = info.context?.heuristics
-                .OfType<ITargetingHeuristic>();
+                .OfType<ITargetingHeuristic>() ?? new List<ITargetingHeuristic>();
             //Filtrar según heurística
             foreach(var heuristic in heuristics){
                 options = heuristic.keepBadTargets(options,info.context);

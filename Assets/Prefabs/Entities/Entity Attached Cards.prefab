@@ -640,7 +640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardLimit: -1
-  MountedCardAltitude: 0.01
+  MountedCardAltitude: 0.05
   ForcedFacing: 0
   ForcedInteractability: 0
   compactDisplay: 0

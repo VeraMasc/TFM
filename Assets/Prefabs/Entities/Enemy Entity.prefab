@@ -140,6 +140,14 @@ PrefabInstance:
       propertyPath: ForcedFacing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2783436868272723967, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: health
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2783436868272723967, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: maxHealth
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2794258341866741232, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: m_LocalScale.x
       value: -0.2539689
@@ -167,6 +175,14 @@ PrefabInstance:
     - target: {fileID: 4702649497764106639, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: team
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4702649497764106639, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: health
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4702649497764106639, guid: 6cd0f53da56624442928897d4275e829, type: 3}
+      propertyPath: maxHealth
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4702649497764106639, guid: 6cd0f53da56624442928897d4275e829, type: 3}
       propertyPath: data.decklist

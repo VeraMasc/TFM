@@ -50,7 +50,7 @@ MonoBehaviour:
   speedType: 0
   typeList: 01000000
   cost:
-    costText: 1VV
+    costText: 2V
     value: 3
     colors: V
   heuristic:

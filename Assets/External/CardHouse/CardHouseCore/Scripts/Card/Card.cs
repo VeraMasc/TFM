@@ -258,7 +258,7 @@ namespace CardHouse
             
             if(this.data is MyCardSetup setup){
                 var zone = group?.GetComponent<GroupZone>();
-                CardResolveOperator.singleton.stackUI.refresh();
+                CardResolveOperator.singleton.stackUI?.refresh();
                 var afterAnimation = UCoroutine.YieldAwait( ()=>!Homing.seeking);
                 
                 
@@ -281,8 +281,7 @@ namespace CardHouse
                     //Llamar triggers
                     afterAnimation = afterAnimation
                     .Then(GroupZone.callLeaveTrigger(this))
-                    .If(()=> zone != null)
-                    .Then(()=>zone?.callEnterTrigger(this)) //Call before refreshing subscriptions
+                    .Then(zone?.callEnterTrigger(this) ??  Enumerable.Empty<object>().GetEnumerator()) //Call before refreshing subscriptions
                     .Then(()=>{
                         setup.GetComponent<CardModifiers>()?.refreshModifiers();
                         //Update ability subscriptions

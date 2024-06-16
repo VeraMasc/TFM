@@ -27,7 +27,8 @@ namespace Effect{
         {
             if(target is Card card && card.data is MyCardSetup setup){
                 var targetID = (string)ID.getValueObj(context);
-
+                Debug.Log($"Activating ${targetID} for {card}" ,card);
+                
                 var abilities = setup.effects.getAllAbilities()
                     .Where(ab => ab.id == targetID && (!activeOnly || ab.isCurrentlyActive));
                 foreach(var ability in abilities){

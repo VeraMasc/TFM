@@ -43,7 +43,9 @@ MonoBehaviour:
   help: []
   effects:
     baseEffect:
-      list: []
+      list:
+      - rid: 8960580338368118845
+      - rid: 8960580338368118843
     abilities:
     - rid: 8960580267597103154
     - rid: 8960580267597103157
@@ -63,7 +65,7 @@ MonoBehaviour:
       value: 0
       colors: 
   speedType: 0
-  typeList: 
+  typeList: 0100000002000000
   cost:
     costText: 1A
     value: 2
@@ -169,3 +171,26 @@ MonoBehaviour:
       type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         contextual: 0
+    - rid: 8960580338368118843
+      type: {class: Attach, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580338368118844
+    - rid: 8960580338368118844
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8960580338368118845
+      type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
+      data:
+        effects:
+        - rid: 8960580338368118846
+    - rid: 8960580338368118846
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580338368118847
+    - rid: 8960580338368118847
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 4

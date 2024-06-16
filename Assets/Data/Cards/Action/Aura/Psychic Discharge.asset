@@ -95,19 +95,21 @@ MonoBehaviour:
         source: {fileID: 0}
         effects:
         - rid: 8960580218152288290
+        - rid: 8960580338368118838
         isCurrentlyActive: 0
         costValue:
-          costText: 0
+          costText: W
         cost:
-          costText: 0
-          value: 0
-          colors: 
+          costText: W
+          value: 1
+          colors: W
         speed: 0
     - rid: 8960580218152288290
       type: {class: Precalculate, ns: Effect, asm: Assembly-CSharp}
       data:
         effects:
         - rid: 8960580218152288291
+        - rid: 8960580338368118836
     - rid: 8960580218152288291
       type: {class: SetCounters, ns: Effect, asm: Assembly-CSharp}
       data:
@@ -160,3 +162,27 @@ MonoBehaviour:
       type: {class: ContextualObjectTargeter, ns: Effect, asm: Assembly-CSharp}
       data:
         contextual: 0
+    - rid: 8960580338368118836
+      type: {class: ChooseTargetFrom, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580338368118837
+    - rid: 8960580338368118837
+      type: {class: ContextualEntityTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        contextual: 4
+    - rid: 8960580338368118838
+      type: {class: DealDamage, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580338368118839
+        amount:
+          rid: 8960580338368118840
+    - rid: 8960580338368118839
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8960580338368118840
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 4
