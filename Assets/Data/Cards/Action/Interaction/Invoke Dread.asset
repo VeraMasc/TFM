@@ -29,6 +29,7 @@ MonoBehaviour:
     baseEffect:
       list:
       - rid: 8960580338368118817
+      - rid: 8960580338368118948
     abilities: []
     context:
       owner: {fileID: 0}
@@ -72,6 +73,26 @@ MonoBehaviour:
       data:
         contextual: 3
     - rid: 8960580338368118819
+      type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
+      data:
+        value: 1
+    - rid: 8960580338368118948
+      type: {class: EntityEffect, ns: Effect, asm: Assembly-CSharp}
+      data:
+        targeter:
+          rid: 8960580338368118949
+        effectOption:
+          rid: 8960580338368118950
+    - rid: 8960580338368118949
+      type: {class: ReuseTargeter, ns: Effect, asm: Assembly-CSharp}
+      data:
+        index: 0
+    - rid: 8960580338368118950
+      type: {class: Exhaust, ns: Effect.Option, asm: Assembly-CSharp}
+      data:
+        amount:
+          rid: 8960580338368118951
+    - rid: 8960580338368118951
       type: {class: Numeric, ns: Effect.Value, asm: Assembly-CSharp}
       data:
         value: 1
