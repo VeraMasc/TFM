@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Combat.unity
     guid: 24e5ca0b410bb9043acb8512b17386bc
+  - enabled: 1
+    path: Assets/Sprites/Mana/NumericPips.asset
+    guid: 81b13e76a4adfe94aa44dd225d3b10c7
   m_configObjects: {}

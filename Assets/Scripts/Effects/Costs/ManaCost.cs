@@ -65,6 +65,8 @@ namespace Effect{
         /// <returns></returns>
         public string asCardText(){
             var segments = manaSegments.Match(costText);
+            if(segments.Length ==0)
+                return "{0}";
             var digits = segments.Groups[1];
             var colored = segments.Groups[2];
             var ret = "";

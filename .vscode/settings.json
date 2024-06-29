@@ -72,6 +72,6 @@
     },
     "peacock.color": "#f9e64f",
     "dotnet.preferCSharpExtension": true,
-    "dotnet.defaultSolution": "TFM.sln",
+    "dotnet.defaultSolution": "Dungeon Shufflers.sln",
     "dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "openFiles"
 }

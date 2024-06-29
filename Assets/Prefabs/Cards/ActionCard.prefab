@@ -935,7 +935,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <sprite name="SmallMana"><sprite name="1"><sprite name="M"><sprite name="V"><sprite
+  m_text: <sprite name="SmallMana"><sprite name="2"><sprite name="M"><sprite name="V"><sprite
     name="F"><sprite name="N"><sprite name="D"><sprite name="A">
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8b7de99ab7bb6c74889456dd186d81f7, type: 2}
