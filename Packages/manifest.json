@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.hecomi.urepl": "https://github.com/hecomi/uREPL.git#upm",
     "com.mackysoft.serializereference-extensions": "https://github.com/mackysoft/Unity-SerializeReferenceExtensions.git?path=Assets/MackySoft/MackySoft.SerializeReferenceExtensions",
     "com.unity.2d.aseprite": "1.0.1",
     "com.unity.collab-proxy": "2.2.0",

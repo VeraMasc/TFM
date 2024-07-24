@@ -73,5 +73,19 @@
     "peacock.color": "#f9e64f",
     "dotnet.preferCSharpExtension": true,
     "dotnet.defaultSolution": "Dungeon Shufflers.sln",
-    "dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "openFiles"
+    "dotnet.backgroundAnalysis.analyzerDiagnosticsScope": "openFiles",
+
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true,
+        "**/env/**": true,
+        "**/venv/**": true,
+        "env-*": true,
+        "Assets/External/":true,
+    },
+    "csharp.inlayHints.enableInlayHintsForLambdaParameterTypes": true,
+    "csharp.inlayHints.enableInlayHintsForImplicitObjectCreation": true,
+    "csharp.inlayHints.enableInlayHintsForTypes": true,
+    "csharp.debug.symbolOptions.moduleFilter.mode": "loadOnlyIncluded",
 }

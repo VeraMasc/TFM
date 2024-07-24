@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.hecomi.urepl": {
+      "version": "https://github.com/hecomi/uREPL.git#upm",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "29cc5f131da7cfdd16d651478e6b3593094d9076"
+    },
     "com.mackysoft.serializereference-extensions": {
       "version": "https://github.com/mackysoft/Unity-SerializeReferenceExtensions.git?path=Assets/MackySoft/MackySoft.SerializeReferenceExtensions",
       "depth": 0,
