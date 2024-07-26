@@ -14,39 +14,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BackArt: {fileID: 0}
   cardName: Aura Test
-  cardText: 
+  rawText: 
+  parsedText: 
   Art: {fileID: 0}
   Frame: {fileID: 0}
   help: []
-  typeList: 
-  cost:
-    costText: 
-    value: 0
-    colors: 
   effects:
     baseEffect:
       list:
       - rid: 8129477892417519616
     abilities:
     - rid: 8129477893132910593
-    staticEffects:
-      list: []
     context:
       owner: {fileID: 0}
       controller: {fileID: 0}
+      choiceTreePath: 
       resolutionPile: {fileID: 0}
+      precalculated: 0
+      mode: 0
+    sourceZone: 0
+    sourceGroup: {fileID: 0}
+    entryTime: 0
+    paidCost:
+      costText: 
+      value: 0
+      colors: 
+  speedType: 0
+  typeList: 
+  typeListTest:
+  - value: 
+  cost:
+    costText: 
+    value: 0
+    colors: 
+  heuristic:
+    rid: 2185377776427860017
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 2185377776427860017
+      type: {class: SimpleHeuristic, ns: , asm: Assembly-CSharp}
+      data:
+        quality: 10
+        useOnTeammates: 0
     - rid: 8129477892417519616
       type: {class: EnterBoard, ns: Effect, asm: Assembly-CSharp}
     - rid: 8129477893132910593
       type: {class: TriggeredAbility, ns: Effect, asm: Assembly-CSharp}
       data:
+        id: 
         source: {fileID: 0}
         effects:
         - rid: 8129477893132910594
+        isCurrentlyActive: 0
         trigger: {fileID: 11400000, guid: cac14767393c4824fabee3093dd3288e, type: 2}
+        activeZoneList: 05000000
+        condition:
+          rid: -2
     - rid: 8129477893132910594
       type: {class: EffectLog, ns: Effect, asm: Assembly-CSharp}
       data:

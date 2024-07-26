@@ -10,11 +10,13 @@ using System;
 /// Card Type enums
 /// </summary>
 /// <typeparam name="T"></typeparam>
+[Serializable]
 public struct CardTypeEnum
 {
     public string value;
 
     public static List<string> options = new(){
+        "*Type*",
         "Blessing",
         "Hex",
         "Mental",
